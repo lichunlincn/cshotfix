@@ -672,3 +672,16 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
+
+
+Copyright (c) 2018 springtrees, All rights reserved.
+
+CSHotFix is licensed under the GNU License.
+A copy of the GNU License is included in this file.
+
+---------------------------------------------------------------------------
+Other dependencies and licenses:
+
+1. Mono.Cecil
+Copyright (c) 2008 - 2015 Jb Evain
+Copyright (c) 2008 - 2011 Novell, Inc.
