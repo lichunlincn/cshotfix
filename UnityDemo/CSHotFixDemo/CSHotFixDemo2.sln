@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHotFixDemo2", "CSHotFixDemo2.csproj", "{2E2D50C0-6134-D6BC-5DBE-BC6976123A02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSHotFixDemo2.Editor", "CSHotFixDemo2.Editor.csproj", "{B70286D3-9F76-8888-FFA3-E4165B4BD87B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E2D50C0-6134-D6BC-5DBE-BC6976123A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E2D50C0-6134-D6BC-5DBE-BC6976123A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E2D50C0-6134-D6BC-5DBE-BC6976123A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E2D50C0-6134-D6BC-5DBE-BC6976123A02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B70286D3-9F76-8888-FFA3-E4165B4BD87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70286D3-9F76-8888-FFA3-E4165B4BD87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70286D3-9F76-8888-FFA3-E4165B4BD87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70286D3-9F76-8888-FFA3-E4165B4BD87B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

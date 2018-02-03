@@ -1,0 +1,2 @@
+CSHotFixDemo 主要演示c#注入和ilrt的基本用法
+CSHotFixDemo2 主要演示在ilrt里面使用反射的方式来实现私有变量的访问，并提供一个IL2CPP的apk程序
