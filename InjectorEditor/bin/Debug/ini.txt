@@ -1,2 +1,2 @@
-dllpath=D:/Project/ProtectGold/Research/MSILInject/UnityDemo/CSHotFixDemo/Library/ScriptAssemblies/Assembly-CSharp.dll
-delegatepath=D:/Project/ProtectGold/Research/MSILInject/UnityDemo/CSHotFixDemo/Assets/CSHotFixLibaray/DelegateGen
+dllpath=UnityDemo/CSHotFixDemo/Library/ScriptAssemblies/Assembly-CSharp.dll
+delegatepath=UnityDemo/CSHotFixDemo/Assets/CSHotFixLibaray/DelegateGen

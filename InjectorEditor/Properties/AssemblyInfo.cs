@@ -1,14 +1,4 @@
-﻿/*
- * LCL support c# hotfix here.
- * Copyright (C) chunlinge. All rights reserved.
- * URL:https://github.com/qq576067421/cshotfix
- * QQ:576067421
- * QQ Group:673735733
- * Licensed under the GNU License (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
- * http://fsf.org/
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-*/
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -20,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("InjectorEditor")]
-[assembly: AssemblyCopyright("Copyright © LCL 2018")]
+[assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -30,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("f3976492-4ce3-4b0f-857f-fcedb76f9c76")]
+[assembly: Guid("10dfc1ea-364e-4955-a4fd-7004f4d064fb")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

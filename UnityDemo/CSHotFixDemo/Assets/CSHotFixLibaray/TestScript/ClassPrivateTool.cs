@@ -43,12 +43,12 @@ public static class ClassPrivateTool
     }
 
     //调用私有方法：
-    public static T CallPrivateMethod<T>(this object instance, string name, params object[] param)
+    public static object CallPrivateMethod(this object instance, string name, params object[] param)
     {
         BindingFlags flag = BindingFlags.Instance | BindingFlags.NonPublic;
         Type type = instance.GetType();
         MethodInfo method = type.GetMethod(name, flag);
-        return (T)method.Invoke(instance, param);
+        return method.Invoke(instance, param);
     }
 }
 

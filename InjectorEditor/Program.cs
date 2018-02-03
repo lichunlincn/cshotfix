@@ -1,31 +1,125 @@
-﻿/*
- * LCL support c# hotfix here.
- * Copyright (C) LCL. All rights reserved.
- * URL:https://github.com/qq576067421/cshotfix
- * QQ:576067421
- * QQ Group:673735733
- * Licensed under the GNU License (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
- * http://fsf.org/
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-*/
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Windows.Forms;
+using System.Text;
 
 namespace LCL
 {
-    static class Program
+    class Program
     {
-        /// <summary>
-        /// 应用程序的主入口点。
-        /// </summary>
-        [STAThread]
-        static void Main()
+        private static string m_DllPath;
+        private static string m_DelegatePath;
+        static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CSHotfixEditor());
+            LoadCfg();
+            if(args!= null && args.Length>0)
+            {
+                string func = args[0];
+                switch(func)
+                {
+                    case "GenDelegate":
+                        {
+                            GenDelegate();
+                            break;
+                        }
+                    case "InjectIL":
+                        {
+                            InjectIL();
+                            break;
+                        }
+                    case "GenStaticField":
+                        {
+                            GenStaticField();
+                            break;
+                        }
+                    case "HotfixGenDelegateAndStaticField":
+                        {
+                            GenDelegate();
+                            GenStaticField();
+                            break;
+                        }
+                }
+            }
         }
+
+
+        private static void GenDelegate()
+        {
+            string delegatePath = "C:/GiteeSVN/ProtectGold/Research/MSILInject/Demo/Delegate";
+            string dllPath = "C:/GiteeSVN/ProtectGold/Research/MSILInject/Demo/bin/Debug/Demo.exe";
+            delegatePath = m_DelegatePath;
+            dllPath = m_DllPath;
+            try
+            {
+                DelegateGen delegateGen = new DelegateGen();
+                delegateGen.Run(dllPath, delegatePath);
+                Console.WriteLine("GenDelegate Ok!");
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine( exp.Message);
+            }
+        }
+        private static void InjectIL()
+        {
+            string dllPath = "C:/GiteeSVN/ProtectGold/Research/MSILInject/Demo/bin/Debug/Demo.exe";
+            dllPath = m_DllPath;
+            string delegatePath = m_DelegatePath;
+            try
+            {
+                InjectorMain inject = new InjectorMain();
+                inject.Run(dllPath, delegatePath, false);
+                Console.WriteLine( "Inject Ok!");
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine( exp.Message + exp.StackTrace);
+            }
+        }
+        private static void LoadCfg()
+        {
+            try
+            {
+                string exePath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+                string inipath = exePath + "/ini.txt";
+                FileStream file = new FileStream(inipath, FileMode.Open);
+                StreamReader reader = new StreamReader(file);
+                string dllPath = reader.ReadLine();
+                dllPath = dllPath.Split('=')[1];
+                string delegatePath = reader.ReadLine();
+                delegatePath = delegatePath.Split('=')[1];
+                m_DelegatePath = exePath+"/../../../"+ delegatePath;
+                Console.WriteLine("DelegatePath:" + m_DelegatePath);
+                m_DllPath = exePath + "/../../../" + dllPath;
+                Console.WriteLine("DllPath:" + m_DllPath);
+                reader.Close();
+                reader = null;
+                file.Close();
+                file = null;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine( e.Message);
+            }
+        }
+        private static void GenStaticField()
+        {
+            string dllPath = "C:/GiteeSVN/ProtectGold/Research/MSILInject/Demo/bin/Debug/Demo.exe";
+            dllPath = m_DllPath;
+            string delegatePath = m_DelegatePath;
+            try
+            {
+                InjectorMain inject = new InjectorMain();
+                inject.Run(dllPath, delegatePath, true);
+                Console.WriteLine("GenStaticField Ok!");
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine( exp.Message + exp.StackTrace);
+            }
+        }
+
     }
 }
