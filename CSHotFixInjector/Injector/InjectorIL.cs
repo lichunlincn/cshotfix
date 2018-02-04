@@ -63,8 +63,22 @@ namespace LCL
                     {
                         continue;
                     }
+                    if(isWriteName)
+                    {
+                        if(!Filter.FilterType(typ))
+                        {
+                            continue;
+                        }
+                    }
                     foreach (var method in typ.Methods)
                     {
+                        if (isWriteName)
+                        {
+                            if (!Filter.FilterMethod(method))
+                            {
+                                continue;
+                            }
+                        }
                         InjectMethod(typ, method);
                     }
                 }
@@ -140,9 +154,17 @@ namespace LCL
         }
         private TypeDefinition FindDelegateFunction(MethodDefinition method)
         {
+            if(method == null)
+            {
+                return null;
+            }
             var t = m_DelegateFunctions.Find((df) =>
             {
                 MethodDefinition mdf = df.Methods.ToList().Find((md) => { return md.Name.Contains("Invoke"); });
+                if(mdf == null)
+                {
+                    return false;
+                }
                 if (mdf.ReturnType.FullName != method.ReturnType.FullName)
                 {
                     return false;

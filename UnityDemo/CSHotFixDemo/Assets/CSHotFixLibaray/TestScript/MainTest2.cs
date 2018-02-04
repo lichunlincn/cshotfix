@@ -4,11 +4,11 @@ using UnityEngine;
 namespace LCL
 {
     //默认只要在LCL命名空间下面的所有类都会被注入
-    [CSHotFix(InjectFlag = InjectFlagEnum.Inject)]
-    public class MainTest
+    [CSHotFix(InjectFlag = InjectFlagEnum.NoInject)]
+    public class MainTest2
     {
 
-        [CSHotFix(InjectFlag = InjectFlagEnum.NoInject)]
+        // Use this for initialization
         void Start()
         {
         }
@@ -30,18 +30,13 @@ namespace LCL
         //暂时不支持4个以上的参数，这个取决于ILRT那边
         //很遗憾由于ilrt那边暂时不支持ref 和 out，我们先放弃这个
         //你可以采用test4的方式来实现
-        public float[] testref(ref int b,float c)
-        {
-            c = 0;
-            Debug.LogError("我是一个错误");
-            return new float[] { 1 };
-        }
-        public float[] testout(int b, out float c)
-        {
-            c = 0;
-            Debug.LogError("我是一个错误");
-            return new float[] { 1 };
-        }
+        //public float[] test3(ref int b, out float c)
+        //{
+        //    c = 0;
+        //    Debug.LogError("我是一个错误");
+        //    return new float[] { 1 };
+        //}
+
         public DataClass test4(DataClass data)
         {
             return data;

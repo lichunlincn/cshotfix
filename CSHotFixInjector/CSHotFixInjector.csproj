@@ -58,8 +58,9 @@
   <ItemGroup>
     <Compile Include="DelegateGen\DelegateGen.cs" />
     <Compile Include="DelegateGen\DelegateWriter.cs" />
-    <Compile Include="DelegateGen\ILRuntime_RegisterFunctionDelegate_Writer.cs" />
     <Compile Include="DelegateGen\LMethodInfo.cs" />
+    <Compile Include="Filter\CSHotFixAttribute.cs" />
+    <Compile Include="Filter\Filter.cs" />
     <Compile Include="Injector\ILGen.cs" />
     <Compile Include="Injector\ILName.cs" />
     <Compile Include="Injector\InjectorIL.cs" />

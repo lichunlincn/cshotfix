@@ -40,9 +40,16 @@ namespace LCL
             m_Assembly = Assembly.LoadFile(assemblyName);
             var types = m_Assembly.GetTypes();
             int methodId = 0;
+
+            Filter.NeedInjects.Clear();
+
             foreach (var type in types)
             {
                 if(type.Namespace == null || !type.Namespace.Contains("LCL") )
+                {
+                    continue;
+                }
+                if(!Filter.FilterType(type))
                 {
                     continue;
                 }
@@ -58,9 +65,16 @@ namespace LCL
                 {
                     continue;
                 }
+                Filter.NeedInjects.Add(type.FullName);
+
                 var methodInfos = type.GetMethods(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
                 foreach (var methodinfo in methodInfos)
                 {
+                    if(!Filter.FilterMethod(methodinfo))
+                    {
+                        continue;
+                    }
+
                     //只处理本类的方法，派生方法不要
                     LMethodInfo info = new LMethodInfo();
                     var returnparamter = methodinfo.ReturnParameter;
@@ -100,6 +114,22 @@ namespace LCL
                             info.m_Params.Add(paramdata);
                         }
                     }
+
+                    string returnstr = methodinfo.ReturnType.FullName;
+                    string name = methodinfo.DeclaringType.FullName+"::"+methodinfo.Name;
+                    string paramstr = "";
+                    int count = methodinfo.GetParameters().Length;
+                    int index = 1;
+
+                    foreach(var param in methodinfo.GetParameters())
+                    {
+                        string split = index++ == count ? "" : ",";
+                        paramstr += param.ParameterType.FullName + split;
+                    }
+                    string methodfullname = returnstr + " " + name + "(" + paramstr + ")";
+
+                    Filter.NeedInjects.Add(methodfullname);
+
                     if (!funcLines.Exists((oldInfo) => { return IsEqualLMethodInfo(oldInfo, info); }))
                     {
                         funcLines.Add(info);

@@ -6,3 +6,4 @@ D:\Project\ProtectGold\Research\MSILInject\CSHotFixInjector\bin\Debug\CSHotFixIn
 D:\Project\ProtectGold\Research\MSILInject\CSHotFixInjector\bin\Debug\CSHotFixInjector.pdb
 D:\Project\ProtectGold\Research\MSILInject\CSHotFixInjector\obj\Debug\CSHotFixInjector.exe
 D:\Project\ProtectGold\Research\MSILInject\CSHotFixInjector\obj\Debug\CSHotFixInjector.pdb
+D:\Project\ProtectGold\Research\MSILInject\CSHotFixInjector\obj\Debug\CSHotFixInjector.csprojResolveAssemblyReference.cache

@@ -24,6 +24,10 @@ namespace LCL
             //FieldDefinition item = new FieldDefinition(delegateFieldName, FieldAttributes.Static | FieldAttributes.Public, delegateTypeRef);
             //type.Fields.Add(item);
             FieldDefinition FieldDelegateName = FieldDelegateNameTD.Fields.ToList().Find((_fd) => { return _fd.Name == delegateFieldName; });
+            if(FieldDelegateName == null)
+            {
+                return;
+            }
             //找到委托的Invoke函数，并且导入到当前类
             var invokeDeclare = type.Module.ImportReference(delegateTypeRef.Methods.Single(x => x.Name == "Invoke"));
 
