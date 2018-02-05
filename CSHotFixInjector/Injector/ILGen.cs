@@ -81,10 +81,10 @@ namespace LCL
             {
                 ilGenerator.InsertBefore(insertPoint, ilGenerator.Create(OpCodes.Nop));
             }
-            else if (method.ReturnType.IsValueType)
-            {
-                ilGenerator.InsertBefore(insertPoint, ilGenerator.Create(OpCodes.Unbox_Any, method.ReturnType));
-            }
+            //else if (method.ReturnType.IsValueType)
+            //{
+            //    ilGenerator.InsertBefore(insertPoint, ilGenerator.Create(OpCodes.Unbox_Any, method.ReturnType));
+            //}
             ilGenerator.InsertBefore(insertPoint, ilGenerator.Create(OpCodes.Ret));
         }
 
