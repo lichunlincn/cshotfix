@@ -8,7 +8,7 @@ CSharp bug fix library <br>
 &nbsp; &nbsp; &nbsp; &nbsp; 一个专门用于C#热更新的工具链，使用该工具链，你可以实现两点：
 1、<b>使用C#来编写脚本和进行热更新。错误修复过程几乎和正常写代码一样。</b><br>
 2、<b>可以对已有的dll、exe进入错误修复。</b><br>
-3、<b>可以新增功能，例如常用于游戏运营活动</b>（使用第三方库，例如Scorpio-CSharp,ILRuntime,以及其他脚本程序，本工具链默认支持ILRuntime方式）。<br>
+3、<b>可以新增功能，例如常用于游戏运营活动</b>。<br>
 4、<b>支持IOS、支持Android，支持mono打包方式、支持IL2CPP打包方式</b><br>
 &nbsp; &nbsp;IOS IL2CPP
 ![image](https://github.com/qq576067421/cshotfix/blob/master/UnityDemo/CSHotFixDemo/CSHotFix_IPhone_IL2CPP.jpg)
