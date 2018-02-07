@@ -37,6 +37,7 @@ CSharp bug fix library <br>
 &nbsp; &nbsp; &nbsp; &nbsp;2、运行效率。总体来说访问Unity的C#接口比lua方案快，计算数学方面的比lua方案要慢些，但是都是在一个数量级，比纯粹的C#慢10到100倍之间。举个例子如果一个访问GameObject的接口，C#耗时是1ms，那么CSHotFix可能就是13ms，lua就有可能是15ms；再举个例子，在CSHotFix里面计算Vector3*float,可能耗时5ms，lua只要3ms，C#只要0.1ms 。是需要注意的是，由于种种原因，无法给出比较客观的数据，请自行按照相关文档说明进行测试。提醒一句，测试请用发布版本并且关闭所有的log等等影响因素。<br>
 
 **六、更新情况。**<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 2018年2月7日：优化框架结构，添加调试功能。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年2月6日22:36:38：优化CSHotFix的代码生成方式，生成方式采用一键式生成。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年2月4日11:40:57：添加注入标记，方便选择性控制哪些代码需要注入。<br>
 &nbsp; &nbsp; &nbsp; &nbsp;  2018年2月3日：完成对apk等demo的验证，可以正常使用。<br>
