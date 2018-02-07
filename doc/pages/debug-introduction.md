@@ -1,11 +1,7 @@
-快速入门
-1. 更新svn，打开UnityDemo\CSHotFixDemo工程。<br>
-2. 确保unity工程编译通过，如果没有，请先根据提示适当注释一些代码。<br>
-3. 在unity编辑器中找到Assets目录下面GameStart场景，打开。<br>
-4. 找到菜单CSHotFix，点击可以看到多个子菜单。<br>
-5. 在CSHotFix菜单下面找到CodeManager->ChangeToRelease,确保该菜单是处于灰色不可点击状态，该状态表明我们我们当前处于发布状态。<br>
-6. 依次点击“GenHotFixDelegate”、“GenHotFixField”、“CreateAdapter”、“GenMonoType”，最后点击“GenHotFix”。<br>
-    ![CSHotFix菜单](https://github.com/qq576067421/cshotfix.git/trunk/doc/pages/20180207213338.png)<br>
-7. 点击运行。当你查看到的信息里面没有“红色”的error日志，就表明你的操作是正确的，否则可能不正确。<br>
+调试
+1. 调试无非两种办法，一种是打断点，一种是打log。<br>
+2. 切换到Development，开发模式，也就是点击ChangeToDevelopment，在VS2015的各个工程里面你就可以随意调试了。推荐调试的时候关闭自动重新编译工程选项，确保点击F5或者VS2015运行按钮的时候不再进行编辑，当然这个是个人习惯罢了。这个模式是用来调试你的程序的逻辑问题的。<br>
+3. 切换到Release模式，此时VS2015的HotFixDll工程的断点不再有用，其他工程依然有用。根据实际情况，查看是否和开发模式有什么异常，例如逻辑对么、数值对么，等等，如果有不对的，请打log看看到底是逻辑问题，还是热更新引擎问题，及时反馈相关bug到 576067421@qq.com或者https://github.com/qq576067421/cshotfix 等便于我们及时发现问题、处理问题。<br>
+
 
  
