@@ -17,7 +17,7 @@ CSharp bug fix library <br>
 &nbsp; &nbsp; &nbsp; &nbsp; 总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。
 
 **二、使用方法。**<br>
-&nbsp; &nbsp; &nbsp; &nbsp; 详情见<a href='https://github.com/qq576067421/cshotfix/wiki'>Wiki文档</a>。
+&nbsp; &nbsp; &nbsp; &nbsp; 详情见<a href='https://github.com/qq576067421/cshotfix/blob/master/doc/_Sidebar.md'>Wiki文档</a>。
 
 &nbsp; &nbsp; &nbsp; &nbsp; 总的来说，使用方法极其简单，基本上你可以当做没有热更新来编程。因为我们的情怀就是用c#实现热更新，为的就是节约宝贵的时间，所以自动化必须有！
 
