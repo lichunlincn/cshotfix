@@ -11,15 +11,13 @@ CSharp bug fix library <br>
 3、<b>可以新增功能，例如常用于游戏运营活动</b>。<br>
 4、<b>支持IOS、支持Android，支持mono打包方式、支持IL2CPP打包方式</b><br>
 &nbsp; &nbsp;IOS IL2CPP<br>
-![image](https://github.com/qq576067421/cshotfix/blob/master/UnityDemo/CSHotFixDemo/CSHotFix_IPhone_IL2CPP.jpg)
+![image](https://github.com/qq576067421/cshotfix/blob/master/UnityDemo/CSHotFixDemo/CSHotFix_IPhone_IL2CPP.jpg)<br>
 &nbsp; &nbsp;Android<br>
 ![image](https://github.com/qq576067421/cshotfix/blob/master/UnityDemo/CSHotFixDemo/cshotfix_android_il2cpp.png)
 &nbsp; &nbsp; &nbsp; &nbsp; 总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。
 
 **二、使用方法。**<br>
-&nbsp; &nbsp; &nbsp; &nbsp; 详情见我写的<a href='https://github.com/qq576067421/cshotfix/blob/master/%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3/CSHotFix%E7%83%AD%E6%9B%B4%E6%96%B0%E6%A1%86%E6%9E%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.doc'>Word文档</a>。
-
-&nbsp; &nbsp; <font size=1 color="#aaaaaa">（这里不得不说下为什么用Word，是因为鄙人实在不喜欢使用不熟悉的文档编辑器，就像你喊我用Vim来写lua代码一样难受，本来几分钟可以完成的C#编码工作，非要用lua写半个小时，熟悉的工具做相同的事情，不装不做，把装作的时间用来花到刀刃上才是有价值的。）</font>
+&nbsp; &nbsp; &nbsp; &nbsp; 详情见<a href='https://github.com/qq576067421/cshotfix/wiki'>Wiki文档</a>。
 
 &nbsp; &nbsp; &nbsp; &nbsp; 总的来说，使用方法极其简单，基本上你可以当做没有热更新来编程。因为我们的情怀就是用c#实现热更新，为的就是节约宝贵的时间，所以自动化必须有！
 
