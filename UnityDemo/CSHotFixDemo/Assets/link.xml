@@ -1,0 +1,7 @@
+<linker>
+  <assembly fullname="UnityEngine" preserve="all"/>
+  <assembly fullname="Assembly-CSharp">
+    <namespace fullname="GameDll" preserve="all"/>
+    <type fullname="SQLiteHelper" preserve="all"/>
+  </assembly>  
+</linker>
