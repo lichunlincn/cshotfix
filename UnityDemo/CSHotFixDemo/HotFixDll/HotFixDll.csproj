@@ -49,16 +49,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameMain.cs" />
+    <Compile Include="GameLogic\GameMain.cs" />
+    <Compile Include="HotFixBugs\Bugs_LCL_MainTest.cs" />
     <Compile Include="HotFixLoop.cs" />
+    <Compile Include="HotFixBugsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>$(ProjectDir)..\pdb2mdb\pdb2mdb.exe $(ProjectDir)$(OutDir)$(ProjectName).dll
-copy $(ProjectDir)$(OutDir)$(ProjectName).dll.mdb $(ProjectDir)..\Assets\Resource\$(ProjectName).dll.mdb
+copy $(ProjectDir)$(OutDir)$(ProjectName).dll.mdb $(ProjectDir)..\Assets\Resource\$(ProjectName).dll.mdb.bytes
 copy $(ProjectDir)$(OutDir)$(ProjectName).dll $(ProjectDir)..\Assets\Resource\$(ProjectName).dll.bytes
-copy $(ProjectDir)$(OutDir)$(ProjectName).pdb $(ProjectDir)..\Assets\Resource\$(ProjectName).dll.pdb</PostBuildEvent>
+copy $(ProjectDir)$(OutDir)$(ProjectName).pdb $(ProjectDir)..\Assets\Resource\$(ProjectName).dll.pdb.bytes</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
