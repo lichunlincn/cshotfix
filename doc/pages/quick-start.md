@@ -5,7 +5,7 @@
 4. 找到菜单CSHotFix，点击可以看到多个子菜单。<br>
 5. 在CSHotFix菜单下面找到CodeManager->ChangeToRelease,确保该菜单是处于灰色不可点击状态，该状态表明我们我们当前处于发布状态。<br>
 6. 依次点击“GenHotFixDelegate”、“GenHotFixField”、“CreateAdapter”、“GenMonoType”，最后点击“GenHotFix”。<br>
-    ![CSHotFix菜单](https://github.com/qq576067421/cshotfix.git/trunk/doc/pages/20180207213338.png)<br>
+    ![CSHotFix菜单](https://github.com/qq576067421/cshotfix/blob/master/doc/pages/20180207213338.png)<br>
 7. 点击运行。当你查看到的信息里面没有“红色”的error日志，就表明你的操作是正确的，否则可能不正确。<br>
 
  
