@@ -1,7 +1,7 @@
 开始写你的代码
 1. 打开unity工程，切换到开发模式，也就是点击ChangeToDevelopment菜单，等待编译通过。<br>
 2. 点击“Open C# Project”，使用VS2015（这里所有的环境我都是用我的环境来介绍的，下同），看到有如下几个工程，如果没有“HotFixDll”，请自行添加项目。<br>
-![CSHotFix工程](https://github.com/qq576067421/cshotfix.git/trunk/doc/pages/20180207220331.png)<br>
+![CSHotFix工程](https://github.com/qq576067421/cshotfix/blob/master/doc/pages/20180207220331.png)<br>
 3. 如果你的项目计划是一个MMORPG或者类似的风格的，那么你一定会需要把战斗放到能够提供高性能的代码里面，那么请你关注CSHotFixDemo工程，找到GameLogic/Logic,里面有几个类，这里推荐看看MainTest.cs文件。<br>
 4. 打开MainTest.cs文件，看到“[CSHotFix(InjectFlag = InjectFlagEnum.Inject)]”，这个标记表明该类是需要参与代码注入的，也就是说我们觉得这个类有可能出现bug，同样NoInject标识类或者方法不需要参与注入。<br>
 5. 往下看到“ref out”暂时不支持的字样，不支持怎么办，采用一个DataClass来装这两个变量。泛型貌似很少有热更新框架支持得了。<br>
