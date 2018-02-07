@@ -17,6 +17,11 @@ using UnityEngine.Rendering;
 
 public class GenConfig
 {
+    //适配器的完整类型字符串，命名空间在内的
+    public static List<string> adapterGenList = new List<string>()
+    {
+        "IGameHotFixInterface",
+    };
     public static List<Type> blackTypeList = new List<Type>()
     {
 

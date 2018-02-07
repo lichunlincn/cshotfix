@@ -36,7 +36,7 @@ namespace LCL
         m_Assembly.AllowUnboundCLRMethod = true;
 
         //注册跨域类
-        m_Assembly.RegisterCrossBindingAdaptor(new IGameHotFixInterfaceAdapter());
+        AdapterRegister.RegisterCrossBindingAdaptor(m_Assembly);
 
 
         m_Assembly.DelegateManager.RegisterMethodDelegate<UnityEngine.GameObject>();

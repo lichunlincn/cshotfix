@@ -171,34 +171,5 @@ public class CSHotFixCLRBinding
         }
         return outTypes;
     }
-
-    //[MenuItem("CSHotFix/按照热更工程实际使用情况生成绑定文件")]
-    static void GenerateCLRBindingByAnalysis()
-    {
-        //用新的分析热更dll调用引用来生成绑定代码
-        string[] fileNames =  Directory.GetFiles("Assets/Resource", "*.dll.bytes");
-        foreach (var filename in fileNames)
-        {
-            CSHotFix.Runtime.Enviorment.AppDomain domain = new CSHotFix.Runtime.Enviorment.AppDomain();
-            using (System.IO.FileStream fs = new System.IO.FileStream(filename, System.IO.FileMode.Open, System.IO.FileAccess.Read))
-            {
-                domain.LoadAssembly(fs);
-            }
-            //Crossbind Adapter is needed to generate the correct binding code
-            InitCSHotFix(domain);
-            CSHotFix.Runtime.CLRBinding.BindingCodeGenerator.GenerateBindingCode(domain, "Assets/CSHotFixLibaray/Generated/CLRGen", false);
-            AssetDatabase.Refresh();
-            Debug.Log("生成CLRBinding：" + filename);
-        }
-    }
-
-    static void InitCSHotFix(CSHotFix.Runtime.Enviorment.AppDomain domain)
-    {
-        //这里需要注册所有热更DLL中用到的跨域继承Adapter，否则无法正确抓取引用
-        //domain.RegisterCrossBindingAdaptor(new MonoBehaviourAdapter());
-        //domain.RegisterCrossBindingAdaptor(new CoroutineAdapter());
-        domain.RegisterCrossBindingAdaptor(new IGameHotFixInterfaceAdapter());
-
-    }
 }
 #endif
