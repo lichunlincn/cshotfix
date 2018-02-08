@@ -27,20 +27,8 @@ public class InjectEditor : ScriptableObject
         {
             return;
         }
-        string editorpath = Application.dataPath;
-        editorpath = Path.GetFullPath(editorpath);
-        editorpath = editorpath.Replace("UnityDemo\\CSHotFixDemo\\Assets", "");
-        editorpath = Path.Combine(editorpath, "CSHotFixInjector\\bin\\Debug\\CSHotFixInjector.exe");
-        Process InjectorEditorProcess = new Process();
-        InjectorEditorProcess.StartInfo.FileName = editorpath;
-        InjectorEditorProcess.StartInfo.Arguments = "GenDelegate";
-        InjectorEditorProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-        InjectorEditorProcess.StartInfo.RedirectStandardOutput = true;
-        InjectorEditorProcess.StartInfo.UseShellExecute = false;
-        InjectorEditorProcess.StartInfo.CreateNoWindow = true;
-        InjectorEditorProcess.Start();
-        InjectorEditorProcess.WaitForExit();
-        UnityEngine.Debug.Log(InjectorEditorProcess.StandardOutput.ReadToEnd());
+
+        LCL.Injector.RunGen("GenDelegate");
         AssetDatabase.Refresh();
     }
     [MenuItem("CSHotFix/GenHotFixField", false, 2)]
@@ -54,20 +42,7 @@ public class InjectEditor : ScriptableObject
         {
             return;
         }
-        string editorpath = Application.dataPath;
-        editorpath = Path.GetFullPath(editorpath);
-        editorpath = editorpath.Replace("UnityDemo\\CSHotFixDemo\\Assets", "");
-        editorpath = Path.Combine(editorpath, "CSHotFixInjector\\bin\\Debug\\CSHotFixInjector.exe");
-        Process InjectorEditorProcess = new Process();
-        InjectorEditorProcess.StartInfo.FileName = editorpath;
-        InjectorEditorProcess.StartInfo.Arguments = "GenStaticField";
-        InjectorEditorProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-        InjectorEditorProcess.StartInfo.RedirectStandardOutput = true;
-        InjectorEditorProcess.StartInfo.UseShellExecute = false;
-        InjectorEditorProcess.StartInfo.CreateNoWindow = true;
-        InjectorEditorProcess.Start();
-        InjectorEditorProcess.WaitForExit();
-        UnityEngine.Debug.Log(InjectorEditorProcess.StandardOutput.ReadToEnd());
+        LCL.Injector.RunGen("GenStaticField");
         AssetDatabase.Refresh();
     }
 
@@ -79,20 +54,7 @@ public class InjectEditor : ScriptableObject
         {
             return;
         }
-        string editorpath = Application.dataPath;
-        editorpath = Path.GetFullPath(editorpath);
-        editorpath = editorpath.Replace("UnityDemo\\CSHotFixDemo\\Assets","");
-        editorpath = Path.Combine(editorpath, "CSHotFixInjector\\bin\\Debug\\CSHotFixInjector.exe");
-        Process InjectorEditorProcess = new Process();
-        InjectorEditorProcess.StartInfo.FileName = editorpath;
-        InjectorEditorProcess.StartInfo.Arguments = "InjectIL";
-        InjectorEditorProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-        InjectorEditorProcess.StartInfo.RedirectStandardOutput = true;
-        InjectorEditorProcess.StartInfo.UseShellExecute = false;
-        InjectorEditorProcess.StartInfo.CreateNoWindow = true;
-        InjectorEditorProcess.Start();
-        InjectorEditorProcess.WaitForExit();
-        UnityEngine.Debug.Log(InjectorEditorProcess.StandardOutput.ReadToEnd());
+        LCL.Injector.RunGen("InjectIL");
         AssetDatabase.Refresh();
     }
 }

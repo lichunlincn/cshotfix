@@ -19,6 +19,7 @@ public class LCLFunctionDelegate
      public delegate void method_delegate2(System.Object arg0,System.Int32 arg1,System.Single arg2);
      public delegate LCL.DataClass function_delegate3(System.Object arg0,LCL.DataClass arg1);
      public delegate System.Int32 function_delegate4(System.Object arg0,System.Int32 arg1,System.Int32 arg2);
+     public delegate System.Int32 function_delegate5(System.Object arg0,LCL.TestDelegateData arg1,System.Int32 arg2,System.Int64 arg3);
     public static void Reg(CSHotFix.Runtime.Enviorment.AppDomain appDomain)
 { 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object>();
@@ -63,6 +64,15 @@ appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Int32,Sy
        return new LCLFunctionDelegate.function_delegate4((arg0,arg1,arg2) =>
        {
        return ((Func<System.Object,System.Int32,System.Int32,System.Int32>)act)(arg0,arg1,arg2);
+       });
+   });
+
+appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,LCL.TestDelegateData,System.Int32,System.Int64,System.Int32>();
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate5>((act) =>
+   {
+       return new LCLFunctionDelegate.function_delegate5((arg0,arg1,arg2,arg3) =>
+       {
+       return ((Func<System.Object,LCL.TestDelegateData,System.Int32,System.Int64,System.Int32>)act)(arg0,arg1,arg2,arg3);
        });
    });
 

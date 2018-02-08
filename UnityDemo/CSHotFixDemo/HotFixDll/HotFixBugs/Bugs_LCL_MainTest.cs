@@ -30,7 +30,7 @@ namespace LCL
             TestDelegate.TestExportDelegate call = OnCallDelegate;
             TestDelegateData data = new TestDelegateData();
             data.m_Field = 12;
-            Debug.Log(call(data, 2, 3));
+            Debug.Log(call(data, 2, 2));
         }
 
         private static int OnCallDelegate(TestDelegateData a, int b, long c)

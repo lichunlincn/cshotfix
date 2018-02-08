@@ -14,6 +14,10 @@ using System.Linq;
 using System.Text;
 public class LCLFieldDelegateName
 {
+     public static LCLFunctionDelegate.method_delegate0 __LCL_HotFixDllLoader__Init__Delegate;
+     public static LCLFunctionDelegate.method_delegate0 __LCL_HotFixDllLoader__Start__Delegate;
+     public static LCLFunctionDelegate.method_delegate0 __LCL_HotFixDllLoader__Update__Delegate;
+     public static LCLFunctionDelegate.method_delegate0 __LCL_HotFixDllLoader__OnDestroy__Delegate;
      public static LCLFunctionDelegate.method_delegate0 __LCL_MainTest__Test0__Delegate;
      public static LCLFunctionDelegate.method_delegate1 __LCL_MainTest__Test1_Int32__Delegate;
      public static LCLFunctionDelegate.method_delegate2 __LCL_MainTest__Test2_Int32_Single__Delegate;
