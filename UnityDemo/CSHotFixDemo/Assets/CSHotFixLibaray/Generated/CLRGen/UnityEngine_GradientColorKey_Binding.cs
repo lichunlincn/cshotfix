@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -110,11 +109,9 @@ UnityEngine.GradientColorKey _o = (UnityEngine.GradientColorKey)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.GradientColorKey
-            {
-                color = ((UnityEngine.GradientColorKey) o).color,
-                time = ((UnityEngine.GradientColorKey) o).time,
-            };
+            var ins = new UnityEngine.GradientColorKey();
+            ins = (UnityEngine.GradientColorKey)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

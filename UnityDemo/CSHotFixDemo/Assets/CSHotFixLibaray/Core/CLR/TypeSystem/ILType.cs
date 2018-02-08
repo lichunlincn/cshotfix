@@ -30,7 +30,8 @@ namespace CSHotFix.CLR.TypeSystem
         int fieldStartIdx = -1;
         int totalFieldCnt = -1;
         KeyValuePair<string, IType>[] genericArguments;
-        IType baseType, byRefType, arrayType, enumType, elementType;
+        IType baseType, byRefType, enumType, elementType;
+        Dictionary<int, IType> arrayTypes;
         Type arrayCLRType, byRefCLRType;
         IType[] interfaces;
         bool baseTypeInitialized = false;
@@ -147,7 +148,15 @@ namespace CSHotFix.CLR.TypeSystem
         {
             get
             {
-                return definition.HasGenericParameters && genericArguments == null;
+                return  typeRef.HasGenericParameters && genericArguments == null;
+            }
+        }
+
+        public bool IsGenericParameter
+        {
+            get
+            {
+                return typeRef.IsGenericParameter && genericArguments == null;
             }
         }
 
@@ -160,7 +169,7 @@ namespace CSHotFix.CLR.TypeSystem
             }
         }
 
-        public int FieldStartIndex
+        internal int FieldStartIndex
         {
             get
             {
@@ -255,6 +264,19 @@ namespace CSHotFix.CLR.TypeSystem
             get; private set;
         }
 
+        public int ArrayRank
+        {
+            get; private set;
+        }
+
+        public bool IsByRef
+        {
+            get
+            {
+                return typeRef.IsByReference;
+            }
+        }
+
         private bool? isValueType;
 
         public bool IsValueType
@@ -281,6 +303,14 @@ namespace CSHotFix.CLR.TypeSystem
         public bool IsPrimitive
         {
             get { return false; }
+        }
+
+        public bool IsInterface
+        {
+            get
+            {
+                return TypeDefinition.IsInterface;
+            }
         }
 
         public Type TypeForCLR
@@ -337,7 +367,7 @@ namespace CSHotFix.CLR.TypeSystem
         {
             get
             {
-                return arrayType;
+                return arrayTypes != null ? arrayTypes[1] : null;
             }
         }
 
@@ -348,11 +378,35 @@ namespace CSHotFix.CLR.TypeSystem
                 return definition.IsEnum;
             }
         }
+
+        string fullName;
         public string FullName
         {
             get
             {
-                return typeRef.FullName;
+                if (string.IsNullOrEmpty(fullName))
+                {
+                    if (typeRef.HasGenericParameters && genericArguments != null)
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        sb.Append(typeRef.FullName);
+                        sb.Append('<');
+                        bool first = true;
+                        foreach (var i in genericArguments)
+                        {
+                            if (first)
+                                first = false;
+                            else
+                                sb.Append(", ");
+                            sb.Append(i.Value.FullName);
+                        }
+                        sb.Append('>');
+                        fullName = sb.ToString();
+                    }
+                    else
+                        fullName = typeRef.FullName;
+                }
+                return fullName;
             }
         }
         public string Name
@@ -557,7 +611,7 @@ namespace CSHotFix.CLR.TypeSystem
                         methods[i.Name] = lst;
                     }
                     var m = new ILMethod(i, this, appdomain);
-                    lst.Add(new ILMethod(i, this, appdomain));
+                    lst.Add(m);
                 }
             }
 
@@ -583,6 +637,11 @@ namespace CSHotFix.CLR.TypeSystem
             }
 
             var m = GetMethod(method.Name, method.Parameters, genericArguments, method.ReturnType, true);
+            if (m == null && method.DeclearingType.IsInterface)
+            {
+                m = GetMethod(string.Format("{0}.{1}", method.DeclearingType.FullName, method.Name), method.Parameters, genericArguments, method.ReturnType, true);
+            }
+
             if (m == null)
             {
                 if (BaseType != null)
@@ -613,7 +672,7 @@ namespace CSHotFix.CLR.TypeSystem
                     if (i.ParameterCount == pCnt)
                     {
                         bool match = true;
-                        if (genericArguments != null && i.GenericParameterCount == genericArguments.Length)
+                        if (genericArguments != null && i.GenericParameterCount == genericArguments.Length && genericMethod == null)
                         {
                             genericMethod = CheckGenericParams(i, param, ref match);
                         }
@@ -691,8 +750,20 @@ namespace CSHotFix.CLR.TypeSystem
                 for (int j = 0; j < param.Count; j++)
                 {
                     var p = i.Parameters[j];
+                    if (p.IsByRef)
+                        p = p.ElementType;
+
+                    if (p.IsGenericParameter)
+                        continue;
+
                     if (p.HasGenericParameter)
                     {
+                        var p2 = param[j];
+                        if(p.Name != p2.Name)
+                        {
+                            match = false;
+                            break;
+                        }
                         //TODO should match the generic parameters;
                         continue;
                     }
@@ -969,17 +1040,21 @@ namespace CSHotFix.CLR.TypeSystem
             return byRefType;
         }
 
-        public IType MakeArrayType()
+        public IType MakeArrayType(int rank)
         {
-            if (arrayType == null)
+            if (arrayTypes == null)
+                arrayTypes = new Dictionary<int, IType>();
+            IType atype;
+            if(!arrayTypes.TryGetValue(rank, out atype))
             {
-                var def = new ArrayType(typeRef);
-                arrayType = new ILType(def, appdomain);
-                ((ILType)arrayType).IsArray = true;
-                ((ILType)arrayType).elementType = this;
-                ((ILType)arrayType).arrayCLRType = this.TypeForCLR.MakeArrayType();
+                var def = new ArrayType(typeRef, rank);
+                atype = new ILType(def, appdomain);
+                ((ILType)atype).IsArray = true;
+                ((ILType)atype).elementType = this;
+                ((ILType)atype).arrayCLRType = rank > 1 ? this.TypeForCLR.MakeArrayType(rank) : this.TypeForCLR.MakeArrayType();
+                arrayTypes[rank] = atype;
             }
-            return arrayType;
+            return atype;
         }
 
         public IType ResolveGenericType(IType contextType)

@@ -7,13 +7,13 @@ using CSHotFix.CLR.TypeSystem;
 
 namespace CSHotFix.CLR.Method
 {
-    public enum ExceptionHandlerType
+    enum ExceptionHandlerType
     {
         Catch,
         Finally,
         Fault,
     }
-    public class ExceptionHandler
+    class ExceptionHandler
     {
         public ExceptionHandlerType HandlerType { get; set; }
 

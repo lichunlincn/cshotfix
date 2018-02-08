@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -643,12 +642,9 @@ UnityEngine.CharacterInfo _o = (UnityEngine.CharacterInfo)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.CharacterInfo
-            {
-                index = ((UnityEngine.CharacterInfo) o).index,
-                size = ((UnityEngine.CharacterInfo) o).size,
-                style = ((UnityEngine.CharacterInfo) o).style,
-            };
+            var ins = new UnityEngine.CharacterInfo();
+            ins = (UnityEngine.CharacterInfo)o;
+            return ins;
         }
 
 

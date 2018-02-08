@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -263,13 +262,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Color32
-            {
-                r = ((UnityEngine.Color32) o).r,
-                g = ((UnityEngine.Color32) o).g,
-                b = ((UnityEngine.Color32) o).b,
-                a = ((UnityEngine.Color32) o).a,
-            };
+            var ins = new UnityEngine.Color32();
+            ins = (UnityEngine.Color32)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

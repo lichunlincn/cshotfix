@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.EventSystems.ExecuteEvents);
             args = new Type[]{};
@@ -85,7 +83,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_pointerEnterHandler_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.pointerEnterHandler;
@@ -96,7 +93,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_pointerExitHandler_1(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.pointerExitHandler;
@@ -107,7 +103,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_pointerDownHandler_2(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.pointerDownHandler;
@@ -118,7 +113,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_pointerUpHandler_3(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.pointerUpHandler;
@@ -129,7 +123,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_pointerClickHandler_4(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.pointerClickHandler;
@@ -140,7 +133,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_initializePotentialDrag_5(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.initializePotentialDrag;
@@ -151,7 +143,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_beginDragHandler_6(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.beginDragHandler;
@@ -162,7 +153,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_dragHandler_7(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.dragHandler;
@@ -173,7 +163,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_endDragHandler_8(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.endDragHandler;
@@ -184,7 +173,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_dropHandler_9(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.dropHandler;
@@ -195,7 +183,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_scrollHandler_10(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.scrollHandler;
@@ -206,7 +193,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_updateSelectedHandler_11(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.updateSelectedHandler;
@@ -217,7 +203,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_selectHandler_12(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.selectHandler;
@@ -228,7 +213,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_deselectHandler_13(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.deselectHandler;
@@ -239,7 +223,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_moveHandler_14(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.moveHandler;
@@ -250,7 +233,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_submitHandler_15(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.submitHandler;
@@ -261,7 +243,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_cancelHandler_16(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.EventSystems.ExecuteEvents.cancelHandler;

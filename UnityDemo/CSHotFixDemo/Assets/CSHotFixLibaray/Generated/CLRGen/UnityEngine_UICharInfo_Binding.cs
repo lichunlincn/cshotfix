@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.UICharInfo);
@@ -107,11 +105,9 @@ UnityEngine.UICharInfo _o = (UnityEngine.UICharInfo)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.UICharInfo
-            {
-                cursorPos = ((UnityEngine.UICharInfo) o).cursorPos,
-                charWidth = ((UnityEngine.UICharInfo) o).charWidth,
-            };
+            var ins = new UnityEngine.UICharInfo();
+            ins = (UnityEngine.UICharInfo)o;
+            return ins;
         }
 
 

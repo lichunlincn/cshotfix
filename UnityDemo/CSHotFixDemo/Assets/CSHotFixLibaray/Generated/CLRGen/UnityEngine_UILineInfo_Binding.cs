@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.UILineInfo);
@@ -139,13 +137,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.UILineInfo
-            {
-                startCharIdx = ((UnityEngine.UILineInfo) o).startCharIdx,
-                height = ((UnityEngine.UILineInfo) o).height,
-                topY = ((UnityEngine.UILineInfo) o).topY,
-                leading = ((UnityEngine.UILineInfo) o).leading,
-            };
+            var ins = new UnityEngine.UILineInfo();
+            ins = (UnityEngine.UILineInfo)o;
+            return ins;
         }
 
 

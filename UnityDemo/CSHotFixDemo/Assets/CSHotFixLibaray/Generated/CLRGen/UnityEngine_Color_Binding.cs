@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -461,7 +460,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_red_14(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.red;
@@ -472,7 +470,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_green_15(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.green;
@@ -483,7 +480,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_blue_16(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.blue;
@@ -494,7 +490,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_white_17(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.white;
@@ -505,7 +500,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_black_18(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.black;
@@ -516,7 +510,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_yellow_19(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.yellow;
@@ -527,7 +520,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_cyan_20(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.cyan;
@@ -538,7 +530,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_magenta_21(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.magenta;
@@ -549,7 +540,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_gray_22(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.gray;
@@ -560,7 +550,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_grey_23(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.grey;
@@ -571,7 +560,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_clear_24(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Color.clear;
@@ -760,21 +748,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, V);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, V);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = V;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = V;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, V);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, V);
                         }
                     }
                     break;
@@ -805,21 +793,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, S);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, S);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = S;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = S;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, S);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, S);
                         }
                     }
                     break;
@@ -850,21 +838,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, H);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, H);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = H;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = H;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, H);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, H);
                         }
                     }
                     break;
@@ -963,13 +951,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Color
-            {
-                r = ((UnityEngine.Color) o).r,
-                g = ((UnityEngine.Color) o).g,
-                b = ((UnityEngine.Color) o).b,
-                a = ((UnityEngine.Color) o).a,
-            };
+            var ins = new UnityEngine.Color();
+            ins = (UnityEngine.Color)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

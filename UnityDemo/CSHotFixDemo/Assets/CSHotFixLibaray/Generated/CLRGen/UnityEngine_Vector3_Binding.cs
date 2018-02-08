@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -313,7 +312,17 @@ namespace CSHotFix.Runtime.Generated
                 case ObjectTypes.StackObjectReference:
                     {
                         var ___dst = *(StackObject**)&ptr_of_this_method->Value;
-                        __mStack[___dst->Value] = tangent;
+                        object ___obj = tangent;
+                        if (___dst->ObjectType >= ObjectTypes.Object)
+                        {
+                            if (___obj is CrossBindingAdaptorType)
+                                ___obj = ((CrossBindingAdaptorType)___obj).ILInstance;
+                            __mStack[___dst->Value] = ___obj;
+                        }
+                        else
+                        {
+                            ILIntepreter.UnboxObject(___dst, ___obj, __mStack, __domain);
+                        }
                     }
                     break;
                 case ObjectTypes.FieldReference:
@@ -325,21 +334,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, tangent);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, tangent);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = tangent;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = tangent;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, tangent);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, tangent);
                         }
                     }
                     break;
@@ -357,7 +366,17 @@ namespace CSHotFix.Runtime.Generated
                 case ObjectTypes.StackObjectReference:
                     {
                         var ___dst = *(StackObject**)&ptr_of_this_method->Value;
-                        __mStack[___dst->Value] = normal;
+                        object ___obj = normal;
+                        if (___dst->ObjectType >= ObjectTypes.Object)
+                        {
+                            if (___obj is CrossBindingAdaptorType)
+                                ___obj = ((CrossBindingAdaptorType)___obj).ILInstance;
+                            __mStack[___dst->Value] = ___obj;
+                        }
+                        else
+                        {
+                            ILIntepreter.UnboxObject(___dst, ___obj, __mStack, __domain);
+                        }
                     }
                     break;
                 case ObjectTypes.FieldReference:
@@ -369,21 +388,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, normal);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, normal);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = normal;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = normal;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, normal);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, normal);
                         }
                     }
                     break;
@@ -421,7 +440,17 @@ namespace CSHotFix.Runtime.Generated
                 case ObjectTypes.StackObjectReference:
                     {
                         var ___dst = *(StackObject**)&ptr_of_this_method->Value;
-                        __mStack[___dst->Value] = binormal;
+                        object ___obj = binormal;
+                        if (___dst->ObjectType >= ObjectTypes.Object)
+                        {
+                            if (___obj is CrossBindingAdaptorType)
+                                ___obj = ((CrossBindingAdaptorType)___obj).ILInstance;
+                            __mStack[___dst->Value] = ___obj;
+                        }
+                        else
+                        {
+                            ILIntepreter.UnboxObject(___dst, ___obj, __mStack, __domain);
+                        }
                     }
                     break;
                 case ObjectTypes.FieldReference:
@@ -433,21 +462,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, binormal);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, binormal);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = binormal;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = binormal;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, binormal);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, binormal);
                         }
                     }
                     break;
@@ -465,7 +494,17 @@ namespace CSHotFix.Runtime.Generated
                 case ObjectTypes.StackObjectReference:
                     {
                         var ___dst = *(StackObject**)&ptr_of_this_method->Value;
-                        __mStack[___dst->Value] = tangent;
+                        object ___obj = tangent;
+                        if (___dst->ObjectType >= ObjectTypes.Object)
+                        {
+                            if (___obj is CrossBindingAdaptorType)
+                                ___obj = ((CrossBindingAdaptorType)___obj).ILInstance;
+                            __mStack[___dst->Value] = ___obj;
+                        }
+                        else
+                        {
+                            ILIntepreter.UnboxObject(___dst, ___obj, __mStack, __domain);
+                        }
                     }
                     break;
                 case ObjectTypes.FieldReference:
@@ -477,21 +516,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, tangent);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, tangent);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = tangent;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = tangent;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, tangent);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, tangent);
                         }
                     }
                     break;
@@ -509,7 +548,17 @@ namespace CSHotFix.Runtime.Generated
                 case ObjectTypes.StackObjectReference:
                     {
                         var ___dst = *(StackObject**)&ptr_of_this_method->Value;
-                        __mStack[___dst->Value] = normal;
+                        object ___obj = normal;
+                        if (___dst->ObjectType >= ObjectTypes.Object)
+                        {
+                            if (___obj is CrossBindingAdaptorType)
+                                ___obj = ((CrossBindingAdaptorType)___obj).ILInstance;
+                            __mStack[___dst->Value] = ___obj;
+                        }
+                        else
+                        {
+                            ILIntepreter.UnboxObject(___dst, ___obj, __mStack, __domain);
+                        }
                     }
                     break;
                 case ObjectTypes.FieldReference:
@@ -521,21 +570,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, normal);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, normal);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = normal;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = normal;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, normal);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, normal);
                         }
                     }
                     break;
@@ -655,7 +704,17 @@ namespace CSHotFix.Runtime.Generated
                 case ObjectTypes.StackObjectReference:
                     {
                         var ___dst = *(StackObject**)&ptr_of_this_method->Value;
-                        __mStack[___dst->Value] = currentVelocity;
+                        object ___obj = currentVelocity;
+                        if (___dst->ObjectType >= ObjectTypes.Object)
+                        {
+                            if (___obj is CrossBindingAdaptorType)
+                                ___obj = ((CrossBindingAdaptorType)___obj).ILInstance;
+                            __mStack[___dst->Value] = ___obj;
+                        }
+                        else
+                        {
+                            ILIntepreter.UnboxObject(___dst, ___obj, __mStack, __domain);
+                        }
                     }
                     break;
                 case ObjectTypes.FieldReference:
@@ -667,21 +726,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, currentVelocity);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, currentVelocity);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = currentVelocity;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = currentVelocity;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, currentVelocity);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, currentVelocity);
                         }
                     }
                     break;
@@ -721,7 +780,17 @@ namespace CSHotFix.Runtime.Generated
                 case ObjectTypes.StackObjectReference:
                     {
                         var ___dst = *(StackObject**)&ptr_of_this_method->Value;
-                        __mStack[___dst->Value] = currentVelocity;
+                        object ___obj = currentVelocity;
+                        if (___dst->ObjectType >= ObjectTypes.Object)
+                        {
+                            if (___obj is CrossBindingAdaptorType)
+                                ___obj = ((CrossBindingAdaptorType)___obj).ILInstance;
+                            __mStack[___dst->Value] = ___obj;
+                        }
+                        else
+                        {
+                            ILIntepreter.UnboxObject(___dst, ___obj, __mStack, __domain);
+                        }
                     }
                     break;
                 case ObjectTypes.FieldReference:
@@ -733,21 +802,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, currentVelocity);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, currentVelocity);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = currentVelocity;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = currentVelocity;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, currentVelocity);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, currentVelocity);
                         }
                     }
                     break;
@@ -791,7 +860,17 @@ namespace CSHotFix.Runtime.Generated
                 case ObjectTypes.StackObjectReference:
                     {
                         var ___dst = *(StackObject**)&ptr_of_this_method->Value;
-                        __mStack[___dst->Value] = currentVelocity;
+                        object ___obj = currentVelocity;
+                        if (___dst->ObjectType >= ObjectTypes.Object)
+                        {
+                            if (___obj is CrossBindingAdaptorType)
+                                ___obj = ((CrossBindingAdaptorType)___obj).ILInstance;
+                            __mStack[___dst->Value] = ___obj;
+                        }
+                        else
+                        {
+                            ILIntepreter.UnboxObject(___dst, ___obj, __mStack, __domain);
+                        }
                     }
                     break;
                 case ObjectTypes.FieldReference:
@@ -803,21 +882,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, currentVelocity);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, currentVelocity);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = currentVelocity;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = currentVelocity;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, currentVelocity);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, currentVelocity);
                         }
                     }
                     break;
@@ -1271,7 +1350,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_zero_35(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Vector3.zero;
@@ -1282,7 +1360,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_one_36(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Vector3.one;
@@ -1293,7 +1370,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_forward_37(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Vector3.forward;
@@ -1304,7 +1380,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_back_38(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Vector3.back;
@@ -1315,7 +1390,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_up_39(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Vector3.up;
@@ -1326,7 +1400,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_down_40(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Vector3.down;
@@ -1337,7 +1410,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_left_41(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Vector3.left;
@@ -1348,7 +1420,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_right_42(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Vector3.right;
@@ -1568,12 +1639,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Vector3
-            {
-                x = ((UnityEngine.Vector3) o).x,
-                y = ((UnityEngine.Vector3) o).y,
-                z = ((UnityEngine.Vector3) o).z,
-            };
+            var ins = new UnityEngine.Vector3();
+            ins = (UnityEngine.Vector3)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

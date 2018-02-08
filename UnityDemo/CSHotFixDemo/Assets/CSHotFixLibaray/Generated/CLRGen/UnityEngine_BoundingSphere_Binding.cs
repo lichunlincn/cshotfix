@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -113,11 +112,9 @@ UnityEngine.BoundingSphere _o = (UnityEngine.BoundingSphere)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.BoundingSphere
-            {
-                position = ((UnityEngine.BoundingSphere) o).position,
-                radius = ((UnityEngine.BoundingSphere) o).radius,
-            };
+            var ins = new UnityEngine.BoundingSphere();
+            ins = (UnityEngine.BoundingSphere)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

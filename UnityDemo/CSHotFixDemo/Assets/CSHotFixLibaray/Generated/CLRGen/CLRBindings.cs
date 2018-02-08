@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -27,6 +27,7 @@ namespace CSHotFix.Runtime.Generated
             UnityEngine_Time_Binding.Register(app);
             UnityEngine_Debug_Binding.Register(app);
             System_Collections_Generic_List_1_ILTypeInstance_Binding.Register(app);
+            LCL_HotFixDllLoader_Binding.Register(app);
             LCL_DataClass_Binding.Register(app);
             LCL_MainTest_Binding.Register(app);
             LCL_MainTest2_Binding.Register(app);

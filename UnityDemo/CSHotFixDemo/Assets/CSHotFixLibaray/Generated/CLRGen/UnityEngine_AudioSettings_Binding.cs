@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.AudioSettings);
             args = new Type[]{};
@@ -66,7 +64,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_driverCapabilities_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.AudioSettings.driverCapabilities;
@@ -77,7 +74,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_speakerMode_1(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.AudioSettings.speakerMode;
@@ -102,7 +98,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_dspTime_3(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.AudioSettings.dspTime;
@@ -115,7 +110,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_outputSampleRate_4(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.AudioSettings.outputSampleRate;
@@ -171,21 +165,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, numBuffers);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, numBuffers);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = numBuffers;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = numBuffers;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, numBuffers);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, numBuffers);
                         }
                     }
                     break;
@@ -216,21 +210,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, bufferLength);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, bufferLength);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = bufferLength;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = bufferLength;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, bufferLength);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, bufferLength);
                         }
                     }
                     break;
@@ -248,7 +242,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* GetConfiguration_7(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.AudioSettings.GetConfiguration();
@@ -278,7 +271,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = new UnityEngine.AudioSettings();

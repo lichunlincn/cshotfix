@@ -113,7 +113,14 @@ namespace CSHotFix.Reflection
         {
             get
             {
-                return type.BaseType != null ? type.BaseType.ReflectionType : null;
+                if (type.IsEnum)
+                    return typeof(Enum);
+                else if (type.IsArray)
+                    return typeof(Array);
+                else
+                {
+                    return type.BaseType != null ? type.BaseType.ReflectionType : null;
+                }
             }
         }
 
@@ -153,7 +160,7 @@ namespace CSHotFix.Reflection
         {
             get
             {
-                throw new NotImplementedException();
+                return type.TypeDefinition.Namespace;
             }
         }
 

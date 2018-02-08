@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.HumanPose);
@@ -119,12 +117,9 @@ UnityEngine.HumanPose _o = (UnityEngine.HumanPose)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.HumanPose
-            {
-                bodyPosition = ((UnityEngine.HumanPose) o).bodyPosition,
-                bodyRotation = ((UnityEngine.HumanPose) o).bodyRotation,
-                muscles = ((UnityEngine.HumanPose) o).muscles,
-            };
+            var ins = new UnityEngine.HumanPose();
+            ins = (UnityEngine.HumanPose)o;
+            return ins;
         }
 
 

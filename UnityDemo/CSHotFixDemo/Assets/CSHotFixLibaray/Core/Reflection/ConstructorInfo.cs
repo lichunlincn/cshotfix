@@ -24,7 +24,7 @@ namespace CSHotFix.Reflection
             }
         }
 
-        public ILMethod ILMethod { get { return method; } }
+        internal ILMethod ILMethod { get { return method; } }
         public override MethodAttributes Attributes
         {
             get

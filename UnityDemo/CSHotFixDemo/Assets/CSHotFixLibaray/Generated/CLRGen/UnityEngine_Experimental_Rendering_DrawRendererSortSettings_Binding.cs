@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -163,12 +162,9 @@ UnityEngine.Experimental.Rendering.DrawRendererSortSettings _o = (UnityEngine.Ex
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Rendering.DrawRendererSortSettings
-            {
-                worldToCameraMatrix = ((UnityEngine.Experimental.Rendering.DrawRendererSortSettings) o).worldToCameraMatrix,
-                cameraPosition = ((UnityEngine.Experimental.Rendering.DrawRendererSortSettings) o).cameraPosition,
-                flags = ((UnityEngine.Experimental.Rendering.DrawRendererSortSettings) o).flags,
-            };
+            var ins = new UnityEngine.Experimental.Rendering.DrawRendererSortSettings();
+            ins = (UnityEngine.Experimental.Rendering.DrawRendererSortSettings)o;
+            return ins;
         }
 
 

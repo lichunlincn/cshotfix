@@ -9,7 +9,7 @@ using CSHotFix.Runtime.Intepreter;
 
 namespace CSHotFix.Runtime.Stack
 {
-    public unsafe class RuntimeStack : IDisposable
+    unsafe class RuntimeStack : IDisposable
     {
         ILIntepreter intepreter;
         StackObject* pointer;
@@ -218,7 +218,14 @@ namespace CSHotFix.Runtime.Stack
                     {
                         if (ft.IsValueType)
                         {
-                            AllocValueType(val, ft);
+                            if (ft is ILType || ((CLRType)ft).ValueTypeBinder != null)
+                                AllocValueType(val, ft);
+                            else
+                            {
+                                val->ObjectType = ObjectTypes.Object;
+                                val->Value = managedStack.Count;
+                                managedStack.Add(((CLRType)ft).CreateDefaultInstance());
+                            }
                         }
                         else
                         {
@@ -321,7 +328,7 @@ namespace CSHotFix.Runtime.Stack
                             case ObjectTypes.ValueTypeObjectReference:
                                 {
                                     var dst = *(StackObject**)&val->Value;
-                                    ClearValueTypeObject(vt, *(StackObject**)&val->Value);
+                                    ClearValueTypeObject(vt, dst);
                                 }
                                 break;
                             default:

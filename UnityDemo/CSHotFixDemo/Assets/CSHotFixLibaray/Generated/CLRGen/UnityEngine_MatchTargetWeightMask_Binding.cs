@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.MatchTargetWeightMask);
             args = new Type[]{};
@@ -173,9 +171,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.MatchTargetWeightMask
-            {
-            };
+            var ins = new UnityEngine.MatchTargetWeightMask();
+            ins = (UnityEngine.MatchTargetWeightMask)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

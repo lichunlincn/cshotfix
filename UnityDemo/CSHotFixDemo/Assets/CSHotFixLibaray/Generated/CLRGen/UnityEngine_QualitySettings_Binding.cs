@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.QualitySettings);
             args = new Type[]{};
@@ -213,7 +211,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_names_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.names;
@@ -224,7 +221,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* GetQualityLevel_1(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.GetQualityLevel();
@@ -278,7 +274,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* IncreaseLevel_5(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             UnityEngine.QualitySettings.IncreaseLevel();
@@ -302,7 +297,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* DecreaseLevel_7(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             UnityEngine.QualitySettings.DecreaseLevel();
@@ -313,7 +307,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_pixelLightCount_8(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.pixelLightCount;
@@ -339,7 +332,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_shadows_10(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.shadows;
@@ -364,7 +356,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_shadowProjection_12(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.shadowProjection;
@@ -389,7 +380,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_shadowCascades_14(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.shadowCascades;
@@ -415,7 +405,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_shadowDistance_16(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.shadowDistance;
@@ -441,7 +430,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_shadowResolution_18(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.shadowResolution;
@@ -466,7 +454,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_shadowNearPlaneOffset_20(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.shadowNearPlaneOffset;
@@ -492,7 +479,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_shadowCascade2Split_22(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.shadowCascade2Split;
@@ -518,7 +504,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_shadowCascade4Split_24(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.shadowCascade4Split;
@@ -543,7 +528,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_masterTextureLimit_26(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.masterTextureLimit;
@@ -569,7 +553,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_anisotropicFiltering_28(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.anisotropicFiltering;
@@ -594,7 +577,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_lodBias_30(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.lodBias;
@@ -620,7 +602,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_maximumLODLevel_32(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.maximumLODLevel;
@@ -646,7 +627,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_particleRaycastBudget_34(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.particleRaycastBudget;
@@ -672,7 +652,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_softParticles_36(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.softParticles;
@@ -698,7 +677,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_softVegetation_38(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.softVegetation;
@@ -724,7 +702,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_realtimeReflectionProbes_40(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.realtimeReflectionProbes;
@@ -750,7 +727,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_billboardsFaceCameraPosition_42(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.billboardsFaceCameraPosition;
@@ -776,7 +752,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_maxQueuedFrames_44(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.maxQueuedFrames;
@@ -802,7 +777,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_vSyncCount_46(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.vSyncCount;
@@ -828,7 +802,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_antiAliasing_48(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.antiAliasing;
@@ -854,7 +827,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_desiredColorSpace_50(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.desiredColorSpace;
@@ -865,7 +837,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_activeColorSpace_51(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.activeColorSpace;
@@ -876,7 +847,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_blendWeights_52(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.blendWeights;
@@ -901,7 +871,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_asyncUploadTimeSlice_54(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.asyncUploadTimeSlice;
@@ -927,7 +896,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_asyncUploadBufferSize_56(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.QualitySettings.asyncUploadBufferSize;
@@ -956,7 +924,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = new UnityEngine.QualitySettings();

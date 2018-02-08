@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -169,14 +168,9 @@ UnityEngine.Experimental.Rendering.DrawRendererSettings _o = (UnityEngine.Experi
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Rendering.DrawRendererSettings
-            {
-                sorting = ((UnityEngine.Experimental.Rendering.DrawRendererSettings) o).sorting,
-                shaderPassName = ((UnityEngine.Experimental.Rendering.DrawRendererSettings) o).shaderPassName,
-                inputFilter = ((UnityEngine.Experimental.Rendering.DrawRendererSettings) o).inputFilter,
-                rendererConfiguration = ((UnityEngine.Experimental.Rendering.DrawRendererSettings) o).rendererConfiguration,
-                flags = ((UnityEngine.Experimental.Rendering.DrawRendererSettings) o).flags,
-            };
+            var ins = new UnityEngine.Experimental.Rendering.DrawRendererSettings();
+            ins = (UnityEngine.Experimental.Rendering.DrawRendererSettings)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

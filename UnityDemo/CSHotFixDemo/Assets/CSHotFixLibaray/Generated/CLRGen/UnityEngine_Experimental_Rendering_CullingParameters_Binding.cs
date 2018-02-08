@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -274,17 +273,9 @@ UnityEngine.Experimental.Rendering.CullingParameters _o = (UnityEngine.Experimen
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Rendering.CullingParameters
-            {
-                isOrthographic = ((UnityEngine.Experimental.Rendering.CullingParameters) o).isOrthographic,
-                lodParameters = ((UnityEngine.Experimental.Rendering.CullingParameters) o).lodParameters,
-                cullingPlaneCount = ((UnityEngine.Experimental.Rendering.CullingParameters) o).cullingPlaneCount,
-                cullingMask = ((UnityEngine.Experimental.Rendering.CullingParameters) o).cullingMask,
-                cullingMatrix = ((UnityEngine.Experimental.Rendering.CullingParameters) o).cullingMatrix,
-                position = ((UnityEngine.Experimental.Rendering.CullingParameters) o).position,
-                shadowDistance = ((UnityEngine.Experimental.Rendering.CullingParameters) o).shadowDistance,
-                reflectionProbeSortOptions = ((UnityEngine.Experimental.Rendering.CullingParameters) o).reflectionProbeSortOptions,
-            };
+            var ins = new UnityEngine.Experimental.Rendering.CullingParameters();
+            ins = (UnityEngine.Experimental.Rendering.CullingParameters)o;
+            return ins;
         }
 
 

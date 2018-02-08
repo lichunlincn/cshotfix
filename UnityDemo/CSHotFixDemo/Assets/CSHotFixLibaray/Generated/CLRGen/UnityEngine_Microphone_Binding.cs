@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.Microphone);
             args = new Type[]{typeof(System.String), typeof(System.Boolean), typeof(System.Int32), typeof(System.Int32)};
@@ -91,7 +89,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_devices_2(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Microphone.devices;
@@ -167,21 +164,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, maxFreq);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, maxFreq);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = maxFreq;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = maxFreq;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, maxFreq);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, maxFreq);
                         }
                     }
                     break;
@@ -212,21 +209,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, minFreq);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, minFreq);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = minFreq;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = minFreq;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, minFreq);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, minFreq);
                         }
                     }
                     break;
@@ -247,7 +244,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = new UnityEngine.Microphone();

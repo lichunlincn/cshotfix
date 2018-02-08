@@ -11,7 +11,7 @@ namespace CSHotFix.Runtime.Intepreter.OpCodes
     /// <summary>
     /// IL指令
     /// </summary>
-    public struct OpCode
+    struct OpCode
     {
         /// <summary>
         /// 当前指令

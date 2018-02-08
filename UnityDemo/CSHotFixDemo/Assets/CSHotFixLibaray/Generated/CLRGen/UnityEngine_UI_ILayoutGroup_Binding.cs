@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -18,10 +17,6 @@ namespace CSHotFix.Runtime.Generated
     {
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
-            BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
-            FieldInfo field;
-            Type[] args;
             Type type = typeof(UnityEngine.UI.ILayoutGroup);
 
 

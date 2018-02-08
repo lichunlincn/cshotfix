@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.UIVertex);
@@ -190,17 +188,9 @@ UnityEngine.UIVertex _o = (UnityEngine.UIVertex)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.UIVertex
-            {
-                position = ((UnityEngine.UIVertex) o).position,
-                normal = ((UnityEngine.UIVertex) o).normal,
-                color = ((UnityEngine.UIVertex) o).color,
-                uv0 = ((UnityEngine.UIVertex) o).uv0,
-                uv1 = ((UnityEngine.UIVertex) o).uv1,
-                uv2 = ((UnityEngine.UIVertex) o).uv2,
-                uv3 = ((UnityEngine.UIVertex) o).uv3,
-                tangent = ((UnityEngine.UIVertex) o).tangent,
-            };
+            var ins = new UnityEngine.UIVertex();
+            ins = (UnityEngine.UIVertex)o;
+            return ins;
         }
 
 

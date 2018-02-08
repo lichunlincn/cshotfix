@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -122,12 +121,9 @@ UnityEngine.LOD _o = (UnityEngine.LOD)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.LOD
-            {
-                screenRelativeTransitionHeight = ((UnityEngine.LOD) o).screenRelativeTransitionHeight,
-                fadeTransitionWidth = ((UnityEngine.LOD) o).fadeTransitionWidth,
-                renderers = ((UnityEngine.LOD) o).renderers,
-            };
+            var ins = new UnityEngine.LOD();
+            ins = (UnityEngine.LOD)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

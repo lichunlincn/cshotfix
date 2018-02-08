@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -615,7 +614,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_zero_21(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Vector4.zero;
@@ -626,7 +624,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_one_22(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Vector4.one;
@@ -948,13 +945,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Vector4
-            {
-                x = ((UnityEngine.Vector4) o).x,
-                y = ((UnityEngine.Vector4) o).y,
-                z = ((UnityEngine.Vector4) o).z,
-                w = ((UnityEngine.Vector4) o).w,
-            };
+            var ins = new UnityEngine.Vector4();
+            ins = (UnityEngine.Vector4)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

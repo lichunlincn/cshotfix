@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -296,18 +295,9 @@ UnityEngine.EventSystems.RaycastResult _o = (UnityEngine.EventSystems.RaycastRes
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.EventSystems.RaycastResult
-            {
-                module = ((UnityEngine.EventSystems.RaycastResult) o).module,
-                distance = ((UnityEngine.EventSystems.RaycastResult) o).distance,
-                index = ((UnityEngine.EventSystems.RaycastResult) o).index,
-                depth = ((UnityEngine.EventSystems.RaycastResult) o).depth,
-                sortingLayer = ((UnityEngine.EventSystems.RaycastResult) o).sortingLayer,
-                sortingOrder = ((UnityEngine.EventSystems.RaycastResult) o).sortingOrder,
-                worldPosition = ((UnityEngine.EventSystems.RaycastResult) o).worldPosition,
-                worldNormal = ((UnityEngine.EventSystems.RaycastResult) o).worldNormal,
-                screenPosition = ((UnityEngine.EventSystems.RaycastResult) o).screenPosition,
-            };
+            var ins = new UnityEngine.EventSystems.RaycastResult();
+            ins = (UnityEngine.EventSystems.RaycastResult)o;
+            return ins;
         }
 
 

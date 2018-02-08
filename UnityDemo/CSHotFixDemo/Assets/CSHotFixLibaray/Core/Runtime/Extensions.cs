@@ -9,22 +9,8 @@ namespace CSHotFix.Runtime
 {
     static class Extensions
     {
-        private static int m_CheckLoop = 0;
-        public static void GetClassName(this Type type, out string clsName, out string realClsName, out bool isByRef, bool simpleClassName = false, bool isOutCall = true)
+        public static void GetClassName(this Type type, out string clsName, out string realClsName, out bool isByRef, bool simpleClassName = false)
         {
-            if(isOutCall)
-            {
-                m_CheckLoop = 0;
-            }
-            else
-            {
-                m_CheckLoop++;
-                if(m_CheckLoop>10)
-                {
-                    UnityEngine.Debug.Log("Loop" + type.FullName);
-                    UnityEngine.Debug.DebugBreak();
-                }
-            }
             isByRef = type.IsByRef;
             int arrayRank = 1;
             bool isArray = type.IsArray;
@@ -78,7 +64,7 @@ namespace CSHotFix.Runtime
                         isNestedGeneric = true;
                     }
                 }
-                GetClassName(rt, out bClsName, out bRealClsName, out tmp, false, false);
+                GetClassName(rt, out bClsName, out bRealClsName, out tmp);
                 clsName = bClsName + "_";
                 realNamespace = bRealClsName + ".";
             }
@@ -108,7 +94,7 @@ namespace CSHotFix.Runtime
                     }
                     string a, b;
                     bool tmp;
-                    GetClassName(j, out a, out b, out tmp, true, false);
+                    GetClassName(j, out a, out b, out tmp, true);
                     clsName += a;
                     ga += b;
                 }

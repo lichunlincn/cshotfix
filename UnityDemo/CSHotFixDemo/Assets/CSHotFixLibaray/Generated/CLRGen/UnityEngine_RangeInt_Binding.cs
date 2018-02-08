@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -136,11 +135,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.RangeInt
-            {
-                start = ((UnityEngine.RangeInt) o).start,
-                length = ((UnityEngine.RangeInt) o).length,
-            };
+            var ins = new UnityEngine.RangeInt();
+            ins = (UnityEngine.RangeInt)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

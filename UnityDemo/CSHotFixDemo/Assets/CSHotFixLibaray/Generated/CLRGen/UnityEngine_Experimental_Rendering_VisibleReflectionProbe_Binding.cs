@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -212,16 +211,9 @@ UnityEngine.Experimental.Rendering.VisibleReflectionProbe _o = (UnityEngine.Expe
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Rendering.VisibleReflectionProbe
-            {
-                bounds = ((UnityEngine.Experimental.Rendering.VisibleReflectionProbe) o).bounds,
-                localToWorld = ((UnityEngine.Experimental.Rendering.VisibleReflectionProbe) o).localToWorld,
-                hdr = ((UnityEngine.Experimental.Rendering.VisibleReflectionProbe) o).hdr,
-                center = ((UnityEngine.Experimental.Rendering.VisibleReflectionProbe) o).center,
-                blendDistance = ((UnityEngine.Experimental.Rendering.VisibleReflectionProbe) o).blendDistance,
-                importance = ((UnityEngine.Experimental.Rendering.VisibleReflectionProbe) o).importance,
-                boxProjection = ((UnityEngine.Experimental.Rendering.VisibleReflectionProbe) o).boxProjection,
-            };
+            var ins = new UnityEngine.Experimental.Rendering.VisibleReflectionProbe();
+            ins = (UnityEngine.Experimental.Rendering.VisibleReflectionProbe)o;
+            return ins;
         }
 
 

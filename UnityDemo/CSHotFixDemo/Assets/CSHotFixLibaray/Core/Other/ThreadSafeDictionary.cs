@@ -9,7 +9,7 @@ using System.Threading;
 namespace CSHotFix.Other
 {
     /// <summary>
-    /// A thread safe dictionary for public use
+    /// A thread safe dictionary for internal use
     /// </summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="V"></typeparam>

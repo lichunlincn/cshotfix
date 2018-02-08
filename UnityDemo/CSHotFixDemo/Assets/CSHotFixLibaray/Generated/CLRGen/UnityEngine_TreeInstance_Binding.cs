@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.TreeInstance);
@@ -167,16 +165,9 @@ UnityEngine.TreeInstance _o = (UnityEngine.TreeInstance)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.TreeInstance
-            {
-                position = ((UnityEngine.TreeInstance) o).position,
-                widthScale = ((UnityEngine.TreeInstance) o).widthScale,
-                heightScale = ((UnityEngine.TreeInstance) o).heightScale,
-                rotation = ((UnityEngine.TreeInstance) o).rotation,
-                color = ((UnityEngine.TreeInstance) o).color,
-                lightmapColor = ((UnityEngine.TreeInstance) o).lightmapColor,
-                prototypeIndex = ((UnityEngine.TreeInstance) o).prototypeIndex,
-            };
+            var ins = new UnityEngine.TreeInstance();
+            ins = (UnityEngine.TreeInstance)o;
+            return ins;
         }
 
 

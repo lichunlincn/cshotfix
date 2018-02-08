@@ -203,7 +203,7 @@ namespace CSHotFix.Reflection
 
         public override ParameterInfo[] GetIndexParameters()
         {
-            throw new NotImplementedException();
+            return new ParameterInfo[0];
         }
 
         public override MethodInfo GetSetMethod(bool nonPublic)

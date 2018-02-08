@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Globalization;
 
 using CSHotFix.CLR.Method;
+using CSHotFix.CLR.Utils;
 
 namespace CSHotFix.Reflection
 {
@@ -52,7 +53,7 @@ namespace CSHotFix.Reflection
             }
         }
 
-        public ILMethod ILMethod { get { return method; } }
+        internal ILMethod ILMethod { get { return method; } }
         public override MethodAttributes Attributes
         {
             get
@@ -142,7 +143,7 @@ namespace CSHotFix.Reflection
             if (method.HasThis)
             {
                 var res = appdomain.Invoke(method, obj, parameters);
-                return res;
+                return ReturnType.CheckCLRTypes(res);
             }
             else
                 return appdomain.Invoke(method, null, parameters);
@@ -158,6 +159,14 @@ namespace CSHotFix.Reflection
                     return true;
             }
             return false;
+        }
+
+        public override Type ReturnType
+        {
+            get
+            {
+                return method.ReturnType.ReflectionType;
+            }
         }
     }
 }

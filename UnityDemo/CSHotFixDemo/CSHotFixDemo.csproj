@@ -282,6 +282,7 @@
     <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\CLRRedirections.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\CrossBindingAdaptor.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\DelegateManager.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\InvocationContext.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\ValueTypeBinder.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Extensions.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Intepreter\DelegateAdapter.cs" />
@@ -316,6 +317,7 @@
     <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen\JetBrains_Annotations_StringFormatMethodAttribute_Binding.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen\JetBrains_Annotations_UsedImplicitlyAttribute_Binding.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen\LCL_DataClass_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen\LCL_HotFixDllLoader_Binding.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen\LCL_MainTest2_Binding.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen\LCL_MainTest_Binding.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen\LCL_TestDelegateData_Binding.cs" />

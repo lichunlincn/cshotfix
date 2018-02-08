@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -181,10 +180,9 @@ UnityEngine.HumanBone _o = (UnityEngine.HumanBone)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.HumanBone
-            {
-                limit = ((UnityEngine.HumanBone) o).limit,
-            };
+            var ins = new UnityEngine.HumanBone();
+            ins = (UnityEngine.HumanBone)o;
+            return ins;
         }
 
 

@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -18,10 +17,6 @@ namespace CSHotFix.Runtime.Generated
     {
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
-            BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
-            FieldInfo field;
-            Type[] args;
             Type type = typeof(UnityEngine.ExposedPropertyResolver);
 
 
@@ -83,9 +78,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.ExposedPropertyResolver
-            {
-            };
+            var ins = new UnityEngine.ExposedPropertyResolver();
+            ins = (UnityEngine.ExposedPropertyResolver)o;
+            return ins;
         }
 
 

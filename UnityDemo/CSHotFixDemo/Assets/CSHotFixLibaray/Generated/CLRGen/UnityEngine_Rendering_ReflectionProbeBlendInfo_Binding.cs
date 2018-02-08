@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.Rendering.ReflectionProbeBlendInfo);
@@ -107,11 +105,9 @@ UnityEngine.Rendering.ReflectionProbeBlendInfo _o = (UnityEngine.Rendering.Refle
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Rendering.ReflectionProbeBlendInfo
-            {
-                probe = ((UnityEngine.Rendering.ReflectionProbeBlendInfo) o).probe,
-                weight = ((UnityEngine.Rendering.ReflectionProbeBlendInfo) o).weight,
-            };
+            var ins = new UnityEngine.Rendering.ReflectionProbeBlendInfo();
+            ins = (UnityEngine.Rendering.ReflectionProbeBlendInfo)o;
+            return ins;
         }
 
 

@@ -941,7 +941,7 @@ namespace CSHotFix.Other
             private int version;
             private T current;
 
-            public Enumerator(UncheckedList<T> list)
+            internal Enumerator(UncheckedList<T> list)
             {
                 this.list = list;
                 index = 0;

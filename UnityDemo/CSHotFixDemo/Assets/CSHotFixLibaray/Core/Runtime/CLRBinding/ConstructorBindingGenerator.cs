@@ -9,7 +9,7 @@ namespace CSHotFix.Runtime.CLRBinding
 {
     static class ConstructorBindingGenerator
     {
-        public static string GenerateConstructorRegisterCode(this Type type, ConstructorInfo[] methods, HashSet<MethodBase> excludes)
+        internal static string GenerateConstructorRegisterCode(this Type type, ConstructorInfo[] methods, HashSet<MethodBase> excludes)
         {
             StringBuilder sb = new StringBuilder();
             int idx = 0;
@@ -48,11 +48,12 @@ namespace CSHotFix.Runtime.CLRBinding
             return sb.ToString();
         }
 
-        public static string GenerateConstructorWraperCode(this Type type, ConstructorInfo[] methods, string typeClsName, HashSet<MethodBase> excludes)
+        internal static string GenerateConstructorWraperCode(this Type type, ConstructorInfo[] methods, string typeClsName, HashSet<MethodBase> excludes)
         {
             StringBuilder sb = new StringBuilder();
 
             int idx = 0;
+            bool isMultiArr = type.IsArray && type.GetArrayRank() > 1;
             foreach (var i in methods)
             {
                 if (excludes != null && excludes.Contains(i))
@@ -64,7 +65,8 @@ namespace CSHotFix.Runtime.CLRBinding
                 sb.AppendLine(string.Format("        static StackObject* Ctor_{0}(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)", idx));
                 sb.AppendLine("        {");
                 sb.AppendLine("            CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;");
-                sb.AppendLine("            StackObject* ptr_of_this_method;");
+                if (param.Length != 0)
+                    sb.AppendLine("            StackObject* ptr_of_this_method;");
                 sb.AppendLine(string.Format("            StackObject* __ret = ILIntepreter.Minus(__esp, {0});", paramCnt));
                 for (int j = param.Length; j > 0; j--)
                 {
@@ -75,7 +77,12 @@ namespace CSHotFix.Runtime.CLRBinding
                     p.ParameterType.GetClassName(out tmp, out clsName, out isByRef);
                     if (isByRef)
                         sb.AppendLine("            ptr_of_this_method = ILIntepreter.GetObjectAndResolveReference(ptr_of_this_method);");
-                    sb.AppendLine(string.Format("            {0} {1} = {2};", clsName, p.Name, p.ParameterType.GetRetrieveValueCode(clsName)));
+                    if (isMultiArr)
+                    {
+                        sb.AppendLine(string.Format("            {0} a{1} = {2};", clsName, j, p.ParameterType.GetRetrieveValueCode(clsName)));
+                    }
+                    else
+                        sb.AppendLine(string.Format("            {0} {1} = {2};", clsName, p.Name, p.ParameterType.GetRetrieveValueCode(clsName)));
                     if (!isByRef && !p.ParameterType.IsPrimitive)
                         sb.AppendLine("            __intp.Free(ptr_of_this_method);");
                 }
@@ -84,11 +91,20 @@ namespace CSHotFix.Runtime.CLRBinding
                 {
                     string tmp, clsName;
                     bool isByRef;
-                    type.GetClassName(out tmp, out clsName, out isByRef);
-                    sb.Append(string.Format("new {0}(", clsName));
-                    param.AppendParameters(sb);
-                    sb.AppendLine(");");
-
+                    if (isMultiArr)
+                    {
+                        type.GetElementType().GetClassName(out tmp, out clsName, out isByRef);
+                        sb.Append(string.Format("new {0}[", clsName));
+                        param.AppendParameters(sb, isMultiArr);
+                        sb.AppendLine("];");
+                    }
+                    else
+                    {
+                        type.GetClassName(out tmp, out clsName, out isByRef);
+                        sb.Append(string.Format("new {0}(", clsName));
+                        param.AppendParameters(sb, isMultiArr);
+                        sb.AppendLine(");");
+                    }
                 }
                 sb.AppendLine();
                 if (type.IsValueType)

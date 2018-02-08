@@ -11,7 +11,7 @@ namespace CSHotFix.Runtime.Intepreter
     {
         string stackTrace;
         string thisInfo, localInfo;
-        public CSHotFixException(string message, ILIntepreter intepreter, CLR.Method.ILMethod method, Exception innerException = null)
+        internal CSHotFixException(string message, ILIntepreter intepreter, CLR.Method.ILMethod method, Exception innerException = null)
             : base(message, innerException)
         
         {

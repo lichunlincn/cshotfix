@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -133,11 +132,9 @@ UnityEngine.Experimental.Rendering.DrawShadowsSettings _o = (UnityEngine.Experim
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Rendering.DrawShadowsSettings
-            {
-                lightIndex = ((UnityEngine.Experimental.Rendering.DrawShadowsSettings) o).lightIndex,
-                splitData = ((UnityEngine.Experimental.Rendering.DrawShadowsSettings) o).splitData,
-            };
+            var ins = new UnityEngine.Experimental.Rendering.DrawShadowsSettings();
+            ins = (UnityEngine.Experimental.Rendering.DrawShadowsSettings)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

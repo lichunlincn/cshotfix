@@ -10,7 +10,7 @@ using CSHotFix.Runtime.Intepreter;
 
 namespace CSHotFix.Runtime.Enviorment
 {
-    public partial class DelegateManager
+    public class DelegateManager
     {
         List<DelegateMapNode> methods = new List<DelegateMapNode>();
         List<DelegateMapNode> functions = new List<DelegateMapNode>();
@@ -122,7 +122,7 @@ namespace CSHotFix.Runtime.Enviorment
             RegisterDelegateConvertor<Func<T1, T2, T3, T4, TResult>>(defaultConverter);
         }
 
-        public Delegate ConvertToDelegate(Type clrDelegateType, IDelegateAdapter adapter)
+        internal Delegate ConvertToDelegate(Type clrDelegateType, IDelegateAdapter adapter)
         {
             Func<Delegate, Delegate> func;
             if(adapter is DummyDelegateAdapter)
@@ -218,7 +218,7 @@ namespace CSHotFix.Runtime.Enviorment
             }
         }
 
-        public IDelegateAdapter FindDelegateAdapter(ILTypeInstance instance, ILMethod method)
+        internal IDelegateAdapter FindDelegateAdapter(ILTypeInstance instance, ILMethod method)
         {
             IDelegateAdapter res;
             if (method.ReturnType == appdomain.VoidType)

@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -215,18 +214,9 @@ UnityEngine.RenderTargetSetup _o = (UnityEngine.RenderTargetSetup)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.RenderTargetSetup
-            {
-                color = ((UnityEngine.RenderTargetSetup) o).color,
-                depth = ((UnityEngine.RenderTargetSetup) o).depth,
-                mipLevel = ((UnityEngine.RenderTargetSetup) o).mipLevel,
-                cubemapFace = ((UnityEngine.RenderTargetSetup) o).cubemapFace,
-                depthSlice = ((UnityEngine.RenderTargetSetup) o).depthSlice,
-                colorLoad = ((UnityEngine.RenderTargetSetup) o).colorLoad,
-                colorStore = ((UnityEngine.RenderTargetSetup) o).colorStore,
-                depthLoad = ((UnityEngine.RenderTargetSetup) o).depthLoad,
-                depthStore = ((UnityEngine.RenderTargetSetup) o).depthStore,
-            };
+            var ins = new UnityEngine.RenderTargetSetup();
+            ins = (UnityEngine.RenderTargetSetup)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

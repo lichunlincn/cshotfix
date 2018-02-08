@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(System.Array);
             args = new Type[]{};
@@ -350,9 +348,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* SetValue_7(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
@@ -408,9 +406,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* get_IsFixedSize_10(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
@@ -503,9 +501,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* GetValue_15(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
@@ -527,9 +525,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* GetValue_16(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
@@ -553,9 +551,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* GetValue_17(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
@@ -575,9 +573,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* GetValue_18(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
@@ -599,9 +597,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* GetValue_19(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
@@ -625,9 +623,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* SetValue_20(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
@@ -918,9 +916,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* SetValue_33(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
@@ -1067,9 +1065,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* Copy_40(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

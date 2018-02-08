@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.JointSpring);
@@ -125,12 +123,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.JointSpring
-            {
-                spring = ((UnityEngine.JointSpring) o).spring,
-                damper = ((UnityEngine.JointSpring) o).damper,
-                targetPosition = ((UnityEngine.JointSpring) o).targetPosition,
-            };
+            var ins = new UnityEngine.JointSpring();
+            ins = (UnityEngine.JointSpring)o;
+            return ins;
         }
 
 

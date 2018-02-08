@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.Experimental.Director.PlayableGraph);
             args = new Type[]{};
@@ -173,7 +171,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* CreateGraph_1(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Experimental.Director.PlayableGraph.CreateGraph();
@@ -621,9 +618,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Director.PlayableGraph
-            {
-            };
+            var ins = new UnityEngine.Experimental.Director.PlayableGraph();
+            ins = (UnityEngine.Experimental.Director.PlayableGraph)o;
+            return ins;
         }
 
 

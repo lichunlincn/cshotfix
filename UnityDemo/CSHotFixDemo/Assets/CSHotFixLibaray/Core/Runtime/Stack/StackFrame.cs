@@ -7,11 +7,11 @@ using CSHotFix.CLR.Method;
 
 namespace CSHotFix.Runtime.Stack
 {
-    public class IntegerReference
+    class IntegerReference
     {
         public int Value { get; set; }
     }
-    public unsafe struct StackFrame
+    unsafe struct StackFrame
     {
         public ILMethod Method;
         public StackObject* LocalVarPointer;

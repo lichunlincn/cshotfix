@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.SkeletonBone);
@@ -131,13 +129,9 @@ UnityEngine.SkeletonBone _o = (UnityEngine.SkeletonBone)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.SkeletonBone
-            {
-                name = ((UnityEngine.SkeletonBone) o).name,
-                position = ((UnityEngine.SkeletonBone) o).position,
-                rotation = ((UnityEngine.SkeletonBone) o).rotation,
-                scale = ((UnityEngine.SkeletonBone) o).scale,
-            };
+            var ins = new UnityEngine.SkeletonBone();
+            ins = (UnityEngine.SkeletonBone)o;
+            return ins;
         }
 
 

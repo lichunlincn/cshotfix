@@ -9,7 +9,7 @@ namespace CSHotFix.Runtime.CLRBinding
 {
     static class FieldBindingGenerator
     {
-        public static string GenerateFieldRegisterCode(this Type type, FieldInfo[] fields, HashSet<FieldInfo> excludes)
+        internal static string GenerateFieldRegisterCode(this Type type, FieldInfo[] fields, HashSet<FieldInfo> excludes)
         {
             StringBuilder sb = new StringBuilder();
             int idx = 0;
@@ -34,7 +34,7 @@ namespace CSHotFix.Runtime.CLRBinding
             return sb.ToString();
         }
 
-        public static string GenerateFieldWraperCode(this Type type, FieldInfo[] fields, string typeClsName, HashSet<FieldInfo> excludes)
+        internal static string GenerateFieldWraperCode(this Type type, FieldInfo[] fields, string typeClsName, HashSet<FieldInfo> excludes)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -90,7 +90,7 @@ namespace CSHotFix.Runtime.CLRBinding
             return sb.ToString();
         }
 
-        public static bool CheckCanPinn(this Type type)
+        internal static bool CheckCanPinn(this Type type)
         {
             if (type.IsValueType)
             {

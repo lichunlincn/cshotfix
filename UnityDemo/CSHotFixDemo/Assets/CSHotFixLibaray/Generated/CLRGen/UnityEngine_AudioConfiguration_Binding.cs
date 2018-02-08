@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.AudioConfiguration);
@@ -143,14 +141,9 @@ UnityEngine.AudioConfiguration _o = (UnityEngine.AudioConfiguration)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.AudioConfiguration
-            {
-                speakerMode = ((UnityEngine.AudioConfiguration) o).speakerMode,
-                dspBufferSize = ((UnityEngine.AudioConfiguration) o).dspBufferSize,
-                sampleRate = ((UnityEngine.AudioConfiguration) o).sampleRate,
-                numRealVoices = ((UnityEngine.AudioConfiguration) o).numRealVoices,
-                numVirtualVoices = ((UnityEngine.AudioConfiguration) o).numVirtualVoices,
-            };
+            var ins = new UnityEngine.AudioConfiguration();
+            ins = (UnityEngine.AudioConfiguration)o;
+            return ins;
         }
 
 

@@ -209,7 +209,7 @@ namespace CSHotFix.Runtime.Intepreter
                         {
                             if (value.GetType().IsPrimitive)
                             {
-                                ILIntepreter.UnboxObject(esp, value);
+                                ILIntepreter.UnboxObject(esp, value, managedObjs, type.AppDomain);
                             }
                             else
                             {
@@ -246,7 +246,7 @@ namespace CSHotFix.Runtime.Intepreter
                 InitializeFields((ILType)type.BaseType);
         }
 
-        public unsafe void PushFieldAddress(int fieldIdx, StackObject* esp, IList<object> managedStack)
+        internal unsafe void PushFieldAddress(int fieldIdx, StackObject* esp, IList<object> managedStack)
         {
             esp->ObjectType = ObjectTypes.FieldReference;
             esp->Value = managedStack.Count;
@@ -254,7 +254,7 @@ namespace CSHotFix.Runtime.Intepreter
             esp->ValueLow = fieldIdx;
         }
 
-        public unsafe void PushToStack(int fieldIdx, StackObject* esp, Enviorment.AppDomain appdomain, IList<object> managedStack)
+        internal unsafe void PushToStack(int fieldIdx, StackObject* esp, Enviorment.AppDomain appdomain, IList<object> managedStack)
         {
             if (fieldIdx < fields.Length && fieldIdx >= 0)
                 PushToStackSub(ref fields[fieldIdx], fieldIdx, esp, managedStack);
@@ -280,7 +280,7 @@ namespace CSHotFix.Runtime.Intepreter
             }
         }
 
-        public unsafe void CopyValueTypeToStack(StackObject* ptr, IList<object> mStack)
+        internal unsafe void CopyValueTypeToStack(StackObject* ptr, IList<object> mStack)
         {
             ptr->ObjectType = ObjectTypes.ValueTypeDescriptor;
             ptr->Value = type.GetHashCode();
@@ -293,7 +293,7 @@ namespace CSHotFix.Runtime.Intepreter
                     case ObjectTypes.Object:
                     case ObjectTypes.FieldReference:
                     case ObjectTypes.ArrayReference:
-                        mStack[val->Value] = managedObjs[i];
+                        mStack[val->Value] = ILIntepreter.CheckAndCloneValueType(managedObjs[i], type.AppDomain);
                         val->ValueLow = fields[i].ValueLow;
                         break;
                     case ObjectTypes.ValueTypeObjectReference:
@@ -318,12 +318,12 @@ namespace CSHotFix.Runtime.Intepreter
             }
         }
 
-        public void Clear()
+        internal void Clear()
         {   
             InitializeFields(type);
         }
 
-        public unsafe void AssignFromStack(int fieldIdx, StackObject* esp, Enviorment.AppDomain appdomain, IList<object> managedStack)
+        internal unsafe void AssignFromStack(int fieldIdx, StackObject* esp, Enviorment.AppDomain appdomain, IList<object> managedStack)
         {
             if (fieldIdx < fields.Length && fieldIdx >= 0)
                 AssignFromStackSub(ref fields[fieldIdx], fieldIdx, esp, managedStack);
@@ -340,7 +340,7 @@ namespace CSHotFix.Runtime.Intepreter
             }
         }
 
-        public unsafe void AssignFromStack(StackObject* esp, Enviorment.AppDomain appdomain, IList<object> managedStack)
+        internal unsafe void AssignFromStack(StackObject* esp, Enviorment.AppDomain appdomain, IList<object> managedStack)
         {
             StackObject* val = *(StackObject**)&esp->Value;
             int cnt = val->ValueLow;
@@ -421,20 +421,12 @@ namespace CSHotFix.Runtime.Intepreter
             for (int i = 0; i < fields.Length; i++)
             {
                 ins.fields[i] = fields[i];
-                ins.managedObjs[i] = managedObjs[i];
-            }
-            if (type.FirstCLRBaseType is Enviorment.CrossBindingAdaptor)
-            {
-                ins.clrInstance = ((Enviorment.CrossBindingAdaptor)type.FirstCLRBaseType).CreateCLRInstance(type.AppDomain, ins);
-            }
-            else
-            {
-                ins.clrInstance = ins;
+                ins.managedObjs[i] = ILIntepreter.CheckAndCloneValueType(managedObjs[i],Type.AppDomain);
             }
             return ins;
         }
 
-        public IDelegateAdapter GetDelegateAdapter(ILMethod method)
+        internal IDelegateAdapter GetDelegateAdapter(ILMethod method)
         {
             if (delegates == null)
                 delegates = new Dictionary<ILMethod, IDelegateAdapter>();
@@ -445,7 +437,7 @@ namespace CSHotFix.Runtime.Intepreter
             return null;
         }
 
-        public void SetDelegateAdapter(ILMethod method, IDelegateAdapter adapter)
+        internal void SetDelegateAdapter(ILMethod method, IDelegateAdapter adapter)
         {
             if (!delegates.ContainsKey(method))
                 delegates[method] = adapter;

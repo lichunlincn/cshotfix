@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.DrivenRectTransformTracker);
             args = new Type[]{typeof(UnityEngine.Object), typeof(UnityEngine.RectTransform), typeof(UnityEngine.DrivenTransformProperties)};
@@ -132,9 +130,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.DrivenRectTransformTracker
-            {
-            };
+            var ins = new UnityEngine.DrivenRectTransformTracker();
+            ins = (UnityEngine.DrivenRectTransformTracker)o;
+            return ins;
         }
 
 

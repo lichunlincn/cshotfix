@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -187,16 +186,9 @@ UnityEngine.Experimental.Rendering.VisibleLight _o = (UnityEngine.Experimental.R
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Rendering.VisibleLight
-            {
-                lightType = ((UnityEngine.Experimental.Rendering.VisibleLight) o).lightType,
-                finalColor = ((UnityEngine.Experimental.Rendering.VisibleLight) o).finalColor,
-                screenRect = ((UnityEngine.Experimental.Rendering.VisibleLight) o).screenRect,
-                localToWorld = ((UnityEngine.Experimental.Rendering.VisibleLight) o).localToWorld,
-                range = ((UnityEngine.Experimental.Rendering.VisibleLight) o).range,
-                spotAngle = ((UnityEngine.Experimental.Rendering.VisibleLight) o).spotAngle,
-                flags = ((UnityEngine.Experimental.Rendering.VisibleLight) o).flags,
-            };
+            var ins = new UnityEngine.Experimental.Rendering.VisibleLight();
+            ins = (UnityEngine.Experimental.Rendering.VisibleLight)o;
+            return ins;
         }
 
 

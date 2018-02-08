@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -114,7 +113,7 @@ namespace CSHotFix.Runtime.Generated
                         var instance_of_fieldReference = __mStack[ptr_of_this_method->Value];
                         if(instance_of_fieldReference is ILTypeInstance)
                         {
-                            instance_of_this_method = (System.Single)((ILTypeInstance)instance_of_fieldReference)[ptr_of_this_method->ValueLow];
+                            instance_of_this_method = (System.Single)typeof(System.Single).CheckCLRTypes(((ILTypeInstance)instance_of_fieldReference)[ptr_of_this_method->ValueLow]);
                         }
                         else
                         {
@@ -128,7 +127,7 @@ namespace CSHotFix.Runtime.Generated
                         var t = __domain.GetType(ptr_of_this_method->Value);
                         if(t is ILType)
                         {
-                            instance_of_this_method = (System.Single)((ILType)t).StaticInstance[ptr_of_this_method->ValueLow];
+                            instance_of_this_method = (System.Single)typeof(System.Single).CheckCLRTypes(((ILType)t).StaticInstance[ptr_of_this_method->ValueLow]);
                         }
                         else
                         {
@@ -409,21 +408,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, result);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, result);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = result;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = result;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, result);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, result);
                         }
                     }
                     break;
@@ -473,21 +472,21 @@ namespace CSHotFix.Runtime.Generated
                         }
                         else
                         {
-                            var t = __domain.GetType(___obj.GetType()) as CLRType;
-                            t.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, result);
+                            var ___type = __domain.GetType(___obj.GetType()) as CLRType;
+                            ___type.SetFieldValue(ptr_of_this_method->ValueLow, ref ___obj, result);
                         }
                     }
                     break;
                 case ObjectTypes.StaticFieldReference:
                     {
-                        var t = __domain.GetType(ptr_of_this_method->Value);
-                        if(t is ILType)
+                        var ___type = __domain.GetType(ptr_of_this_method->Value);
+                        if(___type is ILType)
                         {
-                            ((ILType)t).StaticInstance[ptr_of_this_method->ValueLow] = result;
+                            ((ILType)___type).StaticInstance[ptr_of_this_method->ValueLow] = result;
                         }
                         else
                         {
-                            ((CLRType)t).SetStaticFieldValue(ptr_of_this_method->ValueLow, result);
+                            ((CLRType)___type).SetStaticFieldValue(ptr_of_this_method->ValueLow, result);
                         }
                     }
                     break;

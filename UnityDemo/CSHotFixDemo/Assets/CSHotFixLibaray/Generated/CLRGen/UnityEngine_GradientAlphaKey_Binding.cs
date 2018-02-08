@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -114,11 +113,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.GradientAlphaKey
-            {
-                alpha = ((UnityEngine.GradientAlphaKey) o).alpha,
-                time = ((UnityEngine.GradientAlphaKey) o).time,
-            };
+            var ins = new UnityEngine.GradientAlphaKey();
+            ins = (UnityEngine.GradientAlphaKey)o;
+            return ins;
         }
 
         static StackObject* Ctor_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

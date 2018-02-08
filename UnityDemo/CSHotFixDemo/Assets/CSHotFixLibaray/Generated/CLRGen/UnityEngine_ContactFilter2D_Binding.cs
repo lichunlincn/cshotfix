@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -518,20 +517,9 @@ UnityEngine.ContactFilter2D _o = (UnityEngine.ContactFilter2D)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.ContactFilter2D
-            {
-                useTriggers = ((UnityEngine.ContactFilter2D) o).useTriggers,
-                useLayerMask = ((UnityEngine.ContactFilter2D) o).useLayerMask,
-                useDepth = ((UnityEngine.ContactFilter2D) o).useDepth,
-                useOutsideDepth = ((UnityEngine.ContactFilter2D) o).useOutsideDepth,
-                useNormalAngle = ((UnityEngine.ContactFilter2D) o).useNormalAngle,
-                useOutsideNormalAngle = ((UnityEngine.ContactFilter2D) o).useOutsideNormalAngle,
-                layerMask = ((UnityEngine.ContactFilter2D) o).layerMask,
-                minDepth = ((UnityEngine.ContactFilter2D) o).minDepth,
-                maxDepth = ((UnityEngine.ContactFilter2D) o).maxDepth,
-                minNormalAngle = ((UnityEngine.ContactFilter2D) o).minNormalAngle,
-                maxNormalAngle = ((UnityEngine.ContactFilter2D) o).maxNormalAngle,
-            };
+            var ins = new UnityEngine.ContactFilter2D();
+            ins = (UnityEngine.ContactFilter2D)o;
+            return ins;
         }
 
 

@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -459,11 +458,9 @@ UnityEngine.HumanDescription _o = (UnityEngine.HumanDescription)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.HumanDescription
-            {
-                human = ((UnityEngine.HumanDescription) o).human,
-                skeleton = ((UnityEngine.HumanDescription) o).skeleton,
-            };
+            var ins = new UnityEngine.HumanDescription();
+            ins = (UnityEngine.HumanDescription)o;
+            return ins;
         }
 
 

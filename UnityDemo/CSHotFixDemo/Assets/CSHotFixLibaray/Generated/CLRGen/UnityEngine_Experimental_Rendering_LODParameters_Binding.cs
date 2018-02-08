@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.Experimental.Rendering.LODParameters);
@@ -143,14 +141,9 @@ UnityEngine.Experimental.Rendering.LODParameters _o = (UnityEngine.Experimental.
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Rendering.LODParameters
-            {
-                isOrthographic = ((UnityEngine.Experimental.Rendering.LODParameters) o).isOrthographic,
-                cameraPosition = ((UnityEngine.Experimental.Rendering.LODParameters) o).cameraPosition,
-                fieldOfView = ((UnityEngine.Experimental.Rendering.LODParameters) o).fieldOfView,
-                orthoSize = ((UnityEngine.Experimental.Rendering.LODParameters) o).orthoSize,
-                cameraPixelHeight = ((UnityEngine.Experimental.Rendering.LODParameters) o).cameraPixelHeight,
-            };
+            var ins = new UnityEngine.Experimental.Rendering.LODParameters();
+            ins = (UnityEngine.Experimental.Rendering.LODParameters)o;
+            return ins;
         }
 
 

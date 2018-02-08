@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -324,27 +323,9 @@ UnityEngine.TextGenerationSettings _o = (UnityEngine.TextGenerationSettings)o;
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.TextGenerationSettings
-            {
-                font = ((UnityEngine.TextGenerationSettings) o).font,
-                color = ((UnityEngine.TextGenerationSettings) o).color,
-                fontSize = ((UnityEngine.TextGenerationSettings) o).fontSize,
-                lineSpacing = ((UnityEngine.TextGenerationSettings) o).lineSpacing,
-                richText = ((UnityEngine.TextGenerationSettings) o).richText,
-                scaleFactor = ((UnityEngine.TextGenerationSettings) o).scaleFactor,
-                fontStyle = ((UnityEngine.TextGenerationSettings) o).fontStyle,
-                textAnchor = ((UnityEngine.TextGenerationSettings) o).textAnchor,
-                alignByGeometry = ((UnityEngine.TextGenerationSettings) o).alignByGeometry,
-                resizeTextForBestFit = ((UnityEngine.TextGenerationSettings) o).resizeTextForBestFit,
-                resizeTextMinSize = ((UnityEngine.TextGenerationSettings) o).resizeTextMinSize,
-                resizeTextMaxSize = ((UnityEngine.TextGenerationSettings) o).resizeTextMaxSize,
-                updateBounds = ((UnityEngine.TextGenerationSettings) o).updateBounds,
-                verticalOverflow = ((UnityEngine.TextGenerationSettings) o).verticalOverflow,
-                horizontalOverflow = ((UnityEngine.TextGenerationSettings) o).horizontalOverflow,
-                generationExtents = ((UnityEngine.TextGenerationSettings) o).generationExtents,
-                pivot = ((UnityEngine.TextGenerationSettings) o).pivot,
-                generateOutOfBounds = ((UnityEngine.TextGenerationSettings) o).generateOutOfBounds,
-            };
+            var ins = new UnityEngine.TextGenerationSettings();
+            ins = (UnityEngine.TextGenerationSettings)o;
+            return ins;
         }
 
 

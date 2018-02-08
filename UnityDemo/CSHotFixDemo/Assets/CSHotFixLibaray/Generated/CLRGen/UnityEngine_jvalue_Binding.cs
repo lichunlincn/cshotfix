@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -19,7 +18,6 @@ namespace CSHotFix.Runtime.Generated
         public static void Register(CSHotFix.Runtime.Enviorment.AppDomain app)
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
-            MethodBase method;
             FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.jvalue);
@@ -209,18 +207,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.jvalue
-            {
-                z = ((UnityEngine.jvalue) o).z,
-                b = ((UnityEngine.jvalue) o).b,
-                c = ((UnityEngine.jvalue) o).c,
-                s = ((UnityEngine.jvalue) o).s,
-                i = ((UnityEngine.jvalue) o).i,
-                j = ((UnityEngine.jvalue) o).j,
-                f = ((UnityEngine.jvalue) o).f,
-                d = ((UnityEngine.jvalue) o).d,
-                l = ((UnityEngine.jvalue) o).l,
-            };
+            var ins = new UnityEngine.jvalue();
+            ins = (UnityEngine.jvalue)o;
+            return ins;
         }
 
 

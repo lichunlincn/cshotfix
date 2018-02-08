@@ -9,7 +9,7 @@ namespace CSHotFix.Runtime.CLRBinding
 {
     static class CommonBindingGenerator
     {
-        public static string GenerateMiscRegisterCode(this Type type, string typeClsName, bool defaultCtor, bool newArr)
+        internal static string GenerateMiscRegisterCode(this Type type, string typeClsName, bool defaultCtor, bool newArr)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -28,13 +28,31 @@ namespace CSHotFix.Runtime.CLRBinding
             {
                 if (!type.IsAbstract || !type.IsSealed)
                 {
-                    sb.AppendLine(string.Format("            app.RegisterCLRCreateArrayInstance(type, s => new {0}[s]);", typeClsName));
+                    if (type.IsArray)
+                    {
+                        Type elementType = type;
+                        int arrCnt = 0;
+                        while (elementType.IsArray)
+                        {
+                            elementType = elementType.GetElementType();
+                            arrCnt++;
+                        }
+                        string elem, clsName;
+                        bool isByRef;
+                        elementType.GetClassName(out clsName, out elem, out isByRef);
+                        string trail = "";
+                        for (int i = 0; i < arrCnt; i++)
+                            trail += "[]";
+                        sb.AppendLine(string.Format("            app.RegisterCLRCreateArrayInstance(type, s => new {0}[s]{1});", elem, trail));
+                    }
+                    else
+                        sb.AppendLine(string.Format("            app.RegisterCLRCreateArrayInstance(type, s => new {0}[s]);", typeClsName));
                 }
             }
 
             return sb.ToString();
         }
-        public static string GenerateCommonCode(this Type type, string typeClsName)
+        internal static string GenerateCommonCode(this Type type, string typeClsName)
         {
             if (!type.IsValueType)
                 return "";
@@ -55,18 +73,11 @@ namespace CSHotFix.Runtime.CLRBinding
                         {
                             instance_of_this_method = (");
                 sb.Append(typeClsName);
-                sb.Append(")");
-                if(type == typeof(bool))
-                {
-                    sb.Append("((int)");
-                }
-                sb.Append("((ILTypeInstance)instance_of_fieldReference)[ptr_of_this_method->ValueLow]");
-                if (type == typeof(bool))
-                {
-                    sb.Append(" == 1);");
-                }
-                else
-                    sb.Append(";");
+                sb.Append(")typeof(");
+                sb.Append(typeClsName);
+                
+                sb.Append(").CheckCLRTypes(((ILTypeInstance)instance_of_fieldReference)[ptr_of_this_method->ValueLow])");
+                sb.Append(";");
                 sb.Append(@"
                         }
                         else
@@ -86,18 +97,10 @@ namespace CSHotFix.Runtime.CLRBinding
                         {
                             instance_of_this_method = (");
                 sb.Append(typeClsName);
-                sb.Append(")");
-                if (type == typeof(bool))
-                {
-                    sb.Append("((int)");
-                }
-                sb.Append("((ILType)t).StaticInstance[ptr_of_this_method->ValueLow]");
-                if (type == typeof(bool))
-                {
-                    sb.Append(" == 1);");
-                }
-                else
-                    sb.Append(";");
+                sb.Append(")typeof(");
+                sb.Append(typeClsName);
+                sb.Append(").CheckCLRTypes(((ILType)t).StaticInstance[ptr_of_this_method->ValueLow])");
+                sb.Append(";");
                 sb.Append(@"
                         }
                         else

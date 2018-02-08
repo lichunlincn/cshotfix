@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.AI.NavMeshBuilder);
             args = new Type[]{typeof(UnityEngine.Bounds), typeof(System.Int32), typeof(UnityEngine.AI.NavMeshCollectGeometry), typeof(System.Int32), typeof(System.Collections.Generic.List<UnityEngine.AI.NavMeshBuildMarkup>), typeof(System.Collections.Generic.List<UnityEngine.AI.NavMeshBuildSource>)};

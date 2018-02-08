@@ -772,7 +772,7 @@ namespace CSHotFix.Runtime.Enviorment
             intp.Free(param);
 
             param = ILIntepreter.Minus(esp, 3);
-            object instance = StackObject.ToObject(param, domain, mStack);
+            object instance = CheckCrossBindingAdapter(StackObject.ToObject(param, domain, mStack));
             intp.Free(param);
 
             if (instance is CSHotFixMethodInfo)
@@ -786,15 +786,40 @@ namespace CSHotFix.Runtime.Enviorment
                     object[] arr = (object[])p;
                     foreach (var i in arr)
                     {
-                        esp = ILIntepreter.PushObject(esp, mStack, i);
+                        esp = ILIntepreter.PushObject(esp, mStack, CheckCrossBindingAdapter(i));
                     }
                 }
                 bool unhandled;
                 var ilmethod = ((CSHotFixMethodInfo)instance).ILMethod;
-                return intp.Execute(ilmethod, esp, out unhandled);
+                ret = intp.Execute(ilmethod, esp, out unhandled);
+                CSHotFixMethodInfo imi = (CSHotFixMethodInfo)instance;
+                var rt = imi.ReturnType;
+                if (rt != domain.VoidType)
+                {
+                    var res = ret - 1;
+                    if (res->ObjectType < ObjectTypes.Object)
+                    {
+                        if (rt is CSHotFixWrapperType)
+                            rt = ((CSHotFixWrapperType)rt).CLRType.TypeForCLR;
+                        return ILIntepreter.PushObject(res, mStack, rt.CheckCLRTypes(StackObject.ToObject(res, domain, mStack)), true);
+                    }
+                    else
+                        return ret;
+                }
+                else
+                    return ret;                
             }
             else
                 return ILIntepreter.PushObject(ret, mStack, ((MethodInfo)instance).Invoke(obj, (object[])p));
+        }
+
+        static object CheckCrossBindingAdapter(object obj)
+        {
+            if(obj is CrossBindingAdaptorType)
+            {
+                return ((CrossBindingAdaptorType)obj).ILInstance;
+            }
+            return obj;
         }
 
         /*public unsafe static object MethodInfoInvoke(ILContext ctx, object instance, object[] param, IType[] genericArguments)
@@ -861,5 +886,50 @@ namespace CSHotFix.Runtime.Enviorment
             else
                 return type;
         }*/
+        public static StackObject* EnumParse(ILIntepreter intp, StackObject* esp, IList<object> mStack, CLRMethod method, bool isNewObj)
+        {
+            var ret = esp - 1 - 1;
+            AppDomain domain = intp.AppDomain;
+
+            var p = esp - 1;
+            string name = (string)StackObject.ToObject(p, domain, mStack); 
+            intp.Free(p);
+
+            p = esp - 1 - 1;
+            Type t = (Type)StackObject.ToObject(p, domain, mStack);
+            intp.Free(p);
+            if (t is CSHotFixType)
+            {
+                ILType it = ((CSHotFixType)t).ILType;
+                if (it.IsEnum)
+                {
+                    var fields = it.TypeDefinition.Fields;
+                    for (int i = 0; i < fields.Count; i++)
+                    {
+                        var f = fields[i];
+                        if (f.IsStatic)
+                        {
+                            if(f.Name == name)
+                            {
+                                ILEnumTypeInstance ins = new ILEnumTypeInstance(it);
+                                ins[0] = f.Constant;
+                                ins.Boxed = true;
+
+                                return ILIntepreter.PushObject(ret, mStack, ins, true);
+                            }
+                        }
+                    }
+                    return ILIntepreter.PushNull(ret);
+                }
+                else
+                    throw new Exception(string.Format("{0} is not Enum", t.FullName));
+            }
+            else if (t is CSHotFixWrapperType)
+            {
+                return ILIntepreter.PushObject(ret, mStack, Enum.Parse(((CSHotFixWrapperType)t).RealType, name), true);
+            }
+            else
+                return ILIntepreter.PushObject(ret, mStack, Enum.Parse(t, name), true);
+        }
     }
 }

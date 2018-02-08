@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -478,9 +477,9 @@ namespace CSHotFix.Runtime.Generated
             object obj_result_of_this_method = result_of_this_method;
             if(obj_result_of_this_method is CrossBindingAdaptorType)
             {    
-                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
+                return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance, true);
             }
-            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+            return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method, true);
         }
 
         static StackObject* GetTypeCode_5(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)

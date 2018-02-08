@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -100,7 +99,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* Default_0(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Experimental.Rendering.InputFilter.Default();
@@ -179,12 +177,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Rendering.InputFilter
-            {
-                renderQueueMin = ((UnityEngine.Experimental.Rendering.InputFilter) o).renderQueueMin,
-                renderQueueMax = ((UnityEngine.Experimental.Rendering.InputFilter) o).renderQueueMax,
-                layerMask = ((UnityEngine.Experimental.Rendering.InputFilter) o).layerMask,
-            };
+            var ins = new UnityEngine.Experimental.Rendering.InputFilter();
+            ins = (UnityEngine.Experimental.Rendering.InputFilter)o;
+            return ins;
         }
 
 

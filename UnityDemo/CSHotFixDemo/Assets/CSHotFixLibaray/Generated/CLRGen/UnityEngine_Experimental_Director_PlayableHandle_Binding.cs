@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.Experimental.Director.PlayableHandle);
             args = new Type[]{};
@@ -204,7 +202,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_Null_2(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Experimental.Director.PlayableHandle.Null;
@@ -676,9 +673,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Director.PlayableHandle
-            {
-            };
+            var ins = new UnityEngine.Experimental.Director.PlayableHandle();
+            ins = (UnityEngine.Experimental.Director.PlayableHandle)o;
+            return ins;
         }
 
 

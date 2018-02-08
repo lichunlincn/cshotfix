@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -20,7 +19,6 @@ namespace CSHotFix.Runtime.Generated
         {
             BindingFlags flag = BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly;
             MethodBase method;
-            FieldInfo field;
             Type[] args;
             Type type = typeof(UnityEngine.AI.OffMeshLinkData);
             args = new Type[]{};
@@ -207,9 +205,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.AI.OffMeshLinkData
-            {
-            };
+            var ins = new UnityEngine.AI.OffMeshLinkData();
+            ins = (UnityEngine.AI.OffMeshLinkData)o;
+            return ins;
         }
 
 

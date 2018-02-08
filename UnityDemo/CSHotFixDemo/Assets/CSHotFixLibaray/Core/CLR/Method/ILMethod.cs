@@ -34,11 +34,11 @@ namespace CSHotFix.CLR.Method
 
         public Dictionary<int, int[]> JumpTables { get { return jumptables; } }
 
-        public IDelegateAdapter DelegateAdapter { get; set; }
+        internal IDelegateAdapter DelegateAdapter { get; set; }
 
-        public int StartLine { get; set; }
+        internal int StartLine { get; set; }
 
-        public int EndLine { get; set; }
+        internal int EndLine { get; set; }
 
         public MethodInfo ReflectionMethodInfo
         {
@@ -64,7 +64,7 @@ namespace CSHotFix.CLR.Method
             }
         }
 
-        public ExceptionHandler[] ExceptionHandler
+        internal ExceptionHandler[] ExceptionHandler
         {
             get
             {
@@ -156,7 +156,7 @@ namespace CSHotFix.CLR.Method
             return null;
         }
 
-        public OpCode[] Body
+        internal OpCode[] Body
         {
             get
             {
@@ -520,6 +520,7 @@ namespace CSHotFix.CLR.Method
                 IType type = null;
                 bool isByRef = false;
                 bool isArray = false;
+                int rank = 1;
                 TypeReference pt = i.ParameterType;
                 if (i.ParameterType.IsByReference)
                 {
@@ -529,6 +530,7 @@ namespace CSHotFix.CLR.Method
                 if (i.ParameterType.IsArray)
                 {
                     isArray = true;
+                    rank = ((ArrayType)pt).Rank;
                     pt = pt.GetElementType();
                 }
                 if (pt.IsGenericParameter)
@@ -556,7 +558,7 @@ namespace CSHotFix.CLR.Method
                     if (isByRef)
                         type = type.MakeByRefType();
                     if (isArray)
-                        type = type.MakeArrayType();
+                        type = type.MakeArrayType(rank);
                 }
                 else
                     type = appdomain.GetType(i.ParameterType, declaringType, this);
@@ -584,28 +586,33 @@ namespace CSHotFix.CLR.Method
             return m;
         }
 
+        string cachedName;
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(declaringType.FullName);
-            sb.Append('.');
-            sb.Append(Name);
-            sb.Append('(');
-            bool isFirst = true;
-            if (parameters == null)
-                InitParameters();
-            for (int i = 0; i < parameters.Count; i++)
+            if (cachedName == null)
             {
-                if (isFirst)
-                    isFirst = false;
-                else
-                    sb.Append(", ");
-                sb.Append(parameters[i].Name);
-                sb.Append(' ');
-                sb.Append(def.Parameters[i].Name);
+                StringBuilder sb = new StringBuilder();
+                sb.Append(declaringType.FullName);
+                sb.Append('.');
+                sb.Append(Name);
+                sb.Append('(');
+                bool isFirst = true;
+                if (parameters == null)
+                    InitParameters();
+                for (int i = 0; i < parameters.Count; i++)
+                {
+                    if (isFirst)
+                        isFirst = false;
+                    else
+                        sb.Append(", ");
+                    sb.Append(parameters[i].Name);
+                    sb.Append(' ');
+                    sb.Append(def.Parameters[i].Name);
+                }
+                sb.Append(')');
+                cachedName = sb.ToString();
             }
-            sb.Append(')');
-            return sb.ToString();
+            return cachedName;
         }
 
         public override int GetHashCode()

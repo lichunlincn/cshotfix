@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -830,7 +829,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_zero_31(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Matrix4x4.zero;
@@ -841,7 +839,6 @@ namespace CSHotFix.Runtime.Generated
         static StackObject* get_identity_32(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
         {
             CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
-            StackObject* ptr_of_this_method;
             StackObject* __ret = ILIntepreter.Minus(__esp, 0);
 
             var result_of_this_method = UnityEngine.Matrix4x4.identity;
@@ -1066,25 +1063,9 @@ namespace CSHotFix.Runtime.Generated
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Matrix4x4
-            {
-                m00 = ((UnityEngine.Matrix4x4) o).m00,
-                m10 = ((UnityEngine.Matrix4x4) o).m10,
-                m20 = ((UnityEngine.Matrix4x4) o).m20,
-                m30 = ((UnityEngine.Matrix4x4) o).m30,
-                m01 = ((UnityEngine.Matrix4x4) o).m01,
-                m11 = ((UnityEngine.Matrix4x4) o).m11,
-                m21 = ((UnityEngine.Matrix4x4) o).m21,
-                m31 = ((UnityEngine.Matrix4x4) o).m31,
-                m02 = ((UnityEngine.Matrix4x4) o).m02,
-                m12 = ((UnityEngine.Matrix4x4) o).m12,
-                m22 = ((UnityEngine.Matrix4x4) o).m22,
-                m32 = ((UnityEngine.Matrix4x4) o).m32,
-                m03 = ((UnityEngine.Matrix4x4) o).m03,
-                m13 = ((UnityEngine.Matrix4x4) o).m13,
-                m23 = ((UnityEngine.Matrix4x4) o).m23,
-                m33 = ((UnityEngine.Matrix4x4) o).m33,
-            };
+            var ins = new UnityEngine.Matrix4x4();
+            ins = (UnityEngine.Matrix4x4)o;
+            return ins;
         }
 
 

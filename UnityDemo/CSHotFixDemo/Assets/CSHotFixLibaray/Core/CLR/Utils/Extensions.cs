@@ -25,7 +25,7 @@ namespace CSHotFix.CLR.Utils
                 {
                     IType t = null;
                     t = appdomain.GetType(i.ParameterType, dt, null);
-                    if (t == null && def.IsGenericInstance)
+                    if ((t == null && def.IsGenericInstance) || (t != null && t.HasGenericParameter))
                     {
                         GenericInstanceMethod gim = (GenericInstanceMethod)def;
                         string name = i.ParameterType.IsByReference ? i.ParameterType.GetElementType().FullName : i.ParameterType.FullName;
@@ -43,13 +43,16 @@ namespace CSHotFix.CLR.Utils
                             }
                             else if (name.Contains(gp.Name))
                             {
+                                t = appdomain.GetType(ga, contextType, contextMethod);
+                                if (t == null && genericArguments != null)
+                                    t = genericArguments[j];
                                 if (name == gp.Name)
                                 {
-                                    name = ga.FullName;
+                                    name = t.FullName;
                                 }
                                 else if (name == gp.Name + "[]")
                                 {
-                                    name = ga.FullName + "[]";
+                                    name = t.FullName + "[]";
                                 }
                                 else
                                 {
@@ -60,8 +63,9 @@ namespace CSHotFix.CLR.Utils
                                     name = name.Replace("," + gp.Name + "[", "," + ga.FullName + "[");
                                     name = name.Replace("," + gp.Name + ",", "," + ga.FullName + ",");
                                     name = name.Replace("," + gp.Name + "[", "," + ga.FullName + "[");*/
-                                    name = ReplaceGenericArgument(name, gp.Name, ga.FullName);
+                                    name = ReplaceGenericArgument(name, gp.Name, t.FullName);
                                 }
+                                t = null;
                             }
                         }
                         if (t == null)
@@ -239,8 +243,8 @@ namespace CSHotFix.CLR.Utils
                 if (!(obj is ILEnumTypeInstance))
                 {
                     var ins = (ILTypeInstance)obj;
-                    if (ins.IsValueType)
-                        ins = ins.Clone();
+                    /*if (ins.IsValueType)
+                        ins = ins.Clone();*/
                     return ins.CLRInstance;
                 }
             }

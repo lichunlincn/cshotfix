@@ -21,7 +21,7 @@ namespace CSHotFix.Runtime.Intepreter
         object _lockObj;
         bool allowUnboundCLRMethod;
 
-        public RuntimeStack Stack { get { return stack; } }
+        internal RuntimeStack Stack { get { return stack; } }
         public bool ShouldBreak { get; set; }
         public StackObject* LastStepFrameBase { get; set; }
         public int LastStepInstructionIndex { get; set; }
@@ -40,7 +40,9 @@ namespace CSHotFix.Runtime.Intepreter
             //Clear old debug state
             ClearDebugState();
             lock (_lockObj)
+            {
                 Monitor.Wait(_lockObj);
+            }
         }
 
         public void Resume()
@@ -81,7 +83,7 @@ namespace CSHotFix.Runtime.Intepreter
 #endif
             return result;
         }
-        public StackObject* Execute(ILMethod method, StackObject* esp, out bool unhandledException)
+        internal StackObject* Execute(ILMethod method, StackObject* esp, out bool unhandledException)
         {
             if (method == null)
                 throw new NullReferenceException();
@@ -749,6 +751,34 @@ namespace CSHotFix.Runtime.Intepreter
                                 }
                                 break;
                             case OpCodeEnum.Stind_I8:
+                                {
+                                    var dst = GetObjectAndResolveReference(esp - 1 - 1);
+                                    var val = esp - 1;
+                                    switch (dst->ObjectType)
+                                    {
+                                        case ObjectTypes.FieldReference:
+                                            {
+                                                StoreValueToFieldReference(mStack[dst->Value], dst->ValueLow, val, mStack);
+                                            }
+                                            break;
+                                        case ObjectTypes.ArrayReference:
+                                            {
+                                                StoreValueToArrayReference(dst, val, typeof(long), mStack);
+                                            }
+                                            break;
+                                        default:
+                                            {
+                                                dst->Value = val->Value;
+                                                dst->ValueLow = val->ValueLow;
+                                            }
+                                            break;
+                                    }
+
+                                    Free(esp - 1);
+                                    Free(esp - 1 - 1);
+                                    esp = esp - 1 - 1;
+                                }
+                                break;
                             case OpCodeEnum.Stind_R8:
                                 {
                                     var dst = GetObjectAndResolveReference(esp - 1 - 1);
@@ -758,6 +788,11 @@ namespace CSHotFix.Runtime.Intepreter
                                         case ObjectTypes.FieldReference:
                                             {
                                                 StoreValueToFieldReference(mStack[dst->Value], dst->ValueLow, val, mStack);
+                                            }
+                                            break;
+                                        case ObjectTypes.ArrayReference:
+                                            {
+                                                StoreValueToArrayReference(dst, val, typeof(double), mStack);
                                             }
                                             break;
                                         default:
@@ -782,6 +817,11 @@ namespace CSHotFix.Runtime.Intepreter
                                         case ObjectTypes.FieldReference:
                                             {
                                                 StoreValueToFieldReference(mStack[dst->Value], dst->ValueLow, val, mStack);
+                                            }
+                                            break;
+                                        case ObjectTypes.ArrayReference:
+                                            {
+                                                StoreValueToArrayReference(dst, val, typeof(object), mStack);
                                             }
                                             break;
                                         default:
@@ -1629,10 +1669,19 @@ namespace CSHotFix.Runtime.Intepreter
                                                     var objRef = GetObjectAndResolveReference(Minus(esp, ilm.ParameterCount + 1));
                                                     if (objRef->ObjectType == ObjectTypes.Null)
                                                         throw new NullReferenceException();
-                                                    var obj = mStack[objRef->Value];
-                                                    if (obj == null)
-                                                        throw new NullReferenceException();
-                                                    ilm = ((ILTypeInstance)obj).Type.GetVirtualMethod(ilm) as ILMethod;
+                                                    if (objRef->ObjectType == ObjectTypes.ValueTypeObjectReference)
+                                                    {
+                                                        StackObject* dst = *(StackObject**)&objRef->Value;
+                                                        var ft = domain.GetType(dst->Value) as ILType;
+                                                        ilm = ft.GetVirtualMethod(ilm) as ILMethod;
+                                                    }
+                                                    else
+                                                    {
+                                                        var obj = mStack[objRef->Value];
+                                                        if (obj == null)
+                                                            throw new NullReferenceException();
+                                                        ilm = ((ILTypeInstance)obj).Type.GetVirtualMethod(ilm) as ILMethod;
+                                                    }                                                    
                                                 }
                                                 esp = Execute(ilm, esp, out unhandledException);
                                                 ValueTypeBasePointer = bp;
@@ -2404,7 +2453,9 @@ namespace CSHotFix.Runtime.Intepreter
                                             }
                                             else
                                             {
-                                                //Nothing to do for normal IL Types
+                                                object res = RetriveObject(obj, mStack);
+                                                Free(objRef);
+                                                esp = PushObject(objRef, mStack, res, true);
                                             }
                                         }
                                         else
@@ -2420,7 +2471,9 @@ namespace CSHotFix.Runtime.Intepreter
                                             }
                                             else
                                             {
-                                                //Nothing to do for other CLR types
+                                                object res = RetriveObject(obj, mStack);
+                                                Free(objRef);
+                                                esp = PushObject(objRef, mStack, res, true);
                                             }
                                         }
                                     }
@@ -2461,18 +2514,25 @@ namespace CSHotFix.Runtime.Intepreter
                                                         {
                                                             var val = mStack[obj->Value];
                                                             Free(obj);
-                                                            ILTypeInstance ins = (ILTypeInstance)val;
-                                                            if (ins != null)
+                                                            if (type.IsArray)
                                                             {
-                                                                if (ins.IsValueType)
-                                                                {
-                                                                    ins.Boxed = true;
-                                                                }
-                                                                esp = PushObject(obj, mStack, ins, true);
+                                                                esp = PushObject(obj, mStack, val, true);
                                                             }
                                                             else
                                                             {
-                                                                esp = PushNull(obj);
+                                                                ILTypeInstance ins = (ILTypeInstance)val;
+                                                                if (ins != null)
+                                                                {
+                                                                    if (ins.IsValueType)
+                                                                    {
+                                                                        ins.Boxed = true;
+                                                                    }
+                                                                    esp = PushObject(obj, mStack, ins, true);
+                                                                }
+                                                                else
+                                                                {
+                                                                    esp = PushNull(obj);
+                                                                }
                                                             }
                                                         }
                                                         break;
@@ -2692,7 +2752,8 @@ namespace CSHotFix.Runtime.Intepreter
                                             if (t != null)
                                             {
                                                 var type = t.TypeForCLR;
-                                                if ((t is CLRType) && type.IsPrimitive)
+                                                bool isEnumObj = obj is ILEnumTypeInstance;
+                                                if ((t is CLRType) && type.IsPrimitive && !isEnumObj)
                                                 {
                                                     if (type == typeof(int))
                                                     {
@@ -2843,6 +2904,25 @@ namespace CSHotFix.Runtime.Intepreter
                                                             throw new NullReferenceException();
                                                     }
                                                     break;
+                                                case ObjectTypes.ArrayReference:
+                                                    {
+                                                        var arr = mStack[objRef->Value] as Array;
+                                                        var idx = objRef->ValueLow;
+                                                        var obj = arr.GetValue(idx);
+                                                        if (obj == null)
+                                                            arr.SetValue(it.Instantiate(), idx);
+                                                        else
+                                                        {
+                                                            if (obj is ILTypeInstance)
+                                                            {
+                                                                ILTypeInstance instance = obj as ILTypeInstance;
+                                                                instance.Clear();
+                                                            }
+                                                            else
+                                                                throw new NotImplementedException();
+                                                        }
+                                                    }
+                                                    break;
                                                 default:
                                                     throw new NotImplementedException();
                                             }
@@ -2894,6 +2974,7 @@ namespace CSHotFix.Runtime.Intepreter
                             case OpCodeEnum.Isinst:
                                 {
                                     var objRef = esp - 1;
+                                    var oriRef = objRef;
                                     var type = domain.GetType(ip->TokenInteger);
                                     if (type != null)
                                     {
@@ -2907,9 +2988,9 @@ namespace CSHotFix.Runtime.Intepreter
                                                     {
                                                         if (tclr != typeof(int) && tclr != typeof(bool) && tclr != typeof(short) && tclr != typeof(byte) && tclr != typeof(ushort) && tclr !=typeof(uint))
                                                         {
-                                                            objRef->ObjectType = ObjectTypes.Null;
-                                                            objRef->Value = -1;
-                                                            objRef->ValueLow = 0;
+                                                            oriRef->ObjectType = ObjectTypes.Null;
+                                                            oriRef->Value = -1;
+                                                            oriRef->ValueLow = 0;
                                                         }
                                                     }
                                                     break;
@@ -2917,9 +2998,9 @@ namespace CSHotFix.Runtime.Intepreter
                                                     {
                                                         if (tclr != typeof(long) && tclr != typeof(ulong))
                                                         {
-                                                            objRef->ObjectType = ObjectTypes.Null;
-                                                            objRef->Value = -1;
-                                                            objRef->ValueLow = 0;
+                                                            oriRef->ObjectType = ObjectTypes.Null;
+                                                            oriRef->Value = -1;
+                                                            oriRef->ValueLow = 0;
                                                         }
                                                     }
                                                     break;
@@ -2927,9 +3008,9 @@ namespace CSHotFix.Runtime.Intepreter
                                                     {
                                                         if (tclr != typeof(float))
                                                         {
-                                                            objRef->ObjectType = ObjectTypes.Null;
-                                                            objRef->Value = -1;
-                                                            objRef->ValueLow = 0;
+                                                            oriRef->ObjectType = ObjectTypes.Null;
+                                                            oriRef->Value = -1;
+                                                            oriRef->ValueLow = 0;
                                                         }
                                                     }
                                                     break;
@@ -2937,23 +3018,23 @@ namespace CSHotFix.Runtime.Intepreter
                                                     {
                                                         if (tclr != typeof(double))
                                                         {
-                                                            objRef->ObjectType = ObjectTypes.Null;
-                                                            objRef->Value = -1;
-                                                            objRef->ValueLow = 0;
+                                                            oriRef->ObjectType = ObjectTypes.Null;
+                                                            oriRef->Value = -1;
+                                                            oriRef->ValueLow = 0;
                                                         }
                                                     }
                                                     break;
                                                 case ObjectTypes.Null:
-                                                    objRef->ObjectType = ObjectTypes.Null;
-                                                    objRef->Value = -1;
-                                                    objRef->ValueLow = 0;
+                                                    oriRef->ObjectType = ObjectTypes.Null;
+                                                    oriRef->Value = -1;
+                                                    oriRef->ValueLow = 0;
                                                     break;
                                             }
                                         }
                                         else
                                         {
                                             var obj = RetriveObject(objRef, mStack);
-                                            Free(objRef);
+                                            Free(oriRef);
 
                                             if (obj != null)
                                             {
@@ -2961,14 +3042,14 @@ namespace CSHotFix.Runtime.Intepreter
                                                 {
                                                     if (((ILTypeInstance)obj).CanAssignTo(type))
                                                     {
-                                                        esp = PushObject(objRef, mStack, obj);
+                                                        esp = PushObject(oriRef, mStack, obj);
                                                     }
                                                     else
                                                     {
 #if !DEBUG
-                                                        objRef->ObjectType = ObjectTypes.Null;
-                                                        objRef->Value = -1;
-                                                        objRef->ValueLow = 0;
+                                                        oriRef->ObjectType = ObjectTypes.Null;
+                                                        oriRef->Value = -1;
+                                                        oriRef->ValueLow = 0;
 #endif
                                                     }
                                                 }
@@ -2976,14 +3057,14 @@ namespace CSHotFix.Runtime.Intepreter
                                                 {
                                                     if (type.TypeForCLR.IsAssignableFrom(obj.GetType()))
                                                     {
-                                                        esp = PushObject(objRef, mStack, obj, true);
+                                                        esp = PushObject(oriRef, mStack, obj, true);
                                                     }
                                                     else
                                                     {
 #if !DEBUG
-                                                        objRef->ObjectType = ObjectTypes.Null;
-                                                        objRef->Value = -1;
-                                                        objRef->ValueLow = 0;
+                                                        oriRef->ObjectType = ObjectTypes.Null;
+                                                        oriRef->Value = -1;
+                                                        oriRef->ValueLow = 0;
 #endif
                                                     }
                                                 }
@@ -2991,9 +3072,9 @@ namespace CSHotFix.Runtime.Intepreter
                                             else
                                             {
 #if !DEBUG
-                                                    objRef->ObjectType = ObjectTypes.Null;
-                                                    objRef->Value = -1;
-                                                    objRef->ValueLow = 0;
+                                                    oriRef->ObjectType = ObjectTypes.Null;
+                                                    oriRef->Value = -1;
+                                                    oriRef->ValueLow = 0;
 #endif
                                             }
                                         }
@@ -3029,6 +3110,14 @@ namespace CSHotFix.Runtime.Intepreter
                                         else
                                         {
                                             arr = new ILTypeInstance[cnt->Value];
+                                            ILTypeInstance[] ilArr = (ILTypeInstance[])arr;
+                                            if (type.IsValueType)
+                                            {
+                                                for(int i = 0; i < cnt->Value; i++)
+                                                {
+                                                    ilArr[i] = ((ILType)type).Instantiate(true);
+                                                }
+                                            }
                                         }
                                     }
                                     cnt->ObjectType = ObjectTypes.Object;
@@ -3134,7 +3223,21 @@ namespace CSHotFix.Runtime.Intepreter
                                     Free(esp - 1);
                                     Free(esp - 1 - 1);
 
-                                    esp = PushObject(esp - 1 - 1, mStack, val);
+                                    if (val is ILTypeInstance)
+                                    {
+                                        ILTypeInstance ins = (ILTypeInstance)val;
+                                        if (ins.Type.IsValueType && !ins.Boxed)
+                                        {
+                                            AllocValueType(arrRef, ins.Type);
+                                            StackObject* dst = *((StackObject**)&arrRef->Value);
+                                            ins.CopyValueTypeToStack(dst, mStack);
+                                            esp = idx;
+                                        }
+                                        else
+                                            esp = PushObject(esp - 1 - 1, mStack, val);
+                                    }
+                                    else
+                                        esp = PushObject(esp - 1 - 1, mStack, val);
                                 }
                                 break;
                             case OpCodeEnum.Stelem_I1:
@@ -3563,6 +3666,7 @@ namespace CSHotFix.Runtime.Intepreter
                                 }
                                 break;
                             case OpCodeEnum.Conv_U4:
+                            case OpCodeEnum.Conv_U:
                             case OpCodeEnum.Conv_Ovf_U4:
                             case OpCodeEnum.Conv_Ovf_U4_Un:
                                 {
@@ -3591,6 +3695,7 @@ namespace CSHotFix.Runtime.Intepreter
                                 }
                                 break;
                             case OpCodeEnum.Conv_I4:
+                            case OpCodeEnum.Conv_I:
                             case OpCodeEnum.Conv_Ovf_I:
                             case OpCodeEnum.Conv_Ovf_I_Un:
                             case OpCodeEnum.Conv_Ovf_I4:
@@ -3769,6 +3874,7 @@ namespace CSHotFix.Runtime.Intepreter
                             case OpCodeEnum.Nop:
                             case OpCodeEnum.Volatile:
                             case OpCodeEnum.Castclass:
+                            case OpCodeEnum.Readonly:
                                 break;
                             default:
                                 throw new NotSupportedException("Not supported opcode " + code);
@@ -3916,8 +4022,15 @@ namespace CSHotFix.Runtime.Intepreter
                             }
                             else
                             {
-                                var vb = ((CLRType)domain.GetType(dst->Value)).ValueTypeBinder;
-                                vb.CopyValueTypeToStack(ins, dst, mStack);
+                                if (ins is CrossBindingAdaptorType)
+                                {
+                                    ((CrossBindingAdaptorType)ins).ILInstance.CopyValueTypeToStack(dst, mStack);
+                                }
+                                else
+                                {
+                                    var vb = ((CLRType)domain.GetType(dst->Value)).ValueTypeBinder;
+                                    vb.CopyValueTypeToStack(ins, dst, mStack);
+                                }
                             }
                         }
                         else
@@ -4210,7 +4323,6 @@ namespace CSHotFix.Runtime.Intepreter
                     long[] arr = obj as long[];
                     objRef->ObjectType = ObjectTypes.Long;
                     *(long*)&objRef->Value = arr[idx];
-                    objRef->ValueLow = 0;
                 }
                 else if (nT == typeof(float))
                 {
@@ -4224,7 +4336,6 @@ namespace CSHotFix.Runtime.Intepreter
                     double[] arr = obj as double[];
                     objRef->ObjectType = ObjectTypes.Double;
                     *(double*)&objRef->Value = arr[idx];
-                    objRef->ValueLow = 0;
                 }
                 else if (nT == typeof(byte))
                 {
@@ -4253,6 +4364,12 @@ namespace CSHotFix.Runtime.Intepreter
                     objRef->ObjectType = ObjectTypes.Integer;
                     objRef->Value = arr[idx];
                     objRef->ValueLow = 0;
+                }
+                else if (nT == typeof(ulong))
+                {
+                    ulong[] arr = obj as ulong[];
+                    objRef->ObjectType = ObjectTypes.Long;
+                    *(ulong*)&objRef->Value = arr[idx];
                 }
                 else
                     throw new NotImplementedException();
@@ -4390,7 +4507,7 @@ namespace CSHotFix.Runtime.Intepreter
             }
         }
 
-        public static object CheckAndCloneValueType(object obj, Enviorment.AppDomain domain)
+        internal static object CheckAndCloneValueType(object obj, Enviorment.AppDomain domain)
         {
             if (obj != null)
             {
@@ -4441,9 +4558,29 @@ namespace CSHotFix.Runtime.Intepreter
             return esp + 1;
         }
 
-        public static void UnboxObject(StackObject* esp, object obj)
+        public static void UnboxObject(StackObject* esp, object obj, IList<object> mStack = null, Enviorment.AppDomain domain = null)
         {
-            if (obj is int)
+            if (esp->ObjectType == ObjectTypes.ValueTypeObjectReference && domain != null)
+            {
+                var dst = *(StackObject**)&esp->Value;
+                var vt = domain.GetType(dst->Value);
+
+                if (obj is ILTypeInstance)
+                {
+                    var ins = (ILTypeInstance)obj;
+                    ins.CopyValueTypeToStack(dst, mStack);
+                }
+                else if (obj is CrossBindingAdaptorType)
+                {
+                    var ins = ((CrossBindingAdaptorType)obj).ILInstance;
+                    ins.CopyValueTypeToStack(dst, mStack);
+                }
+                else
+                {
+                    ((CLRType)vt).ValueTypeBinder.CopyValueTypeToStack(obj, dst, mStack);
+                }
+            }
+            else if (obj is int)
             {
                 esp->ObjectType = ObjectTypes.Integer;
                 esp->Value = (int)obj;
@@ -4502,7 +4639,7 @@ namespace CSHotFix.Runtime.Intepreter
             {
                 esp->ObjectType = ObjectTypes.Integer;
                 esp->Value = (sbyte)obj;
-            }
+            }            
             else
                 throw new NotImplementedException();
         }
@@ -4517,7 +4654,7 @@ namespace CSHotFix.Runtime.Intepreter
 
                     if ((typeFlags & CLR.Utils.Extensions.TypeFlags.IsPrimitive) != 0)
                     {
-                        UnboxObject(esp, obj);
+                        UnboxObject(esp, obj, mStack);
                     }
                     else if ((typeFlags & CLR.Utils.Extensions.TypeFlags.IsEnum) != 0)
                     {

@@ -1,4 +1,3 @@
-﻿
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -154,11 +153,9 @@ UnityEngine.Experimental.Rendering.ShadowSplitData _o = (UnityEngine.Experimenta
 
         static object PerformMemberwiseClone(ref object o)
         {
-            return new UnityEngine.Experimental.Rendering.ShadowSplitData
-            {
-                cullingPlaneCount = ((UnityEngine.Experimental.Rendering.ShadowSplitData) o).cullingPlaneCount,
-                cullingSphere = ((UnityEngine.Experimental.Rendering.ShadowSplitData) o).cullingSphere,
-            };
+            var ins = new UnityEngine.Experimental.Rendering.ShadowSplitData();
+            ins = (UnityEngine.Experimental.Rendering.ShadowSplitData)o;
+            return ins;
         }
 
 

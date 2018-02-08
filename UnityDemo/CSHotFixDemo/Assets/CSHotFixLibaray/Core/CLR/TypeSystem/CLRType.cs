@@ -31,7 +31,8 @@ namespace CSHotFix.CLR.TypeSystem
         CLRCreateDefaultInstanceDelegate createDefaultInstanceDelegate;
         CLRCreateArrayInstanceDelegate createArrayInstanceDelegate;
         Dictionary<int, int> fieldTokenMapping;
-        IType byRefType, arrayType, elementType;
+        IType byRefType, elementType;
+        Dictionary<int, IType> arrayTypes;
         IType[] interfaces;
         bool isDelegate;
         IType baseType;
@@ -73,7 +74,11 @@ namespace CSHotFix.CLR.TypeSystem
             {
                 if (fieldMapping == null)
                     InitializeFields();
-                return fieldIdxMapping.Count;
+
+                if (fieldIdxMapping != null)
+                    return fieldIdxMapping.Count;
+                else
+                    throw new NotSupportedException("Cannot find ValueTypeBinder for type:" + clrType.FullName);
             }
         }
 
@@ -120,6 +125,19 @@ namespace CSHotFix.CLR.TypeSystem
             }
         }
 
+        public bool IsGenericParameter
+        {
+            get
+            {
+                return clrType.IsGenericParameter;
+            }
+        }
+
+        public bool IsInterface
+        {
+            get { return clrType.IsInterface; }
+        }
+
         public Type TypeForCLR
         {
             get
@@ -148,11 +166,16 @@ namespace CSHotFix.CLR.TypeSystem
         {
             get
             {
-                return arrayType;
+                return arrayTypes != null ? arrayTypes[1] : null;
             }
         }
 
         public bool IsArray
+        {
+            get;private set;
+        }
+
+        public int ArrayRank
         {
             get;private set;
         }
@@ -164,6 +187,15 @@ namespace CSHotFix.CLR.TypeSystem
                 return isValueType;
             }
         }
+
+        public bool IsByRef
+        {
+            get
+            {
+                return clrType.IsByRef;
+            }
+        }
+
         public bool IsDelegate
         {
             get
@@ -569,7 +601,14 @@ namespace CSHotFix.CLR.TypeSystem
                             }
                             if (match)
                             {
-                                match = returnType == null || i.ReturnType.TypeForCLR == returnType.TypeForCLR;
+                                try
+                                {
+                                    match = returnType == null || (i.ReturnType != null && i.ReturnType.TypeForCLR == returnType.TypeForCLR);
+                                }
+                                catch
+                                {
+
+                                }
                             }
                             if (match)
                             {
@@ -645,33 +684,36 @@ namespace CSHotFix.CLR.TypeSystem
 
         public IType MakeGenericInstance(KeyValuePair<string, IType>[] genericArguments)
         {
-            if (genericInstances == null)
-                genericInstances = new List<CLRType>();
-            foreach (var i in genericInstances)
+            lock (this)
             {
-                bool match = true;
-                for (int j = 0; j < genericArguments.Length; j++)
+                if (genericInstances == null)
+                    genericInstances = new List<CLRType>();
+                foreach (var i in genericInstances)
                 {
-                    if (i.genericArguments[j].Value != genericArguments[j].Value)
+                    bool match = true;
+                    for (int j = 0; j < genericArguments.Length; j++)
                     {
-                        match = false;
-                        break;
+                        if (i.genericArguments[j].Value != genericArguments[j].Value)
+                        {
+                            match = false;
+                            break;
+                        }
                     }
+                    if (match)
+                        return i;
                 }
-                if (match)
-                    return i;
-            }
-            Type[] args = new Type[genericArguments.Length];
-            for (int i = 0; i < genericArguments.Length; i++)
-            {
-                args[i] = genericArguments[i].Value.TypeForCLR;
-            }
-            Type newType = clrType.MakeGenericType(args);
-            var res = new CLRType(newType, appdomain);
-            res.genericArguments = genericArguments;
+                Type[] args = new Type[genericArguments.Length];
+                for (int i = 0; i < genericArguments.Length; i++)
+                {
+                    args[i] = genericArguments[i].Value.TypeForCLR;
+                }
+                Type newType = clrType.MakeGenericType(args);
+                var res = new CLRType(newType, appdomain);
+                res.genericArguments = genericArguments;
 
-            genericInstances.Add(res);
-            return res;
+                genericInstances.Add(res);
+                return res;
+            }
         }
 
         public object CreateDefaultInstance()
@@ -706,19 +748,27 @@ namespace CSHotFix.CLR.TypeSystem
             {
                 Type t = clrType.MakeByRefType();
                 byRefType = new CLRType(t, appdomain);
+                ((CLRType)byRefType).elementType = this;
             }
             return byRefType;
         }
-        public IType MakeArrayType()
+        public IType MakeArrayType(int rank)
         {
-            if (arrayType == null)
+            if (arrayTypes == null)
             {
-                Type t = clrType.MakeArrayType();
-                arrayType = new CLRType(t, appdomain);
-                ((CLRType)arrayType).elementType = this;
-                ((CLRType)arrayType).IsArray = true;
+                arrayTypes = new Dictionary<int, IType>();
             }
-            return arrayType;
+            IType atype;
+            if (!arrayTypes.TryGetValue(rank, out atype))
+            {
+                Type t = rank > 1 ? clrType.MakeArrayType(rank) : clrType.MakeArrayType();
+                atype = new CLRType(t, appdomain);
+                ((CLRType)atype).elementType = this;
+                ((CLRType)atype).IsArray = true;
+                ((CLRType)atype).ArrayRank = rank;
+                arrayTypes[rank] = atype;
+            }
+            return atype;
         }
 
         public IType ResolveGenericType(IType contextType)
