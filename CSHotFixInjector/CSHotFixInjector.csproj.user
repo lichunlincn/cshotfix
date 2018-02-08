@@ -4,6 +4,6 @@
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>GenStaticField</StartArguments>
+    <StartArguments>InjectIL</StartArguments>
   </PropertyGroup>
 </Project>
