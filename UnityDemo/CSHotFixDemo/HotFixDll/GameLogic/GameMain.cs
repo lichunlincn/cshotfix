@@ -24,7 +24,9 @@ namespace LCL
         }
         public void Update()
         {
-
+            UnityEngine.Profiling.Profiler.BeginSample("TEstGC");
+            MainTest.TestGC(1);
+            UnityEngine.Profiling.Profiler.EndSample();
         }
 
         public void Destroy()

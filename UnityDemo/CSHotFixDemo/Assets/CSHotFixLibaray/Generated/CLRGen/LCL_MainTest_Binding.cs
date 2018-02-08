@@ -33,6 +33,9 @@ namespace CSHotFix.Runtime.Generated
             args = new Type[]{typeof(LCL.DataClass)};
             method = type.GetMethod("test4", flag, null, args, null);
             app.RegisterCLRMethodRedirection(method, test4_3);
+            args = new Type[]{typeof(System.Int32)};
+            method = type.GetMethod("TestGC", flag, null, args, null);
+            app.RegisterCLRMethodRedirection(method, TestGC_4);
 
 
 
@@ -216,6 +219,19 @@ namespace CSHotFix.Runtime.Generated
                 return ILIntepreter.PushObject(__ret, __mStack, ((CrossBindingAdaptorType)obj_result_of_this_method).ILInstance);
             }
             return ILIntepreter.PushObject(__ret, __mStack, result_of_this_method);
+        }
+
+        static StackObject* TestGC_4(ILIntepreter __intp, StackObject* __esp, IList<object> __mStack, CLRMethod __method, bool isNewObj)
+        {
+            CSHotFix.Runtime.Enviorment.AppDomain __domain = __intp.AppDomain;
+            StackObject* ptr_of_this_method;
+            StackObject* __ret = ILIntepreter.Minus(__esp, 1);
+            ptr_of_this_method = ILIntepreter.Minus(__esp, 1);
+            System.Int32 a = ptr_of_this_method->Value;
+
+            LCL.MainTest.TestGC(a);
+
+            return __ret;
         }
 
 

@@ -68,6 +68,10 @@ namespace LCL
             return default(T);
         }
 
+        //测试是否会产生GC
+        public static void TestGC(int a)
+        {
 
+        }
     }
 }
