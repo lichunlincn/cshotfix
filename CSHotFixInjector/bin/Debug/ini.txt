@@ -1,2 +1,0 @@
-dllpath=UnityDemo/CSHotFixDemo/Library/ScriptAssemblies/Assembly-CSharp.dll
-delegatepath=UnityDemo/CSHotFixDemo/Assets/CSHotFixLibaray/Generated/DelegateGen
