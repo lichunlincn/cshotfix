@@ -1,0 +1,90 @@
+syntax: glob
+# tex
+*.pyc
+*.pov
+*.aux
+*.log
+*.snm
+*.bbl
+*.pdf
+*.ps
+*.dvi
+*.blg
+*.lof
+*.lot
+*.out
+*.pdfsync
+*.tdo
+*.toc
+*.nav #beamer
+*.xdv
+*.gz_temp
+# hg
+*.hgignore
+# images /graphics
+*.jpeg
+*.JPEG
+*.jpg
+*.JPG
+*.png
+*.PNG
+*.eps
+*.EPS
+*.svg
+*.SVG
+*.pdf_tex
+*.tif
+*.TIF
+*.tiff
+*.TIFF
+*.gif
+*.GIF
+*.cdr
+*.CDR
+*.bmp
+*.BMP
+*.emf
+*.EMF
+*.tim
+*.ipt
+*.ipa
+# data files
+*.dot
+*.mat
+*.fig
+# Microsoft Office
+*.doc
+*.docx
+*.xls
+*.rtf
+*.ppt
+# Archives
+*.tar
+*.gz
+*.rar
+*.zip
+*.7z
+*.osm
+# Windows
+*.bat
+*.exe
+*.dll
+*.msi
+*.ini
+*.db
+# Linux
+*.lnk
+*.so
+# MAC OSX
+*.DS_Store
+# Multimedia
+*.avi
+*.wav
+*.mwv
+*.mp3
+*.mp4
+# site-specific
+idtf2u3d/bin/*
+dist/*
+*.u3d
+*.vws
