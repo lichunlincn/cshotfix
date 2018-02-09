@@ -20,8 +20,7 @@ namespace LCL
     {
         public static void OnHotFixTest(object main_test, int arg1, float arg2)
         {
-            Debug.Log("修复一个bug arg1:" + arg1 + "arg2:" + arg2);
-
+            Debug.Log("修复一个bug arg1:" + arg1.ToString() + "arg2:" + arg2.ToString());
             Debug.Log("开始测试反射访问私有变量");
             main_test.CallPrivateMethod("Test1", 10);
             Debug.Log("结束测试反射访问私有变量");

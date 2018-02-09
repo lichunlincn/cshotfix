@@ -26,7 +26,7 @@ C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\bin
 C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\Assembly-CSharp.dll
 C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\UnityEngine.dll
 C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\UnityEngine.UI.dll
+C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\Assembly-CSharp-firstpass.dll
 C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\obj\Debug\HotFixDll.dll
 C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\obj\Debug\HotFixDll.pdb
-C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\Assembly-CSharp-firstpass.dll
 C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\obj\Debug\HotFixDll.csprojResolveAssemblyReference.cache
