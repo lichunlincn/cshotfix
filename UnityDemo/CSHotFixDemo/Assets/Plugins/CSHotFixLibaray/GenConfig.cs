@@ -44,7 +44,7 @@ public class GenConfig
             typeof(UnityEngine.Caching),
             typeof(UnityEngine.iPhoneUtils),
 
-
+            
 
 #endif
 
@@ -60,6 +60,7 @@ public class GenConfig
             "UnityEngine.Collections",
             "UnityEngine.Tizen",
             "UnityEngine.iOS",
+            "UnityEngine.Experimental",
         };
 
     public static List< List<string> > SpecialBlackTypeList = new List<List<string>>()
