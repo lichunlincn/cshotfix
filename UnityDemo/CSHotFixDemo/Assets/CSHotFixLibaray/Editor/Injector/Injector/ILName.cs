@@ -54,6 +54,7 @@ namespace LCL
         public static void WritedFieldDelegateName(string delegatePath, List<NameLine> FieldDelegateNames)
         {
             string fileHeader =
+"#if CSHotFix\n\r" +
 "/*\r\n" +
 "* LCL support c# hotfix here.\r\n" +
 "*Copyright(C) LCL.All rights reserved.\r\n" +
@@ -77,7 +78,8 @@ namespace LCL
                 fieldstrings += line;
             }
             string fileEnd =
-    "}";
+    "}\r\n"+
+    "#endif";
 
             string outputString = fileHeader + fieldstrings + fileEnd;
             FileStream file = null;

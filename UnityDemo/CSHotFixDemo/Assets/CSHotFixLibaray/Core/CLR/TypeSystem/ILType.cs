@@ -43,6 +43,50 @@ namespace CSHotFix.CLR.TypeSystem
         int hashCode = -1;
         static int instance_id = 0x10000000;
         public TypeDefinition TypeDefinition { get { return definition; } }
+        bool mToStringGot, mEqualsGot, mGetHashCodeGot;
+        IMethod mToString, mEquals, mGetHashCode;
+
+        public IMethod ToStringMethod
+        {
+            get
+            {
+                if (!mToStringGot)
+                {
+                    IMethod m = appdomain.ObjectType.GetMethod("ToString", 0, true);
+                    mToString = GetVirtualMethod(m);
+                    mToStringGot = true;
+                }
+                return mToString;
+            }
+        }
+
+        public IMethod EqualsMethod
+        {
+            get
+            {
+                if (!mEqualsGot)
+                {
+                    IMethod m = appdomain.ObjectType.GetMethod("Equals", 1, true);
+                    mEquals = GetVirtualMethod(m);
+                    mEqualsGot = true;
+                }
+                return mEquals;
+            }
+        }
+
+        public IMethod GetHashCodeMethod
+        {
+            get
+            {
+                if (!mGetHashCodeGot)
+                {
+                    IMethod m = appdomain.ObjectType.GetMethod("GetHashCode", 0, true);
+                    mGetHashCode = GetVirtualMethod(m);
+                    mGetHashCodeGot = true;
+                }
+                return mGetHashCode;
+            }
+        }
 
         public TypeReference TypeReference
         {
@@ -452,6 +496,8 @@ namespace CSHotFix.CLR.TypeSystem
                     }
                 }
             }
+            if (firstCLRInterface == null && BaseType != null && BaseType is ILType)
+                firstCLRInterface = ((ILType)BaseType).FirstCLRInterface;
         }
         void InitializeBaseType()
         {
@@ -756,9 +802,11 @@ namespace CSHotFix.CLR.TypeSystem
                     if (p.IsGenericParameter)
                         continue;
 
+                    var p2 = param[j];
+                    if (p2.IsByRef)
+                        p2 = p2.ElementType;
                     if (p.HasGenericParameter)
                     {
-                        var p2 = param[j];
                         if(p.Name != p2.Name)
                         {
                             match = false;
@@ -768,7 +816,8 @@ namespace CSHotFix.CLR.TypeSystem
                         continue;
                     }
 
-                    if (param[j] != p)
+                    
+                    if (p2 != p)
                     {
                         match = false;
                         break;

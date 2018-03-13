@@ -89,7 +89,10 @@ namespace CSHotFix.Runtime.CLRBinding
                     sb.Append(i + 1);
                 }
                 else
+                {
+                    sb.Append("@");
                     sb.Append(j.Name);
+                }
             }
         }
 

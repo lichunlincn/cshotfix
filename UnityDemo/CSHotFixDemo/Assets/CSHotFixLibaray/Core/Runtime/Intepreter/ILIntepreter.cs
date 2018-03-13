@@ -422,14 +422,32 @@ namespace CSHotFix.Runtime.Intepreter
                                         case ObjectTypes.StackObjectReference:
                                             {
                                                 objRef = GetObjectAndResolveReference(objRef);
-                                                if (val->ObjectType >= ObjectTypes.Object)
+                                                if (objRef->ObjectType == ObjectTypes.ValueTypeObjectReference)
                                                 {
-                                                    mStack[objRef->Value] = mStack[val->Value];
-                                                    objRef->ValueLow = val->ValueLow;
+                                                    switch (val->ObjectType)
+                                                    {
+                                                        case ObjectTypes.Object:
+                                                            StackObject* dst = *(StackObject**)&objRef->Value;
+                                                            CopyValueTypeToStack(dst, mStack[val->Value], mStack);
+                                                            break;
+                                                        case ObjectTypes.ValueTypeObjectReference:
+                                                            CopyStackValueType(val, objRef, mStack);
+                                                            break;
+                                                        default:
+                                                            throw new NotImplementedException();
+                                                    }
                                                 }
                                                 else
                                                 {
-                                                    *objRef = *val;
+                                                    if (val->ObjectType >= ObjectTypes.Object)
+                                                    {
+                                                        mStack[objRef->Value] = mStack[val->Value];
+                                                        objRef->ValueLow = val->ValueLow;
+                                                    }
+                                                    else
+                                                    {
+                                                        *objRef = *val;
+                                                    }
                                                 }
                                             }
                                             break;
@@ -2401,9 +2419,45 @@ namespace CSHotFix.Runtime.Intepreter
                                 break;
                             case OpCodeEnum.Constrained:
                                 {
-                                    var objRef = esp - 1;
-                                    var obj = GetObjectAndResolveReference(objRef);
                                     var type = domain.GetType(ip->TokenInteger);
+                                    var m = domain.GetMethod((int)ip->TokenLong);
+                                    var pCnt = m.ParameterCount;
+                                    var objRef = Minus(esp, pCnt + 1);
+                                    var insIdx = mStack.Count;
+                                    if (objRef->ObjectType < ObjectTypes.Object)
+                                    {
+                                        bool moved = false;
+                                        //move parameters
+                                        for (int i = 0; i < pCnt; i++)
+                                        {
+                                            var pPtr = Minus(esp, i + 1);
+                                            if (pPtr->ObjectType >= ObjectTypes.Object)
+                                            {
+                                                var oldVal = pPtr->Value;
+                                                insIdx--;
+                                                if (!moved)
+                                                {
+                                                    pPtr->Value = mStack.Count;
+                                                    mStack.Add(mStack[oldVal]);
+                                                    mStack[oldVal] = null;
+                                                    moved = true;
+                                                }
+                                                else
+                                                {
+                                                    mStack[oldVal + 1] = mStack[oldVal];
+                                                    mStack[oldVal] = null;
+                                                    pPtr->Value = oldVal + 1;
+                                                }
+                                            }
+                                        }
+                                        if (!moved)
+                                        {
+                                            mStack.Add(null);
+                                        }
+                                    }
+                                    else
+                                        insIdx = objRef->Value;
+                                    var obj = GetObjectAndResolveReference(objRef);
                                     if (type != null)
                                     {
                                         if (type is ILType)
@@ -2418,7 +2472,7 @@ namespace CSHotFix.Runtime.Intepreter
                                                         {
                                                             var owner = mStack[obj->Value] as ILTypeInstance;
                                                             int idx = obj->ValueLow;
-                                                            Free(objRef);
+                                                            //Free(objRef);
                                                             owner.PushToStack(idx, objRef, AppDomain, mStack);
                                                             ins.AssignFromStack(0, objRef, AppDomain, mStack);
                                                             ins.Boxed = true;
@@ -2428,7 +2482,7 @@ namespace CSHotFix.Runtime.Intepreter
                                                         {
                                                             var st = AppDomain.GetType(obj->Value) as ILType;
                                                             int idx = obj->ValueLow;
-                                                            Free(objRef);
+                                                            //Free(objRef);
                                                             st.StaticInstance.PushToStack(idx, objRef, AppDomain, mStack);
                                                             ins.AssignFromStack(0, objRef, AppDomain, mStack);
                                                             ins.Boxed = true;
@@ -2438,7 +2492,7 @@ namespace CSHotFix.Runtime.Intepreter
                                                         {
                                                             var arr = mStack[obj->Value];
                                                             var idx = obj->ValueLow;
-                                                            Free(objRef);
+                                                            //Free(objRef);
                                                             LoadFromArrayReference(arr, idx, objRef, t, mStack);
                                                             ins.AssignFromStack(0, objRef, AppDomain, mStack);
                                                             ins.Boxed = true;
@@ -2449,13 +2503,20 @@ namespace CSHotFix.Runtime.Intepreter
                                                         ins.Boxed = true;
                                                         break;
                                                 }
-                                                esp = PushObject(esp - 1, mStack, ins);
+                                                objRef->ObjectType = ObjectTypes.Object;
+                                                objRef->Value = insIdx;
+                                                mStack[insIdx] = ins;
+
+                                                //esp = PushObject(esp - 1, mStack, ins);
                                             }
                                             else
                                             {
                                                 object res = RetriveObject(obj, mStack);
-                                                Free(objRef);
-                                                esp = PushObject(objRef, mStack, res, true);
+                                                //Free(objRef);
+                                                objRef->ObjectType = ObjectTypes.Object;
+                                                objRef->Value = insIdx;
+                                                mStack[insIdx] = res;
+                                                //esp = PushObject(objRef, mStack, res, true);
                                             }
                                         }
                                         else
@@ -2463,17 +2524,26 @@ namespace CSHotFix.Runtime.Intepreter
                                             var tt = type.TypeForCLR;
                                             if (tt.IsEnum)
                                             {
-                                                esp = PushObject(esp - 1, mStack, Enum.ToObject(tt, StackObject.ToObject(obj, AppDomain, mStack)));
+                                                mStack[insIdx] = Enum.ToObject(tt, StackObject.ToObject(obj, AppDomain, mStack));
+                                                objRef->ObjectType = ObjectTypes.Object;
+                                                objRef->Value = insIdx;
+                                                //esp = PushObject(esp - 1, mStack, Enum.ToObject(tt, StackObject.ToObject(obj, AppDomain, mStack)), true);
                                             }
                                             else if (tt.IsPrimitive)
                                             {
-                                                esp = PushObject(esp - 1, mStack, tt.CheckCLRTypes(StackObject.ToObject(obj, AppDomain, mStack)));
+                                                mStack[insIdx] = tt.CheckCLRTypes(StackObject.ToObject(obj, AppDomain, mStack));
+                                                objRef->ObjectType = ObjectTypes.Object;
+                                                objRef->Value = insIdx;
+                                                //esp = PushObject(esp - 1, mStack, tt.CheckCLRTypes(StackObject.ToObject(obj, AppDomain, mStack)));
                                             }
                                             else
                                             {
                                                 object res = RetriveObject(obj, mStack);
-                                                Free(objRef);
-                                                esp = PushObject(objRef, mStack, res, true);
+                                                //Free(objRef);
+                                                objRef->ObjectType = ObjectTypes.Object;
+                                                objRef->Value = insIdx;
+                                                mStack[insIdx] = res;
+                                                //esp = PushObject(objRef, mStack, res, true);
                                             }
                                         }
                                     }
@@ -2554,6 +2624,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                         case ObjectTypes.Null:
                                                             esp = PushObject(obj, mStack, 0, true);
                                                             break;
+                                                        case ObjectTypes.Object:
+                                                            break;
                                                         default:
                                                             throw new NotImplementedException();
                                                     }
@@ -2584,6 +2656,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                         case ObjectTypes.Null:
                                                             esp = PushObject(obj, mStack, 0L, true);
                                                             break;
+                                                        case ObjectTypes.Object:
+                                                            break;
                                                         default:
                                                             throw new NotImplementedException();
                                                     }
@@ -2597,6 +2671,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                             break;
                                                         case ObjectTypes.Null:
                                                             esp = PushObject(obj, mStack, (short)0, true);
+                                                            break;
+                                                        case ObjectTypes.Object:
                                                             break;
                                                         default:
                                                             throw new NotImplementedException();
@@ -2612,6 +2688,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                         case ObjectTypes.Null:
                                                             esp = PushObject(obj, mStack, 0L, true);
                                                             break;
+                                                        case ObjectTypes.Object:
+                                                            break;
                                                         default:
                                                             throw new NotImplementedException();
                                                     }
@@ -2625,6 +2703,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                             break;
                                                         case ObjectTypes.Null:
                                                             esp = PushObject(obj, mStack, 0f, true);
+                                                            break;
+                                                        case ObjectTypes.Object:
                                                             break;
                                                         default:
                                                             throw new NotImplementedException();
@@ -2640,6 +2720,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                         case ObjectTypes.Null:
                                                             esp = PushObject(obj, mStack, 0.0, true);
                                                             break;
+                                                        case ObjectTypes.Object:
+                                                            break;
                                                         default:
                                                             throw new NotImplementedException();
                                                     }
@@ -2650,6 +2732,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                     {
                                                         case ObjectTypes.Integer:
                                                             esp = PushObject(obj, mStack, (char)obj->Value, true);
+                                                            break;
+                                                        case ObjectTypes.Object:
                                                             break;
                                                         default:
                                                             throw new NotImplementedException();
@@ -2665,6 +2749,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                         case ObjectTypes.Null:
                                                             esp = PushObject(obj, mStack, (uint)0, true);
                                                             break;
+                                                        case ObjectTypes.Object:
+                                                            break;
                                                         default:
                                                             throw new NotImplementedException();
                                                     }
@@ -2678,6 +2764,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                             break;
                                                         case ObjectTypes.Null:
                                                             esp = PushObject(obj, mStack, (ushort)0, true);
+                                                            break;
+                                                        case ObjectTypes.Object:
                                                             break;
                                                         default:
                                                             throw new NotImplementedException();
@@ -2693,6 +2781,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                         case ObjectTypes.Null:
                                                             esp = PushObject(obj, mStack, (ulong)0, true);
                                                             break;
+                                                        case ObjectTypes.Object:
+                                                            break;
                                                         default:
                                                             throw new NotImplementedException();
                                                     }
@@ -2706,6 +2796,8 @@ namespace CSHotFix.Runtime.Intepreter
                                                             break;
                                                         case ObjectTypes.Null:
                                                             esp = PushObject(obj, mStack, (sbyte)0, true);
+                                                            break;
+                                                        case ObjectTypes.Object:
                                                             break;
                                                         default:
                                                             throw new NotImplementedException();
@@ -2966,6 +3058,8 @@ namespace CSHotFix.Runtime.Intepreter
                                         {
                                             stack.ClearValueTypeObject(type, *(StackObject**)&objRef->Value);
                                         }
+                                        else if(type.IsPrimitive)
+                                            StackObject.Initialized(objRef, type);
                                         Free(esp - 1);
                                         esp--;
                                     }
@@ -3997,6 +4091,26 @@ namespace CSHotFix.Runtime.Intepreter
             }
         }
 
+        void CopyValueTypeToStack(StackObject*dst, object ins, IList<object> mStack)
+        {
+            if (ins is ILTypeInstance)
+            {
+                ((ILTypeInstance)ins).CopyValueTypeToStack(dst, mStack);
+            }
+            else
+            {
+                if (ins is CrossBindingAdaptorType)
+                {
+                    ((CrossBindingAdaptorType)ins).ILInstance.CopyValueTypeToStack(dst, mStack);
+                }
+                else
+                {
+                    var vb = ((CLRType)domain.GetType(dst->Value)).ValueTypeBinder;
+                    vb.CopyValueTypeToStack(ins, dst, mStack);
+                }
+            }
+        }
+
         void CopyToValueTypeField(StackObject* obj, int idx, StackObject* val, IList<object> mStack)
         {
             StackObject* dst = Minus(obj, idx + 1);
@@ -4016,22 +4130,7 @@ namespace CSHotFix.Runtime.Intepreter
                             var ins = mStack[val->Value];
                             dst = *(StackObject**)&dst->Value;
 
-                            if (ins is ILTypeInstance)
-                            {
-                                ((ILTypeInstance)ins).CopyValueTypeToStack(dst, mStack);
-                            }
-                            else
-                            {
-                                if (ins is CrossBindingAdaptorType)
-                                {
-                                    ((CrossBindingAdaptorType)ins).ILInstance.CopyValueTypeToStack(dst, mStack);
-                                }
-                                else
-                                {
-                                    var vb = ((CLRType)domain.GetType(dst->Value)).ValueTypeBinder;
-                                    vb.CopyValueTypeToStack(ins, dst, mStack);
-                                }
-                            }
+                            CopyValueTypeToStack(dst, ins, mStack);
                         }
                         else
                         {

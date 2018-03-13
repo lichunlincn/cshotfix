@@ -145,7 +145,6 @@ namespace CSHotFix.Runtime.Enviorment
 
         public void Dispose()
         {
-            mStack.Clear();
             domain.FreeILIntepreter(intp);
 
             esp = null;

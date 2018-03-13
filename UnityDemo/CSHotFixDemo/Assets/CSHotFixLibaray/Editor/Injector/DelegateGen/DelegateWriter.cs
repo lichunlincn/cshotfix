@@ -22,6 +22,7 @@ namespace LCL
         public void WriteFunctionDelegate(string filePath, List<LMethodInfo> lines)
         {
             string fileHeader =
+    "#if CSHotFix\n\r" +
     "/*\r\n" +
     "* LCL support c# hotfix here.\r\n" +
     "*Copyright(C) LCL.All rights reserved.\r\n" +
@@ -91,7 +92,8 @@ namespace LCL
 
 
             string fileEnd =
-    "}";
+    "}\r\n"+
+    "#endif";
 
             string outputString = fileHeader + fileFunctions + regLines +fileEnd;
             FileStream file = null;
