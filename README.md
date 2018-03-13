@@ -5,7 +5,7 @@ CSharp bug fix library <br>
 <b>QQ group：673735733</b>
 
  **一、 简介。**<br>
-&nbsp; &nbsp; &nbsp; &nbsp; 一个专门用于C#热更新的工具链，使用该工具链，你可以实现两点：
+&nbsp; &nbsp; &nbsp; &nbsp; 一个专门用于C#热更新的工具链，使用该工具链，你可以实现两点：<br>
 1、<b>使用C#来编写脚本和进行热更新。错误修复过程几乎和正常写代码一样。</b><br>
 2、<b>可以对已有的dll、exe进入错误修复。</b><br>
 3、<b>可以新增功能，例如常用于游戏运营活动</b>。<br>
@@ -35,6 +35,7 @@ CSharp bug fix library <br>
 &nbsp; &nbsp; &nbsp; &nbsp;2、运行效率。总体来说访问Unity的C#接口比lua方案快，计算数学方面的比lua方案要慢些，但是都是在一个数量级，比纯粹的C#慢10到100倍之间。举个例子如果一个访问GameObject的接口，C#耗时是1ms，那么CSHotFix可能就是13ms，lua就有可能是15ms；再举个例子，在CSHotFix里面计算Vector3*float,可能耗时5ms，lua只要3ms，C#只要0.1ms 。是需要注意的是，由于种种原因，无法给出比较客观的数据，请自行按照相关文档说明进行测试。提醒一句，测试请用发布版本并且关闭所有的log等等影响因素。<br>
 
 **六、更新情况。**<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 2018年3月13日：更新脚本引擎，支持全自动简单菜单操作，经过一定体量项目代码量亲测，表现良好。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年2月7日：适配器自动生成。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年2月7日：优化框架结构，添加调试功能。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年2月6日22:36:38：优化CSHotFix的代码生成方式，生成方式采用一键式生成。<br>
