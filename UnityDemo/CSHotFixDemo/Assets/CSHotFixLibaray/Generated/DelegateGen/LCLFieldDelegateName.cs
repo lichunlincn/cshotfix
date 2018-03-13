@@ -1,4 +1,5 @@
-/*
+#if CSHotFix
+/*
 * LCL support c# hotfix here.
 *Copyright(C) LCL.All rights reserved.
 * URL:https://github.com/qq576067421/cshotfix 
@@ -26,3 +27,4 @@ public class LCLFieldDelegateName
      public static LCLFunctionDelegate.function_delegate6 __LCL_MainTest__ImPrivateFunction_Int32_Int32_Int32__Delegate;
      public static LCLFunctionDelegate.method_delegate3 __LCL_MainTest__TestGC_Int32_Void__Delegate;
 }
+#endif

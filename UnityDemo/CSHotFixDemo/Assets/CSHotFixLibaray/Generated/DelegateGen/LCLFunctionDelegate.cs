@@ -1,4 +1,5 @@
-/*
+#if CSHotFix
+/*
 * LCL support c# hotfix here.
 *Copyright(C) LCL.All rights reserved.
 * URL:https://github.com/qq576067421/cshotfix 
@@ -98,3 +99,4 @@ appDomain.DelegateManager.RegisterFunctionDelegate<LCL.TestDelegateData,System.I
 
 }
 }
+#endif
