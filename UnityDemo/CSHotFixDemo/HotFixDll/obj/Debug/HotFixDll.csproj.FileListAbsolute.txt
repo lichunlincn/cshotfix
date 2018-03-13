@@ -30,3 +30,12 @@ C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\bin
 C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\obj\Debug\HotFixDll.dll
 C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\obj\Debug\HotFixDll.pdb
 C:\GiteeSVN\ProtectGold\Research\MSILInject\UnityDemo\CSHotFixDemo\HotFixDll\obj\Debug\HotFixDll.csprojResolveAssemblyReference.cache
+C:\CSHotFix\trunk\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\HotFixDll.dll
+C:\CSHotFix\trunk\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\HotFixDll.pdb
+C:\CSHotFix\trunk\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\Assembly-CSharp.dll
+C:\CSHotFix\trunk\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\UnityEngine.dll
+C:\CSHotFix\trunk\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\UnityEngine.UI.dll
+C:\CSHotFix\trunk\UnityDemo\CSHotFixDemo\HotFixDll\bin\Debug\Assembly-CSharp-firstpass.dll
+C:\CSHotFix\trunk\UnityDemo\CSHotFixDemo\HotFixDll\obj\Debug\HotFixDll.csprojResolveAssemblyReference.cache
+C:\CSHotFix\trunk\UnityDemo\CSHotFixDemo\HotFixDll\obj\Debug\HotFixDll.dll
+C:\CSHotFix\trunk\UnityDemo\CSHotFixDemo\HotFixDll\obj\Debug\HotFixDll.pdb
