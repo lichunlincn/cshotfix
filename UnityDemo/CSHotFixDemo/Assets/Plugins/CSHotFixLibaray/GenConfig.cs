@@ -27,15 +27,15 @@ public class GenConfig
 
 #if UNITY_EDITOR
             typeof(NavMeshTriangulation),
-            typeof(UnityEngineInternal.Input.NativeGenericEvent),
-            typeof(UnityEngine.ClusterInput),
             typeof(UnityEngine.EventProvider),
-            typeof(UnityEngine.ClusterNetwork),
             typeof(UnityEngine.MovieTexture),
-#if UNITY_2017
+#if UNITY_2017 || UNITY_2018
 
 #else
         typeof(UnityEngine.SamsungTV),
+        typeof(UnityEngine.ClusterNetwork),
+        typeof(UnityEngine.ClusterInput),            
+        typeof(UnityEngineInternal.Input.NativeGenericEvent),
 #endif
         typeof(UnityEngine.UI.GraphicRebuildTracker),
 
