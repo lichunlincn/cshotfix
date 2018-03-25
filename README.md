@@ -11,9 +11,9 @@ CSharp bug fix library <br>
 3、<b>可以新增功能，例如常用于游戏运营活动</b>。<br>
 4、<b>支持IOS、支持Android，支持mono打包方式、支持IL2CPP打包方式</b><br>
 &nbsp; &nbsp;IOS IL2CPP<br>
-![image](https://github.com/qq576067421/cshotfix/blob/master/UnityDemo/CSHotFixDemo/CSHotFix_IPhone_IL2CPP.jpg)<br>
+![image](https://github.com/qq576067421/cshotfix/blob/master/CSHotFix_SimpleFramework/CSHotFix_IPhone_IL2CPP.jpg)<br>
 &nbsp; &nbsp;Android<br>
-![image](https://github.com/qq576067421/cshotfix/blob/master/UnityDemo/CSHotFixDemo/cshotfix_android_il2cpp.png)
+![image](https://github.com/qq576067421/cshotfix/blob/master/CSHotFix_SimpleFramework/cshotfix_android_il2cpp.png)
 &nbsp; &nbsp; &nbsp; &nbsp; 总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。
 
 **二、使用方法。**<br>
