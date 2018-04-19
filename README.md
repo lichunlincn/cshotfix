@@ -2,7 +2,8 @@
 
 <h1><a id="cshotfix_0"></a>cshotfix</h1>
 CSharp bug fix library <br>
-<b>QQ group：673735733</b>
+<b>QQ group：673735733</b><br>
+<b>Unity3D 充分测试的版本是5.6.4p3，其他版本首次运行的时候可能需要“注释掉部分代码才可以编译通过”<b><br>
 
  **一、 简介。**<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 一个专门用于C#热更新的工具链，使用该工具链，你可以实现两点：<br>
@@ -17,7 +18,7 @@ CSharp bug fix library <br>
 &nbsp; &nbsp; &nbsp; &nbsp; 总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。
 
 **二、使用方法。**<br>
-&nbsp; &nbsp; &nbsp; &nbsp; 详情见<a href='https://github.com/qq576067421/cshotfix/blob/master/doc/_Sidebar.md'>Wiki文档</a>。
+&nbsp; &nbsp; &nbsp; &nbsp; 详情见<a href='https://github.com/qq576067421/cshotfix/blob/master/doc/_Sidebar.md'><b>帮助文档</b></a>。
 
 &nbsp; &nbsp; &nbsp; &nbsp; 总的来说，使用方法极其简单，基本上你可以当做没有热更新来编程。因为我们的情怀就是用c#实现热更新，为的就是节约宝贵的时间，所以自动化必须有！
 
