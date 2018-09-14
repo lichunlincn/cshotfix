@@ -14,9 +14,10 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Editor:5</UnityProjectType>
-    <UnityBuildTarget>Android:13</UnityBuildTarget>
-    <UnityVersion>5.6.4p3</UnityVersion>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2017.3.1f1</UnityVersion>
     <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
@@ -27,7 +28,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_4;UNITY_5_6;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_IL2CPP;NET_2_0;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;ENABLE_DUCK_TYPING;CSHotFixSafe;UNITY_HAS_GOOGLEVR;</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_3_1;UNITY_2017_3;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;CSHotFix;</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,7 +38,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_4;UNITY_5_6;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_IL2CPP;NET_2_0;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;ENABLE_DUCK_TYPING;CSHotFixSafe;UNITY_HAS_GOOGLEVR;</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_3_1;UNITY_2017_3;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;CSHotFix;</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -49,80 +50,254 @@
     <Reference Include="UnityScript.Lang" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UnityEngine">
-      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
+    <Reference Include="UnityEngine">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WebModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WebModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StyleSheetsModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticlesLegacyModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>Library\UnityAssemblies\UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TreeEditor">
-      <HintPath>Library\UnityAssemblies\UnityEditor.TreeEditor.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
+    <Reference Include="UnityEngine.UIAutomation">
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEditor.Analytics.dll</HintPath>
+    <Reference Include="UnityEditor.UIAutomation">
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GoogleAudioSpatializer">
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GoogleAudioSpatializer">
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.HoloLens">
-      <HintPath>Library\UnityAssemblies\UnityEditor.HoloLens.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
-      <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEditor.Purchasing.dll</HintPath>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.VR">
-      <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VR">
-      <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Graphs">
-      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Android.Extensions">
-      <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
-      <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+      <HintPath>F:/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
-      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    <Reference Include="System.Data">
+      <HintPath>Assets/Plugins/System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets/Plugins/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>Assets/Plugins/DOTween/DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>Assets/Plugins/DOTween/DOTween46.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>C:/Users/FY/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>C:/Users/FY/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>C:/Users/FY/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Analytics">
+      <HintPath>C:/Users/FY/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>C:/Users/FY/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>C:/Users/FY/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StandardEvents">
+      <HintPath>C:/Users/FY/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +314,6 @@
     <Compile Include="Assets\CSHotFixLibaray\Editor\AdapterGen.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\CSHotFixCLRBinding.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\CSHotFixInjector.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\CodeManager.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\DelegateGen\DelegateGen.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\DelegateGen\DelegateWriter.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\DelegateGen\LMethodInfo.cs" />
@@ -161,22 +335,22 @@
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ExceptionHandlerType.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\FlowControl.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ILProcessor.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ISymbolReader.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ISymbolReaderProvider.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ISymbolWriter.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ISymbolWriterProvider.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\IVariableDefinitionProvider.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ImageDebugDirectory.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\Instruction.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\InstructionCollection.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\InstructionMapper.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\InstructionSymbol.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ISymbolReader.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ISymbolReaderProvider.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ISymbolWriter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\ISymbolWriterProvider.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\IVariableDefinitionProvider.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\MethodBody.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\MethodSymbols.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\OpCode.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\OpCodeNames.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\OpCodeType.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\OpCodes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\OpCodeType.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\OperandType.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\Scope.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil.Cil\SequencePoint.cs" />
@@ -259,8 +433,8 @@
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\FieldDefinitionTreatment.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\FieldLayoutTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\FieldMarshalTable.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\FieldRVATable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\FieldReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\FieldRVATable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\FieldTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\FileAttributes.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\FileTable.cs" />
@@ -270,11 +444,11 @@
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\GenericInstanceMethod.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\GenericInstanceType.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\GenericParamConstraintTable.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\GenericParamTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\GenericParameter.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\GenericParameterAttributes.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\GenericParameterCollection.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\GenericParameterType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\GenericParamTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\IAssemblyResolver.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\IConstantProvider.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ICustomAttribute.cs" />
@@ -290,25 +464,25 @@
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\IMetadataScope.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\IMetadataTokenProvider.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\IMethodSignature.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ImmediateModuleReader.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\IModifierType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ImplMapTable.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ImportGenericContext.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\InterfaceImplementation.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\InterfaceImplementationCollection.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\InterfaceImplTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\IReflectionImporter.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\IReflectionImporterProvider.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ISecurityDeclarationProvider.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ImmediateModuleReader.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ImplMapTable.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ImportGenericContext.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\InterfaceImplTable.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\InterfaceImplementation.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\InterfaceImplementationCollection.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\LinkedResource.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ManifestResourceAttributes.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ManifestResourceTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MarshalInfo.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MemberDefinitionCollection.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MemberRefTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MemberReference.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MemberReferenceProjection.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MemberReferenceTreatment.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MemberRefTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MetadataBuilder.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MetadataImporter.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MetadataKind.cs" />
@@ -330,8 +504,8 @@
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MethodReturnType.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MethodSemanticsAttributes.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MethodSemanticsTable.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MethodSpecTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MethodSpecification.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MethodSpecTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\MethodTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\Mixin.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ModuleAttributes.cs" />
@@ -340,22 +514,22 @@
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ModuleKind.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ModuleParameters.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ModuleReader.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ModuleRefTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ModuleReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ModuleRefTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ModuleTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ModuleWriter.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\NativeType.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\NestedClassTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\OneRowTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\OptionalModifierType.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\PInvokeAttributes.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\PInvokeInfo.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ParamTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ParameterAttributes.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ParameterDefinition.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ParameterDefinitionCollection.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ParameterReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\ParamTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\PinnedType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\PInvokeAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\PInvokeInfo.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\PointerType.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\PropertyAttributes.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\PropertyDefinition.cs" />
@@ -383,18 +557,18 @@
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TargetRuntime.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TokenType.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeAttributes.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeDefTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeDefinition.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeDefinitionCollection.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeDefinitionProjection.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeDefinitionTreatment.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeDefTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeParser.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeRefTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeReference.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeReferenceProjection.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeReferenceTreatment.cs" />
-    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeSpecTable.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeRefTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeSpecification.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeSpecTable.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\TypeSystem.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\VariantType.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Cecil\WindowsRuntimeProjections.cs" />
@@ -403,7 +577,9 @@
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Collections.Generic\ReadOnlyCollection.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono.Security.Cryptography\CryptoConvert.cs" />
     <Compile Include="Assets\CSHotFixLibaray\Editor\Injector\MonoCecil\Mono\Empty.cs" />
-    <Compile Include="Assets\PluginAssets\LogsViewer\Editor\ReporterEditor.cs" />
+    <Compile Include="Assets\Editor\CodeManager.cs" />
+    <Compile Include="Assets\Editor\CSHotFixLibaray\GenConfigEditor.cs" />
+    <Compile Include="Assets\Scripts\ThirdParty\UnityUI\Component\Editor\UIGrayEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\build_info.txt" />
