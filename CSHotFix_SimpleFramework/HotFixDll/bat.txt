@@ -1,4 +1,0 @@
-$(ProjectDir)..\pdb2mdb\pdb2mdb.exe $(ProjectDir)$(OutDir)$(ProjectName).dll
-copy $(ProjectDir)$(OutDir)$(ProjectName).dll.mdb $(ProjectDir)..\Assets\Resource\$(ProjectName).dll.mdb.bytes
-copy $(ProjectDir)$(OutDir)$(ProjectName).dll $(ProjectDir)..\Assets\Resource\$(ProjectName).dll.bytes
-copy $(ProjectDir)$(OutDir)$(ProjectName).pdb $(ProjectDir)..\Assets\Resource\$(ProjectName).dll.pdb.bytes
