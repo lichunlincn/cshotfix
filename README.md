@@ -3,7 +3,7 @@
 <h1><a id="cshotfix_0"></a>cshotfix</h1>
 CSharp bug fix library <br>
 <b>QQ group：673735733</b><br>
-<b>Unity3D 充分测试的版本是5.6.4p3，其他版本首次运行的时候可能需要“注释掉部分代码才可以编译通过”<b><br>
+<b>Unity3D 充分测试的版本是5.6.4p3，其他版本首次运行的时候可能需要“注释掉部分代码才可以编译通过，想要看简易demo的请看分支版本1.4。”<b><br>
 
  **一、 简介。**<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 一个专门用于C#热更新的工具链，使用该工具链，你可以实现两点：<br>
