@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 380280134
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7de5c673380856f968520c7869f04398
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fc4cbdcc8084b704a435fc9cbacc906e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 92
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: c3980591dd702ff46b286d01f5aab398, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8750154c337d0ab42ae8ee5e9889883e, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 124
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/eff/eff_test.prefab
+Dependencies: []

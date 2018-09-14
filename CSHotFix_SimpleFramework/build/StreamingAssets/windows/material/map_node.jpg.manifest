@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2926354810
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: effc7f2a5345a7495eecfae6188dc823
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fc316c7a11020260bacec4997f7e1b62
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/material/Map_Node.mat
+Dependencies: []

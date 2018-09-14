@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 1610612484
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f904d922298936206cd7ba6d1097534c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ad431aab763e7c78dfe00c5b2036c47b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/ui/mainui_skill_wnd.prefab
+Dependencies: []

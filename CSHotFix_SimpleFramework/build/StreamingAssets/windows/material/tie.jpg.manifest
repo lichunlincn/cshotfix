@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3419836236
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: abcac8f508a11d7cbd5499b8d916386c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cc983a3149e5fb03ce027e70c7a1a559
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/material/tie.mat
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/texture_set/tieban.jpg

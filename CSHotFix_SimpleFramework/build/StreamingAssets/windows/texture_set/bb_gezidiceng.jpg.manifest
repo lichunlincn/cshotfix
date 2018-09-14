@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2251351013
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 31b47931d76f8c8d474bb327f20d3c01
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21f0dc8ebad690f009368069428e0a1a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/BB_gezidiceng.png
+Dependencies: []

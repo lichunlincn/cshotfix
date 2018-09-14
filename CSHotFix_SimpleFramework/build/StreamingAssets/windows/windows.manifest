@@ -1,0 +1,458 @@
+ManifestFileVersion: 0
+CRC: 2937420815
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: texture_set/common.jpg
+      Dependencies: {}
+    Info_1:
+      Name: texture_set/icons.jpg
+      Dependencies: {}
+    Info_2:
+      Name: texture_set/charsel.jpg
+      Dependencies: {}
+    Info_3:
+      Name: texture_set/bag.jpg
+      Dependencies: {}
+    Info_4:
+      Name: scene/login/login_scene.jpg
+      Dependencies: {}
+    Info_5:
+      Name: scene/new_country/new_country_scene.jpg
+      Dependencies: {}
+    Info_6:
+      Name: scene/lobby/lobby_scene.jpg
+      Dependencies: {}
+    Info_7:
+      Name: texture_set/zhuan.jpg
+      Dependencies: {}
+    Info_8:
+      Name: texture_set/emoij/emoji_lxh_png.jpg
+      Dependencies: {}
+    Info_9:
+      Name: texture_set/floorcolor.jpg
+      Dependencies: {}
+    Info_10:
+      Name: texture_set/tieban.jpg
+      Dependencies: {}
+    Info_11:
+      Name: texture_set/bg.jpg
+      Dependencies: {}
+    Info_12:
+      Name: texture_set/emoij/emoji_png.jpg
+      Dependencies: {}
+    Info_13:
+      Name: texture_set/bb_gezidiceng.jpg
+      Dependencies: {}
+    Info_14:
+      Name: emoji/emoji1/emoji_tex.jpg
+      Dependencies: {}
+    Info_15:
+      Name: texture_set/emoij/chatpopo.jpg
+      Dependencies: {}
+    Info_16:
+      Name: texture_set/muban.jpg
+      Dependencies: {}
+    Info_17:
+      Name: emoji/emoji1/emoji_data.jpg
+      Dependencies: {}
+    Info_18:
+      Name: shared/newbundle.jpg
+      Dependencies: {}
+    Info_19:
+      Name: texture_set/emoij/player.jpg
+      Dependencies: {}
+    Info_20:
+      Name: material/testloadshader.jpg
+      Dependencies: {}
+    Info_21:
+      Name: lcl_www_lcl/sounds/dj etch - crash test.jpg
+      Dependencies: {}
+    Info_22:
+      Name: material/no name.jpg
+      Dependencies: {}
+    Info_23:
+      Name: material/walls0.jpg
+      Dependencies: {}
+    Info_24:
+      Name: prefab/char/maze_wall_painting1.jpg
+      Dependencies:
+        Dependency_0: material/painting1.jpg
+    Info_25:
+      Name: ui/test_windows_parent_wnd.jpg
+      Dependencies:
+        Dependency_0: texture_set/bg.jpg
+        Dependency_1: shared/newbundle.jpg
+        Dependency_2: material/particle_additive.jpg
+    Info_26:
+      Name: lcl_www_lcl/sounds/dj etch - carve him up.jpg
+      Dependencies: {}
+    Info_27:
+      Name: material/uigraymaterial.jpg
+      Dependencies: {}
+    Info_28:
+      Name: lcl_www_lcl/sounds/pentakill1.jpg
+      Dependencies: {}
+    Info_29:
+      Name: lcl_www_lcl/sounds/synctrack2b.jpg
+      Dependencies: {}
+    Info_30:
+      Name: material/walls3.jpg
+      Dependencies: {}
+    Info_31:
+      Name: material/floor0.jpg
+      Dependencies: {}
+    Info_32:
+      Name: texture_set/emoij/emoji_prefab.jpg
+      Dependencies:
+        Dependency_0: texture_set/emoij/emoji.jpg
+        Dependency_1: texture_set/emoij/emoji_lxh.jpg
+    Info_33:
+      Name: lcl_www_lcl/sounds/dj etch - testtest.jpg
+      Dependencies: {}
+    Info_34:
+      Name: material/door.jpg
+      Dependencies: {}
+    Info_35:
+      Name: prefab/char/changecloth/ch_pc_hou_006_tou.jpg
+      Dependencies: {}
+    Info_36:
+      Name: ui/mainui_skill_wnd.jpg
+      Dependencies: {}
+    Info_37:
+      Name: ui/sysinfo_wnd.jpg
+      Dependencies: {}
+    Info_38:
+      Name: prefab/char/changecloth/ch_pc_hou_006_shou.jpg
+      Dependencies: {}
+    Info_39:
+      Name: ui/test_ui_eff_hud1_wnd.jpg
+      Dependencies:
+        Dependency_0: shared/newbundle.jpg
+        Dependency_1: material/particle_additive.jpg
+    Info_40:
+      Name: material/tie.jpg
+      Dependencies:
+        Dependency_0: texture_set/tieban.jpg
+    Info_41:
+      Name: material/painting2.jpg
+      Dependencies: {}
+    Info_42:
+      Name: prefab/char/maze_wall.jpg
+      Dependencies: {}
+    Info_43:
+      Name: emoji/emoji1/emoji_mat.jpg
+      Dependencies:
+        Dependency_0: emoji/emoji1/emoji_tex.jpg
+        Dependency_1: emoji/emoji1/emoji_data.jpg
+    Info_44:
+      Name: prefab/char/changecloth/ch_we_one_hou_008.jpg
+      Dependencies: {}
+    Info_45:
+      Name: lcl_www_lcl/sounds/explosion1.jpg
+      Dependencies: {}
+    Info_46:
+      Name: prefab/char/mu.jpg
+      Dependencies:
+        Dependency_0: material/tie.jpg
+    Info_47:
+      Name: ui/testlist_popup_wnd.jpg
+      Dependencies:
+        Dependency_0: texture_set/bg.jpg
+    Info_48:
+      Name: ui/full_screen_bg.jpg
+      Dependencies: {}
+    Info_49:
+      Name: material/walls1.jpg
+      Dependencies: {}
+    Info_50:
+      Name: ui/drops_game_wnd.jpg
+      Dependencies: {}
+    Info_51:
+      Name: material/diffuse.jpg
+      Dependencies:
+        Dependency_0: shared/newbundle.jpg
+    Info_52:
+      Name: material/newmaterial1.jpg
+      Dependencies:
+        Dependency_0: texture_set/floorcolor.jpg
+    Info_53:
+      Name: ui/loading_wnd.jpg
+      Dependencies: {}
+    Info_54:
+      Name: prefab/char/changecloth/ch_pc_hou_004_shen.jpg
+      Dependencies: {}
+    Info_55:
+      Name: ui/main_score_info_wnd.jpg
+      Dependencies: {}
+    Info_56:
+      Name: lcl_www_lcl/sounds/dj etch - aftermath.jpg
+      Dependencies: {}
+    Info_57:
+      Name: prefab/char/maze_player.jpg
+      Dependencies:
+        Dependency_0: material/player.jpg
+    Info_58:
+      Name: prefab/char/unitychan.jpg
+      Dependencies:
+        Dependency_0: shared/newbundle.jpg
+    Info_59:
+      Name: prefab/char/mazepassage.jpg
+      Dependencies: {}
+    Info_60:
+      Name: ui/login_popup_wnd.jpg
+      Dependencies:
+        Dependency_0: texture_set/common.jpg
+        Dependency_1: texture_set/bg.jpg
+        Dependency_2: emoji/emoji1/emoji_mat.jpg
+        Dependency_3: emoji/emoji1/emoji.jpg
+    Info_61:
+      Name: material/tower1.jpg
+      Dependencies: {}
+    Info_62:
+      Name: lcl_www_lcl/sounds/synctrack2a.jpg
+      Dependencies: {}
+    Info_63:
+      Name: ui/board_info_wnd.jpg
+      Dependencies: {}
+    Info_64:
+      Name: prefab/char/changecloth/ch_we_one_hou_006.jpg
+      Dependencies: {}
+    Info_65:
+      Name: prefab/char/eff/testscale.jpg
+      Dependencies: {}
+    Info_66:
+      Name: ui/game_result_wnd.jpg
+      Dependencies:
+        Dependency_0: ui/full_screen_bg.jpg
+        Dependency_1: lcl_www_lcl/sounds/dj etch - aftermath.jpg
+    Info_67:
+      Name: prefab/char/floor.jpg
+      Dependencies:
+        Dependency_0: material/newmaterial1.jpg
+    Info_68:
+      Name: material/map_node.jpg
+      Dependencies: {}
+    Info_69:
+      Name: ui/busy_wnd.jpg
+      Dependencies: {}
+    Info_70:
+      Name: material/rawimage.jpg
+      Dependencies: {}
+    Info_71:
+      Name: material/floor2.jpg
+      Dependencies: {}
+    Info_72:
+      Name: ui/test_all_ui_control_wnd.jpg
+      Dependencies:
+        Dependency_0: texture_set/bb_gezidiceng.jpg
+    Info_73:
+      Name: prefab/char/changecloth/ch_pc_hou_006_shen.jpg
+      Dependencies: {}
+    Info_74:
+      Name: ui/gm_wnd.jpg
+      Dependencies: {}
+    Info_75:
+      Name: prefab/char/pet.jpg
+      Dependencies: {}
+    Info_76:
+      Name: prefab/char/maze_cell.jpg
+      Dependencies: {}
+    Info_77:
+      Name: material/particle.jpg
+      Dependencies: {}
+    Info_78:
+      Name: prefab/char/changecloth/ch_pc_hou_008_shen.jpg
+      Dependencies: {}
+    Info_79:
+      Name: prefab/char/eff/mybullet.jpg
+      Dependencies: {}
+    Info_80:
+      Name: shader/shaderslist.jpg
+      Dependencies:
+        Dependency_0: shared/newbundle.jpg
+    Info_81:
+      Name: material/map_grid.jpg
+      Dependencies: {}
+    Info_82:
+      Name: prefab/char/changecloth/ch_pc_hou.jpg
+      Dependencies: {}
+    Info_83:
+      Name: lcl_www_lcl/sounds/laser2.jpg
+      Dependencies: {}
+    Info_84:
+      Name: ui/test_windows_child_wnd.jpg
+      Dependencies:
+        Dependency_0: texture_set/emoij/chatpopo.jpg
+    Info_85:
+      Name: prefab/char/maze.jpg
+      Dependencies: {}
+    Info_86:
+      Name: material/blackwhite.jpg
+      Dependencies: {}
+    Info_87:
+      Name: material/floor3.jpg
+      Dependencies: {}
+    Info_88:
+      Name: material/zhuan.jpg
+      Dependencies:
+        Dependency_0: texture_set/zhuan.jpg
+    Info_89:
+      Name: prefab/char/changecloth/ch_pc_hou_006_jiao.jpg
+      Dependencies: {}
+    Info_90:
+      Name: lcl_www_lcl/sounds/dj etch - interlude.jpg
+      Dependencies: {}
+    Info_91:
+      Name: prefab/char/zhuan.jpg
+      Dependencies:
+        Dependency_0: material/zhuan.jpg
+    Info_92:
+      Name: lcl_www_lcl/sounds/eruption1.jpg
+      Dependencies: {}
+    Info_93:
+      Name: ui/test_list_wnd.jpg
+      Dependencies: {}
+    Info_94:
+      Name: prefab/char/changecloth/ch_we_one_hou_004.jpg
+      Dependencies: {}
+    Info_95:
+      Name: material/particle_additive.jpg
+      Dependencies:
+        Dependency_0: shared/newbundle.jpg
+    Info_96:
+      Name: lcl_www_lcl/sounds/synctrack1b.jpg
+      Dependencies: {}
+    Info_97:
+      Name: ui/test_ui_eff_hud2_wnd.jpg
+      Dependencies: {}
+    Info_98:
+      Name: material/defaultmat.jpg
+      Dependencies: {}
+    Info_99:
+      Name: lcl_www_lcl/sounds/laser1.jpg
+      Dependencies: {}
+    Info_100:
+      Name: prefab/char/girl.jpg
+      Dependencies: {}
+    Info_101:
+      Name: ui/banner_wnd.jpg
+      Dependencies: {}
+    Info_102:
+      Name: lcl_www_lcl/sounds/dj etch - drives me crazy.jpg
+      Dependencies: {}
+    Info_103:
+      Name: material/tower0.jpg
+      Dependencies: {}
+    Info_104:
+      Name: material/walls2.jpg
+      Dependencies: {}
+    Info_105:
+      Name: material/floor1.jpg
+      Dependencies: {}
+    Info_106:
+      Name: ui/test_controll_wnd.jpg
+      Dependencies: {}
+    Info_107:
+      Name: material/player.jpg
+      Dependencies: {}
+    Info_108:
+      Name: lcl_www_lcl/sounds/dj etch - rollin.jpg
+      Dependencies: {}
+    Info_109:
+      Name: lcl_www_lcl/sounds/soundtemplate.jpg
+      Dependencies: {}
+    Info_110:
+      Name: material/mu.jpg
+      Dependencies:
+        Dependency_0: texture_set/muban.jpg
+    Info_111:
+      Name: prefab/char/changecloth/ch_pc_hou_008_tou.jpg
+      Dependencies: {}
+    Info_112:
+      Name: prefab/char/maze_wall_painting2.jpg
+      Dependencies:
+        Dependency_0: material/painting2.jpg
+    Info_113:
+      Name: material/painting0.jpg
+      Dependencies: {}
+    Info_114:
+      Name: prefab/char/changecloth/ch_pc_hou_004_tou.jpg
+      Dependencies: {}
+    Info_115:
+      Name: ui/joystick_wnd.jpg
+      Dependencies: {}
+    Info_116:
+      Name: prefab/char/maze_door.jpg
+      Dependencies:
+        Dependency_0: material/door.jpg
+    Info_117:
+      Name: prefab/char/eff/eff_test.jpg
+      Dependencies: {}
+    Info_118:
+      Name: prefab/char/nangua.jpg
+      Dependencies: {}
+    Info_119:
+      Name: prefab/char/changecloth/ch_pc_hou_004_shou.jpg
+      Dependencies: {}
+    Info_120:
+      Name: ui/map_selector_wnd.jpg
+      Dependencies:
+        Dependency_0: texture_set/bb_gezidiceng.jpg
+    Info_121:
+      Name: ui/testbridgeui_popup_wnd.jpg
+      Dependencies:
+        Dependency_0: ui/full_screen_bg.jpg
+    Info_122:
+      Name: material/painting1.jpg
+      Dependencies: {}
+    Info_123:
+      Name: prefab/char/changecloth/ch_pc_hou_004_jiao.jpg
+      Dependencies: {}
+    Info_124:
+      Name: prefab/char/changecloth/ch_pc_hou_008_jiao.jpg
+      Dependencies: {}
+    Info_125:
+      Name: prefab/char/horse.jpg
+      Dependencies:
+        Dependency_0: shared/newbundle.jpg
+    Info_126:
+      Name: prefab/char/paddy 1.jpg
+      Dependencies: {}
+    Info_127:
+      Name: ui/test_ui_eff_popup_wnd.jpg
+      Dependencies: {}
+    Info_128:
+      Name: prefab/char/maze_wall_painting3.jpg
+      Dependencies:
+        Dependency_0: material/painting0.jpg
+    Info_129:
+      Name: prefab/char/tie.jpg
+      Dependencies:
+        Dependency_0: material/tie.jpg
+    Info_130:
+      Name: lcl_www_lcl/sounds/flashbang1.jpg
+      Dependencies: {}
+    Info_131:
+      Name: lcl_www_lcl/sounds/synctrack1a.jpg
+      Dependencies: {}
+    Info_132:
+      Name: prefab/char/changecloth/ch_pc_hou_008_shou.jpg
+      Dependencies: {}
+    Info_133:
+      Name: prefab/char/eff/eff_dummy.jpg
+      Dependencies: {}
+    Info_134:
+      Name: scene/new_country/new_country_scene_data.jpg
+      Dependencies: {}
+    Info_135:
+      Name: emoji/emoji1/emoji.jpg
+      Dependencies: {}
+    Info_136:
+      Name: texture_set/emoij/emoji.jpg
+      Dependencies:
+        Dependency_0: texture_set/emoij/emoji_png.jpg
+    Info_137:
+      Name: texture_set/emoij/emoji_lxh.jpg
+      Dependencies:
+        Dependency_0: texture_set/emoij/emoji_lxh_png.jpg

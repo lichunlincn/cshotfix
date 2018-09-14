@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 730783370
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b5d7f943933329a7ba2d06fee29f9f63
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21f0dc8ebad690f009368069428e0a1a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/bag/BB_baoshi_B.png
+- Assets/art/out/texture_set/bag/wuping_kuang_A.png
+- Assets/art/out/texture_set/bag/BB_cailiao_A.png
+- Assets/art/out/texture_set/bag/VIP_jiantou_you_A.png
+- Assets/art/out/texture_set/bag/BB_quanbu_B.png
+- Assets/art/out/texture_set/bag/JLSN_jiantou_xia_B.png
+- Assets/art/out/texture_set/bag/BB_quanbu_A.png
+- Assets/art/out/texture_set/bag/VIP_jiantou_zuo_B.png
+- Assets/art/out/texture_set/bag/JLSN_jiantou_shang_A.png
+- Assets/art/out/texture_set/bag/BB_zhuangbei_A.png
+- Assets/art/out/texture_set/bag/VIP_jiantou_you_B.png
+- Assets/art/out/texture_set/bag/role_roleback1.png
+- Assets/art/out/texture_set/bag/VIP_jiantou_zuo_A.png
+- Assets/art/out/texture_set/bag/JLSN_jiantou_xia_A.png
+- Assets/art/out/texture_set/bag/BB_baoshi_A.png
+- Assets/art/out/texture_set/bag/JLSN_jiantou_shang_B.png
+- Assets/art/out/texture_set/bag/wuping_kuang_B.png
+- Assets/art/out/texture_set/bag/BB_cailiao_B.png
+- Assets/art/out/texture_set/bag/BB_zhuangbei_B.png
+Dependencies: []

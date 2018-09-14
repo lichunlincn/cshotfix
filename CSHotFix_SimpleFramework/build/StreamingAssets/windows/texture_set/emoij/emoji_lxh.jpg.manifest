@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3342391402
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9ad3eb44974e03af5e7bc07a0d776354
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 46582b3771129b6b8e0c32487f594268
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5efe682ead7eb154f97508822f9d073c, type: 3}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/emoij/emoji_lxh.asset
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/texture_set/emoij/emoji_lxh_png.jpg

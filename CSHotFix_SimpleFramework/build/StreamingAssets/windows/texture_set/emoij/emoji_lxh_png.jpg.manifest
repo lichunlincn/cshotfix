@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1011111662
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6d95a056ea0f98cdf5dad6965c7560e2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21f0dc8ebad690f009368069428e0a1a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/emoij/emoji_lxh.png
+Dependencies: []

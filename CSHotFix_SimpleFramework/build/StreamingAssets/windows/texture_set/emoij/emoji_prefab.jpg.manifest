@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 3931054145
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 032955e95dd570da139690f2dfa354e8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f0da0efe60fa169debfcfcd86fca55ee
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4a43be44be4e113479cbf3f4c3faeec9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4ad2848afcf80704bb329766ba2ee9e4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe91fb1d3926f5940bad17bb75cfd5fe, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5efe682ead7eb154f97508822f9d073c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0ae7019e071d5fe4e9d442887a3ac0de, type: 3}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/emoij/emoji.prefab
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/texture_set/emoij/emoji.jpg
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/texture_set/emoij/emoji_lxh.jpg

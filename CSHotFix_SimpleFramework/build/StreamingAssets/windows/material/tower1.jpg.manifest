@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2320296955
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 88320b9116545f01ff3c344580f02333
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fc316c7a11020260bacec4997f7e1b62
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/material/tower1.mat
+Dependencies: []

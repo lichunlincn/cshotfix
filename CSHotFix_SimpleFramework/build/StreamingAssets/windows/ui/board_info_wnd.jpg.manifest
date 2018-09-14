@@ -1,0 +1,38 @@
+ManifestFileVersion: 0
+CRC: 2079652924
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7a40171d7c6f3af9e0a449b1fab34d1f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 58c001b691ea1b06f63c7159194c6f2a
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/ui/board_info_wnd.prefab
+Dependencies: []

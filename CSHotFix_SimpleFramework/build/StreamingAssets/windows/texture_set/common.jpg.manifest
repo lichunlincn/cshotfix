@@ -1,0 +1,67 @@
+ManifestFileVersion: 0
+CRC: 171426983
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5d1004f730e289f573c6b95a6d53cf94
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21f0dc8ebad690f009368069428e0a1a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/common/anniu4_2zi_A.png
+- Assets/art/out/texture_set/common/anniu3_a.png
+- Assets/art/out/texture_set/common/anniu1_4zi_C.png
+- Assets/art/out/texture_set/common/role_progressbar_back.png
+- Assets/art/out/texture_set/common/anniu1_4zi_B.png
+- Assets/art/out/texture_set/common/ranking_nameselect_2.png
+- Assets/art/out/texture_set/common/anniu4H_4zi_C.png
+- Assets/art/out/texture_set/common/anniu1_2zi_C.png
+- Assets/art/out/texture_set/common/JH_biaoshitiao.png
+- Assets/art/out/texture_set/common/anniu4_4zi_C.png
+- Assets/art/out/texture_set/common/RW_mingzikuang.png
+- Assets/art/out/texture_set/common/public_packback.png
+- Assets/art/out/texture_set/common/anniu3_B.png
+- Assets/art/out/texture_set/common/SC_jianhao.png
+- Assets/art/out/texture_set/common/CJ_jiantou_C1.png
+- Assets/art/out/texture_set/common/CJ_jiantou_A1.png
+- Assets/art/out/texture_set/common/anniu2_A.png
+- Assets/art/out/texture_set/common/public_packback_press.png
+- Assets/art/out/texture_set/common/anniu_fenlei_B.png
+- Assets/art/out/texture_set/common/chang anniu_A.png
+- Assets/art/out/texture_set/common/anniu4_2zi_B.png
+- Assets/art/out/texture_set/common/anniu1_4zi_A.png
+- Assets/art/out/texture_set/common/CJ_jiantou_C2.png
+- Assets/art/out/texture_set/common/anniu4_4zi_B.png
+- Assets/art/out/texture_set/common/chang anniu_B.png
+- Assets/art/out/texture_set/common/anniu4_2zi_C.png
+- Assets/art/out/texture_set/common/anniu_fenlei2_A.png
+- Assets/art/out/texture_set/common/CJ_jiantou_A2.png
+- Assets/art/out/texture_set/common/anniu_fenlei_A.png
+- Assets/art/out/texture_set/common/CJ_jiantou_B1.png
+- Assets/art/out/texture_set/common/role_tili_progressbar_content.png
+- Assets/art/out/texture_set/common/anniu4H_4zi_A.png
+- Assets/art/out/texture_set/common/RW_tishi_di.png
+- Assets/art/out/texture_set/common/public_itemgrid2_press.png
+- Assets/art/out/texture_set/common/guanbi_C.png
+- Assets/art/out/texture_set/common/ranking_nameback.png
+- Assets/art/out/texture_set/common/RW_renwuditiao_A.png
+- Assets/art/out/texture_set/common/anniu4_4zi_A.png
+- Assets/art/out/texture_set/common/DL_daqu_A.png
+- Assets/art/out/texture_set/common/anniu2_B.png
+- Assets/art/out/texture_set/common/anniu1_2zi_A.png
+- Assets/art/out/texture_set/common/DL_daqu_B.png
+- Assets/art/out/texture_set/common/RW_dueihuakuang.png
+- Assets/art/out/texture_set/common/anniu2_C.png
+- Assets/art/out/texture_set/common/anniu_fenlei2_B.png
+- Assets/art/out/texture_set/common/RW_renwuditiao_B.png
+- Assets/art/out/texture_set/common/anniu1_2zi_B.png
+- Assets/art/out/texture_set/common/SC_jiahao.png
+- Assets/art/out/texture_set/common/anniu4H_4zi_B.png
+- Assets/art/out/texture_set/common/CJ_jiantou_B2.png
+Dependencies: []

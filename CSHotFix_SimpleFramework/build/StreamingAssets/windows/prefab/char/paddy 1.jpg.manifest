@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 2323945058
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c2f68f617df52da4160e0ccb532b2135
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cf2b010c9afd3491a4f6c69d8a99303b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/char/Paddy 1.prefab
+Dependencies: []

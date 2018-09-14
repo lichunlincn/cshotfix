@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 3421343671
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9c4c4eb3558db5345bc406e653c8dbab
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 61bbffdc602a65e232a6c4979caed655
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 77e21250d0966c7479ac1158f507e2a7, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/shader/shaderslist.prefab
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/shared/newbundle.jpg

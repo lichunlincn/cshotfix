@@ -1,0 +1,37 @@
+ManifestFileVersion: 0
+CRC: 1322045452
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9e6890b38989d81c8f2820918c5c583e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 30824f026276ea8586b98d5d0014e787
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 92
+  Script: {instanceID: 0}
+- Class: 124
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/char/maze_player.prefab
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/material/player.jpg

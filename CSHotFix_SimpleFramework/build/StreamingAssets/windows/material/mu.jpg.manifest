@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 4257124066
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a14f48bb22425071bc1829c9e71b7cda
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cc983a3149e5fb03ce027e70c7a1a559
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/material/mu.mat
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/texture_set/muban.jpg

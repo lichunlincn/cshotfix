@@ -1,0 +1,56 @@
+ManifestFileVersion: 0
+CRC: 1976820728
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 95cd9f6b83bfcbf4a289ab8c7fe304a0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21f0dc8ebad690f009368069428e0a1a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/icons/34.png
+- Assets/art/out/texture_set/icons/12.png
+- Assets/art/out/texture_set/icons/36.png
+- Assets/art/out/texture_set/icons/13.png
+- Assets/art/out/texture_set/icons/1.png
+- Assets/art/out/texture_set/icons/10.png
+- Assets/art/out/texture_set/icons/16.png
+- Assets/art/out/texture_set/icons/27.png
+- Assets/art/out/texture_set/icons/5.png
+- Assets/art/out/texture_set/icons/18.png
+- Assets/art/out/texture_set/icons/15.png
+- Assets/art/out/texture_set/icons/24.png
+- Assets/art/out/texture_set/icons/14.png
+- Assets/art/out/texture_set/icons/32.png
+- Assets/art/out/texture_set/icons/6.png
+- Assets/art/out/texture_set/icons/3.png
+- Assets/art/out/texture_set/icons/4.png
+- Assets/art/out/texture_set/icons/25.png
+- Assets/art/out/texture_set/icons/26.png
+- Assets/art/out/texture_set/icons/22.png
+- Assets/art/out/texture_set/icons/28.png
+- Assets/art/out/texture_set/icons/29.png
+- Assets/art/out/texture_set/icons/37.png
+- Assets/art/out/texture_set/icons/17.png
+- Assets/art/out/texture_set/icons/20.png
+- Assets/art/out/texture_set/icons/0.png
+- Assets/art/out/texture_set/icons/8.png
+- Assets/art/out/texture_set/icons/9.png
+- Assets/art/out/texture_set/icons/35.png
+- Assets/art/out/texture_set/icons/33.png
+- Assets/art/out/texture_set/icons/21.png
+- Assets/art/out/texture_set/icons/30.png
+- Assets/art/out/texture_set/icons/31.png
+- Assets/art/out/texture_set/icons/7.png
+- Assets/art/out/texture_set/icons/23.png
+- Assets/art/out/texture_set/icons/2.png
+- Assets/art/out/texture_set/icons/19.png
+- Assets/art/out/texture_set/icons/11.png
+- Assets/art/out/texture_set/icons/38.png
+Dependencies: []

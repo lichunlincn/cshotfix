@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 2068155621
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2987d7d0257b1126dbad32617d5c50ac
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7c398969b14d61b98b5d41e9e8062c5e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/eff/eff_dummy.prefab
+Dependencies: []

@@ -1,0 +1,48 @@
+ManifestFileVersion: 0
+CRC: 415428858
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 952d1afa705cde0b2ceb94e198908930
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: dc52f02493a2d0dc097179a344f9c6bc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: -2095666955, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: -405508275, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: -1200242548, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 1297475563, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ce71017a2903f7c4c9a699e438d0b897, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 25ed55ef4750fc64a8d2879276865942, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ab7b38d60c9f6a944831d24146f39793, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 517118a59ba998f4297180df87b7d50e, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/ui/test_list_wnd.prefab
+Dependencies: []

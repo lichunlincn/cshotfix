@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 2671139953
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1d4bee9018411a784514cb51abc5e697
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4cd0a5558493b0679e071c141fc729a3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/muban.jpg
+Dependencies: []

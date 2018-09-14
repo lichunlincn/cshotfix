@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 3919661756
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 57147aa13985c1151f32ae4799e24736
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d7303a23bc6c272f2cba7652bb4a72f0
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/ui/loading_wnd.prefab
+Dependencies: []

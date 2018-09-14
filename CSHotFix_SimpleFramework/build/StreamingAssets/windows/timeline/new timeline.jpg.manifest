@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 65089482
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 63e683259d890b1f07328cda94e58a8c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 547b5d214cf52c957ec77043545b6d91
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 1778877366, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
+- Class: 114
+  Script: {fileID: 337831424, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 42b21ac9ba7449047897628396303276, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/timeline/New Timeline.playable
+Dependencies: []

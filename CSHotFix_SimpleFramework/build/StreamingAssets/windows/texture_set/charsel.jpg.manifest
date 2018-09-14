@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 2987137072
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2a0e8553f826f751cdc412885f6579fb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21f0dc8ebad690f009368069428e0a1a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/charsel/FSZB_juesedizuo_A.png
+- Assets/art/out/texture_set/charsel/FSZB_juesedizuo_B.png
+Dependencies: []

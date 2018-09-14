@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 2017324517
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 713b729a3763b121300def14d8156ab3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 38726c06769622599c93cfb08b008b8f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/char/floor.prefab
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/material/newmaterial1.jpg

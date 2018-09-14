@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 4036809570
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8eb95876a1a6f748b0a74d4a75c0b050
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cc6f2d82de6e70fbca8caf62266df59e
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/eff/testscale.prefab
+Dependencies: []

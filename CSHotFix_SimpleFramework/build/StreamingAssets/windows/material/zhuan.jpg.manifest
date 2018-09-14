@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 702510716
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e30329dd333d3821e7956774c286dc83
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cc983a3149e5fb03ce027e70c7a1a559
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/material/zhuan.mat
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/texture_set/zhuan.jpg

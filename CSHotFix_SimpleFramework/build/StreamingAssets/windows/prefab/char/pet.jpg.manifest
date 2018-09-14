@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 2175669993
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 384dbb39540f7d7ec02b1842d1fb2bdf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 78b4d1ca2c24f232bd9fb71a6124c736
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/char/pet.prefab
+Dependencies: []

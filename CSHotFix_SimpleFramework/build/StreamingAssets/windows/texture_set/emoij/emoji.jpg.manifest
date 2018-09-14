@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 609618810
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: eebe629a97b6733e8e7a452119c7455f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 46582b3771129b6b8e0c32487f594268
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5efe682ead7eb154f97508822f9d073c, type: 3}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/emoij/emoji.asset
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/texture_set/emoij/emoji_png.jpg

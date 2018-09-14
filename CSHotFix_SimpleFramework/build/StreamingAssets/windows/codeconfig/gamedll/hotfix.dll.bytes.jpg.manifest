@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 1330632287
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f51b2e57679ed726709a8aaaa8da02a9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/Art/Out/GameDll/HotFix.dll.bytes
+Dependencies: []

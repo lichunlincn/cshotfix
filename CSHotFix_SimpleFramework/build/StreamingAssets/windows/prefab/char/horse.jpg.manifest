@@ -1,0 +1,37 @@
+ManifestFileVersion: 0
+CRC: 1161578024
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 73e0cae96ae291e4682912c6d7569cee
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e5063ab6a84631188e91b9e78076e999
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/char/horse.prefab
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/shared/newbundle.jpg

@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 241565053
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bfe53b851d8aab5db3afdff96ba01f74
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ff0255d806333dbeea2a2535d2828c09
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/char/changecloth/ch_pc_hou.prefab
+Dependencies: []

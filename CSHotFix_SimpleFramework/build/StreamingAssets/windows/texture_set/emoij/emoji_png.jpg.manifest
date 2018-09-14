@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 167206319
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: deafacc08b1fa09b6e7b6b4c152cbf8a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21f0dc8ebad690f009368069428e0a1a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/emoij/emoji.png
+Dependencies: []

@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 3674528886
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ccc121a5345a6dd1f538be08102bcda0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/emoji/emoji1/emoji.bytes
+Dependencies: []

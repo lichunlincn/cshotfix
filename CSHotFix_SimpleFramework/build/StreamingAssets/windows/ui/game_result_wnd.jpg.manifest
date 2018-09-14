@@ -1,0 +1,51 @@
+ManifestFileVersion: 0
+CRC: 163595563
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fdff47788dacdd48871facb2234c02e4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5bd4b76aba8f96033fc62e67ff71ce00
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: c3980591dd702ff46b286d01f5aab398, type: 3}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 901282d84aacdd747aeed587fdd237d4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ca8ae34729948b84ca8698a29b32c385, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/ui/game_result_wnd.prefab
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/ui/full_screen_bg.jpg
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/lcl_www_lcl/sounds/dj
+  etch - aftermath.jpg

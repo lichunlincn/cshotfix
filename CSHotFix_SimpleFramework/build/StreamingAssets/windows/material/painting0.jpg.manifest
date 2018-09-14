@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 800590058
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2a74a3e679a3ad9b3db9443a2d72a412
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fc316c7a11020260bacec4997f7e1b62
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/material/Painting0.mat
+Dependencies: []

@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 341968238
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1b158384914ecd90484e938d2042d5fd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cc983a3149e5fb03ce027e70c7a1a559
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/emoji/emoji1/emoji_mat.mat
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/emoji/emoji1/emoji_data.jpg
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/emoji/emoji1/emoji_tex.jpg

@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 4209388603
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: dbd6b31a1339fb7e06bd8d25f54ef94c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21f0dc8ebad690f009368069428e0a1a
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/texture_set/emoij/chatpopo.png
+Dependencies: []

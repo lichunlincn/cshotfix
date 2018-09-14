@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 3439025408
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b2cc874466141da1e299dc1152ddc313
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fc316c7a11020260bacec4997f7e1b62
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/material/UIGrayMaterial.mat
+Dependencies: []

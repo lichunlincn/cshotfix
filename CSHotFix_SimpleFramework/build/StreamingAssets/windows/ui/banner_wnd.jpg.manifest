@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 1201996232
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6b11a1f33af1629220b4898e001b5036
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ec6421245cb1793c79f75a3a6cd64d67
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 468b3f589ae5fdc4a8b50073400ebf74, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 464fb2bb0fba476449c777044bc99ca9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 626fd82adbdb7f74ea2c5012ca646192, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/ui/banner_wnd.prefab
+Dependencies: []

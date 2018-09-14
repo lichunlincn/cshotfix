@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 2834405806
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 76735d4137e59e3f5b6042b49585e914
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c57d9b02df912ae42fae680982b3e9e9
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1d88f3f14d4d5d74195567f67237e34a, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2d4f24ef40e802043a10d5ab16c53d97, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f65b4144adcbdf54fb956d1485ce64d1, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/ui/test_controll_wnd.prefab
+Dependencies: []

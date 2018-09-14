@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 2781615244
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5f3fbc2fbc188b62101c96ef62d562f1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fd732aacae0887e17e302bb47080f559
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/shader/builtin_shaders/DefaultResourcesExtra/Mobile/Mobile-VertexLit.shader
+- Assets/art/out/shader/builtin_shaders/DefaultResourcesExtra/Mobile/Mobile-Diffuse.shader
+- Assets/art/Work/Test/battle1.fbm/5.png
+- Assets/art/out/shader/builtin_shaders/DefaultResourcesExtra/Mobile/Mobile-Particle-Add.shader
+- Assets/art/out/shader/customshaders/Diffuse_MaskEx.shader
+Dependencies: []

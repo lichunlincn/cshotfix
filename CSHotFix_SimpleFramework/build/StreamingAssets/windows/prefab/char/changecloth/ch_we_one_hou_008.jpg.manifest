@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 2640878438
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a0098c21df4b2b709e1929b074751363
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cf2b010c9afd3491a4f6c69d8a99303b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/char/changecloth/ch_we_one_hou_008.prefab
+Dependencies: []

@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 1696973847
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f1f7c23d1e3c1789aa62095c2c4c59c5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 93bea3c59194061aa2018b1f7751d49c
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+Assets:
+- Assets/art/out/prefab/char/maze_wall_painting1.prefab
+Dependencies:
+- D:/Project/ProtectGold/trunk/Game/client/GameProject/build/StreamingAssets/windows/material/painting1.jpg
