@@ -61,9 +61,9 @@ namespace CSHotFix.Reflection
                 CSHotFixPropertyInfo pi = new CSHotFixPropertyInfo(pd, type);
                 properties[i] = pi;
                 if (pd.GetMethod != null)
-                    pi.Getter = type.GetMethod(pd.GetMethod.Name, 0) as ILMethod;
+                    pi.Getter = type.GetMethod(pd.GetMethod.Name, pd.GetMethod.Parameters.Count) as ILMethod;
                 if (pd.SetMethod != null)
-                    pi.Setter = type.GetMethod(pd.SetMethod.Name, 1) as ILMethod;
+                    pi.Setter = type.GetMethod(pd.SetMethod.Name, pd.SetMethod.Parameters.Count) as ILMethod;
             }
         }
 
@@ -442,7 +442,6 @@ namespace CSHotFix.Reflection
         {
             return false;
         }
-
         protected override bool IsArrayImpl()
         {
             return type.IsArray;

@@ -17,11 +17,12 @@ using System.Text;
 public enum CSHotFixMonoTypeExportFlagEnum
 {
     NoExport,
-    Export
+    Export,
+    None
 }
 public class CSHotFixMonoTypeExportAttribute : Attribute
 {
-    private CSHotFixMonoTypeExportFlagEnum m_ExportFlag = CSHotFixMonoTypeExportFlagEnum.Export;
+    private CSHotFixMonoTypeExportFlagEnum m_ExportFlag = CSHotFixMonoTypeExportFlagEnum.None;
 
     public CSHotFixMonoTypeExportFlagEnum ExportFlag
     {

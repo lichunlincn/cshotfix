@@ -35,7 +35,7 @@ public override object CreateCLRInstance(CSHotFix.Runtime.Enviorment.AppDomain a
     return new Adaptor(appdomain, instance);//创建一个新的实例
 }
 //实际的适配器类需要继承你想继承的那个类，并且实现CrossBindingAdaptorType接口
-class Adaptor : IGameHotFixInterface, CrossBindingAdaptorType
+public class Adaptor : IGameHotFixInterface, CrossBindingAdaptorType
 {
     ILTypeInstance instance;
     CSHotFix.Runtime.Enviorment.AppDomain appdomain;

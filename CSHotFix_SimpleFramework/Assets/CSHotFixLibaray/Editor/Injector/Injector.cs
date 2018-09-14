@@ -21,10 +21,12 @@ namespace LCL
     {
         private static string m_DllPath;
         private static string m_DelegatePath;
+        private static string[] m_DepDllPath;
         public static void RunGen(string func)
         {
-            m_DllPath = "Library/ScriptAssemblies/Assembly-CSharp.dll";
-            m_DelegatePath = "Assets/CSHotFixLibaray/Generated/DelegateGen";
+            m_DllPath = GenConfigEditor.CSHotFixMonoDllPath;
+            m_DelegatePath = GenConfigEditor.CSHotFixDelegateGenPath;
+            m_DepDllPath = GenConfigEditor.CSHotFixMonoDepDllPathes;
             m_DllPath = Path.GetFullPath(m_DllPath);
             m_DelegatePath = Path.GetFullPath(m_DelegatePath);
             switch (func)
@@ -60,14 +62,14 @@ namespace LCL
         {
 
             InjectorMain inject = new InjectorMain();
-            inject.Run(m_DllPath, m_DelegatePath, false);
+            inject.Run(m_DllPath, m_DepDllPath, m_DelegatePath, false);
             UnityEngine.Debug.Log( "Inject Ok!");
         }
         private static void GenStaticField()
         {
 
             InjectorMain inject = new InjectorMain();
-            inject.Run(m_DllPath, m_DelegatePath, true);
+            inject.Run(m_DllPath, m_DepDllPath, m_DelegatePath, true);
             UnityEngine.Debug.Log("GenStaticField Ok!");
         }
 

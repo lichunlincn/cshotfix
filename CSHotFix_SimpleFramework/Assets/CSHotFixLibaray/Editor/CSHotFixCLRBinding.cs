@@ -23,78 +23,112 @@ using System.Linq;
 [System.Reflection.Obfuscation(Exclude = true)]
 public class CSHotFixCLRBinding
 {
-    [MenuItem("CSHotFix/GenMonoType")]
-    static void GenerateCLRBinding()
+    [MenuItem("CSHotFix/生成绑定第一步")]
+    static void GenerateCLRBinding1()
     {
         if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成绑定信息？", "需要", "按错了"))
         {
             return;
         }
         List<Type> types = new List<Type>();
-        types.Add(typeof(int));
-        types.Add(typeof(float));
-        types.Add(typeof(long));
-        types.Add(typeof(object));
-        types.Add(typeof(string));
-        types.Add(typeof(Array));
-        types.Add(typeof(Vector2));
-        types.Add(typeof(Vector3));
-        types.Add(typeof(Quaternion));
-        types.Add(typeof(GameObject));
-        types.Add(typeof(UnityEngine.Object));
-        types.Add(typeof(Transform));
-        types.Add(typeof(RectTransform));
-        types.Add(typeof(Time));
-        types.Add(typeof(Debug));
         //types.Add(typeof(UIEventListener));
         //所有DLL内的类型的真实C#类型都是ILTypeInstance
         types.Add(typeof(List<CSHotFix.Runtime.Intepreter.ILTypeInstance>));
         types.AddRange( AddGameDllTypes());
         types.AddRange(AddUnityDll());
+        types.AddRange(GenConfigPlugins.whiteTypeList);
+        types.AddRange(GenConfigEditor.ExportTypeList);
 
-        CSHotFix.Runtime.CLRBinding.BindingCodeGenerator.GenerateBindingCode(types, "Assets/CSHotFixLibaray/Generated/CLRGen");
-        AddCSHotFixDefine();
+        CSHotFix.Runtime.CLRBinding.BindingCodeGenerator.GenerateBindingCode(types, GenConfigEditor.CSHotFixCLRGen1Path);
+
+        //AddCSHotFixDefine();
         AssetDatabase.Refresh();
 
     }
-    static List<string> GetDefineSymbols()
+    [MenuItem("CSHotFix/生成绑定第二步a")]
+    static void GenerateCLRBinding2a()
     {
-#if UNITY_IPHONE
-        string symbolsDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup.iPhone);
-#elif UNITY_ANDROID
-        string symbolsDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup.Android);
-#else
-        string symbolsDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone);
-#endif
-        return symbolsDefines.Split(';').ToList();
-    }
-    static void AddCSHotFixDefine()
-    {
-        var definesList = GetDefineSymbols();
-        if (!definesList.Contains("CSHotFix"))
+
+        if(Directory.Exists(GenConfigEditor.CSHotFixCLRGen2Path))
         {
-            definesList.Add("CSHotFix");
+            string[] files = Directory.GetFiles(GenConfigEditor.CSHotFixCLRGen2Path, "*.cs");
+            foreach(string file in files)
+            {
+                File.Delete(file);
+            }
+            string copyFile = Path.GetFullPath( GenConfigEditor.CSHotFixCLRGen2Path + "/CLRBindings2.cs_");
+            string destFile = Path.GetFullPath( GenConfigEditor.CSHotFixCLRGen2Path + "/CLRBindings2.cs");
+            if (File.Exists(copyFile))
+            {
+                File.Copy(copyFile, destFile, true);
+                Debug.Log("生成绑定第二步a完成,请等待编译通过");
+                AssetDatabase.Refresh();
+            }
+            else
+            {
+                Debug.LogError("文件没有找到：" + copyFile);
+            }
         }
-        string defineSymbols = string.Join(";", definesList.ToArray());
-#if UNITY_IPHONE
-        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.iPhone, defineSymbols);
-#elif UNITY_ANDROID
-        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Android, defineSymbols);
+    }
+    [MenuItem("CSHotFix/生成绑定第二步b")]
+    static void GenerateCLRBinding2b()
+    {
+#if CSHotFix
+        //用新的分析热更dll调用引用来生成绑定代码
+        CSHotFix.Runtime.Enviorment.AppDomain domain = new CSHotFix.Runtime.Enviorment.AppDomain();
+        using (System.IO.FileStream fs = new System.IO.FileStream(GenConfigEditor.CSHotFixDllPath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+        {
+            domain.LoadAssembly(fs);
+        }
+        //Crossbind Adapter is needed to generate the correct binding code
+
+        HotFixManager.InitScript(domain);
+        CSHotFix.Runtime.CLRBinding.BindingCodeGenerator.GenerateBindingCode(domain, GenConfigEditor.CSHotFixCLRGen2Path);
+        AssetDatabase.Refresh();
 #else
-        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone, defineSymbols);
-        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.WebPlayer, defineSymbols);
+        if (!EditorUtility.DisplayDialog("错误", "当前不是发布模式，无法进行绑定生成的第二步", "知道了"))
+        {
+            Debug.LogError("当前不是发布模式，无法进行绑定生成的第二步");
+            return;
+        }
 #endif
     }
+//    static List<string> GetDefineSymbols()
+//    {
+//#if UNITY_IPHONE
+//        string symbolsDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup.);
+//#elif UNITY_ANDROID
+//        string symbolsDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup.Android);
+//#else
+//        string symbolsDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone);
+//#endif
+//        return symbolsDefines.Split(';').ToList();
+//    }
+//    static void AddCSHotFixDefine()
+//    {
+//        var definesList = GetDefineSymbols();
+//        if (!definesList.Contains("CSHotFix"))
+//        {
+//            definesList.Add("CSHotFix");
+//        }
+//        string defineSymbols = string.Join(";", definesList.ToArray());
+//#if UNITY_IPHONE
+//        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.iOS, defineSymbols);
+//#elif UNITY_ANDROID
+//        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Android, defineSymbols);
+//#else
+//        PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone, defineSymbols);
+//#endif
+//    }
 
 
     static List<Type> AddUnityDll()
     {
         List<Type> _outTypes = new List<Type>();
-        _outTypes.AddRange(Assembly.Load("UnityEngine").GetTypes());
-        _outTypes.AddRange(Assembly.Load("UnityEngine.UI").GetTypes());
-
-
-
+        foreach (var assembly in GenConfigEditor.whiteAssemblyList)
+        {
+            _outTypes.AddRange(Assembly.Load(assembly).GetTypes());
+        }
         List<Type> outTypes = new List<Type>();
         foreach (var t in _outTypes)
         {
@@ -103,7 +137,7 @@ public class CSHotFixCLRBinding
                 continue;
             }
             //进行其他过滤，例如和移动平台不相干的、不适合的，和版本不相符的，以及其他不支持的。
-            if (GenConfig.blackNamespaceList.Exists((_black) =>
+            if (GenConfigPlugins.blackNamespaceList.Exists((_black) =>
             {
                 if(t.Namespace!= null)
                 {
@@ -118,7 +152,7 @@ public class CSHotFixCLRBinding
             {
                 continue;
             }
-            if (GenConfig.blackTypeList.Exists((_black)=>{return t == _black; }))
+            if (GenConfigPlugins.blackTypeList.Exists((_black)=>{return t == _black; }))
             {
                 continue;
             }
@@ -157,8 +191,13 @@ public class CSHotFixCLRBinding
     static List<Type> AddGameDllTypes()
     {
         List<Type> outTypes = new List<Type>();
-        Type[] _types = Assembly.Load("Assembly-CSharp").GetTypes();
-        foreach(var t in _types)
+        List<Type> temp = new List<Type>();
+        foreach (var assembly in GenConfigEditor.whiteUserAssemblyList)
+        {
+            temp.AddRange(Assembly.Load(assembly).GetTypes());
+        }
+        //进行过滤
+        foreach (var t in temp)
         {
             var attr = t.GetCustomAttributes(false).ToList().Find((obj) => { return obj is CSHotFixMonoTypeExportAttribute; }) as CSHotFixMonoTypeExportAttribute;
             if (attr != null)
@@ -176,10 +215,8 @@ public class CSHotFixCLRBinding
                 }
                 else
                 {
-                    if (t.Namespace.Contains("LCL") ||
-                        t.Namespace.Contains("UnityUI") ||
-                        t.Namespace.Contains("GameDll")
-                        )
+                    bool isInNamespace = GenConfigEditor.whiteNameSpaceList.Exists((name) => { return t.Namespace == name; });
+                    if (isInNamespace)
                     {
                         if (FilterCommon(t))
                         {

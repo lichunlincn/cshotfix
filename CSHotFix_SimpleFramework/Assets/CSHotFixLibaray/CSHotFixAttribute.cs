@@ -18,9 +18,10 @@ using System.Text;
 public enum InjectFlagEnum
 {
     NoInject,
-    Inject
+    Inject,
+    None
 }
-public class CSHotFixAttribute:Attribute
+public class CSHotFixAttribute : Attribute
 {
     //这个标记默认true吧
     //private bool m_CheckHasRefOut = true;
@@ -39,7 +40,7 @@ public class CSHotFixAttribute:Attribute
 
     //    set { this.m_CheckHasGenericType = value; }
     //}
-    private InjectFlagEnum m_InjectFlag =  InjectFlagEnum.Inject;
+    private InjectFlagEnum m_InjectFlag = InjectFlagEnum.None;
 
     public InjectFlagEnum InjectFlag
     {

@@ -15,7 +15,7 @@ using System.Text;
 using Editor_Mono.Cecil;
 using Editor_Mono.Cecil.Cil;
 using System.Diagnostics;
-
+using System.Reflection;
 
 namespace LCL
 {
@@ -26,22 +26,31 @@ namespace LCL
         private TypeDefinition m_FieldDelegateNameTD;
 
         private bool m_IsWriteName = false;
-        public void InjectAssembly(string dllPath, string delegatePath, bool isWriteName)
+        public void InjectAssembly(string dllPath, string[] unitydllPath, string delegatePath, bool isWriteName)
         {
             m_IsWriteName = isWriteName;
             var readerParameters = new ReaderParameters { ReadSymbols = false };
-            AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(dllPath, readerParameters);
+            AssemblyDefinition assemblyDef = AssemblyDefinition.ReadAssembly(dllPath, readerParameters);
+
+            var resolver = assemblyDef.MainModule.AssemblyResolver as BaseAssemblyResolver;
+            foreach (string path in unitydllPath)
+            {
+                resolver.AddSearchDirectory(path);
+            }
+            var assembly = Assembly.LoadFile(dllPath);
+            var assembly_types = assembly.GetTypes().ToList();
+
             m_NameLines.Clear();
             Stopwatch watch = new Stopwatch();
             watch.Reset();
             watch.Start();
-            foreach (var module in assembly.Modules)
+            foreach (var module in assemblyDef.Modules)
             {
                 List<TypeDefinition> types = module.Types.ToList();
                 TypeDefinition FunctionDelegate = types.Find((td) => td.FullName.Contains("LCLFunctionDelegate"));
                 if (FunctionDelegate != null)
                 {
-                    m_DelegateFunctions = FunctionDelegate.NestedTypes.ToList().FindAll((_type)=> 
+                    m_DelegateFunctions = FunctionDelegate.NestedTypes.ToList().FindAll((_type) =>
                     {
                         string name = _type.BaseType.Name;
                         return (name == typeof(Delegate).Name || name == typeof(MulticastDelegate).Name);
@@ -57,7 +66,7 @@ namespace LCL
 
             if (!isWriteName)
             {
-                foreach (var module in assembly.Modules)
+                foreach (var module in assemblyDef.Modules)
                 {
                     List<TypeDefinition> types = module.Types.ToList();
                     m_FieldDelegateNameTD = types.Find((td) => td.FullName.Contains("LCLFieldDelegateName"));
@@ -70,11 +79,21 @@ namespace LCL
 
             watch.Reset();
             watch.Start();
-            foreach (var module in assembly.Modules)
+            foreach (var module in assemblyDef.Modules)
             {
                 foreach (var typ in module.Types)
                 {
-                    if(Filter.FilterType(typ))
+                    string name = typ.FullName;
+                    var dllType = assembly_types.Find((_type) =>
+                    {
+                        string _name = _type.FullName;
+                        return _name == name;
+                    });
+                    if (dllType == null)
+                    {
+                        continue;
+                    }
+                    if (Filter.DelegateTypeFilter(dllType))
                     {
                         continue;
                     }
@@ -98,12 +117,12 @@ namespace LCL
             if (!isWriteName)
             {
                 var writerParameters = new WriterParameters { WriteSymbols = true };
-                assembly.Write(dllPath, writerParameters);
+                assemblyDef.Write(dllPath, writerParameters);
 
 
-                if (assembly.MainModule.SymbolReader != null)
+                if (assemblyDef.MainModule.SymbolReader != null)
                 {
-                    assembly.MainModule.SymbolReader.Dispose();
+                    assemblyDef.MainModule.SymbolReader.Dispose();
                 }
             }
             else
@@ -140,7 +159,7 @@ namespace LCL
         {
             return method.Parameters.ToList().Exists((pd) => GetParamTypeEnum(pd) != RefOutArrayEnum.None);
         }
-      
+
         private RefOutArrayEnum GetParamTypeEnum(ParameterDefinition pd)
         {
             if (pd.IsOut)
@@ -162,14 +181,14 @@ namespace LCL
         }
         private TypeDefinition FindDelegateFunction(MethodDefinition method)
         {
-            if(method == null)
+            if (method == null)
             {
                 return null;
             }
             var t = m_DelegateFunctions.Find((df) =>
             {
                 MethodDefinition mdf = df.Methods.ToList().Find((md) => md.Name.Contains("Invoke"));
-                if(mdf == null)
+                if (mdf == null)
                 {
                     return false;
                 }

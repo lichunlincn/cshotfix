@@ -27,14 +27,18 @@ public class AdapterGen
             return;
         }
         m_AdapterList.Clear();
-        Type[] _types = Assembly.Load("Assembly-CSharp").GetTypes();
-        m_AdapterList = _types.ToList().FindAll((_type) =>
+        List<Type> _types = new List<Type>();
+        foreach (var assembly in GenConfigEditor.whiteUserAssemblyList)
+        {
+           _types.AddRange( Assembly.Load(assembly).GetTypes() );
+        }
+        m_AdapterList = _types.FindAll((_type) =>
         {
             string fullName = _type.FullName;
-            return GenConfig.adapterGenList.Exists((_fullName) => { return _fullName == fullName; });
+            return GenConfigPlugins.adapterGenList.Exists((_fullName) => { return _fullName == fullName; });
         });
 
-        string dir = "Assets/CSHotFixLibaray/Generated/AdapterGen/";
+        string dir = GenConfigEditor.CSHotFixAdapterGenPath;
         if (!Directory.Exists(dir))
         {
             Directory.CreateDirectory(dir);
@@ -139,7 +143,7 @@ using CSHotFix.Runtime.Intepreter;";
     "}\r\n" +
 
     "//实际的适配器类需要继承你想继承的那个类，并且实现CrossBindingAdaptorType接口\r\n" +
-    "class Adaptor : "+ fullName + ", CrossBindingAdaptorType\r\n" +
+    "public class Adaptor : "+ fullName + ", CrossBindingAdaptorType\r\n" +
     "{\r\n" +
     "    ILTypeInstance instance;\r\n" +
     "    CSHotFix.Runtime.Enviorment.AppDomain appdomain;\r\n" +

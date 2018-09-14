@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using CSHotFix.Runtime.Enviorment;
 using CSHotFix.Other;
+using System.IO;
 
 namespace CSHotFix.Runtime.CLRBinding
 {
@@ -16,10 +17,12 @@ namespace CSHotFix.Runtime.CLRBinding
                                                HashSet<MethodBase> excludeMethods = null, HashSet<FieldInfo> excludeFields = null, 
                                                List<Type> valueTypeBinders = null, List<Type> delegateTypes = null)
         {
-            
             if (!System.IO.Directory.Exists(outputPath))
-            {
                 System.IO.Directory.CreateDirectory(outputPath);
+            string[] oldFiles = System.IO.Directory.GetFiles(outputPath, "*.cs");
+            foreach (var i in oldFiles)
+            {
+                System.IO.File.Delete(i);
             }
 
             List<string> clsNames = new List<string>();
@@ -71,7 +74,7 @@ namespace CSHotFix.Runtime.Generated
                     {
                         bool hr = methodInfo.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0 ||
                                     MethodBindingGenerator.IsMethodPtrType(methodInfo) ||
-                                    GenConfig.SpecialBlackTypeList.Exists((_str)=> 
+                                    GenConfigPlugins.SpecialBlackTypeList.Exists((_str)=> 
                                     {
                                         List<string> strpair = _str;
                                         string _class = strpair[0];
@@ -92,7 +95,7 @@ namespace CSHotFix.Runtime.Generated
                     fields = fields.ToList().FindAll((field) => 
                     {
                         bool hr = field.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0 ||
-                                  GenConfig.SpecialBlackTypeList.Exists((_str) =>
+                                  GenConfigPlugins.SpecialBlackTypeList.Exists((_str) =>
                                   {
                                       List<string> strpair = _str;
                                       string _class = strpair[0];
@@ -217,8 +220,10 @@ namespace CSHotFix.Runtime.Generated
                 if (!info.Value.NeedGenerate)
                     continue;
                 Type i = info.Value.Type;
-                if (i.BaseType == typeof(MulticastDelegate))
-                    continue;
+
+                //CLR binding for delegate is important for cross domain invocation,so it should be generated
+                //if (i.BaseType == typeof(MulticastDelegate))
+                //    continue;
 
                 string clsName, realClsName;
                 bool isByRef;
@@ -237,6 +242,16 @@ namespace CSHotFix.Runtime.Generated
                     oFileName = oFileName + "_t";
                 files.Add(oFileName);
                 oFileName = oFileName + ".cs";
+                //判断Gen1是否已经有该文件
+                Type hasType = Type.GetType("CSHotFix.Runtime.Generated."+clsName);
+                if(hasType != null)
+                {
+                    continue;
+                }
+                if (clsName == "LCLFieldDelegateName_Binding")
+                {
+                    continue;
+                }
                 using (System.IO.StreamWriter sw = new System.IO.StreamWriter(oFileName, false, new UTF8Encoding(false)))
                 {
                     StringBuilder sb = new StringBuilder();
@@ -330,7 +345,7 @@ namespace CSHotFix.Runtime.Generated
                 }
             }
 
-            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(outputPath + "/CLRBindings.cs", false, new UTF8Encoding(false)))
+            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(outputPath + "/CLRBindings2.cs", false, new UTF8Encoding(false)))
             {
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine(@"using System;
@@ -339,7 +354,7 @@ using System.Reflection;
 
 namespace CSHotFix.Runtime.Generated
 {
-    class CLRBindings
+    class CLRBindings2
     {
         /// <summary>
         /// Initialize the CLR binding, please invoke this AFTER CLR Redirection registration
@@ -348,6 +363,16 @@ namespace CSHotFix.Runtime.Generated
         {");
                 foreach (var i in clsNames)
                 {
+                    //判断Gen1是否已经有该文件
+                    Type hasType = Type.GetType("CSHotFix.Runtime.Generated." + i);
+                    if (hasType != null)
+                    {
+                        continue;
+                    }
+                    if (i == "LCLFieldDelegateName_Binding")
+                    {
+                        continue;
+                    }
                     sb.Append("            ");
                     sb.Append(i);
                     sb.AppendLine(".Register(app);");
@@ -362,7 +387,7 @@ namespace CSHotFix.Runtime.Generated
             var delegateClsNames = GenerateDelegateBinding(delegateTypes, outputPath);
             clsNames.AddRange(delegateClsNames);
 
-            GenerateBindingInitializeScript(clsNames, valueTypeBinders, outputPath);
+            //GenerateBindingInitializeScript(clsNames, valueTypeBinders, outputPath);
         }
 
         static void CrawlAppdomain(CSHotFix.Runtime.Enviorment.AppDomain domain, Dictionary<Type, CLRBindingGenerateInfo> infos)
@@ -402,7 +427,8 @@ namespace CSHotFix.Runtime.Generated
                     var methods = type.GetMethods().ToList();
                     foreach (var i in ((CLR.TypeSystem.ILType)type).GetConstructors())
                         methods.Add(i);
-
+                    if (((CLR.TypeSystem.ILType)type).GetStaticConstroctor() != null)
+                        methods.Add(((CLR.TypeSystem.ILType)type).GetStaticConstroctor());
                     foreach (var j in methods)
                     {
                         CLR.Method.ILMethod method = j as CLR.Method.ILMethod;

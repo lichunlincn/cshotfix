@@ -11,84 +11,96 @@ namespace LCL
     public static class Filter
     {
         public static List<string> NeedInjects = new List<string>();
+        //该函数目前只能用于微软原生的代码获取标签，而cecil目前获取不了
         public static InjectFlagEnum GetHotFixAttrValve(object attr)
         {
             BindingFlags flag = BindingFlags.Instance | BindingFlags.Public;
             Type type = attr.GetType();
             PropertyInfo field = type.GetProperty("InjectFlag", flag);
-            if(field!= null)
+            if (field != null)
             {
                 return (InjectFlagEnum)(int)field.GetValue(attr, null);
             }
             else
             {
-                return InjectFlagEnum.Inject;
+                return InjectFlagEnum.None;
             }
 
         }
-        public static bool FilterType(Type t)
+        public static bool DelegateTypeFilter(Type t)
         {
-            if(t.Namespace==null)
-            {
-                return true;
-            }
-            if(!t.Namespace.Contains("LCL") && !t.Namespace.Contains("GameDll"))
+            if (t.IsGenericType)
             {
                 return true;
             }
             var cas = t.GetCustomAttributes(false);
-            if(cas == null)
+            if (cas != null)
             {
-                return false;
-            }
-            else
-            {
-                foreach(var attr in cas)
+                foreach (var attr in cas)
                 {
-                    if(GetHotFixAttrValve(attr) == InjectFlagEnum.NoInject)
+                    InjectFlagEnum flag = GetHotFixAttrValve(attr);
+                    if (flag == InjectFlagEnum.NoInject)
                     {
                         return true;
+                    }
+                    else if (flag == InjectFlagEnum.Inject)
+                    {
+                        return false;
                     }
                 }
             }
 
-            return false;
-        }
-        public static bool FilterType(TypeDefinition t)
-        {
-            if(t.Namespace==null)
-            {
-                return true;
-            }
-            if(!t.Namespace.Contains("LCL") && !t.Namespace.Contains("GameDll"))
-            {
-                return true;
-            }
-            var cas = t.CustomAttributes;
-            if(cas == null)
-            {
-                return false;
-            }
-            else
-            {
-                foreach(var attr in cas)
-                {
-                    if(GetHotFixAttrValve(attr) == InjectFlagEnum.NoInject)
-                    {
-                        return true;
-                    }
-                }
-            }
 
+
+            if (t.Namespace == null)
+            {
+                return true;
+            }
+            bool hasNamespace = GenConfigEditor.whiteNameSpaceList.Exists((name) => { return t.Namespace == name; });
+            if (!hasNamespace)
+            {
+                return true;
+            }
             return false;
         }
+        //public static bool InjectTypeFilter(TypeDefinition t)
+        //{
+        //    var cas = t.CustomAttributes;
+        //    if (cas != null)
+        //    {
+        //        foreach (var attr in cas)
+        //        {
+        //            InjectFlagEnum flag = GetHotFixAttrValve(attr);
+        //            if (flag == InjectFlagEnum.NoInject)
+        //            {
+        //                return true;
+        //            }
+        //            else if (flag == InjectFlagEnum.Inject)
+        //            {
+        //                return false;
+        //            }
+        //        }
+        //    }
+        //    if (t.Namespace==null)
+        //    {
+        //        return true;
+        //    }
+        //    bool hasNamespace = GenConfigEditor.whiteNameSpaceList.Exists((name) => { return t.Namespace == name; });
+        //    if (!hasNamespace)
+        //    {
+        //        return true;
+        //    }
+
+
+        //    return false;
+        //}
 
         public static bool FilterMethod(MethodDefinition m)
         {
-            foreach(var str in NeedInjects)
+            foreach (var str in NeedInjects)
             {
                 string mstr = GetMethodFullName(m);
-                if(str == mstr)
+                if (str == mstr)
                 {
                     return true;
                 }
@@ -98,41 +110,41 @@ namespace LCL
         public static string GetMethodFullName(MethodInfo methodinfo)
         {
             string returnstr = DelegateGen.GetTypeName(methodinfo.ReturnType);
-            string name = methodinfo.DeclaringType.FullName+"::"+methodinfo.Name;
+            string name = methodinfo.DeclaringType.FullName + "::" + methodinfo.Name;
             string paramstr = "";
             int count = methodinfo.GetParameters().Length;
             int index = 1;
 
-            foreach(var param in methodinfo.GetParameters())
+            foreach (var param in methodinfo.GetParameters())
             {
                 string split = index++ == count ? "" : ",";
-                paramstr += DelegateGen.GetTypeName(param.ParameterType)  + split;
+                paramstr += DelegateGen.GetTypeName(param.ParameterType) + split;
             }
-            return returnstr + " " + name + "(" + paramstr + ")";           
+            return returnstr + " " + name + "(" + paramstr + ")";
         }
         public static string GetMethodFullName(MethodDefinition methodinfo)
         {
             string returnstr = GetCecilParamTypeName(methodinfo.ReturnType);
-            string name = methodinfo.DeclaringType.FullName+"::"+methodinfo.Name;
+            string name = methodinfo.DeclaringType.FullName + "::" + methodinfo.Name;
             string paramstr = "";
             int count = methodinfo.Parameters.Count;
             int index = 1;
 
-            foreach(var param in methodinfo.Parameters)
+            foreach (var param in methodinfo.Parameters)
             {
                 string split = index++ == count ? "" : ",";
                 paramstr += GetCecilParamTypeName(param.ParameterType) + split;
             }
-            return returnstr + " " + name + "(" + paramstr + ")";       
+            return returnstr + " " + name + "(" + paramstr + ")";
         }
         private static string GetCecilParamTypeName(TypeReference t)
         {
-            string hr = t.FullName.Replace("`1", "").Replace("`2","").Replace("0...","").Replace(",",", ");
+            string hr = t.FullName.Replace("`1", "").Replace("`2", "").Replace("0...", "").Replace(",", ", ");
             return hr;
         }
         public static bool FilterMethod(MethodInfo m)
         {
-            if(m == null)
+            if (m == null)
             {
                 UnityEngine.Debug.LogError("Error: method is null");
                 return false;
@@ -145,21 +157,21 @@ namespace LCL
                     return false;
                 }
             }
-            if(m.IsGenericMethod)
+            if (m.IsGenericMethod)
             {
-                UnityEngine.Debug.LogError("warning:" + m.DeclaringType.FullName+":" + m.Name + " is a generic method");
+                UnityEngine.Debug.LogError("warning:" + m.DeclaringType.FullName + ":" + m.Name + " is a generic method");
                 return false;
             }
-            foreach(var param in m.GetParameters())
+            foreach (var param in m.GetParameters())
             {
-                if( param.IsOut)
+                if (param.IsOut)
                 {
-                    UnityEngine.Debug.LogError("warning:" + m.DeclaringType.FullName+":" + m.Name + " has out param method");
+                    UnityEngine.Debug.LogError("warning:" + m.DeclaringType.FullName + ":" + m.Name + " has out param method");
                     return false;
                 }
-                if(param.ParameterType.IsByRef)
+                if (param.ParameterType.IsByRef)
                 {
-                    UnityEngine.Debug.LogError("warning:" + m.DeclaringType.FullName+":" + m.Name + " has out param method");
+                    UnityEngine.Debug.LogError("warning:" + m.DeclaringType.FullName + ":" + m.Name + " has out param method");
                     return false;
                 }
             }

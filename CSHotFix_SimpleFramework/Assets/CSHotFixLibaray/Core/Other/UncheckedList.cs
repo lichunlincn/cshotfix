@@ -77,7 +77,7 @@ namespace CSHotFix.Other
         }
 
         // Gets and sets the capacity of this list.  The capacity is the size of
-        // the public array used to hold items.  When set, the public 
+        // the internal array used to hold items.  When set, the internal 
         // array of the list is reallocated to the given capacity.
         // 
         public int Capacity

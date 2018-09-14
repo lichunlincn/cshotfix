@@ -64,7 +64,7 @@ namespace LCL
             Filter.NeedInjects.Clear();
             //从所有类和参数中寻找需要处理的方法
             List<MethodInfoSource> methodList = new List<MethodInfoSource>();
-            ParseTypes(types, methodList);
+            ParseTypes(null, types, methodList);
             List<MethodInfoSource> dealmethod = new List<MethodInfoSource>();
             foreach (var methodinfoSource in methodList)
             {
@@ -100,6 +100,15 @@ namespace LCL
                             info.m_Params.Add(paramdata);
                         }
                     }
+                    if(methodinfoSource.source == MethodInfoSourceEnum.Delegate)
+                    {
+                        //若果是一个委托，那么就不用再次为他生成一个委托类了，避免使用的委托类和定义的不是同一个
+                        info.m_DelegateName = methodinfoSource.mothodInfo.DeclaringType.FullName;
+                        if (info.m_DelegateName == "EventDelegate+Callback")
+                        {
+                            continue;
+                        }
+                    }
                     funcLines.Add(info);
                     dealmethod.Add(methodinfoSource);
                 }
@@ -113,14 +122,14 @@ namespace LCL
 
             return funcLines;
         }
-        private void ParseTypes(Type[] types, List<MethodInfoSource> list, bool isDelegate = false)
+        private void ParseTypes(Type declareType,Type[] types, List<MethodInfoSource> list, bool isDelegate = false)
         {
             foreach (var type in types)
             {
                 MethodInfoSourceEnum source = MethodInfoSourceEnum.InjectMethod;
                 if (!isDelegate)
                 {
-                    if (Filter.FilterType(type))
+                    if (Filter.DelegateTypeFilter(type))
                     {
                         continue;
                     }
@@ -143,15 +152,22 @@ namespace LCL
                 if (type.BaseType == typeof(MulticastDelegate) || type.BaseType == typeof(Delegate))
                 {
                     source = MethodInfoSourceEnum.Delegate;
+                    if (type.FullName.Contains("Predicate`"))
+                    {
+                        string declareName = declareType == null ? type.FullName : declareType.FullName + "里面的" + type.FullName;
+                        UnityEngine.Debug.LogError("脚本引擎好像是不支持Predicate的，请检查相关函数是否有导出到热更新里面使用：" + declareName);
+                    }
+
+
                     //将委托中的Invoke进行转化，其他函数忽略
-                    TotalMethodInfos.AddRange(type.GetMethods().ToList().FindAll((_m) => _m.Name == "Invoke"));
+                    TotalMethodInfos.AddRange(type.GetMethods().ToList().FindAll(
+                    (_m) =>
+                    {
+                        return _m.Name == "Invoke";
+                    }));
                 }
                 else
                 {
-                    if(type.Name == "Timer")
-                    {
-                        int a = 0;
-                    }
                     //字段中含有的委托
                     List<Type> fieldTypes = new List<Type>();
                     var fieldMethods = type.GetFields(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetField | BindingFlags.DeclaredOnly);
@@ -163,7 +179,7 @@ namespace LCL
                             fieldTypes.Add(fieldType);
                         }
                     }
-                    ParseTypes(fieldTypes.ToArray(), list, true);
+                    ParseTypes(type, fieldTypes.ToArray(), list, true);
 
                     //属性中含有委托
                     List<Type> propertyTypes = new List<Type>();
@@ -176,7 +192,7 @@ namespace LCL
                             fieldTypes.Add(propertyType);
                         }
                     }
-                    ParseTypes(propertyTypes.ToArray(), list, true);
+                    ParseTypes(type, propertyTypes.ToArray(), list, true);
 
                     //普通方法
                     var methodInfos = type.GetMethods(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);

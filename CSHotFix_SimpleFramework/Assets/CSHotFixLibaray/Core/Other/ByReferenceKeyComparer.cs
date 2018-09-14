@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace CSHotFix.Other
 {
-	class ByReferenceKeyComparer<T> : IEqualityComparer<T>
+    class ByReferenceKeyComparer<T> : IEqualityComparer<T>
     {
         public bool Equals(T x, T y)
         {

@@ -61,25 +61,25 @@ public class InjectEditor : ScriptableObject
         if (EditorApplication.isCompiling || Application.isPlaying)
         {
             //EditorUtility.DisplayDialog("警告", "你当前处于编译或者运行中，请等待编译完成或者停止运行", "了解");
+            UnityEngine.Debug.LogWarning("编辑器正在运行或者编译");
             return;
         }
-#if CSHotFixSafe
-        if(EditorUtility.DisplayDialog("错误", "当前处于发布版的安全模式，该模式使用于生成绑定代码的", "了解"))
+        if(!GenConfigEditor.NeedInject)
         {
-            UnityEngine.Debug.LogError("注入失败！当前处于发布版的安全模式，该模式使用于生成绑定代码的");
+            UnityEngine.Debug.LogWarning("编辑器设置为不需要注入，所以这里没有注入");
             return;
         }
-#endif
         watch.Reset();
         watch.Start();
         LCL.Injector.RunGen("InjectIL");
         UnityEngine.Debug.Log("InjectIL time:" + watch.ElapsedMilliseconds+" ms");
         AssetDatabase.Refresh();
+
     }
     [MenuItem("CSHotFix/ReCompileCode", false, 4)]
     public static void RemoveHotfixInject()
     {
-        AssetDatabase.ImportAsset("Assets/com.chunlinge.app/Local/Classes/Main.cs");
+        AssetDatabase.ImportAsset(GenConfigEditor.CSHotFixReCompileFile);
         AssetDatabase.Refresh();
     }
 

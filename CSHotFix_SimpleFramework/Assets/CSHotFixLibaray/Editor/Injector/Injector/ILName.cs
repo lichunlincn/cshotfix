@@ -31,9 +31,9 @@ namespace LCL
             string delegateFieldName = "__"+ method.DeclaringType.FullName+ "__" + method.Name;
             for (int i = 0; i < method.Parameters.Count; i++)
             {
-                delegateFieldName += "_" + method.Parameters[i].ParameterType.Name;
+                delegateFieldName += "_" + method.Parameters[i].ParameterType.FullName;
             }
-            string returnname = method.ReturnType.Name;
+            string returnname = method.ReturnType.FullName;
             if (returnname.ToLower().Contains("Void"))
             {
                 returnname = "void";
@@ -46,7 +46,8 @@ namespace LCL
                 Replace("&", "_at_").
                 Replace("[]", "_arr_").
                 Replace("<","_").
-                Replace(">","_");
+                Replace(">","_").
+                Replace(",","_");
 
             return delegateFieldName;
         }

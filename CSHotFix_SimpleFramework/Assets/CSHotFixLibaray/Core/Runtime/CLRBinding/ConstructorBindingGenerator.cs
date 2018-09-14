@@ -86,9 +86,9 @@ namespace CSHotFix.Runtime.CLRBinding
                         sb.AppendLine(string.Format("            if (CSHotFix.Runtime.Generated.CLRBindings.s_{0}_Binder != null) {{", clsName));
 
                         if (isMultiArr)
-                            sb.AppendLine(string.Format("                a{0} = CSHotFix.Runtime.Generated.CLRBindings.s_{1}_Binder.ParseValue (__intp, ptr_of_this_method, __mStack);", j, clsName));
+                            sb.AppendLine(string.Format("                CSHotFix.Runtime.Generated.CLRBindings.s_{1}_Binder.ParseValue(ref a{0}, __intp, ptr_of_this_method, __mStack);", j, clsName));
                         else
-                            sb.AppendLine(string.Format("                @{0} = CSHotFix.Runtime.Generated.CLRBindings.s_{1}_Binder.ParseValue (__intp, ptr_of_this_method, __mStack);", p.Name, clsName));
+                            sb.AppendLine(string.Format("                CSHotFix.Runtime.Generated.CLRBindings.s_{1}_Binder.ParseValue(ref @{0}, __intp, ptr_of_this_method, __mStack);", p.Name, clsName));
 
                         sb.AppendLine("            } else {");
 

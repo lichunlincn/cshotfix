@@ -45,45 +45,52 @@ namespace LCL
             string regLines = "";
             foreach (var info in lines)
             {
-                string funcline = "     public delegate " + info.m_ReturnString + " ";
                 string funcName = "";
-                if (info.m_ReturnString.ToLower().Contains("void"))
+                if (string.IsNullOrEmpty(info.m_DelegateName))
                 {
-                    funcName = "method_delegate" + funcIndex++;
-                }
-                else
-                {
-                    funcName = "function_delegate" + funcIndex++;
-                }
-                funcline += funcName + "(";
-                int paramIndex = 0;
-                foreach (var param in info.m_Params)
-                {
-                    string paramType = "";
-                    if (param.m_RefOut == RefOutArrayEnum.Ref)
+                    string funcline = "     public delegate " + info.m_ReturnString + " ";
+                    
+                    if (info.m_ReturnString.ToLower().Contains("void"))
                     {
-                        paramType += "ref ";
-                    }
-                    else if (param.m_RefOut == RefOutArrayEnum.Out)
-                    {
-                        paramType += "out ";
+                        funcName = "method_delegate" + funcIndex++;
                     }
                     else
                     {
-
+                        funcName = "function_delegate" + funcIndex++;
                     }
-
-                    paramType += param.m_ParamString;
-                    paramType += " arg" + paramIndex++;
-                    if (paramIndex < info.m_Params.Count)
+                    funcline += funcName + "(";
+                    int paramIndex = 0;
+                    foreach (var param in info.m_Params)
                     {
-                        paramType += ",";
-                    }
-                    funcline += paramType;
-                }
-                funcline += ");\r\n";
-                fileFunctions += funcline;
+                        string paramType = "";
+                        if (param.m_RefOut == RefOutArrayEnum.Ref)
+                        {
+                            paramType += "ref ";
+                        }
+                        else if (param.m_RefOut == RefOutArrayEnum.Out)
+                        {
+                            paramType += "out ";
+                        }
+                        else
+                        {
 
+                        }
+
+                        paramType += param.m_ParamString;
+                        paramType += " arg" + paramIndex++;
+                        if (paramIndex < info.m_Params.Count)
+                        {
+                            paramType += ",";
+                        }
+                        funcline += paramType;
+                    }
+                    funcline += ");\r\n";
+                    fileFunctions += funcline;
+                }
+                else
+                {
+                    funcName = info.m_DelegateName;
+                }
                 regLines += WriteRegisterDelegateConvertor(funcName, info)+"\r\n";
             }
             regLines = "    public static void Reg(CSHotFix.Runtime.Enviorment.AppDomain appDomain)\r\n"+
@@ -145,20 +152,34 @@ namespace LCL
                 }
             }
 
+            //这里无论是注入生成还是脚本那边的都需要
             paramTypestrings = (string.IsNullOrEmpty(paramTypestrings) ? "" : ("<" + paramTypestrings + ">"));
             string regDelegate = "appDomain.DelegateManager.Register" + (isAction ? "Method" : "Function") + "Delegate" + paramTypestrings + "();\r\n";
             if(string.IsNullOrEmpty(paramTypestrings))
             {
                 regDelegate = "";
             }
-            string convertor = 
-                "   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate." + method_delegate + ">((act) =>\r\n" +
-                "   {\r\n" +
-                "       return new LCLFunctionDelegate." + method_delegate + "((" + paramstrings + ") =>\r\n" +
-                "       {\r\n" +
-                "       "+(isAction?"":"return ") +"((" + (isAction ? "Action" : "Func") + paramTypestrings +")act)(" + paramstrings + ");\r\n" +
-                "       });\r\n" +
-                "   });\r\n";
+
+            string convertor = "";
+            ////并且过滤掉system.action
+            if (info.m_DelegateName.Contains("Action`") ||
+                info.m_DelegateName.Contains("Func`") ||
+                info.m_DelegateName.Contains("Predicate`"))
+            {
+                
+            }
+            else
+            {
+                string typeName = string.IsNullOrEmpty(info.m_DelegateName) ? ("LCLFunctionDelegate." + method_delegate) : method_delegate;
+                convertor =
+                    "   appDomain.DelegateManager.RegisterDelegateConvertor<" + typeName + ">((act) =>\r\n" +
+                    "   {\r\n" +
+                    "       return new " + typeName + "((" + paramstrings + ") =>\r\n" +
+                    "       {\r\n" +
+                    "       " + (isAction ? "" : "return ") + "((" + (isAction ? "Action" : "Func") + paramTypestrings + ")act)(" + paramstrings + ");\r\n" +
+                    "       });\r\n" +
+                    "   });\r\n";
+            }
             return regDelegate + convertor;
         }
     }

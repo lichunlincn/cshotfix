@@ -31,5 +31,6 @@ namespace LCL
     {
         public string m_ReturnString;
         public List<ParamData> m_Params = new List<ParamData>();
+        public string m_DelegateName = "";
     }
 }

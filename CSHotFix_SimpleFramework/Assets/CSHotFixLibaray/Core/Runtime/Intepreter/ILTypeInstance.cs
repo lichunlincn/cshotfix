@@ -90,6 +90,22 @@ namespace CSHotFix.Runtime.Intepreter
                             if ((byte)f.Constant == intVal)
                                 return f.Name;
                         }
+                        else if (f.Constant is uint)
+                        {
+                            int val = (int) (uint) f.Constant;
+                            if (val == intVal)
+                                return f.Name;
+                        }
+                        else if (f.Constant is ushort)
+                        {
+                            if ((ushort)f.Constant == intVal)
+                                return f.Name;
+                        }
+                        else if (f.Constant is sbyte)
+                        {
+                            if ((sbyte)f.Constant == intVal)
+                                return f.Name;
+                        }
                         else
                             throw new NotImplementedException();
                     }
@@ -424,7 +440,27 @@ namespace CSHotFix.Runtime.Intepreter
                 }
             }
             else
-                return base.Equals(obj);
+            {
+                if (this is ILEnumTypeInstance)
+                {
+                    if (obj is ILEnumTypeInstance)
+                    {
+                        ILEnumTypeInstance enum1 = (ILEnumTypeInstance)this;
+                        ILEnumTypeInstance enum2 = (ILEnumTypeInstance)obj;
+                        if (enum1.type == enum2.type)
+                        {
+                            var res = enum1.fields[0] == enum2.fields[0];
+                            return res;
+                        }
+                        else
+                            return false;
+                    }
+                    else
+                        return base.Equals(obj);
+                }
+                else
+                    return base.Equals(obj);
+            }
         }
 
         public override int GetHashCode()
@@ -440,7 +476,14 @@ namespace CSHotFix.Runtime.Intepreter
                 }
             }
             else
-                return base.GetHashCode();
+            {
+                if (this is ILEnumTypeInstance)
+                {
+                    return ((ILEnumTypeInstance)this).fields[0].Value.GetHashCode();
+                }
+                else
+                    return base.GetHashCode();
+            }
         }
 
         public bool CanAssignTo(IType type)
