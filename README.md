@@ -13,11 +13,8 @@ CSharp bug fix library <br>
 2、<b>可以对已有的dll、exe进入错误修复。</b><br>
 3、<b>可以新增功能，例如常用于游戏运营活动</b>。<br>
 4、<b>支持IOS、支持Android，支持mono打包方式、支持IL2CPP打包方式</b><br>
-&nbsp; &nbsp;IOS IL2CPP<br>
-![image](https://github.com/qq576067421/cshotfix/blob/master/CSHotFix_SimpleFramework/CSHotFix_IPhone_IL2CPP.jpg)<br>
-&nbsp; &nbsp;Android<br>
-![image](https://github.com/qq576067421/cshotfix/blob/master/CSHotFix_SimpleFramework/cshotfix_android_il2cpp.png)
-&nbsp; &nbsp; &nbsp; &nbsp; 总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。
+
+总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。
 
 **二、使用方法。**<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 详情见<a href='https://github.com/qq576067421/cshotfix/blob/master/doc/_Sidebar.md'><b>帮助文档</b></a>。
@@ -38,6 +35,7 @@ CSharp bug fix library <br>
 &nbsp; &nbsp; &nbsp; &nbsp;2、运行效率。总体来说访问Unity的C#接口比lua方案快，计算数学方面的比lua方案要慢些，但是都是在一个数量级，比纯粹的C#慢10到100倍之间。举个例子如果一个访问GameObject的接口，C#耗时是1ms，那么CSHotFix可能就是13ms，lua就有可能是15ms；再举个例子，在CSHotFix里面计算Vector3*float,可能耗时5ms，lua只要3ms，C#只要0.1ms 。是需要注意的是，由于种种原因，无法给出比较客观的数据，请自行按照相关文档说明进行测试。提醒一句，测试请用发布版本并且关闭所有的log等等影响因素。<br>
 
 **六、更新情况。**<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 2018年9月20日：更新一个实际项目使用demo。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年3月13日：更新脚本引擎，支持全自动简单菜单操作，经过一定体量项目代码量亲测，表现良好。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年2月7日：适配器自动生成。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年2月7日：优化框架结构，添加调试功能。<br>
