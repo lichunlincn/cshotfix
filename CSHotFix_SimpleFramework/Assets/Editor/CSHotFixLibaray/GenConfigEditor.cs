@@ -67,7 +67,7 @@ public class GenConfigEditor
     {
         //相对于Assets的路径
         Path.GetFullPath("./Library/UnityAssemblies"),
-
+		Path.GetFullPath("./UnityEngineLibaray"),
 
     };
     public static bool   NeedInject
