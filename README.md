@@ -3,8 +3,10 @@
 <h1><a id="cshotfix_0"></a>cshotfix</h1>
 CSharp bug fix library <br>
 <b>QQ group：673735733</b><br>
-<b>Unity3D 充分测试的版本是2017.3.1f1，其他版本首次运行的时候可能需要“注释掉部分代码才可以编译通过;想要看简易demo的请看分支版本1.4。”<b><br>
-<b><color=red>据有关开发群介绍，如下游戏可能有用到相关技术。腾讯代理的《<a herf=http://ysj.qq.com/main.html>妖神记</a>》、掌趣最近的《热血足球》</color><b><br>
+<b>Unity3D 充分测试的版本是2017.3.1f1，其他版本首次运行的时候可能需要“注释掉部分代码才可以编译通过;想要看简易demo的请看分支版本1.4。”<b><br><br><br>
+<b><color=#ff0000>据有关开发群介绍，如下游戏可能有用到相关技术。<br>
+    <t><t>腾讯代理的《<a herf=http://ysj.qq.com/main.html>妖神记</a>》;<br>
+    <t><t>掌趣最近的《热血足球》</color><b><br><br>
  **一、 简介。**<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 一个专门用于C#热更新的工具链，使用该工具链，你可以实现两点：<br>
 1、<b>使用C#来编写脚本和进行热更新。错误修复过程几乎和正常写代码一样。</b><br>
