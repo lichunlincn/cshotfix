@@ -17,7 +17,7 @@ using System.IO;
 public class InjectEditor : ScriptableObject
 {
     static Stopwatch watch= new Stopwatch();
-    [MenuItem("CSHotFix/GenHotFixDelegate", false, 1)]
+    [MenuItem("CSHotFix/(1 step)GenHotFixDelegate", false, 1)]
     public static void HotfixGenDelegate()
     {
         if (EditorApplication.isCompiling || Application.isPlaying)
@@ -35,7 +35,7 @@ public class InjectEditor : ScriptableObject
         UnityEngine.Debug.Log("GenDelegate time:" + watch.ElapsedMilliseconds+" ms");
         AssetDatabase.Refresh();
     }
-    [MenuItem("CSHotFix/GenHotFixField", false, 2)]
+    [MenuItem("CSHotFix/(2 step)GenHotFixField", false, 2)]
     public static void HotfixGenStaticField()
     {
         if (EditorApplication.isCompiling || Application.isPlaying)

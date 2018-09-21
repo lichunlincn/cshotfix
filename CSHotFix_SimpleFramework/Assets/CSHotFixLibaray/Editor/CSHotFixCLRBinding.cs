@@ -23,7 +23,7 @@ using System.Linq;
 [System.Reflection.Obfuscation(Exclude = true)]
 public class CSHotFixCLRBinding
 {
-    [MenuItem("CSHotFix/生成绑定第一步")]
+    [MenuItem("CSHotFix/(3 step)生成绑定第一步")]
     static void GenerateCLRBinding1()
     {
         if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成绑定信息？", "需要", "按错了"))
@@ -45,7 +45,7 @@ public class CSHotFixCLRBinding
         AssetDatabase.Refresh();
 
     }
-    [MenuItem("CSHotFix/生成绑定第二步a")]
+    [MenuItem("CSHotFix/(4 step)生成绑定第二步a")]
     static void GenerateCLRBinding2a()
     {
 
@@ -70,7 +70,7 @@ public class CSHotFixCLRBinding
             }
         }
     }
-    [MenuItem("CSHotFix/生成绑定第二步b")]
+    [MenuItem("CSHotFix/(5 step)生成绑定第二步b")]
     static void GenerateCLRBinding2b()
     {
 #if CSHotFix
