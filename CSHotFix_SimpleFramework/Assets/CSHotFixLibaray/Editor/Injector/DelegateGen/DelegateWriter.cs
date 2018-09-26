@@ -164,9 +164,10 @@ namespace LCL
             ////并且过滤掉system.action
             if (info.m_DelegateName.Contains("Action`") ||
                 info.m_DelegateName.Contains("Func`") ||
-                info.m_DelegateName.Contains("Predicate`"))
+                info.m_DelegateName.Contains("Predicate`") ||
+                info.m_DelegateName.Contains("Comparison`"))
             {
-                
+
             }
             else
             {
