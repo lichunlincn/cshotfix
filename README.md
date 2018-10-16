@@ -20,6 +20,8 @@ CSharp bug fix library <br>
 
 **二、使用方法。**<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 详情见<a href='https://github.com/qq576067421/cshotfix/blob/master/doc/_Sidebar.md'><b>帮助文档</b></a>。
+简单说下使用方法：
+1、编译通过的情况下，会有一个叫做“CSHotFix”的菜单。
 
 &nbsp; &nbsp; &nbsp; &nbsp; 总的来说，使用方法极其简单，基本上你可以当做没有热更新来编程。因为我们的情怀就是用c#实现热更新，为的就是节约宝贵的时间，所以自动化必须有！
 
