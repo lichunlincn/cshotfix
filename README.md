@@ -19,8 +19,6 @@ CSharp bug fix library <br>
 总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。
 
 **二、使用方法。**<br>
-
-     简单说下使用方法：<br>
    1、“CSHotFix”菜单：依次点击“GenHotFixDelegate”、“GenHotFixField”、“CrateAdapter”、“清理类型绑定”、“导出类型绑定”、“清理HotFix内类型绑定”、“生成HotFix内类型绑定”。<br>
    2、一些配置说明：GenConfigPlugins.cs和GenConfigEditor.cs文件里面有一些关于生成适配器、黑白名单。<br>
    3、框架目录：比较重要的是有一个叫做HotFix的工程，该工程用于热更新dll的。<br>
