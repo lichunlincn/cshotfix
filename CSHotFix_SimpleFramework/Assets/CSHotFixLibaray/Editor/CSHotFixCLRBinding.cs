@@ -23,8 +23,33 @@ using System.Linq;
 [System.Reflection.Obfuscation(Exclude = true)]
 public class CSHotFixCLRBinding
 {
-    [MenuItem("CSHotFix/(3 step)生成绑定第一步")]
-    static void GenerateCLRBinding1()
+    [MenuItem("CSHotFix/清理类型绑定")]
+    static void GenerateCLRBinding1a()
+    {
+        if (Directory.Exists(GenConfigEditor.CSHotFixCLRGen1Path))
+        {
+            string[] files = Directory.GetFiles(GenConfigEditor.CSHotFixCLRGen1Path, "*.cs");
+            foreach (string file in files)
+            {
+                File.Delete(file);
+            }
+            string copyFile = Path.GetFullPath(GenConfigEditor.CSHotFixCLRGen1Path + "/CLRBindings.cs_");
+            string destFile = Path.GetFullPath(GenConfigEditor.CSHotFixCLRGen1Path + "/CLRBindings.cs");
+            if (File.Exists(copyFile))
+            {
+                File.Copy(copyFile, destFile, true);
+                Debug.Log("清理类型绑定完成,请等待编译通过");
+                AssetDatabase.Refresh();
+            }
+            else
+            {
+                Debug.LogError("文件没有找到：" + copyFile);
+            }
+        }
+    }
+
+    [MenuItem("CSHotFix/导出类型绑定")]
+    static void GenerateCLRBinding1b()
     {
         if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成绑定信息？", "需要", "按错了"))
         {
@@ -45,7 +70,7 @@ public class CSHotFixCLRBinding
         AssetDatabase.Refresh();
 
     }
-    [MenuItem("CSHotFix/(4 step)生成绑定第二步a")]
+    [MenuItem("CSHotFix/清理HotFix内类型绑定")]
     static void GenerateCLRBinding2a()
     {
 
@@ -61,7 +86,7 @@ public class CSHotFixCLRBinding
             if (File.Exists(copyFile))
             {
                 File.Copy(copyFile, destFile, true);
-                Debug.Log("生成绑定第二步a完成,请等待编译通过");
+                Debug.Log("清理HotFix内类型绑定完成,请等待编译通过");
                 AssetDatabase.Refresh();
             }
             else
@@ -70,7 +95,7 @@ public class CSHotFixCLRBinding
             }
         }
     }
-    [MenuItem("CSHotFix/(5 step)生成绑定第二步b")]
+    [MenuItem("CSHotFix/生成HotFix内类型绑定")]
     static void GenerateCLRBinding2b()
     {
 #if CSHotFix
