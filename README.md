@@ -20,8 +20,8 @@ CSharp bug fix library <br>
 
 **二、使用方法。**<br>
 
-简单说下使用方法：
-1、编译通过的情况下，会有一个叫做“CSHotFix”的菜单。以此点击“GenHotFixDelegate”、“GenHotFixField”、“CrateAdapter”、“清理类型绑定”、“导出类型绑定”、“清理HotFix内类型绑定”、“生成HotFix内类型绑定”。
+     简单说下使用方法：
+1、“CSHotFix”菜单：依次点击“GenHotFixDelegate”、“GenHotFixField”、“CrateAdapter”、“清理类型绑定”、“导出类型绑定”、“清理HotFix内类型绑定”、“生成HotFix内类型绑定”。
 2、一些配置说明：GenConfigPlugins.cs和GenConfigEditor.cs文件里面有一些关于生成适配器、黑白名单。
 3、框架目录：比较重要的是有一个叫做HotFix的工程，该工程用于热更新dll的。
 
