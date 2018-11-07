@@ -18,6 +18,7 @@ CSharp bug fix library <br>
 
 总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。
 
+
 **二、使用方法。**<br>
    1、“CSHotFix”菜单：依次点击“GenHotFixDelegate”、“GenHotFixField”、“CrateAdapter”、“清理类型绑定”、“导出类型绑定”、“清理HotFix内类型绑定”、“生成HotFix内类型绑定”。<br>
    2、一些配置说明：GenConfigPlugins.cs和GenConfigEditor.cs文件里面有一些关于生成适配器、黑白名单。<br>
@@ -46,3 +47,12 @@ CSharp bug fix library <br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年2月6日22:36:38：优化CSHotFix的代码生成方式，生成方式采用一键式生成。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年2月4日11:40:57：添加注入标记，方便选择性控制哪些代码需要注入。<br>
 &nbsp; &nbsp; &nbsp; &nbsp;  2018年2月3日：完成对apk等demo的验证，可以正常使用。<br>
+
+**七、QA。**<br>
+1、为什么去掉脚步引擎自带调试功能和怎么调试？<br>
+     去掉脚步引擎的调试功能，是为了减少脚步引擎的复杂性，原则上只有最后发布IOS的时候才会用到该脚步引擎。<br>
+     平时开发都是采用开发模式，将GameMain预制件或者脚本Main上面的UseCSHotFixDll的界面勾勾去掉，此时就是常规dll加载，调试功能完全使用的VS或者Monodevelop常规调试方式。<br>
+     这里给大家讲一个附加因素，为了尽可能简单的支持Unity自带的打包Player后的真机调试功能，尽量少用黑科技，也促使了将脚本引擎的调试功能去掉
+2、为什么更改脚本引擎的命名空间？<br>
+     MIT协议允许；便于CSHotfix统一管理代码，对原脚本引擎关于注入方面有特别的代码修改，无法一味地简单覆盖。<br>
+
