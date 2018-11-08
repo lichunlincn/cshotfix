@@ -3,7 +3,7 @@
 <h1><a id="cshotfix_0"></a>cshotfix</h1>
 CSharp bug fix library <br>
 <b>QQ group：673735733</b><br>
-<b>Unity3D 充分测试的版本是2017.3.1f1，其他版本首次运行的时候可能需要“注释掉部分代码才可以编译通过;想要看简易demo的请看分支版本1.4。”<b><br><br><br>
+<b>Unity3D 充分测试的版本是5.x~2018的各个版本，首次运行的时候可能需要“注释掉部分代码才可以编译通过;想要看简易demo的请看分支版本1.4。”<b><br><br><br>
 <b>据有关开发群介绍，如下游戏可能有用到相关技术。<br>
         腾讯代理的《妖神记》：http://ysj.qq.com/main.html;<br>
         掌趣最近的《热血足球》<br>
