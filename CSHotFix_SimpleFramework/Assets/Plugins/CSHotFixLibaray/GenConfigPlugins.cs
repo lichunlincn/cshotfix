@@ -51,11 +51,10 @@ public class GenConfigPlugins
 
 #if UNITY_EDITOR
             typeof(NavMeshTriangulation),
-            typeof(UnityEngineInternal.Input.NativeGenericEvent),
             typeof(UnityEngine.ClusterInput),
             typeof(UnityEngine.ClusterInputType),
             typeof(TextureCompressionQuality),
-            typeof(TizenActivityIndicatorStyle),
+            
             
             typeof(UnityEngine.iOS.ActivityIndicatorStyle),
             typeof(Physics),
@@ -131,13 +130,14 @@ public class GenConfigPlugins
             typeof(UnityEngine.TouchScreenKeyboardType),
             typeof(iPhoneSettings),
             typeof(UnityEngine.MovieTexture),
+            typeof(TizenActivityIndicatorStyle),
 
 #endif
             typeof(UnityEngine.EventProvider),
             typeof(UnityEngine.ClusterNetwork),
             typeof(UnityEngine.MovieTexture),
 
-#if UNITY_2017
+#if UNITY_2017 || UNITY_2018
             typeof(UnityEngine.Playables.PlayableBehaviour),
 
 #else
@@ -157,8 +157,8 @@ public class GenConfigPlugins
             typeof(UnityEngine.Caching),
             typeof(UnityEngine.iPhoneUtils),
 
-            
 
+            
 #endif
 
     };
@@ -177,7 +177,8 @@ public class GenConfigPlugins
             "UnityEngine.Networking",
             "UnityEngine.AI",
             "UnityEngine.Rendering",
-            "UnityEngine.Internal.VR"
+            "UnityEngine.Internal.VR",
+            "Unity.Collections.LowLevel.Unsafe"
         };
 
     public static List< List<string> > SpecialBlackTypeList = new List<List<string>>()

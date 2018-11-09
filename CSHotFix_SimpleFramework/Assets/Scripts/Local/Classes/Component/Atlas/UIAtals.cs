@@ -11,7 +11,6 @@ namespace LCL
         [HideInInspector]
         public List<Sprite> spriteLists = new List<Sprite>();
 
-        private static Sprite m_NullSprite = new Sprite();
         /// <summary>
         /// 根据图片名称获取sprite
         /// </summary>
@@ -22,7 +21,7 @@ namespace LCL
             if (string.IsNullOrEmpty(spritename))
             {
                 Debug.LogError("GetSprite spritename IsNullOrEmpty");
-                return m_NullSprite;
+                return null;
             }
             int count = spriteLists.Count;
             for (int i = 0; i < count; ++i)
@@ -35,7 +34,7 @@ namespace LCL
             }
 
             Debug.LogError("GetSprite spritename not find");
-            return m_NullSprite;
+            return null;
         }
 
         /// <summary>

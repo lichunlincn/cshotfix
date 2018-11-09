@@ -657,7 +657,6 @@ namespace CSHotFix.Runtime.Intepreter
                                             {
                                                 *dst = *val;
                                                 dst->ObjectType = ObjectTypes.Long;
-                                                dst->ValueLow = 0;
                                             }
                                             break;
                                     }
@@ -1862,6 +1861,13 @@ namespace CSHotFix.Runtime.Intepreter
                                                                     }
                                                                 }
                                                                 break;
+                                                            case ObjectTypes.ArrayReference:
+                                                                {
+                                                                    var arr = mStack[objRef->Value] as Array;
+                                                                    int idx = objRef->ValueLow;
+                                                                    arr.SetValue(obj, idx);
+                                                                }
+                                                                break;
                                                             case ObjectTypes.StaticFieldReference:
                                                                 {
                                                                     var it = AppDomain.GetType(objRef->Value);
@@ -1913,7 +1919,9 @@ namespace CSHotFix.Runtime.Intepreter
                                             dst = Minus(dst, (int)ip->TokenLong + 1);
                                         else
                                             dst = Minus(dst, ((CLRType)ft).FieldIndexMapping[(int)ip->TokenLong] + 1);
+                                        StackObject valRef = *ret;                                        
                                         CopyToStack(ret, dst, mStack);
+                                        FreeStackValueType(&valRef);
                                     }
                                     else
                                     {
@@ -1964,8 +1972,10 @@ namespace CSHotFix.Runtime.Intepreter
                                         {
                                             fieldAddr = Minus(*(StackObject**)&objRef->Value, ((CLRType)ft).FieldIndexMapping[(int)ip->TokenLong] + 1);
                                         }
+                                        StackObject valRef = *dst;
                                         dst->ObjectType = ObjectTypes.StackObjectReference;
                                         *(StackObject**)&dst->Value = fieldAddr;
+                                        FreeStackValueType(&valRef);
                                     }
                                     else
                                     {
@@ -2921,7 +2931,7 @@ namespace CSHotFix.Runtime.Intepreter
                                                     {
                                                         char val = (char)obj;
                                                         objRef->ObjectType = ObjectTypes.Integer;
-                                                        *(char*)&objRef->Value = val;
+                                                        *(&objRef->Value) = val;
                                                     }
                                                     else if (type == typeof(uint))
                                                     {
@@ -4020,11 +4030,18 @@ namespace CSHotFix.Runtime.Intepreter
                             case OpCodeEnum.Dup:
                                 {
                                     var obj = esp - 1;
-                                    *esp = *obj;
-                                    if (esp->ObjectType >= ObjectTypes.Object)
+                                    if (obj->ObjectType == ObjectTypes.ValueTypeObjectReference)
                                     {
-                                        esp->Value = mStack.Count;
-                                        mStack.Add(mStack[obj->Value]);
+                                        CloneStackValueType(obj, esp, mStack);
+                                    }
+                                    else
+                                    {
+                                        *esp = *obj;
+                                        if (esp->ObjectType >= ObjectTypes.Object)
+                                        {
+                                            esp->Value = mStack.Count;
+                                            mStack.Add(mStack[obj->Value]);
+                                        }
                                     }
                                     esp++;
                                 }
@@ -4135,11 +4152,19 @@ namespace CSHotFix.Runtime.Intepreter
             }
         }
 
+        bool CanCastTo(StackObject* src, StackObject* dst)
+        {
+            var sType = AppDomain.GetType(src->Value);
+            var dType = AppDomain.GetType(dst->Value);
+
+            return sType.CanAssignTo(dType);
+        }
+
         void CopyStackValueType(StackObject* src, StackObject* dst, IList<object> mStack)
         {
             StackObject* descriptor = *(StackObject**)&src->Value;
             StackObject* dstDescriptor = *(StackObject**)&dst->Value;
-            if (descriptor->Value != dstDescriptor->Value)
+            if (!CanCastTo(descriptor, dstDescriptor))
                 throw new InvalidCastException();
             int cnt = descriptor->ValueLow;
             for(int i = 0; i < cnt; i++)

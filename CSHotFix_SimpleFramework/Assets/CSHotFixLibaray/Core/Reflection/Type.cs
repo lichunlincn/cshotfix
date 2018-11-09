@@ -30,6 +30,12 @@ namespace CSHotFix.Reflection
 
         void InitializeCustomAttribute()
         {
+            if(type.TypeDefinition == null)
+            {
+                customAttributes = new object[0];
+                attributeTypes = new Type[0];
+                return;
+            }
             customAttributes = new object[type.TypeDefinition.CustomAttributes.Count];
             attributeTypes = new Type[customAttributes.Length];
             for (int i = 0; i < type.TypeDefinition.CustomAttributes.Count; i++)
@@ -53,6 +59,11 @@ namespace CSHotFix.Reflection
 
         void InitializeProperties()
         {
+            if (type.TypeDefinition == null)
+            {
+                properties = new CSHotFixPropertyInfo[0];
+                return;
+            }
             int cnt = type.TypeDefinition.HasProperties ? type.TypeDefinition.Properties.Count : 0;
             properties = new CSHotFixPropertyInfo[cnt];
             for (int i = 0; i < cnt; i++)
@@ -198,10 +209,26 @@ namespace CSHotFix.Reflection
             List<object> res = new List<object>();
             for(int i = 0; i < customAttributes.Length; i++)
             {
-                if (attributeTypes[i].Equals(attributeType))
+                if (attributeTypes[i].Equals((object)attributeType))
                     res.Add(customAttributes[i]);
             }
             return res.ToArray();
+        }
+
+        public override bool IsAssignableFrom(Type c)
+        {
+            IType type;
+            if (c is CSHotFixWrapperType)
+            {
+                type = ((CSHotFixWrapperType)c).CLRType;
+            }
+            else if (c is CSHotFixType)
+            {
+                type = ((CSHotFixType)c).ILType;
+            }
+            else
+                type = ILType.AppDomain.GetType(c);
+            return type.CanAssignTo(ILType);
         }
 
         public override Type GetElementType()
@@ -233,6 +260,10 @@ namespace CSHotFix.Reflection
                 if (i.Name == name)
                     return i;
             }
+            if (BaseType != null && BaseType is CSHotFixWrapperType)
+            {
+                return BaseType.GetField(name, bindingAttr);
+            }
             return null;
         }
 
@@ -252,6 +283,13 @@ namespace CSHotFix.Reflection
                 if ((isStatic != i.IsStatic) && (isInstance != !i.IsStatic))
                     continue;
                 res.Add(i);
+            }
+            if ((bindingAttr & BindingFlags.DeclaredOnly) != BindingFlags.DeclaredOnly)
+            {
+                if (BaseType != null && BaseType is CSHotFixWrapperType)
+                {
+                    res.AddRange(BaseType.GetFields(bindingAttr));
+                }
             }
             return res.ToArray();
         }
@@ -336,6 +374,13 @@ namespace CSHotFix.Reflection
                     continue;
                 res.Add(i);
             }
+            if ((bindingAttr & BindingFlags.DeclaredOnly) != BindingFlags.DeclaredOnly)
+            {
+                if (BaseType != null && BaseType is CSHotFixWrapperType)
+                {
+                    res.AddRange(BaseType.GetProperties(bindingAttr));
+                }
+            }
             return res.ToArray();
         }
 
@@ -359,6 +404,10 @@ namespace CSHotFix.Reflection
         protected override TypeAttributes GetAttributeFlagsImpl()
         {
             TypeAttributes res = TypeAttributes.Public;
+            if (type.TypeDefinition == null)
+            {
+                return TypeAttributes.Class;
+            }
             if (type.TypeDefinition.IsAbstract)
                 res |= TypeAttributes.Abstract;
             if (!type.IsValueType)
@@ -478,7 +527,7 @@ namespace CSHotFix.Reflection
         {
             get
             {
-                return type.HasGenericParameter;
+                return type.HasGenericParameter || type.GenericArguments != null;
             }
         }
 

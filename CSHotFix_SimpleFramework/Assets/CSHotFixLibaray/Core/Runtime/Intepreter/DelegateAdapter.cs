@@ -1153,6 +1153,16 @@ namespace CSHotFix.Runtime.Intepreter
                 return false;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is DelegateAdapter)
+            {
+                DelegateAdapter b = (DelegateAdapter)obj;
+                return instance == b.instance && method == b.method;
+            }
+            return false;
+        }
+
         public virtual bool Equals(Delegate dele)
         {
             return Delegate == dele;

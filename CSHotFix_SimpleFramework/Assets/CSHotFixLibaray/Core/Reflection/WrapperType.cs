@@ -172,6 +172,14 @@ namespace CSHotFix.Reflection
             return type.GetHashCode();
         }
 
+        public override bool IsAssignableFrom(Type c)
+        {
+            if (c is CSHotFixWrapperType)
+                c = ((CSHotFixWrapperType)c).RealType;
+            if (c is CSHotFixType)
+                c = ((CSHotFixType)c).ILType.TypeForCLR;
+            return et.IsAssignableFrom(c);
+        }
         public override Type GetNestedType(string name, BindingFlags bindingAttr)
         {
             return et.GetNestedType(name, bindingAttr);
