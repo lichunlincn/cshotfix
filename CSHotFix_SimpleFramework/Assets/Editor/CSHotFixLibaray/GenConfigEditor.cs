@@ -36,6 +36,12 @@ public class GenConfigEditor
         //typeof(UIInterface),
 
     };
+
+    //一些没有在命名空间，需要注入和导出委托的类
+    public static List<Type> whiteTypeList = new List<Type>()
+    {
+        //typeof(SimpleJoystick),
+    };
     public static List<string> whiteNameSpaceList = new List<string>()
     {
         "LCL",

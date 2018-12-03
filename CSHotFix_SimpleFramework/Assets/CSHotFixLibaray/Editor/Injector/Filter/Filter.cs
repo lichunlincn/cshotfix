@@ -33,6 +33,17 @@ namespace LCL
             {
                 return true;
             }
+
+            bool mustType = GenConfigEditor.whiteTypeList.Exists((Type whiteType) =>
+            {
+                return t == whiteType;
+            });
+
+            if (mustType)
+            {
+                return false;
+            }
+
             var cas = t.GetCustomAttributes(false);
             if (cas != null)
             {
