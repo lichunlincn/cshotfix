@@ -157,7 +157,11 @@ namespace LCL
                         string declareName = declareType == null ? type.FullName : declareType.FullName + "里面的" + type.FullName;
                         UnityEngine.Debug.LogError("脚本引擎好像是不支持Predicate的，请检查相关函数是否有导出到热更新里面使用：" + declareName);
                     }
-
+                    else if(type.FullName.Contains("Converter`"))
+                    {
+                        string declareName = declareType == null ? type.FullName : declareType.FullName + "里面的" + type.FullName;
+                        UnityEngine.Debug.LogError("脚本引擎好像是不支持Converter的，请检查相关函数是否有导出到热更新里面使用：" + declareName);
+                    }
 
                     //将委托中的Invoke进行转化，其他函数忽略
                     TotalMethodInfos.AddRange(type.GetMethods().ToList().FindAll(
