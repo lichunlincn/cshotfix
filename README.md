@@ -24,6 +24,7 @@ CSharp bug fix library <br>
    2、一些配置说明：GenConfigPlugins.cs和GenConfigEditor.cs文件里面有一些关于生成适配器、黑白名单。<br>
    3、框架目录：比较重要的是有一个叫做HotFix的工程，该工程用于热更新dll的。<br>
    4、网络协议：这个大家比较关心，可以参考https://github.com/qq576067421/WfBinaryProtocol<br><br>
+   5、热更新通用使用建议：将流程代码例如登录逻辑、选人逻辑、大厅（界面型）、开始战斗、结束战斗等对<br>实时性能要求不高的场合使用完全热更新；对战斗逻辑、战斗的Loop采用一个MonoBehaviour,里面包含战斗的各种状态，这些状态由热更新层控制转换，减少战斗中每帧对热更新层的访问。
 &nbsp; &nbsp; &nbsp; &nbsp; 总的来说，使用方法极其简单，基本上你可以当做没有热更新来编程。因为我们的情怀就是用c#实现热更新，为的就是节约宝贵的时间，所以自动化必须有！
 
  
