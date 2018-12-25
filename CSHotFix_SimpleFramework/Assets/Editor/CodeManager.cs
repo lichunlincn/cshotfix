@@ -195,6 +195,21 @@ public class CodeManager
             try
             {
                 CSHotFixCLRBinding.GenerateCLRBinding2a();
+                step++;
+                PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+
+            }
+            catch (System.Exception e)
+            {
+                step = -1;
+                PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+                Debug.LogError("一键生成注入导出失败，" + e.Message);
+            }
+        }
+        else if(step == 4)
+        {
+            try
+            {
                 CSHotFixCLRBinding.GenerateCLRBinding2b();
                 step++;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
@@ -207,7 +222,7 @@ public class CodeManager
                 Debug.LogError("一键生成注入导出失败，" + e.Message);
             }
         }
-        else
+        else if(step == 5)
         {
             Debug.Log("一键生成注入导出成功");
             step = -1;
