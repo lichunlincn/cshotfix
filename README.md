@@ -20,7 +20,7 @@ CSharp bug fix library <br>
 
 
 **二、使用方法。**<br>
-   1、“CSHotFix”菜单：依次点击“GenHotFixDelegate”、“GenHotFixField”、“CrateAdapter”、“清理类型绑定”、“导出类型绑定”、“清理HotFix内类型绑定”、“生成HotFix内类型绑定”。<br>
+   1、“CSHotFix”菜单：点击OneKeyGen一键生成。<br>
    2、一些配置说明：GenConfigPlugins.cs和GenConfigEditor.cs文件里面有一些关于生成适配器、黑白名单。<br>
    3、框架目录：比较重要的是有一个叫做HotFix的工程，该工程用于热更新dll的。<br>
    4、网络协议：这个大家比较关心，可以参考https://github.com/qq576067421/WfBinaryProtocol<br><br>
