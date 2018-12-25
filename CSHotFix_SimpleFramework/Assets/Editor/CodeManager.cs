@@ -128,4 +128,89 @@ public class CodeManager
         PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone, defineSymbols);
 #endif
     }
+
+    [MenuItem("CSHotFix/OneKeyGen一键生成", false, 1)]
+    public static void OneKeyGen()
+    {
+        PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", 0);
+        InjectEditor.RemoveHotfixInject();
+    }
+    //处理一键生成注入、导出需要的东西
+    [UnityEditor.Callbacks.DidReloadScripts]
+    public static void OnScriptsReloaded()
+    {
+        int step = PlayerPrefs.GetInt("CodeManager_OneKeyGen_Step", -1);
+        if (step < 0)
+        {
+            return;
+        }
+        if (step == 0)
+        {
+            try
+            {
+                InjectEditor.HotfixGenDelegate();
+                step++;
+                PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+            }
+            catch (System.Exception e)
+            {
+                step = -1;
+                PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+                Debug.LogError("一键生成注入导出失败，" + e.Message);
+            }
+        }
+        else if (step == 1)
+        {
+            try
+            {
+                InjectEditor.HotfixGenStaticField();
+                step++;
+                PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+            }
+            catch (System.Exception e)
+            {
+                step = -1;
+                PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+                Debug.LogError("一键生成注入导出失败，" + e.Message);
+            }
+        }
+        else if (step == 2)
+        {
+            try
+            {
+                CSHotFixCLRBinding.GenerateCLRBinding1b();
+                step++;
+                PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+            }
+            catch (System.Exception e)
+            {
+                step = -1;
+                PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+                Debug.LogError("一键生成注入导出失败，" + e.Message);
+            }
+        }
+        else if (step == 3)
+        {
+            try
+            {
+                CSHotFixCLRBinding.GenerateCLRBinding2b();
+                step++;
+                PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+
+            }
+            catch (System.Exception e)
+            {
+                step = -1;
+                PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+                Debug.LogError("一键生成注入导出失败，" + e.Message);
+            }
+        }
+        else
+        {
+            Debug.Log("一键生成注入导出成功");
+            step = -1;
+            PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+        }
+
+    }
 }

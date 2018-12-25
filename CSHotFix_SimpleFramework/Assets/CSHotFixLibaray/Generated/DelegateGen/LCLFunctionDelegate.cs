@@ -30,7 +30,7 @@ public class LCLFunctionDelegate
      public delegate void method_delegate12(System.Object arg0,System.Boolean arg1);
      public delegate System.String function_delegate13(System.Object arg0,UnityEngine.RuntimePlatform arg1);
      public delegate UnityEngine.GameObject function_delegate14(System.Object arg0);
-     public delegate Setting function_delegate15(System.Object arg0);
+     public delegate global::Setting function_delegate15(System.Object arg0);
      public delegate void method_delegate16(System.Object arg0,UnityEngine.ThreadPriority arg1);
      public delegate UnityEngine.ThreadPriority function_delegate17(System.Object arg0);
      public delegate GameDll.GMManager function_delegate18(System.Object arg0);
@@ -95,7 +95,7 @@ public class LCLFunctionDelegate
      public delegate System.Boolean function_delegate77(System.Object arg0,UnityEngine.Vector3 arg1,UnityEngine.Vector3 arg2,System.Boolean arg3);
      public delegate System.Int32 function_delegate78(System.Object arg0,System.Single arg1);
      public delegate System.Int32 function_delegate79(System.Object arg0,System.Single arg1,System.Single arg2);
-     public delegate Main function_delegate80(System.Object arg0);
+     public delegate global::Main function_delegate80(System.Object arg0);
      public delegate UnityEngine.EventSystems.EventSystem function_delegate81(System.Object arg0);
      public delegate UnityEngine.UI.CanvasScaler function_delegate82(System.Object arg0);
      public delegate GameDll.IBattle function_delegate83(System.Object arg0,GameDll.BattleType arg1);
@@ -161,52 +161,31 @@ public class LCLFunctionDelegate
      public delegate UnityEngine.Ray function_delegate143(System.Object arg0,UnityEngine.Camera arg1,UnityEngine.Vector3 arg2);
      public delegate void method_delegate144(System.Object arg0,UnityEngine.Transform arg1,UnityEngine.Transform arg2);
      public delegate void method_delegate145(System.Object arg0,UnityEngine.RectTransform arg1,UnityEngine.RectTransform arg2);
-
-     public delegate void method_delegate148(System.Object arg0,UnityEngine.Networking.UnityWebRequest arg1);
-
-     public delegate System.Boolean function_delegate151(System.Object arg0,System.String arg1,System.String arg2);
-     public delegate System.Collections.IEnumerator function_delegate152(System.Object arg0);
-     public delegate System.Collections.IEnumerator function_delegate153(System.Object arg0,System.String arg1);
-     public delegate void method_delegate154(System.Object arg0,ICSharpCode.SharpZipLib.Zip.ZipEntry arg1,ICSharpCode.SharpZipLib.Zip.ZipInputStream arg2,System.String arg3);
-     public delegate void method_delegate156(System.Object arg0,System.String arg1,System.Action<UnityEngine.Networking.UnityWebRequest> arg2);
-     public delegate void method_delegate157(System.Object arg0,System.String arg1,System.String arg2,System.Action<UnityEngine.Networking.UnityWebRequest> arg3);
-     public delegate void method_delegate158(System.Object arg0,System.String arg1,System.Action<UnityEngine.Texture2D> arg2);
-     public delegate void method_delegate159(System.Object arg0,System.String arg1,System.Action<UnityEngine.AssetBundle> arg2);
-     public delegate void method_delegate160(System.Object arg0,System.String arg1,System.Action<UnityEngine.AudioClip> arg2,UnityEngine.AudioType arg3);
-     public delegate void method_delegate161(System.Object arg0,System.String arg1,System.Collections.Generic.List<UnityEngine.Networking.IMultipartFormSection> arg2,System.Action<UnityEngine.Networking.UnityWebRequest> arg3);
-     public delegate void method_delegate162(System.Object arg0,System.String arg1,System.Byte[] arg2,System.Action<System.Boolean> arg3);
-     public delegate System.Collections.IEnumerator function_delegate163(System.Object arg0,System.String arg1,System.Action<UnityEngine.Networking.UnityWebRequest> arg2);
-     public delegate System.Collections.IEnumerator function_delegate164(System.Object arg0,System.String arg1,System.String arg2,System.Action<UnityEngine.Networking.UnityWebRequest> arg3);
-     public delegate System.Collections.IEnumerator function_delegate165(System.Object arg0,System.String arg1,System.Action<UnityEngine.Texture2D> arg2);
-     public delegate System.Collections.IEnumerator function_delegate166(System.Object arg0,System.String arg1,System.Action<UnityEngine.AssetBundle> arg2);
-     public delegate System.Collections.IEnumerator function_delegate167(System.Object arg0,System.String arg1,System.Action<UnityEngine.AudioClip> arg2,UnityEngine.AudioType arg3);
-     public delegate System.Collections.IEnumerator function_delegate168(System.Object arg0,System.String arg1,System.Collections.Generic.List<UnityEngine.Networking.IMultipartFormSection> arg2,System.Action<UnityEngine.Networking.UnityWebRequest> arg3);
-     public delegate System.Collections.IEnumerator function_delegate169(System.Object arg0,System.String arg1,System.Byte[] arg2,System.Action<System.Boolean> arg3,System.String arg4);
-     public delegate System.Action<UnityEngine.GameObject> function_delegate173(System.Object arg0);
-     public delegate void method_delegate174(System.Object arg0,System.Action<UnityEngine.GameObject> arg1);
-     public delegate System.Action<UnityEngine.GameObject, System.Boolean> function_delegate175(System.Object arg0);
-     public delegate void method_delegate176(System.Object arg0,System.Action<UnityEngine.GameObject, System.Boolean> arg1);
-     public delegate System.Action<UnityEngine.GameObject, System.Single> function_delegate177(System.Object arg0);
-     public delegate void method_delegate178(System.Object arg0,System.Action<UnityEngine.GameObject, System.Single> arg1);
-     public delegate System.Action<UnityEngine.GameObject, System.Int32> function_delegate179(System.Object arg0);
-     public delegate void method_delegate180(System.Object arg0,System.Action<UnityEngine.GameObject, System.Int32> arg1);
-     public delegate System.Action<UnityEngine.GameObject, System.String> function_delegate181(System.Object arg0);
-     public delegate void method_delegate182(System.Object arg0,System.Action<UnityEngine.GameObject, System.String> arg1);
-     public delegate System.Object function_delegate183(System.Object arg0);
-     public delegate void method_delegate184(System.Object arg0,UnityEngine.EventSystems.BaseEventData arg1);
-     public delegate void method_delegate185(System.Object arg0,UnityEngine.EventSystems.PointerEventData arg1);
-     public delegate void method_delegate186(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2,System.Action<UnityEngine.GameObject> arg3,System.Object arg4);
-     public delegate void method_delegate187(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2);
-     public delegate void method_delegate188(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2,System.Action<UnityEngine.GameObject, System.Boolean> arg3,System.Object arg4);
-     public delegate void method_delegate189(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2,System.Action<UnityEngine.GameObject, System.Single> arg3,System.Object arg4);
-     public delegate void method_delegate190(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2,System.Action<UnityEngine.GameObject, System.Int32> arg3,System.Object arg4);
-     public delegate void method_delegate191(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2,System.Action<UnityEngine.GameObject, System.String> arg3,System.Object arg4);
-     public delegate UnityUI.UIEventListener function_delegate192(System.Object arg0,UnityEngine.Component arg1);
-     public delegate UnityUI.UIEventListener function_delegate193(System.Object arg0,UnityEngine.GameObject arg1);
-     public delegate UnityEngine.Canvas function_delegate194(System.Object arg0);
-     public delegate UnityEngine.Camera function_delegate195(System.Object arg0);
-     public delegate UnityEngine.Component function_delegate196(System.Object arg0,System.Int32 arg1);
-     public delegate System.Collections.Generic.List<UnityEngine.Component> function_delegate197(System.Object arg0);
+     public delegate System.Action<UnityEngine.GameObject> function_delegate146(System.Object arg0);
+     public delegate void method_delegate147(System.Object arg0,System.Action<UnityEngine.GameObject> arg1);
+     public delegate System.Action<UnityEngine.GameObject, System.Boolean> function_delegate148(System.Object arg0);
+     public delegate void method_delegate149(System.Object arg0,System.Action<UnityEngine.GameObject, System.Boolean> arg1);
+     public delegate System.Action<UnityEngine.GameObject, System.Single> function_delegate150(System.Object arg0);
+     public delegate void method_delegate151(System.Object arg0,System.Action<UnityEngine.GameObject, System.Single> arg1);
+     public delegate System.Action<UnityEngine.GameObject, System.Int32> function_delegate152(System.Object arg0);
+     public delegate void method_delegate153(System.Object arg0,System.Action<UnityEngine.GameObject, System.Int32> arg1);
+     public delegate System.Action<UnityEngine.GameObject, System.String> function_delegate154(System.Object arg0);
+     public delegate void method_delegate155(System.Object arg0,System.Action<UnityEngine.GameObject, System.String> arg1);
+     public delegate System.Object function_delegate156(System.Object arg0);
+     public delegate void method_delegate157(System.Object arg0,UnityEngine.EventSystems.BaseEventData arg1);
+     public delegate void method_delegate158(System.Object arg0,UnityEngine.EventSystems.PointerEventData arg1);
+     public delegate void method_delegate159(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2,System.Action<UnityEngine.GameObject> arg3,System.Object arg4);
+     public delegate void method_delegate160(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2);
+     public delegate void method_delegate161(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2,System.Action<UnityEngine.GameObject, System.Boolean> arg3,System.Object arg4);
+     public delegate void method_delegate162(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2,System.Action<UnityEngine.GameObject, System.Single> arg3,System.Object arg4);
+     public delegate void method_delegate163(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2,System.Action<UnityEngine.GameObject, System.Int32> arg3,System.Object arg4);
+     public delegate void method_delegate164(System.Object arg0,UnityEngine.Component arg1,UnityUI.UIEventType arg2,System.Action<UnityEngine.GameObject, System.String> arg3,System.Object arg4);
+     public delegate UnityUI.UIEventListener function_delegate165(System.Object arg0,UnityEngine.Component arg1);
+     public delegate UnityUI.UIEventListener function_delegate166(System.Object arg0,UnityEngine.GameObject arg1);
+     public delegate UnityEngine.Canvas function_delegate167(System.Object arg0);
+     public delegate UnityEngine.Camera function_delegate168(System.Object arg0);
+     public delegate UnityEngine.Component function_delegate169(System.Object arg0,System.Int32 arg1);
+     public delegate System.Collections.Generic.List<UnityEngine.Component> function_delegate170(System.Object arg0);
     public static void Reg(CSHotFix.Runtime.Enviorment.AppDomain appDomain)
 { 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.String,System.Boolean>();
@@ -360,12 +339,12 @@ appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,UnityEngine.Gam
        });
    });
 
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,Setting>();
+appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,global::Setting>();
    appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate15>((act) =>
    {
        return new LCLFunctionDelegate.function_delegate15((arg0) =>
        {
-       return ((Func<System.Object,Setting>)act)(arg0);
+       return ((Func<System.Object,global::Setting>)act)(arg0);
        });
    });
 
@@ -947,12 +926,12 @@ appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Single,S
        });
    });
 
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,Main>();
+appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,global::Main>();
    appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate80>((act) =>
    {
        return new LCLFunctionDelegate.function_delegate80((arg0) =>
        {
-       return ((Func<System.Object,Main>)act)(arg0);
+       return ((Func<System.Object,global::Main>)act)(arg0);
        });
    });
 
@@ -1549,195 +1528,6 @@ appDomain.DelegateManager.RegisterMethodDelegate<System.Object,UnityEngine.RectT
        });
    });
 
-
-
-appDomain.DelegateManager.RegisterMethodDelegate<System.Object,UnityEngine.Networking.UnityWebRequest>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate148>((act) =>
-   {
-       return new LCLFunctionDelegate.method_delegate148((arg0,arg1) =>
-       {
-       ((Action<System.Object,UnityEngine.Networking.UnityWebRequest>)act)(arg0,arg1);
-       });
-   });
-
-
-
-
-
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.String,System.String,System.Boolean>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate151>((act) =>
-   {
-       return new LCLFunctionDelegate.function_delegate151((arg0,arg1,arg2) =>
-       {
-       return ((Func<System.Object,System.String,System.String,System.Boolean>)act)(arg0,arg1,arg2);
-       });
-   });
-
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Collections.IEnumerator>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate152>((act) =>
-   {
-       return new LCLFunctionDelegate.function_delegate152((arg0) =>
-       {
-       return ((Func<System.Object,System.Collections.IEnumerator>)act)(arg0);
-       });
-   });
-
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.String,System.Collections.IEnumerator>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate153>((act) =>
-   {
-       return new LCLFunctionDelegate.function_delegate153((arg0,arg1) =>
-       {
-       return ((Func<System.Object,System.String,System.Collections.IEnumerator>)act)(arg0,arg1);
-       });
-   });
-
-appDomain.DelegateManager.RegisterMethodDelegate<System.Object,ICSharpCode.SharpZipLib.Zip.ZipEntry,ICSharpCode.SharpZipLib.Zip.ZipInputStream,System.String>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate154>((act) =>
-   {
-       return new LCLFunctionDelegate.method_delegate154((arg0,arg1,arg2,arg3) =>
-       {
-       ((Action<System.Object,ICSharpCode.SharpZipLib.Zip.ZipEntry,ICSharpCode.SharpZipLib.Zip.ZipInputStream,System.String>)act)(arg0,arg1,arg2,arg3);
-       });
-   });
-
-
-
-appDomain.DelegateManager.RegisterMethodDelegate<UnityEngine.Networking.UnityWebRequest>();
-
-appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.String,System.Action<UnityEngine.Networking.UnityWebRequest>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate156>((act) =>
-   {
-       return new LCLFunctionDelegate.method_delegate156((arg0,arg1,arg2) =>
-       {
-       ((Action<System.Object,System.String,System.Action<UnityEngine.Networking.UnityWebRequest>>)act)(arg0,arg1,arg2);
-       });
-   });
-
-appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.String,System.String,System.Action<UnityEngine.Networking.UnityWebRequest>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate157>((act) =>
-   {
-       return new LCLFunctionDelegate.method_delegate157((arg0,arg1,arg2,arg3) =>
-       {
-       ((Action<System.Object,System.String,System.String,System.Action<UnityEngine.Networking.UnityWebRequest>>)act)(arg0,arg1,arg2,arg3);
-       });
-   });
-
-appDomain.DelegateManager.RegisterMethodDelegate<UnityEngine.Texture2D>();
-
-appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.String,System.Action<UnityEngine.Texture2D>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate158>((act) =>
-   {
-       return new LCLFunctionDelegate.method_delegate158((arg0,arg1,arg2) =>
-       {
-       ((Action<System.Object,System.String,System.Action<UnityEngine.Texture2D>>)act)(arg0,arg1,arg2);
-       });
-   });
-
-appDomain.DelegateManager.RegisterMethodDelegate<UnityEngine.AssetBundle>();
-
-appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.String,System.Action<UnityEngine.AssetBundle>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate159>((act) =>
-   {
-       return new LCLFunctionDelegate.method_delegate159((arg0,arg1,arg2) =>
-       {
-       ((Action<System.Object,System.String,System.Action<UnityEngine.AssetBundle>>)act)(arg0,arg1,arg2);
-       });
-   });
-
-appDomain.DelegateManager.RegisterMethodDelegate<UnityEngine.AudioClip>();
-
-appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.String,System.Action<UnityEngine.AudioClip>,UnityEngine.AudioType>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate160>((act) =>
-   {
-       return new LCLFunctionDelegate.method_delegate160((arg0,arg1,arg2,arg3) =>
-       {
-       ((Action<System.Object,System.String,System.Action<UnityEngine.AudioClip>,UnityEngine.AudioType>)act)(arg0,arg1,arg2,arg3);
-       });
-   });
-
-appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.String,System.Collections.Generic.List<UnityEngine.Networking.IMultipartFormSection>,System.Action<UnityEngine.Networking.UnityWebRequest>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate161>((act) =>
-   {
-       return new LCLFunctionDelegate.method_delegate161((arg0,arg1,arg2,arg3) =>
-       {
-       ((Action<System.Object,System.String,System.Collections.Generic.List<UnityEngine.Networking.IMultipartFormSection>,System.Action<UnityEngine.Networking.UnityWebRequest>>)act)(arg0,arg1,arg2,arg3);
-       });
-   });
-
-appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.String,System.Byte[],System.Action<System.Boolean>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate162>((act) =>
-   {
-       return new LCLFunctionDelegate.method_delegate162((arg0,arg1,arg2,arg3) =>
-       {
-       ((Action<System.Object,System.String,System.Byte[],System.Action<System.Boolean>>)act)(arg0,arg1,arg2,arg3);
-       });
-   });
-
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.String,System.Action<UnityEngine.Networking.UnityWebRequest>,System.Collections.IEnumerator>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate163>((act) =>
-   {
-       return new LCLFunctionDelegate.function_delegate163((arg0,arg1,arg2) =>
-       {
-       return ((Func<System.Object,System.String,System.Action<UnityEngine.Networking.UnityWebRequest>,System.Collections.IEnumerator>)act)(arg0,arg1,arg2);
-       });
-   });
-
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.String,System.String,System.Action<UnityEngine.Networking.UnityWebRequest>,System.Collections.IEnumerator>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate164>((act) =>
-   {
-       return new LCLFunctionDelegate.function_delegate164((arg0,arg1,arg2,arg3) =>
-       {
-       return ((Func<System.Object,System.String,System.String,System.Action<UnityEngine.Networking.UnityWebRequest>,System.Collections.IEnumerator>)act)(arg0,arg1,arg2,arg3);
-       });
-   });
-
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.String,System.Action<UnityEngine.Texture2D>,System.Collections.IEnumerator>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate165>((act) =>
-   {
-       return new LCLFunctionDelegate.function_delegate165((arg0,arg1,arg2) =>
-       {
-       return ((Func<System.Object,System.String,System.Action<UnityEngine.Texture2D>,System.Collections.IEnumerator>)act)(arg0,arg1,arg2);
-       });
-   });
-
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.String,System.Action<UnityEngine.AssetBundle>,System.Collections.IEnumerator>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate166>((act) =>
-   {
-       return new LCLFunctionDelegate.function_delegate166((arg0,arg1,arg2) =>
-       {
-       return ((Func<System.Object,System.String,System.Action<UnityEngine.AssetBundle>,System.Collections.IEnumerator>)act)(arg0,arg1,arg2);
-       });
-   });
-
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.String,System.Action<UnityEngine.AudioClip>,UnityEngine.AudioType,System.Collections.IEnumerator>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate167>((act) =>
-   {
-       return new LCLFunctionDelegate.function_delegate167((arg0,arg1,arg2,arg3) =>
-       {
-       return ((Func<System.Object,System.String,System.Action<UnityEngine.AudioClip>,UnityEngine.AudioType,System.Collections.IEnumerator>)act)(arg0,arg1,arg2,arg3);
-       });
-   });
-
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.String,System.Collections.Generic.List<UnityEngine.Networking.IMultipartFormSection>,System.Action<UnityEngine.Networking.UnityWebRequest>,System.Collections.IEnumerator>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate168>((act) =>
-   {
-       return new LCLFunctionDelegate.function_delegate168((arg0,arg1,arg2,arg3) =>
-       {
-       return ((Func<System.Object,System.String,System.Collections.Generic.List<UnityEngine.Networking.IMultipartFormSection>,System.Action<UnityEngine.Networking.UnityWebRequest>,System.Collections.IEnumerator>)act)(arg0,arg1,arg2,arg3);
-       });
-   });
-
-appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.String,System.Byte[],System.Action<System.Boolean>,System.String,System.Collections.IEnumerator>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate169>((act) =>
-   {
-       return new LCLFunctionDelegate.function_delegate169((arg0,arg1,arg2,arg3,arg4) =>
-       {
-       return ((Func<System.Object,System.String,System.Byte[],System.Action<System.Boolean>,System.String,System.Collections.IEnumerator>)act)(arg0,arg1,arg2,arg3,arg4);
-       });
-   });
-
-
-
 appDomain.DelegateManager.RegisterMethodDelegate<UnityEngine.GameObject>();
 
 appDomain.DelegateManager.RegisterMethodDelegate<UnityEngine.GameObject,System.Boolean>();
@@ -1749,230 +1539,229 @@ appDomain.DelegateManager.RegisterMethodDelegate<UnityEngine.GameObject,System.I
 appDomain.DelegateManager.RegisterMethodDelegate<UnityEngine.GameObject,System.String>();
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Action<UnityEngine.GameObject>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate173>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate146>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate173((arg0) =>
+       return new LCLFunctionDelegate.function_delegate146((arg0) =>
        {
        return ((Func<System.Object,System.Action<UnityEngine.GameObject>>)act)(arg0);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.Action<UnityEngine.GameObject>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate174>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate147>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate174((arg0,arg1) =>
+       return new LCLFunctionDelegate.method_delegate147((arg0,arg1) =>
        {
        ((Action<System.Object,System.Action<UnityEngine.GameObject>>)act)(arg0,arg1);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Action<UnityEngine.GameObject, System.Boolean>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate175>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate148>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate175((arg0) =>
+       return new LCLFunctionDelegate.function_delegate148((arg0) =>
        {
        return ((Func<System.Object,System.Action<UnityEngine.GameObject, System.Boolean>>)act)(arg0);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.Action<UnityEngine.GameObject, System.Boolean>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate176>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate149>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate176((arg0,arg1) =>
+       return new LCLFunctionDelegate.method_delegate149((arg0,arg1) =>
        {
        ((Action<System.Object,System.Action<UnityEngine.GameObject, System.Boolean>>)act)(arg0,arg1);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Action<UnityEngine.GameObject, System.Single>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate177>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate150>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate177((arg0) =>
+       return new LCLFunctionDelegate.function_delegate150((arg0) =>
        {
        return ((Func<System.Object,System.Action<UnityEngine.GameObject, System.Single>>)act)(arg0);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.Action<UnityEngine.GameObject, System.Single>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate178>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate151>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate178((arg0,arg1) =>
+       return new LCLFunctionDelegate.method_delegate151((arg0,arg1) =>
        {
        ((Action<System.Object,System.Action<UnityEngine.GameObject, System.Single>>)act)(arg0,arg1);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Action<UnityEngine.GameObject, System.Int32>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate179>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate152>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate179((arg0) =>
+       return new LCLFunctionDelegate.function_delegate152((arg0) =>
        {
        return ((Func<System.Object,System.Action<UnityEngine.GameObject, System.Int32>>)act)(arg0);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.Action<UnityEngine.GameObject, System.Int32>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate180>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate153>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate180((arg0,arg1) =>
+       return new LCLFunctionDelegate.method_delegate153((arg0,arg1) =>
        {
        ((Action<System.Object,System.Action<UnityEngine.GameObject, System.Int32>>)act)(arg0,arg1);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Action<UnityEngine.GameObject, System.String>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate181>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate154>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate181((arg0) =>
+       return new LCLFunctionDelegate.function_delegate154((arg0) =>
        {
        return ((Func<System.Object,System.Action<UnityEngine.GameObject, System.String>>)act)(arg0);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,System.Action<UnityEngine.GameObject, System.String>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate182>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate155>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate182((arg0,arg1) =>
+       return new LCLFunctionDelegate.method_delegate155((arg0,arg1) =>
        {
        ((Action<System.Object,System.Action<UnityEngine.GameObject, System.String>>)act)(arg0,arg1);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Object>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate183>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate156>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate183((arg0) =>
+       return new LCLFunctionDelegate.function_delegate156((arg0) =>
        {
        return ((Func<System.Object,System.Object>)act)(arg0);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,UnityEngine.EventSystems.BaseEventData>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate184>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate157>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate184((arg0,arg1) =>
+       return new LCLFunctionDelegate.method_delegate157((arg0,arg1) =>
        {
        ((Action<System.Object,UnityEngine.EventSystems.BaseEventData>)act)(arg0,arg1);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,UnityEngine.EventSystems.PointerEventData>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate185>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate158>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate185((arg0,arg1) =>
+       return new LCLFunctionDelegate.method_delegate158((arg0,arg1) =>
        {
        ((Action<System.Object,UnityEngine.EventSystems.PointerEventData>)act)(arg0,arg1);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,UnityEngine.Component,UnityUI.UIEventType,System.Action<UnityEngine.GameObject>,System.Object>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate186>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate159>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate186((arg0,arg1,arg2,arg3,arg4) =>
+       return new LCLFunctionDelegate.method_delegate159((arg0,arg1,arg2,arg3,arg4) =>
        {
        ((Action<System.Object,UnityEngine.Component,UnityUI.UIEventType,System.Action<UnityEngine.GameObject>,System.Object>)act)(arg0,arg1,arg2,arg3,arg4);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,UnityEngine.Component,UnityUI.UIEventType>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate187>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate160>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate187((arg0,arg1,arg2) =>
+       return new LCLFunctionDelegate.method_delegate160((arg0,arg1,arg2) =>
        {
        ((Action<System.Object,UnityEngine.Component,UnityUI.UIEventType>)act)(arg0,arg1,arg2);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,UnityEngine.Component,UnityUI.UIEventType,System.Action<UnityEngine.GameObject, System.Boolean>,System.Object>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate188>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate161>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate188((arg0,arg1,arg2,arg3,arg4) =>
+       return new LCLFunctionDelegate.method_delegate161((arg0,arg1,arg2,arg3,arg4) =>
        {
        ((Action<System.Object,UnityEngine.Component,UnityUI.UIEventType,System.Action<UnityEngine.GameObject, System.Boolean>,System.Object>)act)(arg0,arg1,arg2,arg3,arg4);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,UnityEngine.Component,UnityUI.UIEventType,System.Action<UnityEngine.GameObject, System.Single>,System.Object>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate189>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate162>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate189((arg0,arg1,arg2,arg3,arg4) =>
+       return new LCLFunctionDelegate.method_delegate162((arg0,arg1,arg2,arg3,arg4) =>
        {
        ((Action<System.Object,UnityEngine.Component,UnityUI.UIEventType,System.Action<UnityEngine.GameObject, System.Single>,System.Object>)act)(arg0,arg1,arg2,arg3,arg4);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,UnityEngine.Component,UnityUI.UIEventType,System.Action<UnityEngine.GameObject, System.Int32>,System.Object>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate190>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate163>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate190((arg0,arg1,arg2,arg3,arg4) =>
+       return new LCLFunctionDelegate.method_delegate163((arg0,arg1,arg2,arg3,arg4) =>
        {
        ((Action<System.Object,UnityEngine.Component,UnityUI.UIEventType,System.Action<UnityEngine.GameObject, System.Int32>,System.Object>)act)(arg0,arg1,arg2,arg3,arg4);
        });
    });
 
 appDomain.DelegateManager.RegisterMethodDelegate<System.Object,UnityEngine.Component,UnityUI.UIEventType,System.Action<UnityEngine.GameObject, System.String>,System.Object>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate191>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.method_delegate164>((act) =>
    {
-       return new LCLFunctionDelegate.method_delegate191((arg0,arg1,arg2,arg3,arg4) =>
+       return new LCLFunctionDelegate.method_delegate164((arg0,arg1,arg2,arg3,arg4) =>
        {
        ((Action<System.Object,UnityEngine.Component,UnityUI.UIEventType,System.Action<UnityEngine.GameObject, System.String>,System.Object>)act)(arg0,arg1,arg2,arg3,arg4);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,UnityEngine.Component,UnityUI.UIEventListener>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate192>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate165>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate192((arg0,arg1) =>
+       return new LCLFunctionDelegate.function_delegate165((arg0,arg1) =>
        {
        return ((Func<System.Object,UnityEngine.Component,UnityUI.UIEventListener>)act)(arg0,arg1);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,UnityEngine.GameObject,UnityUI.UIEventListener>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate193>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate166>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate193((arg0,arg1) =>
+       return new LCLFunctionDelegate.function_delegate166((arg0,arg1) =>
        {
        return ((Func<System.Object,UnityEngine.GameObject,UnityUI.UIEventListener>)act)(arg0,arg1);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,UnityEngine.Canvas>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate194>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate167>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate194((arg0) =>
+       return new LCLFunctionDelegate.function_delegate167((arg0) =>
        {
        return ((Func<System.Object,UnityEngine.Canvas>)act)(arg0);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,UnityEngine.Camera>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate195>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate168>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate195((arg0) =>
+       return new LCLFunctionDelegate.function_delegate168((arg0) =>
        {
        return ((Func<System.Object,UnityEngine.Camera>)act)(arg0);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Int32,UnityEngine.Component>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate196>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate169>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate196((arg0,arg1) =>
+       return new LCLFunctionDelegate.function_delegate169((arg0,arg1) =>
        {
        return ((Func<System.Object,System.Int32,UnityEngine.Component>)act)(arg0,arg1);
        });
    });
 
 appDomain.DelegateManager.RegisterFunctionDelegate<System.Object,System.Collections.Generic.List<UnityEngine.Component>>();
-   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate197>((act) =>
+   appDomain.DelegateManager.RegisterDelegateConvertor<LCLFunctionDelegate.function_delegate170>((act) =>
    {
-       return new LCLFunctionDelegate.function_delegate197((arg0) =>
+       return new LCLFunctionDelegate.function_delegate170((arg0) =>
        {
        return ((Func<System.Object,System.Collections.Generic.List<UnityEngine.Component>>)act)(arg0);
        });
    });
-
 
 }
 }

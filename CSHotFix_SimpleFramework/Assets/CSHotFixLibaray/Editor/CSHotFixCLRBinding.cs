@@ -49,12 +49,12 @@ public class CSHotFixCLRBinding
     }
 
     [MenuItem("CSHotFix/导出类型绑定")]
-    static void GenerateCLRBinding1b()
+    public static void GenerateCLRBinding1b()
     {
-        if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成绑定信息？", "需要", "按错了"))
-        {
-            return;
-        }
+        //if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成绑定信息？", "需要", "按错了"))
+        //{
+        //    return;
+        //}
         List<Type> types = new List<Type>();
         //types.Add(typeof(UIEventListener));
         //所有DLL内的类型的真实C#类型都是ILTypeInstance
@@ -96,7 +96,7 @@ public class CSHotFixCLRBinding
         }
     }
     [MenuItem("CSHotFix/生成HotFix内类型绑定")]
-    static void GenerateCLRBinding2b()
+    public static void GenerateCLRBinding2b()
     {
 #if CSHotFix
         //用新的分析热更dll调用引用来生成绑定代码

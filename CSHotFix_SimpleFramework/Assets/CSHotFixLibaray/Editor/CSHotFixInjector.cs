@@ -25,10 +25,10 @@ public class InjectEditor : ScriptableObject
             EditorUtility.DisplayDialog("警告", "你当前处于编译或者运行中，请等待编译完成或者停止运行", "了解");
             return;
         }
-        if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成热更新委托信息？", "需要", "按错了"))
-        {
-            return;
-        }
+        //if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成热更新委托信息？", "需要", "按错了"))
+        //{
+        //    return;
+        //}
         watch.Reset();
         watch.Start();
         LCL.Injector.RunGen("GenDelegate");
@@ -43,10 +43,10 @@ public class InjectEditor : ScriptableObject
             EditorUtility.DisplayDialog("警告", "你当前处于编译或者运行中，请等待编译完成或者停止运行", "了解");
             return;
         }
-        if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成热更新字段信息？", "需要", "按错了"))
-        {
-            return;
-        }
+        //if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成热更新字段信息？", "需要", "按错了"))
+        //{
+        //    return;
+        //}
         watch.Reset();
         watch.Start();
         LCL.Injector.RunGen("GenStaticField");
