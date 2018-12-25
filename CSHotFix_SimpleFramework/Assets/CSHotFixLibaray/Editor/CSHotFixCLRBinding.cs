@@ -24,7 +24,7 @@ using System.Linq;
 public class CSHotFixCLRBinding
 {
     [MenuItem("CSHotFix/清理类型绑定")]
-    static void GenerateCLRBinding1a()
+    public static void GenerateCLRBinding1a()
     {
         if (Directory.Exists(GenConfigEditor.CSHotFixCLRGen1Path))
         {
@@ -71,7 +71,7 @@ public class CSHotFixCLRBinding
 
     }
     [MenuItem("CSHotFix/清理HotFix内类型绑定")]
-    static void GenerateCLRBinding2a()
+    public static void GenerateCLRBinding2a()
     {
 
         if(Directory.Exists(GenConfigEditor.CSHotFixCLRGen2Path))

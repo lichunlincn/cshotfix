@@ -178,6 +178,7 @@ public class CodeManager
         {
             try
             {
+                CSHotFixCLRBinding.GenerateCLRBinding1a();
                 CSHotFixCLRBinding.GenerateCLRBinding1b();
                 step++;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
@@ -193,6 +194,7 @@ public class CodeManager
         {
             try
             {
+                CSHotFixCLRBinding.GenerateCLRBinding2a();
                 CSHotFixCLRBinding.GenerateCLRBinding2b();
                 step++;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
