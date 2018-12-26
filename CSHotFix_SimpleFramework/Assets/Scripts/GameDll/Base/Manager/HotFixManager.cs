@@ -29,8 +29,11 @@ public class HotFixManager
 #else
         InitScript(m_Assembly);
 
+#if CSHotFix
         CSHotFix.Runtime.Generated.CLRBindings.Initialize(m_Assembly);
         CSHotFix.Runtime.Generated.CLRBindings2.Initialize(m_Assembly);
+#endif
+
 #endif
         string HotFixLoop = dllName + ".HotFixLoop";
         m_HotFixDll = m_Assembly.Instantiate<IGameHotFixInterface>(HotFixLoop);
@@ -55,7 +58,11 @@ public class HotFixManager
 #if CSHotFixSafe
 
 #else
+
+#if CSHotFix
         LCLFunctionDelegate.Reg(appDomain);
+#endif
+
 #endif
         AdapterRegister.RegisterCrossBindingAdaptor(appDomain);
         //注册值类型

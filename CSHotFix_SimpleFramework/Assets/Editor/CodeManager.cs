@@ -133,6 +133,9 @@ public class CodeManager
     public static void OneKeyGen()
     {
         PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", 0);
+        var definesList = GetDefineSymbols();
+        definesList.Remove("CSHotFix");
+        ChangeDefineSymbol(definesList);
         InjectEditor.RemoveHotfixInject();
     }
     //处理一键生成注入、导出需要的东西
@@ -140,11 +143,11 @@ public class CodeManager
     public static void OnScriptsReloaded()
     {
         int step = PlayerPrefs.GetInt("CodeManager_OneKeyGen_Step", -1);
-        if (step < 0)
+        if (  step< 0)
         {
             return;
         }
-        if (step == 0)
+        if(step == 3)
         {
             try
             {
@@ -152,14 +155,14 @@ public class CodeManager
                 step++;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
             }
-            catch (System.Exception e)
+            catch(System.Exception e)
             {
                 step = -1;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
                 Debug.LogError("一键生成注入导出失败，" + e.Message);
             }
         }
-        else if (step == 1)
+        else if(step == 4)
         {
             try
             {
@@ -174,12 +177,17 @@ public class CodeManager
                 Debug.LogError("一键生成注入导出失败，" + e.Message);
             }
         }
-        else if (step == 2)
+        else if(step == 0)
         {
             try
             {
                 CSHotFixCLRBinding.GenerateCLRBinding1a();
                 CSHotFixCLRBinding.GenerateCLRBinding1b();
+
+                var definesList = GetDefineSymbols();
+                definesList.Add("CSHotFix");
+                ChangeDefineSymbol(definesList);
+
                 step++;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
             }
@@ -190,7 +198,7 @@ public class CodeManager
                 Debug.LogError("一键生成注入导出失败，" + e.Message);
             }
         }
-        else if (step == 3)
+        else if (step == 1)
         {
             try
             {
@@ -206,7 +214,7 @@ public class CodeManager
                 Debug.LogError("一键生成注入导出失败，" + e.Message);
             }
         }
-        else if(step == 4)
+        else if(step == 2)
         {
             try
             {
@@ -230,4 +238,6 @@ public class CodeManager
         }
 
     }
+
+
 }
