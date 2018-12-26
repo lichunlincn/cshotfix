@@ -270,7 +270,9 @@ namespace CSHotFix.Runtime.Generated
                 using (System.IO.StreamWriter sw = new System.IO.StreamWriter(oFileName, false, new UTF8Encoding(false)))
                 {
                     StringBuilder sb = new StringBuilder();
-                    sb.Append(@"using System;
+                    sb.Append(@"
+#if CSHotFix
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -359,7 +361,7 @@ namespace CSHotFix.Runtime.Generated
                     sb.AppendLine(ctorWraperCode);
                     sb.AppendLine("    }");
                     sb.AppendLine("}");
-
+                    sb.AppendLine("#endif");
                     sw.Write(Regex.Replace(sb.ToString(), "(?<!\r)\n", "\r\n"));
                     sw.Flush();
                 }
