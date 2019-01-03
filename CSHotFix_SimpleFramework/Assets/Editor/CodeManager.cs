@@ -147,13 +147,20 @@ public class CodeManager
         {
             return;
         }
-        if(step == 3)
+
+        if (step == 1)
         {
             try
             {
                 InjectEditor.HotfixGenDelegate();
                 step++;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+                var definesList = GetDefineSymbols();
+                if (definesList.Contains("CSHotFix") == false)
+                {
+                    definesList.Add("CSHotFix");
+                    ChangeDefineSymbol(definesList);
+                }
             }
             catch(System.Exception e)
             {
@@ -162,7 +169,7 @@ public class CodeManager
                 Debug.LogError("一键生成注入导出失败，" + e.Message);
             }
         }
-        else if(step == 4)
+        else if(step == 2)
         {
             try
             {
@@ -184,10 +191,6 @@ public class CodeManager
                 CSHotFixCLRBinding.GenerateCLRBinding1a();
                 CSHotFixCLRBinding.GenerateCLRBinding1b();
 
-                var definesList = GetDefineSymbols();
-                definesList.Add("CSHotFix");
-                ChangeDefineSymbol(definesList);
-
                 step++;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
             }
@@ -198,13 +201,16 @@ public class CodeManager
                 Debug.LogError("一键生成注入导出失败，" + e.Message);
             }
         }
-        else if (step == 1)
+        else if (step == 3)
         {
             try
             {
                 CSHotFixCLRBinding.GenerateCLRBinding2a();
                 step++;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
+                //让代码强制编译一次
+                AssetDatabase.ImportAsset(GenConfigEditor.CSHotFixReCompileFile);
+                AssetDatabase.Refresh();
 
             }
             catch (System.Exception e)
@@ -214,7 +220,7 @@ public class CodeManager
                 Debug.LogError("一键生成注入导出失败，" + e.Message);
             }
         }
-        else if(step == 2)
+        else if(step == 4)
         {
             try
             {
