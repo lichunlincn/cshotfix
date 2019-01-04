@@ -39,7 +39,7 @@ namespace LCL
                 return t == whiteType;
             });
 
-            if (mustType)
+            if(mustType)
             {
                 return false;
             }

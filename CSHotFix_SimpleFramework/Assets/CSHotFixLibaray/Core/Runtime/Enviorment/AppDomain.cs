@@ -136,6 +136,10 @@ namespace CSHotFix.Runtime.Enviorment
                 {
                     RegisterCLRMethodRedirection(i, CLRRedirections.EnumGetName);
                 }
+                if (i.Name == "ToObject" && i.GetParameters()[1].ParameterType == typeof(int))
+                {
+                    RegisterCLRMethodRedirection(i, CLRRedirections.EnumToObject);
+                }
             }
             mi = typeof(System.Type).GetMethod("GetTypeFromHandle");
             RegisterCLRMethodRedirection(mi, CLRRedirections.GetTypeFromHandle);
@@ -532,6 +536,8 @@ namespace CSHotFix.Runtime.Enviorment
                     mapTypeToken[bt.GetHashCode()] = bt;
                     if (bt is CLRType)
                     {
+                        clrTypeMapping[bt.TypeForCLR] = bt;
+
                         //It still make sense for CLRType, since CLR uses [T] for generics instead of <T>
                         StringBuilder sb = new StringBuilder();
                         sb.Append(baseType);
@@ -540,9 +546,9 @@ namespace CSHotFix.Runtime.Enviorment
                         {
                             if (i > 0)
                                 sb.Append(",");
-                            if (genericParams[i].Contains(","))
+                            /*if (genericParams[i].Contains(","))
                                 sb.Append(genericParams[i].Substring(0, genericParams[i].IndexOf(',')));
-                            else
+                            else*/
                                 sb.Append(genericParams[i]);
                         }
                         sb.Append('>');
@@ -555,6 +561,8 @@ namespace CSHotFix.Runtime.Enviorment
                 if (isArray)
                 {
                     bt = bt.MakeArrayType(1);
+                    if (bt is CLRType)
+                        clrTypeMapping[bt.TypeForCLR] = bt;
                     mapType[bt.FullName] = bt;
                     mapTypeToken[bt.GetHashCode()] = bt;
                     if (!isByRef)
@@ -567,6 +575,8 @@ namespace CSHotFix.Runtime.Enviorment
                 if (isByRef)
                 {
                     res = bt.MakeByRefType();
+                    if (bt is CLRType)
+                        clrTypeMapping[bt.TypeForCLR] = bt;
                     mapType[fullname] = res;
                     mapType[res.FullName] = res;
                     mapTypeToken[res.GetHashCode()] = res;
@@ -646,7 +656,7 @@ namespace CSHotFix.Runtime.Enviorment
                                 name = name.Substring(1, name.Length - 2);
                             if (!string.IsNullOrEmpty(name))
                                 genericParams.Add(name);
-                            else
+                            else if (!string.IsNullOrEmpty(name))
                             {
                                 if (!isArray)
                                 {
@@ -656,6 +666,11 @@ namespace CSHotFix.Runtime.Enviorment
                                 {
                                     baseType += "[]";
                                 }
+                            }
+                            else
+                            {
+                                sb.Append("<>");
+                                continue;
                             }
                             sb.Length = 0;
                             continue;
@@ -716,7 +731,7 @@ namespace CSHotFix.Runtime.Enviorment
                 if (_ref.IsByReference)
                 {
                     var et = _ref.GetElementType();
-                    bool valid = !et.IsGenericParameter;
+                    bool valid = !et.ContainsGenericParameter;
                     var t = GetType(et, contextType, contextMethod);
                     if (t != null)
                     {
@@ -727,9 +742,11 @@ namespace CSHotFix.Runtime.Enviorment
                             ((ILType)res).TypeReference = _ref;
                         }
                         if (valid)
+                        {
                             mapTypeToken[hash] = res;
-                        if (!string.IsNullOrEmpty(res.FullName))
-                            mapType[res.FullName] = res;
+                            if (!string.IsNullOrEmpty(res.FullName))
+                                mapType[res.FullName] = res;
+                        }
                         return res;
                     }
                     return null;
@@ -788,7 +805,7 @@ namespace CSHotFix.Runtime.Enviorment
                         }
                         else
                             val = GetType(gType.GenericArguments[i], contextType, contextMethod);
-                        if (val != null && gType.GenericArguments[i].ContainsGenericParameter)
+                        if (gType.GenericArguments[i].ContainsGenericParameter)
                             dummyGenericInstance = true;
                         if (val != null)
                             genericArguments[i] = new KeyValuePair<string, IType>(key, val);

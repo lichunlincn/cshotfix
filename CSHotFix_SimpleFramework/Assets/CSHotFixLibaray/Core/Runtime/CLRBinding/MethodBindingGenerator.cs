@@ -218,12 +218,12 @@ namespace CSHotFix.Runtime.CLRBinding
                         else
                             sb.AppendLine(string.Format("            {0} @{1} = new {0}();", realClsName, p.Name));
 
-                        sb.AppendLine(string.Format("            if ({1}.s_{0}_Binder != null) {{", clsName, BindingCodeGenerator.GetValueTypeBinderClass()));
+                        sb.AppendLine(string.Format("            if (CSHotFix.Runtime.Generated.CLRBindings.s_{0}_Binder != null) {{", clsName));
 
                         if (isMultiArr)
-                            sb.AppendLine(string.Format("                {3}.s_{1}_Binder.ParseValue(ref a{0}, __intp, ptr_of_this_method, __mStack, {2});", j, clsName, shouldFreeParam, BindingCodeGenerator.GetValueTypeBinderClass()));
+                            sb.AppendLine(string.Format("                CSHotFix.Runtime.Generated.CLRBindings.s_{1}_Binder.ParseValue(ref a{0}, __intp, ptr_of_this_method, __mStack, {2});", j, clsName, shouldFreeParam));
                         else
-                            sb.AppendLine(string.Format("                {3}.s_{1}_Binder.ParseValue(ref @{0}, __intp, ptr_of_this_method, __mStack, {2});", p.Name, clsName, shouldFreeParam, BindingCodeGenerator.GetValueTypeBinderClass()));
+                            sb.AppendLine(string.Format("                CSHotFix.Runtime.Generated.CLRBindings.s_{1}_Binder.ParseValue(ref @{0}, __intp, ptr_of_this_method, __mStack, {2});", p.Name, clsName, shouldFreeParam));
 
                         sb.AppendLine("            } else {");
 
@@ -305,9 +305,9 @@ namespace CSHotFix.Runtime.CLRBinding
 
                         sb.AppendLine(string.Format("            {0} instance_of_this_method = new {0}();", realClsName));
 
-                        sb.AppendLine(string.Format("            if ({1}.s_{0}_Binder != null) {{", clsName, BindingCodeGenerator.GetValueTypeBinderClass()));
+                        sb.AppendLine(string.Format("            if (CSHotFix.Runtime.Generated.CLRBindings.s_{0}_Binder != null) {{", clsName));
 
-                        sb.AppendLine(string.Format("                {1}.s_{0}_Binder.ParseValue(ref instance_of_this_method, __intp, ptr_of_this_method, __mStack, false);", clsName, BindingCodeGenerator.GetValueTypeBinderClass()));
+                        sb.AppendLine(string.Format("                CSHotFix.Runtime.Generated.CLRBindings.s_{0}_Binder.ParseValue(ref instance_of_this_method, __intp, ptr_of_this_method, __mStack, false);", clsName));
 
                         sb.AppendLine("            } else {");
 
@@ -532,9 +532,9 @@ namespace CSHotFix.Runtime.CLRBinding
 
                         if (pt.IsValueType && !pt.IsPrimitive && valueTypeBinders != null && valueTypeBinders.Contains(pt))
                         {
-                            sb.AppendLine(string.Format("                if ({1}.s_{0}_Binder != null) {{", clsName, BindingCodeGenerator.GetValueTypeBinderClass()));
+                            sb.AppendLine(string.Format("                if (CSHotFix.Runtime.Generated.CLRBindings.s_{0}_Binder != null) {{", clsName));
 
-                            sb.AppendLine(string.Format("                        {2}.s_{0}_Binder.WriteBackValue(__domain, ptr_of_this_method, __mStack, ref {1});", clsName, p.Name, BindingCodeGenerator.GetValueTypeBinderClass()));
+                            sb.AppendLine(string.Format("                        CSHotFix.Runtime.Generated.CLRBindings.s_{0}_Binder.WriteBackValue(__domain, ptr_of_this_method, __mStack, ref {1});", clsName, p.Name));
 
                             sb.AppendLine("                } else {");
 
@@ -617,9 +617,9 @@ namespace CSHotFix.Runtime.CLRBinding
                             bool isByRef;
                             type.GetClassName(out clsName, out realClsName, out isByRef);
 
-                            sb.AppendLine(string.Format("            if ({1}.s_{0}_Binder != null) {{", clsName, BindingCodeGenerator.GetValueTypeBinderClass()));
+                            sb.AppendLine(string.Format("            if (CSHotFix.Runtime.Generated.CLRBindings.s_{0}_Binder != null) {{", clsName));
 
-                            sb.AppendLine(string.Format("                {1}.s_{0}_Binder.WriteBackValue(__domain, ptr_of_this_method, __mStack, ref instance_of_this_method);", clsName, BindingCodeGenerator.GetValueTypeBinderClass()));
+                            sb.AppendLine(string.Format("                CSHotFix.Runtime.Generated.CLRBindings.s_{0}_Binder.WriteBackValue(__domain, ptr_of_this_method, __mStack, ref instance_of_this_method);", clsName));
 
                             sb.AppendLine("            } else {");
 
@@ -644,9 +644,9 @@ namespace CSHotFix.Runtime.CLRBinding
                         bool isByRef;
                         i.ReturnType.GetClassName(out clsName, out realClsName, out isByRef);
 
-                        sb.AppendLine(string.Format("            if ({1}.s_{0}_Binder != null) {{", clsName, BindingCodeGenerator.GetValueTypeBinderClass()));
+                        sb.AppendLine(string.Format("            if (CSHotFix.Runtime.Generated.CLRBindings.s_{0}_Binder != null) {{", clsName));
 
-                        sb.AppendLine(string.Format("                {1}.s_{0}_Binder.PushValue(ref result_of_this_method, __intp, __ret, __mStack);", clsName, BindingCodeGenerator.GetValueTypeBinderClass()));
+                        sb.AppendLine(string.Format("                CSHotFix.Runtime.Generated.CLRBindings.s_{0}_Binder.PushValue(ref result_of_this_method, __intp, __ret, __mStack);", clsName));
                         sb.AppendLine("                return __ret + 1;");
 
                         sb.AppendLine("            } else {");

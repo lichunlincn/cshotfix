@@ -88,6 +88,25 @@ namespace CSHotFix.Reflection
             }
         }
 
+        public override Type MakeGenericType(params Type[] typeArguments)
+        {
+            if (ILType.TypeReference.HasGenericParameters)
+            {
+                KeyValuePair<string, IType>[] ga = new KeyValuePair<string, IType>[typeArguments.Length];
+                for (int i = 0; i < ga.Length; i++)
+                {
+                    string key = ILType.TypeReference.GenericParameters[0].Name;
+                    if (typeArguments[i] is CSHotFixType)
+                        ga[i] = new KeyValuePair<string, IType>(key, ((CSHotFixType)typeArguments[i]).ILType);
+                    else
+                        ga[i] = new KeyValuePair<string, IType>(key, ILType.AppDomain.GetType(typeArguments[i]));
+                }
+                return ILType.MakeGenericInstance(ga).ReflectionType;
+            }
+            else
+                throw new NotSupportedException();
+        }
+
         void InitializeFields()
         {
             int staticCnt = type.StaticFieldTypes != null ? type.StaticFieldTypes.Length : 0;
@@ -229,6 +248,17 @@ namespace CSHotFix.Reflection
             else
                 type = ILType.AppDomain.GetType(c);
             return type.CanAssignTo(ILType);
+        }
+
+        public override bool IsInstanceOfType(object o)
+        {
+            if (o == null)
+            {
+                return false;
+            }
+
+            var instance = o as ILTypeInstance;
+            return IsAssignableFrom(instance != null ? instance.Type.ReflectionType : o.GetType());
         }
 
         public override Type GetElementType()

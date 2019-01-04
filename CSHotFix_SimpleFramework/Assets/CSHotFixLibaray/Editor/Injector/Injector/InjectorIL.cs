@@ -35,6 +35,7 @@ namespace LCL
             var resolver = assemblyDef.MainModule.AssemblyResolver as BaseAssemblyResolver;
             foreach (string path in unitydllPath)
             {
+                UnityEngine.Debug.Log(path);
                 resolver.AddSearchDirectory(path);
             }
             var assembly = Assembly.LoadFile(dllPath);

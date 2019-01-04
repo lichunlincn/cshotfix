@@ -167,7 +167,7 @@ namespace LCL
                 info.m_DelegateName.Contains("Predicate`") ||
                 info.m_DelegateName.Contains("Comparison`"))
             {
-
+                
             }
             else
             {
