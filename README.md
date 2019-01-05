@@ -7,7 +7,7 @@ CSharp bug fix library <br>
 <b>据有关开发群介绍，如下游戏可能有用到相关技术。<br>
         腾讯代理的《妖神记》：http://ysj.qq.com/main.html;<br>
         掌趣最近的《热血足球》<br>
-        腾讯代理的 《初音未来:梦幻歌姬》 http://miku.qq.com/main.html</b><br><br>
+        腾讯代理的 《初音未来:梦幻歌姬》 http://miku.qq.com/main.html</b>
         腾讯运用宝：《萌妖出没》：https://sj.qq.com/myapp/detail.htm?apkName=com.tencent.tmgp.mycm </br>
         
  **一、 简介。**<br>
