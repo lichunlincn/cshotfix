@@ -19,7 +19,7 @@ using UnityEditor;
 public class AdapterGen
 {
     private static List<Type> m_AdapterList = new List<Type>();
-    [MenuItem("CSHotFix/CreateAdapter")]
+    [MenuItem("CSHotFix/单步操作/生成适配器代码")]
     public static void CreateAdapter()
     {
         if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成热更新适配器信息？", "需要", "按错了"))

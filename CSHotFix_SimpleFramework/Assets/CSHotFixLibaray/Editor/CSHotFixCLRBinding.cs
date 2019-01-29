@@ -23,7 +23,7 @@ using System.Linq;
 [System.Reflection.Obfuscation(Exclude = true)]
 public class CSHotFixCLRBinding
 {
-    [MenuItem("CSHotFix/清理类型绑定")]
+    [MenuItem("CSHotFix/单步操作/清理类型绑定")]
     public static void GenerateCLRBinding1a()
     {
         if (Directory.Exists(GenConfigEditor.CSHotFixCLRGen1Path))
@@ -48,7 +48,7 @@ public class CSHotFixCLRBinding
         }
     }
 
-    [MenuItem("CSHotFix/导出类型绑定")]
+    [MenuItem("CSHotFix/单步操作/导出类型绑定")]
     public static void GenerateCLRBinding1b()
     {
         //if (!EditorUtility.DisplayDialog("警告", "你是否需要重新生成绑定信息？", "需要", "按错了"))
@@ -70,7 +70,7 @@ public class CSHotFixCLRBinding
         AssetDatabase.Refresh();
 
     }
-    [MenuItem("CSHotFix/清理HotFix内类型绑定")]
+    [MenuItem("CSHotFix/单步操作/清理HotFix内类型绑定")]
     public static void GenerateCLRBinding2a()
     {
 
@@ -95,7 +95,7 @@ public class CSHotFixCLRBinding
             }
         }
     }
-    [MenuItem("CSHotFix/生成HotFix内类型绑定")]
+    [MenuItem("CSHotFix/单步操作/生成HotFix内类型绑定")]
     public static void GenerateCLRBinding2b()
     {
 #if CSHotFix

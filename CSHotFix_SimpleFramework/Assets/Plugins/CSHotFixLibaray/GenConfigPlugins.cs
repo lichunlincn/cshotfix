@@ -44,6 +44,7 @@ public class GenConfigPlugins
         typeof(System.Boolean),
         typeof(System.Collections.IEnumerator),
         typeof(System.Activator),
+        typeof(List<System.Action>),
 
     };
     public static List<Type> blackTypeList = new List<Type>()
@@ -51,10 +52,8 @@ public class GenConfigPlugins
 
 #if UNITY_EDITOR
             typeof(NavMeshTriangulation),
-            typeof(UnityEngine.ClusterInput),
-            typeof(UnityEngine.ClusterInputType),
+
             typeof(TextureCompressionQuality),
-            
             
             typeof(UnityEngine.iOS.ActivityIndicatorStyle),
             typeof(Physics),
@@ -99,6 +98,7 @@ public class GenConfigPlugins
             typeof(TerrainData),
             typeof(TerrainExtensions),
             typeof(TerrainRenderFlags),
+            typeof(Unity.Collections.LowLevel.Unsafe.UnsafeUtility),
 #if UNITY_STANDALONE
             typeof(UnityEngine.FullScreenMovieControlMode),
             typeof(UnityEngine.FullScreenMovieScalingMode),
@@ -130,15 +130,22 @@ public class GenConfigPlugins
             typeof(UnityEngine.TouchScreenKeyboardType),
             typeof(iPhoneSettings),
             typeof(UnityEngine.MovieTexture),
-            typeof(TizenActivityIndicatorStyle),
+
+#if !UNITY_2018
+                        
+            typeof(UnityEngine.ClusterNetwork),
+            typeof(UnityEngine.ClusterInput),
+            typeof(UnityEngine.ClusterInputType),
+#endif
+
 
 #endif
             typeof(UnityEngine.EventProvider),
-            typeof(UnityEngine.ClusterNetwork),
             typeof(UnityEngine.MovieTexture),
 
+
 #if UNITY_2017 || UNITY_2018
-            typeof(UnityEngine.Playables.PlayableBehaviour),
+        typeof(UnityEngine.Playables.PlayableBehaviour),
 
 #else
             typeof(UnityEngine.SamsungTV),                        
@@ -157,8 +164,11 @@ public class GenConfigPlugins
             typeof(UnityEngine.Caching),
             typeof(UnityEngine.iPhoneUtils),
 
-
-            
+            typeof(UnityEngine.DrivenRectTransformTracker),
+            typeof(LightProbeGroup),
+            typeof(Light),
+            typeof(QualitySettings),
+            typeof(TextureFormat),
 #endif
 
     };
@@ -178,7 +188,9 @@ public class GenConfigPlugins
             "UnityEngine.AI",
             "UnityEngine.Rendering",
             "UnityEngine.Internal.VR",
-            "Unity.Collections.LowLevel.Unsafe"
+            "Unity.Collections.LowLevel.Unsafe",
+            "UnityEngine.tvOS",
+            "UnityEngine.Playables"
         };
 
     public static List< List<string> > SpecialBlackTypeList = new List<List<string>>()

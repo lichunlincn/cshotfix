@@ -17,7 +17,7 @@ using System.IO;
 public class InjectEditor : ScriptableObject
 {
     static Stopwatch watch= new Stopwatch();
-    [MenuItem("CSHotFix/GenHotFixDelegate", false, 1)]
+    [MenuItem("CSHotFix/单步操作/生成注入委托", false, 1)]
     public static void HotfixGenDelegate()
     {
         if (EditorApplication.isCompiling || Application.isPlaying)
@@ -35,7 +35,7 @@ public class InjectEditor : ScriptableObject
         UnityEngine.Debug.Log("GenDelegate time:" + watch.ElapsedMilliseconds+" ms");
         AssetDatabase.Refresh();
     }
-    [MenuItem("CSHotFix/GenHotFixField", false, 2)]
+    [MenuItem("CSHotFix/单步操作/生成注入字段", false, 2)]
     public static void HotfixGenStaticField()
     {
         if (EditorApplication.isCompiling || Application.isPlaying)
@@ -55,7 +55,7 @@ public class InjectEditor : ScriptableObject
     }
 
     [PostProcessScene]
-    [MenuItem("CSHotFix/GenHotFix", false, 3)]
+    [MenuItem("CSHotFix/单步操作/注入代码", false, 3)]
     public static void HotfixInject()
     {
         if (EditorApplication.isCompiling || Application.isPlaying)
@@ -76,7 +76,7 @@ public class InjectEditor : ScriptableObject
         AssetDatabase.Refresh();
 
     }
-    [MenuItem("CSHotFix/ReCompileCode", false, 4)]
+    [MenuItem("CSHotFix/单步操作/清理注入代码", false, 4)]
     public static void RemoveHotfixInject()
     {
         AssetDatabase.ImportAsset(GenConfigEditor.CSHotFixReCompileFile);

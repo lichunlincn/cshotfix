@@ -73,13 +73,13 @@ public class CodeManager
     }
 
 
-    [MenuItem("CSHotFix/CodeManager/ChangeToDev", true, 1)]
+    [MenuItem("CSHotFix/模式切换/开发模式", true, 1)]
     public static bool ValidateDevelopmentOption()
     {
         return !EnableDevelopment;
     }
 
-    [MenuItem("CSHotFix/CodeManager/ChangeToDev", false, 1)]
+    [MenuItem("CSHotFix/模式切换/开发模式", false, 1)]
     public static void ChangeToDevelopment()
     {
         var definesList = GetDefineSymbols();
@@ -101,13 +101,13 @@ public class CodeManager
     }
 
 
-    [MenuItem("CSHotFix/CodeManager/ChangeToRelease", true, 1)]
+    [MenuItem("CSHotFix/模式切换/发布模式", true, 1)]
     public static bool ValidateHotfixOption()
     {
         return EnableDevelopment;
     }
 
-    [MenuItem("CSHotFix/CodeManager/ChangeToRelease", false, 1)]
+    [MenuItem("CSHotFix/模式切换/发布模式", false, 1)]
     public static void ChangeToCSHotFix()
     {
         var definesList = GetDefineSymbols();
@@ -129,7 +129,7 @@ public class CodeManager
 #endif
     }
 
-    [MenuItem("CSHotFix/OneKeyGen一键生成", false, 1)]
+    [MenuItem("CSHotFix/一键生成", false, 2)]
     public static void OneKeyGen()
     {
         PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", 0);
