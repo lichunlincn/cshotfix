@@ -76,9 +76,46 @@ public class InjectEditor : ScriptableObject
         AssetDatabase.Refresh();
 
     }
+
+    [MenuItem("CSHotFix/单步操作/清理注入委托和字段", false, 2)]
+    public static void ClearDelegateField()
+    {
+        //清理注入委托和字段
+        {
+            string copyFile = Path.GetFullPath(GenConfigEditor.CSHotFixDelegateGenPath + "/LCLFunctionDelegate.cs_");
+            string destFile = Path.GetFullPath(GenConfigEditor.CSHotFixDelegateGenPath + "/LCLFunctionDelegate.cs");
+            if (File.Exists(copyFile))
+            {
+                File.Copy(copyFile, destFile, true);
+                UnityEngine.Debug.Log("清理委托完成,请等待编译通过");
+                AssetDatabase.Refresh();
+            }
+            else
+            {
+                UnityEngine.Debug.LogError("文件没有找到：" + copyFile);
+            }
+        }
+
+        {
+            string copyFile = Path.GetFullPath(GenConfigEditor.CSHotFixDelegateGenPath + "/LCLFieldDelegateName.cs_");
+            string destFile = Path.GetFullPath(GenConfigEditor.CSHotFixDelegateGenPath + "/LCLFieldDelegateName.cs");
+            if (File.Exists(copyFile))
+            {
+                File.Copy(copyFile, destFile, true);
+                UnityEngine.Debug.Log("清理注入字段完成,请等待编译通过");
+                AssetDatabase.Refresh();
+            }
+            else
+            {
+                UnityEngine.Debug.LogError("文件没有找到：" + copyFile);
+            }
+        }
+    }
+
     [MenuItem("CSHotFix/单步操作/清理注入代码", false, 4)]
     public static void RemoveHotfixInject()
     {
+        ClearDelegateField();
         AssetDatabase.ImportAsset(GenConfigEditor.CSHotFixReCompileFile);
         AssetDatabase.Refresh();
     }

@@ -111,8 +111,8 @@ namespace LCL
 			}
             else
             {
-                Directory.Delete(filePath,true);
-                Directory.CreateDirectory(filePath);
+                //Directory.Delete(filePath,true);
+                //Directory.CreateDirectory(filePath);
             }
             file = new FileStream(filePath + "/LCLFunctionDelegate.cs", FileMode.Create);
             sw = new StreamWriter(file);

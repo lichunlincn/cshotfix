@@ -128,7 +128,14 @@ public class CodeManager
         PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Standalone, defineSymbols);
 #endif
     }
-
+    [MenuItem("CSHotFix/一键清理", false, 2)]
+    public static void OneKeyClear()
+    {
+        CSHotFixCLRBinding.GenerateCLRBinding1a();
+        CSHotFixCLRBinding.GenerateCLRBinding2a();
+        InjectEditor.RemoveHotfixInject();
+        Debug.Log("一键清理完毕");
+    }
     [MenuItem("CSHotFix/一键生成", false, 2)]
     public static void OneKeyGen()
     {
