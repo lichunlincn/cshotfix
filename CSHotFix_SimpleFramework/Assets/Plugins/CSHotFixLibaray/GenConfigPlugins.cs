@@ -98,7 +98,7 @@ public class GenConfigPlugins
             typeof(TerrainData),
             typeof(TerrainExtensions),
             typeof(TerrainRenderFlags),
-            typeof(Unity.Collections.LowLevel.Unsafe.UnsafeUtility),
+
 #if UNITY_STANDALONE
             typeof(UnityEngine.FullScreenMovieControlMode),
             typeof(UnityEngine.FullScreenMovieScalingMode),
@@ -132,7 +132,7 @@ public class GenConfigPlugins
             typeof(UnityEngine.MovieTexture),
 
 #if !UNITY_2018
-                        
+            typeof(Unity.Collections.LowLevel.Unsafe.UnsafeUtility),                        
             typeof(UnityEngine.ClusterNetwork),
             typeof(UnityEngine.ClusterInput),
             typeof(UnityEngine.ClusterInputType),
