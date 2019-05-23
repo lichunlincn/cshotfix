@@ -94,6 +94,10 @@ namespace LCL
                     {
                         continue;
                     }
+					if(dllType.IsValueType)
+                    {
+                        continue;
+                    }
                     if (Filter.DelegateTypeFilter(dllType))
                     {
                         continue;
