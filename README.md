@@ -9,6 +9,7 @@ CSharp bug fix library <br>
         掌趣最近的《热血足球》<br>
         腾讯代理的 《初音未来:梦幻歌姬》 http://miku.qq.com/main.html</br>
         腾讯运用宝：《萌妖出没》：https://sj.qq.com/myapp/detail.htm?apkName=com.tencent.tmgp.mycm </br>
+        《我的勇者》：https://apps.apple.com/cn/app/%E6%88%91%E7%9A%84%E5%8B%87%E8%80%85-%E9%AD%94%E5%A5%B3%E7%AF%87/id1458703401</br>
         
  **一、 简介。**<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 一个专门用于C#热更新的工具链，使用该工具链，你可以实现两点：<br>
