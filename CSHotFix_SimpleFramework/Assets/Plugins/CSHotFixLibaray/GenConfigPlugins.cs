@@ -1,4 +1,4 @@
-﻿/*
+/*
 * LCL support c# hotfix here.
 *Copyright(C) LCL.All rights reserved.
 * URL:https://github.com/qq576067421/cshotfix 
@@ -131,7 +131,7 @@ public class GenConfigPlugins
             typeof(iPhoneSettings),
             typeof(UnityEngine.MovieTexture),
 
-#if !UNITY_2018
+#if !UNITY_2018 && !UNITY_2019
             typeof(Unity.Collections.LowLevel.Unsafe.UnsafeUtility),                        
             typeof(UnityEngine.ClusterNetwork),
             typeof(UnityEngine.ClusterInput),
@@ -144,7 +144,7 @@ public class GenConfigPlugins
             typeof(UnityEngine.MovieTexture),
 
 
-#if UNITY_2017 || UNITY_2018
+#if UNITY_2017 || UNITY_2018 || UNITY_2019 
         typeof(UnityEngine.Playables.PlayableBehaviour),
 
 #else
@@ -190,7 +190,8 @@ public class GenConfigPlugins
             "UnityEngine.Internal.VR",
             "Unity.Collections.LowLevel.Unsafe",
             "UnityEngine.tvOS",
-            "UnityEngine.Playables"
+            "UnityEngine.Playables",
+            "Unity.IO.LowLevel.Unsafe"
         };
 
     public static List< List<string> > SpecialBlackTypeList = new List<List<string>>()
@@ -205,6 +206,7 @@ public class GenConfigPlugins
         new List<string>(){"UnityEngine.UI.Text", "OnRebuildRequested"},
         new List<string>(){"UnityEngine.WWW", "movie"},
         new List<string>(){ "UnityEngine.Texture", "imageContentsHash"},
+        new List<string>(){ "System.Type", "IsSZArray" },
 #if UNITY_WEBGL
         new List<string>(){"UnityEngine.WWW", "threadPriority"},
 #endif
@@ -230,5 +232,3 @@ public class GenConfigPlugins
         new List<string>(){"System.IO.DirectoryInfo", "Create", "System.Security.AccessControl.DirectorySecurity"}
     };
 }
-
-
