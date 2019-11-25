@@ -43,6 +43,7 @@ CSharp bug fix library <br>
 &nbsp; &nbsp; &nbsp; &nbsp;2、运行效率。总体来说访问Unity的C#接口比lua方案快，计算数学方面的比lua方案要慢些，但是都是在一个数量级，比纯粹的C#慢10到100倍之间。举个例子如果一个访问GameObject的接口，C#耗时是1ms，那么CSHotFix可能就是13ms，lua就有可能是15ms；再举个例子，在CSHotFix里面计算Vector3*float,可能耗时5ms，lua只要3ms，C#只要0.1ms 。是需要注意的是，由于种种原因，无法给出比较客观的数据，请自行按照相关文档说明进行测试。提醒一句，测试请用发布版本并且关闭所有的log等等影响因素。<br>
 
 **六、更新情况。**<br>
+&nbsp; &nbsp; &nbsp; &nbsp; 2019年11月25日：更新unity2019，为了兼顾之前版本，2019需要手动设置HotFix工程“目标框架”为.net framework 4，对比之前版本是3.5。因为unity2019默认框架已经改为了4.0.
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年9月20日：更新一个实际项目使用demo。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年3月13日：更新脚本引擎，支持全自动简单菜单操作，经过一定体量项目代码量亲测，表现良好。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年2月7日：适配器自动生成。<br>
