@@ -224,11 +224,11 @@ using CSHotFix.Runtime.Intepreter;";
 
         string callmethod = "       if(" + fieldStr + " != null)\r\n" +
                             "       {\r\n" +
-                            "           " + (hasReturn ? "return" : "") + " appdomain.Invoke(" + fieldStr + ", instance," + paramarg + ");\r\n " +
+                            "           " + (hasReturn ? "return (" + returnTypeStr + ")" : "") + " appdomain.Invoke(" + fieldStr + ", instance," + paramarg + ");\r\n " +
                             "       }\r\n" +
                             "       else\r\n" +
                             "       {\r\n" +
-                            "           " + (hasReturn ? "return null;" : "") + "\r\n" +
+                            "           " + (hasReturn ? "return default("+ returnTypeStr + ");" : "") + "\r\n" +
                             "       }";
         string gotmethod = "bool " + gotFieldStr + " = false;\r\n" +
                     "IMethod " + fieldStr + " = null;\r\n" +
