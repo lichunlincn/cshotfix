@@ -195,7 +195,7 @@ using CSHotFix.Runtime.Intepreter;";
         if(info.ReturnType.Name != "Void")
         {
             hasReturn = true;
-            returnTypeStr = info.ReturnType.FullName;
+            returnTypeStr = info.ReturnType.Name;
         }
         string paramsstr = "";
         int paramCount = 0;
@@ -213,7 +213,7 @@ using CSHotFix.Runtime.Intepreter;";
             {
                 string arg = "arg" + idx;
                 paramarg += arg;
-                paramsstr += _param.ParameterType.FullName + " "+arg;
+                paramsstr += _param.ParameterType.Name + " "+arg;
                 if(idx++ < info.GetParameters().Length -1)
                 {
                     paramsstr += ",";
