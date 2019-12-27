@@ -1,0 +1,1584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <CscToolPath>D:\Program Files\Unity\Unity2019.2.5f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
+    <CscToolExe>unity_csc.bat</CscToolExe>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{BF129E6D-B2B3-301D-8559-53B2529A8A19}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>.</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_2019_2_5;UNITY_2019_2;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_EVENT_QUEUE;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;CSHotFix;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoConfig>true</NoConfig>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+    <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2019.2.5f1</UnityVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>D:\Program Files\Unity\Unity2019.2.5f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>D:\Program Files\Unity\Unity2019.2.5f1\Editor\Data\Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\CSHotFixLibaray\Core\CLR\Method\CLRMethod.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\CLR\Method\ExceptionHandler.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\CLR\Method\ILMethod.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\CLR\Method\IMethod.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\CLR\TypeSystem\CLRType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\CLR\TypeSystem\ILGenericParameterType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\CLR\TypeSystem\ILType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\CLR\TypeSystem\IType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\CLR\Utils\Extensions.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\Code.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\CodeReader.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\CodeWriter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\Document.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\ExceptionHandler.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\ILProcessor.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\Instruction.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\MethodBody.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\OpCode.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\OpCodes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\SequencePoint.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\Symbols.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\VariableDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Cil\VariableReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\BlobHeap.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\Buffers.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\CodedIndex.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\ElementType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\GuidHeap.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\Heap.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\MetadataToken.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\Row.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\StringHeap.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\TableHeap.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\TokenType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\UserStringHeap.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.Metadata\Utilities.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.PE\BinaryStreamReader.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.PE\BinaryStreamWriter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.PE\ByteBuffer.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.PE\ByteBufferEqualityComparer.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.PE\DataDirectory.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.PE\Image.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.PE\ImageReader.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.PE\ImageWriter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.PE\Section.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil.PE\TextMap.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ArrayType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\AssemblyDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\AssemblyFlags.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\AssemblyHashAlgorithm.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\AssemblyLinkedResource.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\AssemblyNameDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\AssemblyNameReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\AssemblyReader.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\AssemblyWriter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\BaseAssemblyResolver.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\CallSite.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\CustomAttribute.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\DefaultAssemblyResolver.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\EmbeddedResource.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\EventAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\EventDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\EventReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ExportedType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\FieldAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\FieldDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\FieldReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\FileAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\FunctionPointerType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\GenericInstanceMethod.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\GenericInstanceType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\GenericParameter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\GenericParameterAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\IConstantProvider.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ICustomAttributeProvider.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\IGenericInstance.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\IGenericParameterProvider.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\IMarshalInfoProvider.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\IMemberDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\IMetadataScope.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\IMetadataTokenProvider.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\IMethodSignature.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\Import.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\LinkedResource.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ManifestResourceAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MarshalInfo.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MemberDefinitionCollection.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MemberReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MetadataResolver.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MetadataSystem.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MethodAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MethodCallingConvention.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MethodDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MethodImplAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MethodReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MethodReturnType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MethodSemanticsAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\MethodSpecification.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\Modifiers.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ModuleDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ModuleKind.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ModuleReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\NativeType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ParameterAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ParameterDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ParameterDefinitionCollection.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ParameterReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\PinnedType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\PInvokeAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\PInvokeInfo.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\PointerType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\PropertyAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\PropertyDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\PropertyReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\ReferenceType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\Resource.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\SecurityDeclaration.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\SentinelType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\TargetRuntime.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\TypeAttributes.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\TypeDefinition.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\TypeDefinitionCollection.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\TypeParser.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\TypeReference.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\TypeSpecification.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\TypeSystem.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Cecil\VariantType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Collections.Generic\Collection.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Collections.Generic\ReadOnlyCollection.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Security.Cryptography\CryptoConvert.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono.Security.Cryptography\CryptoService.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono\Actions.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono\Empty.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.20\MonoCecil\Mono\Funcs.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\BitAccess.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\BitSet.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\CvInfo.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\DataStream.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\DbiDbgHdr.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\DbiHeader.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\DbiModuleInfo.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\DbiSecCon.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\Interfaces.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\IntHashTable.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\MsfDirectory.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbConstant.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbDebugException.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbException.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbFile.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbFileHeader.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbFunction.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbLine.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbLines.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbReader.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbScope.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbSlot.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\PdbSource.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Microsoft.Cci.Pdb\SourceLocationProvider.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Mono.Cecil.Pdb\ISymUnmanagedDocumentWriter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Mono.Cecil.Pdb\ISymUnmanagedWriter2.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Mono.Cecil.Pdb\ModuleMetadata.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Mono.Cecil.Pdb\PdbHelper.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Mono.Cecil.Pdb\PdbReader.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Mono.Cecil.Pdb\PdbWriter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Mono.Cecil.Pdb\SymDocumentWriter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\MonoCecil\Mono.Cecil.Pdb\pdb\Mono.Cecil.Pdb\SymWriter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Other\ByReferenceKeyComparer.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Other\DelegateExportAttribute.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Other\NeedAdaptorAttribute.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Other\ThreadSafeDictionary.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Other\UncheckedList.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Reflection\ConstructorInfo.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Reflection\Extensions.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Reflection\FieldInfo.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Reflection\MethodInfo.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Reflection\ParameterInfo.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Reflection\PropertyInfo.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Reflection\Type.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Reflection\WrapperType.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Adaptors\CLRCrossBindingAdaptors.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\CLRBinding\BindingCodeGenerator.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\CLRBinding\BindingGeneratorExtensions.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\CLRBinding\CommonBindingGenerator.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\CLRBinding\ConstructorBindingGenerator.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\CLRBinding\FieldBindingGenerator.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\CLRBinding\MethodBindingGenerator.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\CLRBinding\ValueTypeBindingGenerator.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\AppDomain.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\CLRRedirections.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\CrossBindingAdaptor.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\DelegateManager.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\InvocationContext.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Enviorment\ValueTypeBinder.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Extensions.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Intepreter\DelegateAdapter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Intepreter\Exception.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Intepreter\ILIntepreter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Intepreter\ILTypeInstance.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Intepreter\OpCodes\OpCode.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Intepreter\OpCodes\OpCodeEnum.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Stack\RuntimeStack.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Stack\StackFrame.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Core\Runtime\Stack\StackObject.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\CSHotFixAttribute.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\CSHotFixMonoTypeExportAttribute.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\AdapterGen\AdapterRegister.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\AdapterGen\IGameHotFixInterfaceAdapter.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\ActionRewrite_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\AOT_MonoPInvokeCallbackAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\ClassPrivateTool_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\CLRBindings.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_AssetType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_BaseMessage_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_BattleManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_BattleMessage_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_BattleStatus_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_BattleType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_CampType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_CGamePro_Battle_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_CGamePro_Lobby_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_CGamePro_Login_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_CGamePro_StartApplication_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_CGameProcedure_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_Const_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_ConstString_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_DataManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_EProcedureType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_Events_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_GMManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_IBattle_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_IEventParam_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_InputManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_LobbyStatus_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_LogicRoot_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_LoginStatus_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_MapTest_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_MessageManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_ObjectSelector_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_PathManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_PickObjParam_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_RenderTextureManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_RoleStateID_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_RTInfo_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_ShaderManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_SkillParam_EP_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_StartApplicationStatus_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_Timer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_TimerManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_Tool_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_UIObjLoader_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\GameDll_VariableManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\ISerializePacket_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_AssertionMethodAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_BaseTypeRequiredAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_CanBeNullAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_CannotApplyEqualityOperatorAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_ContractAnnotationAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_ImplicitUseKindFlags_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_ImplicitUseTargetFlags_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_InstantHandleAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_InvokerParameterNameAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_LinqTunnelAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_LocalizationRequiredAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_MeansImplicitUseAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_NoEnumerationAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_NotifyPropertyChangedInvocatorAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_NotNullAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_PathReferenceAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_PublicAPIAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_PureAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_StringFormatMethodAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\JetBrains_Annotations_UsedImplicitlyAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_ABObject_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_AfterImageEffects_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_AtlasManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_CallPlatform_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_CoroutineCom_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_DetachGoChild_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_DetachGoParent_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_InspectorLog_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_IPScanner_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_JsonDataWrapper_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_KeyGameObject_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_LWindowsClass_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_MapPathDebug_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_MonoLogic_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_MonoTool_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_PrefabCenter_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_PrefabHolder_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_PrefabLightmapData_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_RenderingMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_ResourceManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_SetImageSpriteParam_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_SetLayer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_SetUIRawImageCamera_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_ShadersList_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_SlotConfig_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_StringHolder_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_TextureDelayLoader_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_TransformTool_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\LCL_UIAtals_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\MaskEx_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\MyExtensionMethods_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\PooledClassObject_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Setting_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Activator_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Array_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Boolean_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Collections_Generic_List_1_Action_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Collections_Generic_List_1_ILTypeInstance_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Collections_IEnumerator_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Convert_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Enum_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Guid_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_IDisposable_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Int32_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_IO_Path_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Object_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_String_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Text_StringBuilder_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_Type_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_UInt16_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\System_UInt32_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Burst_BurstDiscardAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_Allocator_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_DeallocateOnJobCompletionAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_NativeArrayOptions_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_NativeDisableParallelForRestrictionAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_NativeFixedLengthAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_NativeLeakDetection_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_NativeLeakDetectionMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_NativeMatchesParallelForLengthAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_NativeSliceExtensions_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_ReadOnlyAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Collections_WriteOnlyAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_IJob_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_IJobExtensions_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_IJobParallelFor_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_IJobParallelForExtensions_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_JobHandle_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_LowLevel_Unsafe_JobHandleUnsafeUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_LowLevel_Unsafe_JobProducerTypeAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_LowLevel_Unsafe_JobRanges_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_LowLevel_Unsafe_JobsUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_LowLevel_Unsafe_JobType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Jobs_LowLevel_Unsafe_ScheduleMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\Unity_Profiling_ProfilerMarker_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEditor_Experimental_RenderSettings_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_AddComponentMenu_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_AdditionalCanvasShaderChannels_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Android_AndroidDevice_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Android_Permission_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_AnimationCurve_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_AnisotropicFiltering_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Application_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ApplicationInstallMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ApplicationSandboxType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_AssemblyIsEditorAssembly_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Assertions_Assert_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Assertions_AssertionException_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Assertions_Comparers_FloatComparer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_AsyncOperation_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_AudioType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_BatteryStatus_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_BeforeRenderOrderAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Behaviour_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_BillboardAsset_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_BillboardRenderer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_BoneWeight_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_BoneWeight1_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_BoundingSphere_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Bounds_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_BoundsInt_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Cache_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CachedAssetBundle_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Camera_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CameraClearFlags_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CameraType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Canvas_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CanvasGroup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CanvasRenderer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Color_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Color32_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ColorGamut_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ColorSpace_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ColorUsageAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ColorUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CombineInstance_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Component_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ComputeBuffer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ComputeBufferMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ComputeBufferType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ComputeShader_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ContextMenu_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ContextMenuItemAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Coroutine_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CrashReport_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CreateAssetMenuAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Cubemap_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CubemapArray_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CubemapFace_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CullingGroup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CullingGroupEvent_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Cursor_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CursorLockMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CursorMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CustomRenderTexture_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CustomRenderTextureInitializationSource_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CustomRenderTextureUpdateMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CustomRenderTextureUpdateZone_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CustomRenderTextureUpdateZoneSpace_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_CustomYieldInstruction_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Debug_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_DefaultExecutionOrder_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_DelayedAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_DepthTextureMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_DeviceType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Diagnostics_ForcedCrashCategory_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Diagnostics_PlayerConnection_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Diagnostics_Utils_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_DisallowMultipleComponent_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Display_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_DrivenTransformProperties_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_DynamicGI_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Events_PersistentListenerMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Events_UnityEvent_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Events_UnityEventBase_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Events_UnityEventCallState_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_AbstractEventData_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_AxisEventData_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_BaseEventData_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_BaseInput_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_BaseInputModule_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_BaseRaycaster_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_EventHandle_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_EventSystem_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_EventTrigger_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_EventTriggerType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_ExecuteEvents_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IBeginDragHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_ICancelHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IDeselectHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IDragHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IDropHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IEndDragHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IEventSystemHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IInitializePotentialDragHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IMoveHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IPointerClickHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IPointerDownHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IPointerEnterHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IPointerExitHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IPointerUpHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IScrollHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_ISelectHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_ISubmitHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_IUpdateSelectedHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_MoveDirection_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_Physics2DRaycaster_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_PhysicsRaycaster_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_PointerEventData_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_PointerInputModule_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_RaycastResult_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_StandaloneInputModule_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_EventSystems_UIBehaviour_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ExcludeFromObjectFactoryAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ExcludeFromPresetAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ExecuteAlways_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ExecuteInEditMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ExposedPropertyResolver_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_FilterMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Flare_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_FlareLayer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_FogMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_FrameTiming_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_FrameTimingManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_FrustumPlanes_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_FullScreenMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_GameObject_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_GeometryUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Gizmos_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_GL_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Gradient_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_GradientAlphaKey_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_GradientColorKey_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_GradientMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_GradientUsageAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_GraphicsBuffer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Hash128_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_HashUnsafeUtilities_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_HashUtilities_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_HeaderAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_HelpURLAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_HideFlags_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_HideInInspector_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ICanvasRaycastFilter_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_IExposedPropertyTable_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ILogger_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ILogHandler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ImageEffectAfterScale_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ImageEffectAllowedInSceneView_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ImageEffectOpaque_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ImageEffectTransformsToLDR_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ImageEffectUsesCommandBuffer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_InspectorNameAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Internal_DefaultValueAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Internal_ExcludeFromDocsAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ISerializationCallbackReceiver_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Jobs_IJobParallelForTransform_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Jobs_IJobParallelForTransformExtensions_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Jobs_TransformAccess_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Jobs_TransformAccessArray_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_KeyCode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Keyframe_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LayerMask_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LensFlare_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightBakingOutput_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightmapBakeType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightmapData_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightmapSettings_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightmapsMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightmapsModeLegacy_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightProbeProxyVolume_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightProbes_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightRenderMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightShadowCasterMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightShadows_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LightType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LineAlignment_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LineRenderer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LineTextureMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LineUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LOD_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LODFadeMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LODGroup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Logger_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LogOption_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_LogType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Lumin_UsesLuminPlatformLevelAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Lumin_UsesLuminPrivilegeAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Material_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MaterialGlobalIlluminationFlags_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MaterialPropertyBlock_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Mathf_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Matrix4x4_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Mesh_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MeshFilter_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MeshRenderer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MeshTopology_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MinAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MissingComponentException_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MissingReferenceException_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MixedLightingMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MonoBehaviour_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MotionVectorGenerationMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_MultilineAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_NetworkReachability_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_NPOTSupport_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Object_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_OcclusionArea_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_OcclusionPortal_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_OperatingSystemFamily_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Ping_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Plane_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_PlayerPrefs_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_PlayerPrefsException_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Pose_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_PreferBinarySerialization_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_PrimitiveType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Profiling_CustomSampler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Profiling_Memory_Experimental_CaptureFlags_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Profiling_Memory_Experimental_MemoryProfiler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Profiling_Memory_Experimental_MetaData_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Profiling_Profiler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Profiling_ProfilerArea_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Profiling_Recorder_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Profiling_Sampler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Projector_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_PropertyAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_PropertyName_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Quaternion_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Random_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RangeAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RangeInt_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Ray_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Ray2D_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ReceiveGI_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Rect_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RectInt_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RectOffset_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RectTransform_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RectTransformUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ReflectionProbe_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderBuffer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Renderer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RendererExtensions_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderingPath_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderSettings_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderTargetSetup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderTexture_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderTextureCreationFlags_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderTextureDescriptor_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderTextureFormat_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderTextureMemoryless_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RenderTextureReadWrite_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RequireComponent_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Resolution_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ResourceRequest_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Resources_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RuntimeInitializeLoadType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RuntimeInitializeOnLoadMethodAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_RuntimePlatform_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ScalableBufferManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SceneManagement_CreateSceneParameters_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SceneManagement_LoadSceneMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SceneManagement_LoadSceneParameters_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SceneManagement_LocalPhysicsMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SceneManagement_Scene_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SceneManagement_SceneManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SceneManagement_SceneUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SceneManagement_UnloadSceneOptions_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Screen_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ScreenOrientation_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ScriptableObject_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Scripting_AlwaysLinkAssemblyAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Scripting_APIUpdating_MovedFromAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Scripting_GarbageCollector_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Scripting_PreserveAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SecondarySpriteTexture_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Security_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SelectionBaseAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SendMessageOptions_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Serialization_FormerlySerializedAsAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Serialization_UnitySurrogateSelector_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SerializeField_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Shader_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ShaderVariantCollection_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ShadowmaskMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ShadowProjection_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ShadowQuality_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ShadowResolution_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SkinnedMeshRenderer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SkinQuality_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SkinWeights_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Skybox_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SleepTimeout_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SortingLayer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Space_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SpaceAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SparseTexture_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Sprite_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SpriteAlignment_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SpriteDrawMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SpriteMaskInteraction_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SpriteMeshType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SpritePackingMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SpritePackingRotation_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SpriteRenderer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Sprites_DataUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SpriteSortPoint_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SpriteTileMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_StackTraceLogType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_StackTraceUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_StaticBatchingUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_StereoTargetEyeMask_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SystemInfo_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_SystemLanguage_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TestTools_Coverage_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TestTools_CoveredMethodStats_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TestTools_CoveredSequencePoint_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TestTools_ExcludeFromCoverageAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TexGenMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TextAreaAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TextAsset_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Texture_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Texture2D_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Texture2DArray_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Texture3D_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TextureWrapMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_ThreadPriority_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Time_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TooltipAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TrackedReference_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TrailRenderer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Transform_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_TransparencySortMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Types_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_U2D_SpriteAtlas_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_U2D_SpriteAtlasManager_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_AnimationTriggers_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_AspectRatioFitter_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_BaseMeshEffect_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Button_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_CanvasScaler_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_CanvasUpdate_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_CanvasUpdateRegistry_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ClipperRegistry_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Clipping_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ColorBlock_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ContentSizeFitter_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_DefaultControls_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Dropdown_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_FontData_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_FontUpdateTracker_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Graphic_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_GraphicRaycaster_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_GraphicRebuildTracker_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_GraphicRegistry_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_GridLayoutGroup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_HorizontalLayoutGroup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_HorizontalOrVerticalLayoutGroup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ICanvasElement_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_IClippable_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_IClipper_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ILayoutController_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ILayoutElement_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ILayoutGroup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ILayoutIgnorer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ILayoutSelfController_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Image_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_IMaskable_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_IMaterialModifier_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_IMeshModifier_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_InputField_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_LayoutElement_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_LayoutGroup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_LayoutRebuilder_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_LayoutUtility_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Mask_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_MaskableGraphic_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_MaskUtilities_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Navigation_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Outline_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_PositionAsUV1_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_RawImage_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_RectMask2D_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Scrollbar_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ScrollRect_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Selectable_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Shadow_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Slider_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_SpriteState_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_StencilMaterial_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Text_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_Toggle_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_ToggleGroup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_VertexHelper_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UI_VerticalLayoutGroup_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UISystemProfilerApi_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UnassignedReferenceException_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UnityAPICompatibilityVersionAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UnityEventQueueSystem_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UnityException_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_UserAuthorization_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Vector2_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Vector2Int_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Vector3_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Vector3Int_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_Vector4_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_VRTextureUsage_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_WaitForEndOfFrame_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_WaitForFixedUpdate_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_WaitForSeconds_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_WaitForSecondsRealtime_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_WaitUntil_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_WaitWhile_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_WeightedMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_WrapMode_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityEngine_YieldInstruction_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_ComponentBridge_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_SetPropertyAttribute_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_UGUIRoot_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_UIDepth_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_UIEventListener_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_UIEventType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_UIGray_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_UIPositionBy3D_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_UIRenderType_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_UIRotateModel_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_UIRTRenderer_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen1\UnityUI_UITransform_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\CLRBindings2.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\Main_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\System_Collections_Generic_Dictionary_2_Image_Int64_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\System_Collections_Generic_Dictionary_2_Int32_ILTypeInstanc_t.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\System_Collections_Generic_Dictionary_2_Int32_Int32_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\System_Collections_Generic_Dictionary_2_Int32_List_1_ILType_t.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\System_Collections_Generic_Dictionary_2_Int32_Transform_Bin_t.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\System_Collections_Generic_Dictionary_2_String_Shader_Bindi_t.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\System_Collections_Generic_List_1_Object_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\System_NotImplementedException_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\System_Reflection_MemberInfo_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\CLRGen2\UIInterface_Binding.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\DelegateGen\LCLFieldDelegateName.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\Generated\DelegateGen\LCLFunctionDelegate.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\ValueTypeBinder\QuaternionBinder.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\ValueTypeBinder\ValueTypeBindingDemo.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\ValueTypeBinder\Vector2Binder.cs" />
+    <Compile Include="Assets\CSHotFixLibaray\ValueTypeBinder\Vector3Binder.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Const\CommonDefine.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_animationBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_brushBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_buffBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_bulletBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_effectBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_globalBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_growupBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_itemBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_jobBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_jubianBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_mapBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_missionBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_monsterBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_objectBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_partBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_renderBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_serverBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_skillBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_soundBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_spawerBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\Bean\t_stringBean.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Data\DataManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Event\Events.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Event\IEventParam.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\LogicMain.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\LogicRoot.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Manager\GMManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Manager\HotFixManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Manager\InputManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Manager\MapTest.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Manager\ObjectSelector.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Manager\PathManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Manager\ShaderManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Manager\TimerManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Manager\VariableManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Util\MyExtensionMethods.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Util\Tool.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Base\Util\UIInterface.cs" />
+    <Compile Include="Assets\Scripts\GameDll\BattleLogic\BattleManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\BattleLogic\IBattle.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Message\BaseMessage.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Message\BattleMessage.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Message\MessageManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Network\ISerializePacket.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Network\Packets\Packet_Battle.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Network\Packets\WfEnumEntityType.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Procedure\Battle\CGamePro_Battle.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Procedure\CGameProcedure.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Procedure\Lobby\CGamePro_Lobby.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Procedure\Login\CGamePro_Login.cs" />
+    <Compile Include="Assets\Scripts\GameDll\Procedure\Start\CGamePro_StartApplication.cs" />
+    <Compile Include="Assets\Scripts\GameDll\UILogic\RenderTextureManager.cs" />
+    <Compile Include="Assets\Scripts\GameDll\UILogic\UIObjLoader.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\CallPlatform.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\ClassPool\PooledClassObject.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\ClassPrivateTool.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\AfterImageEffects.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\ArtScript\DetachGoChild.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\ArtScript\DetachGoParent.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\ArtScript\MaskEx.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\ArtScript\PrefabCenter.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\ArtScript\PrefabLightmapData.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\ArtScript\UIDepth.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\Atlas\AtlasManager.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\Atlas\UIAtals.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\InspectorLog.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\IPScanner.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\MonoLogic.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\Playable\TestPlayableAsset.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\Playable\TestPlayableBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\PrefabHolder.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\SetLayer.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\SetUIRawImageCamera.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\SlotConfig.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\StringHolder.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Component\TextureDelayLoader.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\CoroutineCom.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\JsonDataWrapper.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\LoadGameDll.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\LWindowsClass.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Main.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\MapPathDebug.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\MonoMessage\MonoMessage.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\MonoMessage\Ping.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\MonoTool.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\ResourceManagerMono.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\ShadersList.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Start\IGameHotFixInterface.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\Start\IGameInterface.cs" />
+    <Compile Include="Assets\Scripts\Local\Classes\TransformTool.cs" />
+    <Compile Include="Assets\Scripts\ThirdParty\UnityUI\Component\UIGray.cs" />
+    <Compile Include="Assets\Scripts\ThirdParty\UnityUI\Component\UIPositionBy3D.cs" />
+    <Compile Include="Assets\Scripts\ThirdParty\UnityUI\Component\UIRotateModel.cs" />
+    <Compile Include="Assets\Scripts\ThirdParty\UnityUI\Component\UIRTRenderer.cs" />
+    <Compile Include="Assets\Scripts\ThirdParty\UnityUI\Component\UITransform.cs" />
+    <Compile Include="Assets\Scripts\ThirdParty\UnityUI\Others\SetPropertyAttribute.cs" />
+    <Compile Include="Assets\Scripts\ThirdParty\UnityUI\Others\UIEventListener.cs" />
+    <Compile Include="Assets\Scripts\ThirdParty\UnityUI\UGUIRoot.cs" />
+    <Compile Include="Assets\Scripts\ThirdParty\UnityUI\Window\ComponentBridge.cs" />
+    <None Include="Assets\StreamingAssets\build_info.txt" />
+    <None Include="Assets\link.xml" />
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Editor">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-weaver.Editor">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AndroidJNIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DSPGraphModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.DSPGraphModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.FileSystemHttpModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.FileSystemHttpModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.StreamingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.SubstanceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextCoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityTestProtocolModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Editor">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>D:/cshotfix/trunk/CSHotFix_SimpleFramework/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="System.AppContext">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Concurrent">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.Concurrent.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.NonGeneric">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Specialized">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Collections.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.EventBasedAsync">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.EventBasedAsync.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Common">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Contracts">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Debug">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.FileVersionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TextWriterTraceListener">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tools">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TraceSource">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Drawing.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Dynamic.Runtime">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Dynamic.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Extensions">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Globalization.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.ZipFile">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.DriveInfo">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.DriveInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Watcher">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.FileSystem.Watcher.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.IsolatedStorage">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.IsolatedStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.MemoryMappedFiles">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.MemoryMappedFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.Pipes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.UnmanagedMemoryStream">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.IO.UnmanagedMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Parallel">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Queryable">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Linq.Queryable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Rtc">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Http.Rtc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NameResolution">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.NameResolution.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NetworkInformation">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.NetworkInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Ping">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Ping.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Primitives">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Requests">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Requests.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Security">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Sockets">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebHeaderCollection">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebHeaderCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets.Client">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebSockets.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Net.WebSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ObjectModel">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.ILGeneration">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.ILGeneration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.Lightweight">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Emit.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Extensions">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Primitives">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Reflection.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Reader">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.Reader.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.ResourceManager">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Writer">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Resources.Writer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.VisualC">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.CompilerServices.VisualC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Handles">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Handles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Numerics">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Json">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Xml">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Runtime.Serialization.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Claims">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Claims.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Csp">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Csp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.Principal.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.SecureString">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Security.SecureString.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Duplex">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Duplex.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.NetTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ServiceModel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.Extensions">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.Encoding.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Overlapped">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Overlapped.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Parallel">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Tasks.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.ThreadPool">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.ThreadPool.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Timer">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Threading.Timer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XDocument">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlSerializer">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XmlSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/UnityScript.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript.Lang">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/UnityScript.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="Boo.Lang">
+      <HintPath>D:/Program Files/Unity/Unity2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{04491CF0-58F0-CDE6-22DD-013F8415401C}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

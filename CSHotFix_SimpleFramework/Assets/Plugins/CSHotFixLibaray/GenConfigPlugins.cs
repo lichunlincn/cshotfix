@@ -153,7 +153,7 @@ public class GenConfigPlugins
 
             typeof(ThreadSafeAttribute),
 #endif
-            typeof(UnityEngine.UI.GraphicRebuildTracker),
+            //typeof(UnityEngine.UI.GraphicRebuildTracker),
 
             typeof(UnityEngine.TerrainData),
             typeof(SphericalHarmonicsL2),

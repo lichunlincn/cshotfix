@@ -3,13 +3,13 @@
 <h1><a id="cshotfix_0"></a>cshotfix</h1>
 CSharp bug fix library <br>
 <b>QQ group：673735733  （视频教程、各种资料都在qq群）</b><br>
-<b>Unity3D 充分测试的版本是5.x~2018的各个版本，首次运行的时候可能需要“注释掉部分代码才可以编译通过;想要看简易demo的请看分支版本1.4。”<b><br><br><br>
+<b>Unity3D 充分测试的版本是5.x~2019的各个版本，当前工程版本2019.2.5f1，首次运行的时候可能需要“注释掉部分代码才可以编译通过;想要看简易demo的请看分支版本1.4。”<b><br><br><br>
 <b>据有关开发群介绍，如下游戏可能有用到相关技术。<br>
         腾讯代理的《妖神记》：http://ysj.qq.com/main.html;<br>
         掌趣最近的《热血足球》<br>
         腾讯代理的 《初音未来:梦幻歌姬》 http://miku.qq.com/main.html</br>
         腾讯运用宝：《萌妖出没》：https://sj.qq.com/myapp/detail.htm?apkName=com.tencent.tmgp.mycm </br>
-        《我的勇者》：https://apps.apple.com/cn/app/%E6%88%91%E7%9A%84%E5%8B%87%E8%80%85-%E9%AD%94%E5%A5%B3%E7%AF%87/id1458703401</br>
+       《我的勇者》：https://apps.apple.com/cn/app/%E6%88%91%E7%9A%84%E5%8B%87%E8%80%85-%E9%AD%94%E5%A5%B3%E7%AF%87/id1458703401</br>
         
  **一、 简介。**<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 一个专门用于C#热更新的工具链，使用该工具链，你可以实现两点：<br>
