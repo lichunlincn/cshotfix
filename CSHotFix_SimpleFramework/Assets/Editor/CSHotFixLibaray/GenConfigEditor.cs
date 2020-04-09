@@ -68,7 +68,11 @@ public class GenConfigEditor
     public static string CSHotFixDelegateGenPath = "Assets/CSHotFixLibaray/Generated/DelegateGen";
     public static string CSHotFixDllPath = "Assets/Art/Out/GameDll/HotFix.dll.bytes";
     public static string CSHotFixReCompileFile = "Assets/Scripts/Local/Classes/Main.cs";
+#if UNITY_2019
+    public static string CSHotFixMonoDllPath = "Library/PlayerScriptAssemblies/Assembly-CSharp.dll";
+#else
     public static string CSHotFixMonoDllPath = "Library/ScriptAssemblies/Assembly-CSharp.dll";
+#endif
     public static string[] CSHotFixMonoDepDllPathes = 
     {
         //相对于Assets的路径
