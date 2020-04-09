@@ -71,20 +71,17 @@ public class InjectEditor : ScriptableObject
         }
         watch.Reset();
         watch.Start();
-        LCL.Injector.RunGen("InjectIL");
-        UnityEngine.Debug.Log("InjectIL time:" + watch.ElapsedMilliseconds+" ms");
-        AssetDatabase.Refresh();
 
-        string src = Path.GetFullPath(GenConfigEditor.CSHotFixMonoDllPath);
-        if(File.Exists(src))
+        string lastPath = GenConfigEditor.CSHotFixMonoDllPath;
+        string dest = Path.GetFullPath(GenConfigEditor.CSHotFixMonoDll2019Path);
+        if(File.Exists(dest))
         {
-            string dest = Path.GetFullPath(GenConfigEditor.CSHotFixMonoDll2019Path);
-            if(File.Exists(dest))
-            {
-                File.Copy(src, dest, true);
-                UnityEngine.Debug.Log("复制" + src + " 到" + dest);
-            }
+            GenConfigEditor.CSHotFixMonoDllPath = GenConfigEditor.CSHotFixMonoDll2019Path;
         }
+        LCL.Injector.RunGen("InjectIL");
+        UnityEngine.Debug.Log("InjectIL time:" + watch.ElapsedMilliseconds + " ms");
+        AssetDatabase.Refresh();
+        GenConfigEditor.CSHotFixMonoDllPath = lastPath;
     }
 
     [MenuItem("CSHotFix/单步操作/清理注入委托和字段", false, 2)]
