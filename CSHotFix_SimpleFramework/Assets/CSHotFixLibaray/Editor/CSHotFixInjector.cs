@@ -75,7 +75,6 @@ public class InjectEditor : ScriptableObject
         UnityEngine.Debug.Log("InjectIL time:" + watch.ElapsedMilliseconds+" ms");
         AssetDatabase.Refresh();
 
-#if UNITY_2019
         string src = Path.GetFullPath(GenConfigEditor.CSHotFixMonoDllPath);
         if(File.Exists(src))
         {
@@ -86,7 +85,6 @@ public class InjectEditor : ScriptableObject
                 UnityEngine.Debug.Log("复制" + src + " 到" + dest);
             }
         }
-#endif
     }
 
     [MenuItem("CSHotFix/单步操作/清理注入委托和字段", false, 2)]
