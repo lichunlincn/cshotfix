@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 using GameDll;
 using UnityUI;
 using LCL;
+using System.Collections;
 
 namespace HotFix
 {
@@ -42,8 +43,19 @@ namespace HotFix
             //test.Test();
             //m_Password.text ="time:" + DebugHelper.StopStopwatch().ToString();
 
-
+            //测试协程
+            var coroutine = (CoroutineCom)m_WinObj.AddComponent(typeof(CoroutineCom));
+            coroutine.OnStartCoroutine(OnTestCoroutine(12, new GameObject()));
         }
+
+        private IEnumerator OnTestCoroutine(int v, GameObject gameObject)
+        {
+            Debug.Log("测试协程1");
+            yield return new WaitForSeconds(1.0f);
+            Debug.Log("测试协程2");
+        }
+
+
 
         private void OnTestUI3(GameObject obj)
         {
