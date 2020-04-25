@@ -53,7 +53,7 @@ public class GenConfigPlugins
 #if UNITY_EDITOR
             typeof(NavMeshTriangulation),
 
-            typeof(TextureCompressionQuality),
+
             
             typeof(UnityEngine.iOS.ActivityIndicatorStyle),
             typeof(Physics),
@@ -66,8 +66,7 @@ public class GenConfigPlugins
 
             typeof(GUI),
             typeof(GUIContent),
-            typeof(GUIElement),
-            typeof(GUILayer),
+
             typeof(GUILayoutOption),
             typeof(GUILayoutUtility),
             typeof(GUISettings),
@@ -75,8 +74,7 @@ public class GenConfigPlugins
             typeof(GUIStyle),
             typeof(GUIStyleState),
             typeof(GUITargetAttribute),
-            typeof(GUIText),
-            typeof(GUITexture),
+
             typeof(GUIUtility),
 
             typeof(Graphics),
@@ -129,23 +127,32 @@ public class GenConfigPlugins
             typeof(UnityEngine.TouchScreenKeyboard),
             typeof(UnityEngine.TouchScreenKeyboardType),
             typeof(iPhoneSettings),
-            typeof(UnityEngine.MovieTexture),
+
 
 #if !UNITY_2018 && !UNITY_2019
             typeof(Unity.Collections.LowLevel.Unsafe.UnsafeUtility),                        
             typeof(UnityEngine.ClusterNetwork),
             typeof(UnityEngine.ClusterInput),
             typeof(UnityEngine.ClusterInputType),
+            typeof(GUIText),
+            typeof(GUITexture),
+            typeof(UnityEngine.MovieTexture),
+            typeof(GUIElement),
+            typeof(GUILayer),
+            typeof(TextureCompressionQuality),
+            typeof(UnityEngine.MovieTexture),
 #endif
 
 
 #endif
             typeof(UnityEngine.EventProvider),
-            typeof(UnityEngine.MovieTexture),
+
 
 
 #if UNITY_2017 || UNITY_2018 || UNITY_2019 
         typeof(UnityEngine.Playables.PlayableBehaviour),
+        typeof(UnityEngine.UI.DefaultControls),
+        typeof(UnityEngine.UI.GraphicRebuildTracker),
 
 #else
             typeof(UnityEngine.SamsungTV),                        
@@ -219,6 +226,7 @@ public class GenConfigPlugins
         new List<string>(){ "UnityEngine.Terrain", "bakeLightProbesForTrees"},
         new List<string>(){ "UnityEngine.Terrain", "bakeLightProbesForTrees"},
         new List<string>(){ "UnityEngine.AnimatorControllerParameter", "name"},
+        new List<string>(){ "UnityEngine.MeshRenderer", "receiveGI"},
 #if !UNITY_WEBPLAYER
         new List<string>(){"UnityEngine.Application", "ExternalEval"},
 #endif

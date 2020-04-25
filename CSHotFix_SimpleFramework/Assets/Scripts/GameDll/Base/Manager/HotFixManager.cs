@@ -65,6 +65,8 @@ public class HotFixManager
 
 #endif
         AdapterRegister.RegisterCrossBindingAdaptor(appDomain);
+        //单独注册协程
+        appDomain.RegisterCrossBindingAdaptor(new CoroutineAdapter());
         //注册值类型
         appDomain.RegisterValueTypeBinder(typeof(Vector3), new Vector3Binder());
         appDomain.RegisterValueTypeBinder(typeof(Quaternion), new QuaternionBinder());
