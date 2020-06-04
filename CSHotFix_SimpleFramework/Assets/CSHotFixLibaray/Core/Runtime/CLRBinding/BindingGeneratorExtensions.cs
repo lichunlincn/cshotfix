@@ -55,13 +55,14 @@ namespace CSHotFix.Runtime.CLRBinding
                     }
                     else
                         ts = new Type[0];
-                    var prop = type.GetProperty(t[1], ts);
-                    if (prop == null)
-                    {
-                        return true;
-                    }
-                    if (prop.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0)
-                        return true;
+                    //CSHotFix暂时取消对属性的过滤
+                    //var prop = type.GetProperty(t[1], ts);
+                    //if (prop == null)
+                    //{
+                    //    return true;
+                    //}
+                    //if (prop.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0)
+                    //    return true;
                 }
             }
             if (i.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0)
