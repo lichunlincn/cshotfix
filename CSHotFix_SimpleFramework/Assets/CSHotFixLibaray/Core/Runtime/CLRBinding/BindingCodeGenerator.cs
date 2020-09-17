@@ -18,7 +18,38 @@ namespace CSHotFix.Runtime.CLRBinding
         {
             return m_IsGenerateDll? "CSHotFix.Runtime.Generated.CLRBindings2" : "CSHotFix.Runtime.Generated.CLRBindings";
         }
-        
+        public static bool IsObsoleteProperty(Type _class, MethodInfo methodInfo)
+        {
+            if (methodInfo.Name.Contains("get_") || methodInfo.Name.Contains("set_"))
+            {
+                string propertyName = methodInfo.Name.Substring(4);
+                PropertyInfo info = _class.GetProperty(propertyName);
+                if(info != null)
+                {
+                    var gm = info.GetGetMethod();
+                    if(gm == methodInfo)
+                    {
+                        var objs = info.GetCustomAttributes(typeof(ObsoleteAttribute), true);
+                        if(objs != null && objs.Length > 0)
+                        {
+                            return true;
+                        }
+                    }
+
+                    var sm = info.GetSetMethod();
+                    if (sm == methodInfo)
+                    {
+                        var objs = info.GetCustomAttributes(typeof(ObsoleteAttribute), true);
+                        if (objs != null && objs.Length > 0)
+                        {
+                            return true;
+                        }
+                    }
+                }
+
+            }
+            return false;
+        }
         public static void GenerateBindingCode(List<Type> types, string outputPath, 
                                                HashSet<MethodBase> excludeMethods = null, HashSet<FieldInfo> excludeFields = null, 
                                                List<Type> valueTypeBinders = null, List<Type> delegateTypes = null)
@@ -81,24 +112,31 @@ namespace CSHotFix.Runtime.Generated
                     //过滤
                     methods = methods.ToList().FindAll((methodInfo) => 
                     {
-                        bool hr = methodInfo.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0 ||
-                                    MethodBindingGenerator.IsMethodPtrType(methodInfo) ||
-                                    GenConfigPlugins.SpecialBlackTypeList.Exists((_str)=> 
-                                    {
-                                        List<string> strpair = _str;
-                                        string _class = strpair[0];
-                                        string _name = strpair[1];
-                                        if(i.FullName.Contains(_class))
+                        if( IsObsoleteProperty(i, methodInfo))
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            bool hr = methodInfo.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0 ||
+                                        MethodBindingGenerator.IsMethodPtrType(methodInfo) ||
+                                        GenConfigPlugins.SpecialBlackTypeList.Exists((_str)=> 
                                         {
-                                            return methodInfo.Name.Contains(_name);
-                                        }
-                                        else
-                                        {
-                                            return false;
-                                        }
+                                            List<string> strpair = _str;
+                                            string _class = strpair[0];
+                                            string _name = strpair[1];
+                                            if(i.FullName.Contains(_class))
+                                            {
+                                                return methodInfo.Name.Contains(_name);
+                                            }
+                                            else
+                                            {
+                                                return false;
+                                            }
                                         
-                                    });
-                        return !hr;
+                                        });
+                            return !hr;
+                        }
                     }).ToArray();
                     FieldInfo[] fields = i.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly);
                     fields = fields.ToList().FindAll((field) => 
