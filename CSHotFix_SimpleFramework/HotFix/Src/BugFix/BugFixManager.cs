@@ -12,7 +12,7 @@
                 return;
             }
 
-            LCLFieldDelegateName.__GameDll_ShaderManager__CacheShader_System_Void__Delegate += Bugs_GameDll_ShaderManager.CacheShader;
+            //LCLFieldDelegateName.__GameDll_ShaderManager__CacheShader_System_Void__Delegate += Bugs_GameDll_ShaderManager.CacheShader;
 #endif
         }
     }
