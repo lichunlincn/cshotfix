@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 
-using Mono.Cecil;
+using CSHotFix.Mono.Cecil;
 using CSHotFix.Runtime.Intepreter.OpCodes;
 using CSHotFix.Runtime.Intepreter;
 using CSHotFix.CLR.TypeSystem;
@@ -387,6 +387,12 @@ namespace CSHotFix.CLR.Method
                         var m = appdomain.GetMethod(token, declaringType, this, out invalidToken);
                         if (m != null)
                         {
+                            if(code.Code == OpCodeEnum.Callvirt && m is ILMethod)
+                            {
+                                ILMethod ilm = (ILMethod)m;
+                                if (!ilm.def.IsAbstract && !ilm.def.IsVirtual && !ilm.DeclearingType.IsInterface)
+                                    code.Code = OpCodeEnum.Call;
+                            }
                             if (invalidToken)
                                 code.TokenInteger = m.GetHashCode();
                             else
@@ -472,14 +478,7 @@ namespace CSHotFix.CLR.Method
             }
             if (t != null)
             {
-                if (t is ILType)
-                {
-                    if (((ILType)t).TypeReference.HasGenericParameters)
-                        return t.GetHashCode();
-                    else
-                        return ((ILType)t).TypeReference.GetHashCode();
-                }
-                else if (isGenericParameter)
+                if (t is ILType || isGenericParameter)
                 {
                     return t.GetHashCode();
                 }
@@ -495,7 +494,7 @@ namespace CSHotFix.CLR.Method
             {
                 TypeReference _ref = ((TypeReference)token);
                 if (_ref.IsArray)
-                    return CheckHasGenericParamter(_ref.GetElementType());
+                    return CheckHasGenericParamter(((ArrayType)_ref).ElementType);
                 if (_ref.IsGenericParameter)
                     return true;
                 if (_ref.IsGenericInstance)
@@ -543,16 +542,16 @@ namespace CSHotFix.CLR.Method
                 bool isArray = false;
                 int rank = 1;
                 TypeReference pt = i.ParameterType;
-                if (i.ParameterType.IsByReference)
+                if (pt.IsByReference)
                 {
                     isByRef = true;
-                    pt = pt.GetElementType();
+                    pt = ((ByReferenceType)pt).ElementType;
                 }
-                if (i.ParameterType.IsArray)
+                if (pt.IsArray)
                 {
                     isArray = true;
                     rank = ((ArrayType)pt).Rank;
-                    pt = pt.GetElementType();
+                    pt = ((ArrayType)pt).ElementType;
                 }
                 if (pt.IsGenericParameter)
                 {
@@ -575,14 +574,14 @@ namespace CSHotFix.CLR.Method
                         else
                             throw new NotSupportedException("Cannot find Generic Parameter " + pt.Name + " in " + def.FullName);
                     }
-
-                    if (isByRef)
-                        type = type.MakeByRefType();
-                    if (isArray)
-                        type = type.MakeArrayType(rank);
                 }
                 else
-                    type = appdomain.GetType(i.ParameterType, declaringType, this);
+                    type = appdomain.GetType(pt, declaringType, this);
+
+                if (isArray)
+                    type = type.MakeArrayType(rank);
+                if (isByRef)
+                    type = type.MakeByRefType();
                 parameters.Add(type);
             }
         }

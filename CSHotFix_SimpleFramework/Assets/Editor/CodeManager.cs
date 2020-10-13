@@ -173,7 +173,7 @@ public class CodeManager
             {
                 step = -1;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
-                Debug.LogError("一键生成注入导出失败，" + e.Message);
+                Debug.LogError("一键生成注入导出失败，" + e.ToString());
             }
         }
         else if(step == 2)
@@ -188,7 +188,7 @@ public class CodeManager
             {
                 step = -1;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
-                Debug.LogError("一键生成注入导出失败，" + e.Message);
+                Debug.LogError("一键生成注入导出失败，" + e.ToString());
             }
         }
         else if(step == 0)
@@ -205,7 +205,7 @@ public class CodeManager
             {
                 step = -1;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
-                Debug.LogError("一键生成注入导出失败，" + e.Message);
+                Debug.LogError("一键生成注入导出失败，" + e.ToString());
             }
         }
         else if (step == 3)
@@ -224,7 +224,7 @@ public class CodeManager
             {
                 step = -1;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
-                Debug.LogError("一键生成注入导出失败，" + e.Message);
+                Debug.LogError("一键生成注入导出失败，" + e.ToString());
             }
         }
         else if(step == 4)
@@ -240,7 +240,7 @@ public class CodeManager
             {
                 step = -1;
                 PlayerPrefs.SetInt("CodeManager_OneKeyGen_Step", step);
-                Debug.LogError("一键生成注入导出失败，" + e.Message);
+                Debug.LogError("一键生成注入导出失败，" + e.ToString());
             }
         }
         else if(step == 5)

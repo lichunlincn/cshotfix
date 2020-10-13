@@ -5,7 +5,7 @@ using System.Text;
 using System.Reflection;
 using System.Globalization;
 
-using Mono.Cecil;
+using CSHotFix.Mono.Cecil;
 using CSHotFix.CLR.Utils;
 using CSHotFix.CLR.TypeSystem;
 using CSHotFix.Runtime;
@@ -169,7 +169,6 @@ namespace CSHotFix.Reflection
         {
             unsafe
             {
-                StackObject esp;
                 ILTypeInstance ins;
                 if (isStatic)
                 {
@@ -206,7 +205,6 @@ namespace CSHotFix.Reflection
         {
             unsafe
             {
-                StackObject esp;
                 if (value is CrossBindingAdaptorType)
                     value = ((CrossBindingAdaptorType)value).ILInstance;
                 ILTypeInstance ins;

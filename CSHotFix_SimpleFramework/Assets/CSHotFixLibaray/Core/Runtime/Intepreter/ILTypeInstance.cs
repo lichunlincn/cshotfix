@@ -7,6 +7,8 @@ using CSHotFix.CLR.Utils;
 using CSHotFix.CLR.Method;
 using CSHotFix.CLR.TypeSystem;
 using CSHotFix.Runtime.Stack;
+using CSHotFix.Runtime.Enviorment;
+
 namespace CSHotFix.Runtime.Intepreter
 {
     public class ILTypeStaticInstance : ILTypeInstance
@@ -83,6 +85,11 @@ namespace CSHotFix.Runtime.Intepreter
                         else if (f.Constant is short)
                         {
                             if ((short)f.Constant == intVal)
+                                return f.Name;
+                        }
+                        else if(f.Constant is long)
+                        {
+                            if ((long)f.Constant == longVal)
                                 return f.Name;
                         }
                         else if (f.Constant is byte)
@@ -231,7 +238,7 @@ namespace CSHotFix.Runtime.Intepreter
                             else if (vt.IsEnum)
                             {
                                 esp->ObjectType = ObjectTypes.Integer;
-                                esp->Value = Convert.ToInt32(value);
+                                esp->Value = value.ToInt32();
                                 esp->ValueLow = 0;
                             }
                             else
@@ -361,15 +368,18 @@ namespace CSHotFix.Runtime.Intepreter
             esp->ValueLow = fieldIdx;
         }
 
-        internal unsafe void PushToStack(int fieldIdx, StackObject* esp, Enviorment.AppDomain appdomain, IList<object> managedStack)
+        internal unsafe void PushToStack(int fieldIdx, StackObject* esp, ILIntepreter intp, IList<object> managedStack)
         {
             if (fieldIdx < fields.Length && fieldIdx >= 0)
-                PushToStackSub(ref fields[fieldIdx], fieldIdx, esp, managedStack);
+            {
+                PushToStackSub(ref fields[fieldIdx], fieldIdx, esp, managedStack, intp);
+            }
             else
             {
                 if (Type.FirstCLRBaseType != null && Type.FirstCLRBaseType is Enviorment.CrossBindingAdaptor)
                 {
-                    CLRType clrType = appdomain.GetType(((Enviorment.CrossBindingAdaptor)Type.FirstCLRBaseType).BaseCLRType) as CLRType;
+                    CLRType clrType = intp.AppDomain.GetType(((Enviorment.CrossBindingAdaptor)Type.FirstCLRBaseType).BaseCLRType) as CLRType;
+                    //if(!clrType.CopyFieldToStack(fieldIdx, clrInstance,))
                     ILIntepreter.PushObject(esp, managedStack, clrType.GetFieldValue(fieldIdx, clrInstance));
                 }
                 else
@@ -377,14 +387,29 @@ namespace CSHotFix.Runtime.Intepreter
             }
         }
 
-        unsafe void PushToStackSub(ref StackObject field, int fieldIdx, StackObject* esp, IList<object> managedStack)
+        unsafe void PushToStackSub(ref StackObject field, int fieldIdx, StackObject* esp, IList<object> managedStack, ILIntepreter intp)
         {
-            *esp = field;
             if (field.ObjectType >= ObjectTypes.Object)
             {
+                var obj = managedObjs[fieldIdx];
+                if (obj != null)
+                {
+                    var ot = obj.GetType();
+                    ValueTypeBinder binder;
+                    if (ot.IsValueType && type.AppDomain.ValueTypeBinders.TryGetValue(ot, out binder))
+                    {
+                        intp.AllocValueType(esp, binder.CLRType);
+                        var dst = ILIntepreter.ResolveReference(esp);
+                        binder.CopyValueTypeToStack(obj, dst, managedStack);
+                        return;
+                    }
+                }
+                *esp = field;
                 esp->Value = managedStack.Count;
                 managedStack.Add(managedObjs[fieldIdx]);
             }
+            else
+                *esp = field;
         }
 
         internal unsafe void CopyValueTypeToStack(StackObject* ptr, IList<object> mStack)
@@ -406,7 +431,7 @@ namespace CSHotFix.Runtime.Intepreter
                     case ObjectTypes.ValueTypeObjectReference:
                         {
                             var obj = managedObjs[i];
-                            var dst = *(StackObject**)&val->Value;
+                            var dst = ILIntepreter.ResolveReference(val);
                             var vt = type.AppDomain.GetType(dst->Value);
                             if (vt is ILType)
                             {
@@ -430,6 +455,17 @@ namespace CSHotFix.Runtime.Intepreter
             InitializeFields(type);
         }
 
+        internal void InitializeField(int fieldIdx)
+        {
+            if (fieldIdx < fields.Length && fieldIdx >= 0)
+            {
+                var ft = type.FieldTypes[fieldIdx];
+                StackObject.Initialized(ref fields[fieldIdx], fieldIdx, ft.TypeForCLR, ft, managedObjs);
+            }
+            else
+                throw new NotImplementedException();
+        }
+
         internal unsafe void AssignFromStack(int fieldIdx, StackObject* esp, Enviorment.AppDomain appdomain, IList<object> managedStack)
         {
             if (fieldIdx < fields.Length && fieldIdx >= 0)
@@ -449,7 +485,7 @@ namespace CSHotFix.Runtime.Intepreter
 
         internal unsafe void AssignFromStack(StackObject* esp, Enviorment.AppDomain appdomain, IList<object> managedStack)
         {
-            StackObject* val = *(StackObject**)&esp->Value;
+            StackObject* val = ILIntepreter.ResolveReference(esp);
             int cnt = val->ValueLow;
             for (int i = 0; i < cnt; i++)
             {
@@ -467,6 +503,7 @@ namespace CSHotFix.Runtime.Intepreter
                 case ObjectTypes.Object:
                 case ObjectTypes.ArrayReference:
                 case ObjectTypes.FieldReference:
+                    field.ObjectType = ObjectTypes.Object;
                     field.Value = fieldIdx;
                     managedObjs[fieldIdx] = ILIntepreter.CheckAndCloneValueType(managedStack[esp->Value], Type.AppDomain);
                     break;
@@ -475,7 +512,7 @@ namespace CSHotFix.Runtime.Intepreter
                         var domain = type.AppDomain;
                         field.ObjectType = ObjectTypes.Object;
                         field.Value = fieldIdx;
-                        var dst = *(StackObject**)&esp->Value;
+                        var dst = ILIntepreter.ResolveReference(esp);
                         var vt = domain.GetType(dst->Value);
                         if(vt is ILType)
                         {

@@ -154,7 +154,7 @@ namespace CSHotFix.Reflection
 
         protected override PropertyInfo GetPropertyImpl(string name, BindingFlags bindingAttr, Binder binder, Type returnType, Type[] types, ParameterModifier[] modifiers)
         {
-            return et.GetProperty(name, bindingAttr, binder, returnType, types, modifiers);
+            return et.GetProperty(name, bindingAttr);
         }
 
         public override PropertyInfo[] GetProperties(BindingFlags bindingAttr)
@@ -172,6 +172,10 @@ namespace CSHotFix.Reflection
             return type.GetHashCode();
         }
 
+        public override string ToString()
+        {
+            return type.FullName;
+        }
         public override bool IsAssignableFrom(Type c)
         {
             if (c is CSHotFixWrapperType)
@@ -243,6 +247,16 @@ namespace CSHotFix.Reflection
             {
                 return et.IsGenericTypeDefinition;
             }
+        }
+
+        public override Type GetGenericTypeDefinition()
+        {
+            return et.GetGenericTypeDefinition();
+        }
+
+        public override Type[] GetGenericArguments()
+        {
+            return et.GetGenericArguments();
         }
 
         public override bool IsGenericParameter

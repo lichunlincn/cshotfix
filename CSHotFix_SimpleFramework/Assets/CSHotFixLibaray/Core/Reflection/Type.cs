@@ -339,10 +339,16 @@ namespace CSHotFix.Reflection
 
         public override Type[] GetInterfaces()
         {
-            if (type.FirstCLRInterface != null)
-                return new Type[] { type.FirstCLRInterface.TypeForCLR };
-            else
+            if (type.Implements == null)
                 return new Type[0];
+            var interfaces = new Type[type.Implements.Length];
+            for (int i = 0, length = type.Implements.Length; i < length; i++)
+            {
+                var t = type.Implements[i];
+                if (t != null)
+                    interfaces[i] = t.ReflectionType;
+            }
+            return interfaces;
         }
 
         public override MemberInfo[] GetMembers(BindingFlags bindingAttr)
@@ -473,6 +479,17 @@ namespace CSHotFix.Reflection
                 return null;
         }
 
+        public override Type[] GetGenericArguments()
+        {
+            var args = type.GenericArguments;
+            Type[] res = new Type[args.Length];
+            for(int i = 0; i < res.Length; i++)
+            {
+                res[i] = args[i].Value.ReflectionType;
+            }
+            return res;
+        }
+
         protected override MethodInfo GetMethodImpl(string name, BindingFlags bindingAttr, Binder binder, CallingConventions callConvention, Type[] types, ParameterModifier[] modifiers)
         {
             IMethod res;
@@ -514,6 +531,13 @@ namespace CSHotFix.Reflection
                 if (i.Name == name)
                     return i;
             }
+            if ((bindingAttr & BindingFlags.DeclaredOnly) != BindingFlags.DeclaredOnly)
+            {
+                if (BaseType != null && BaseType is CSHotFixWrapperType)
+                {
+                    return BaseType.GetProperty(name, bindingAttr);
+                }
+            }
             return null;
         }
 
@@ -545,6 +569,11 @@ namespace CSHotFix.Reflection
         {
             return false;
         }
+
+        public override string ToString()
+        {
+            return type.FullName;
+        }
         public override int GetHashCode()
         {
             return type.GetHashCode();
@@ -559,6 +588,13 @@ namespace CSHotFix.Reflection
             {
                 return type.HasGenericParameter || type.GenericArguments != null;
             }
+        }
+
+        public override Type GetGenericTypeDefinition()
+        {
+            var def = type.GetGenericDefinition();
+
+            return def != null ? def.ReflectionType : null;
         }
 
         public override bool IsGenericTypeDefinition

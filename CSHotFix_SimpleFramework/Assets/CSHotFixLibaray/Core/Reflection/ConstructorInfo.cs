@@ -20,7 +20,8 @@ namespace CSHotFix.Reflection
             parameters = new CSHotFixParameterInfo[m.ParameterCount];
             for(int i = 0; i < m.ParameterCount; i++)
             {
-                parameters[i] = new CSHotFixParameterInfo(m.Parameters[i]);
+                var pd = m.Definition.Parameters[i];
+                parameters[i] = new CSHotFixParameterInfo(pd, m.Parameters[i], this);
             }
         }
 

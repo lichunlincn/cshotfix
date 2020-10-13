@@ -8,6 +8,8 @@ using CSHotFix.Runtime.Enviorment;
 using CSHotFix.Runtime.Intepreter;
 namespace CSHotFix.Runtime.Stack
 {
+#pragma warning disable CS0660
+#pragma warning disable CS0661
     [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct StackObject
     {
@@ -89,11 +91,11 @@ namespace CSHotFix.Runtime.Stack
                     }
                 case ObjectTypes.StackObjectReference:
                     {
-                        return ToObject((*(StackObject**)&esp->Value), appdomain, mStack);
+                        return ToObject((ILIntepreter.ResolveReference(esp)), appdomain, mStack);
                     }
                 case ObjectTypes.ValueTypeObjectReference:
                     {
-                        StackObject* dst = *(StackObject**)&esp->Value;
+                        StackObject* dst = ILIntepreter.ResolveReference(esp);
                         IType type = appdomain.GetType(dst->Value);
                         if (type is ILType)
                         {
@@ -181,7 +183,10 @@ namespace CSHotFix.Runtime.Stack
                     }
                 }
                 else
+                {
                     esp = Null;
+                    mStack[idx] = null;
+                }
             }
         }
 
@@ -189,7 +194,8 @@ namespace CSHotFix.Runtime.Stack
         public unsafe static void Initialized(StackObject* esp, IType type)
         {
             var t = type.TypeForCLR;
-            if (type.IsPrimitive || type.IsEnum)
+            
+            if (type.IsPrimitive)
             {
                 if (t == typeof(int) || t == typeof(uint) || t == typeof(short) || t == typeof(ushort) || t == typeof(byte) || t == typeof(sbyte) || t == typeof(char) || t == typeof(bool))
                 {
@@ -217,6 +223,18 @@ namespace CSHotFix.Runtime.Stack
                 }
                 else
                     throw new NotImplementedException();
+            }
+            else if (type.IsEnum)
+            {
+                ILType ilType = type as ILType;
+                if (ilType != null)
+                {
+                    Initialized(esp, ilType.FieldTypes[0]);
+                }
+                else
+                {
+                    Initialized(esp, ((CLRType)type).OrderedFieldTypes[0]);
+                }
             }
             else
             {

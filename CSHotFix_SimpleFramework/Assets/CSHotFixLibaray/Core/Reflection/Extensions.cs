@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Mono.Cecil;
+using CSHotFix.Mono.Cecil;
 using CSHotFix.CLR.Method;
 using CSHotFix.CLR.TypeSystem;
 

@@ -101,7 +101,7 @@ public class CSHotFixCLRBinding
 #if CSHotFix
         //用新的分析热更dll调用引用来生成绑定代码
         CSHotFix.Runtime.Enviorment.AppDomain domain = new CSHotFix.Runtime.Enviorment.AppDomain();
-        using (System.IO.FileStream fs = new System.IO.FileStream(GenConfigEditor.CSHotFixDllPath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+        System.IO.FileStream fs = new System.IO.FileStream(GenConfigEditor.CSHotFixDllPath, System.IO.FileMode.Open, System.IO.FileAccess.Read);
         {
             domain.LoadAssembly(fs);
         }
@@ -110,6 +110,8 @@ public class CSHotFixCLRBinding
         HotFixManager.InitScript(domain);
         CSHotFix.Runtime.CLRBinding.BindingCodeGenerator.GenerateBindingCode(domain, GenConfigEditor.CSHotFixCLRGen2Path);
         AssetDatabase.Refresh();
+        fs.Close();
+        fs = null;
 #else
         if (!EditorUtility.DisplayDialog("错误", "当前不是发布模式，无法进行绑定生成的第二步", "知道了"))
         {

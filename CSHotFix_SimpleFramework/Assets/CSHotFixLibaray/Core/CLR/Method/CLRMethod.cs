@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-using Mono.Cecil;
+using CSHotFix.Mono.Cecil;
 using CSHotFix.Runtime.Intepreter;
 using CSHotFix.Runtime.Enviorment;
 using CSHotFix.CLR.TypeSystem;
@@ -332,7 +332,8 @@ namespace CSHotFix.CLR.Method
                 {
                     case ObjectTypes.StackObjectReference:
                         {
-                            var dst = *(StackObject**)&p->Value;
+                            var addr = *(long*)&p->Value;
+                            var dst = (StackObject*)addr;
                             if (dst->ObjectType >= ObjectTypes.Object)
                             {
                                 var obj = val;

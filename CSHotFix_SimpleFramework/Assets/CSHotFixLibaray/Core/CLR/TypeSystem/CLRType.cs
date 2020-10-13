@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 
-using Mono.Cecil;
+using CSHotFix.Mono.Cecil;
 using CSHotFix.CLR.Method;
 using CSHotFix.Reflection;
 using CSHotFix.Runtime.Enviorment;
+using CSHotFix.Runtime.Stack;
 
 namespace CSHotFix.CLR.TypeSystem
 {
-    public class CLRType : IType
+    public unsafe class CLRType : IType
     {
         Type clrType;
         bool isPrimitive, isValueType, isEnum;
@@ -24,6 +25,8 @@ namespace CSHotFix.CLR.TypeSystem
         Dictionary<int, FieldInfo> fieldInfoCache;
         Dictionary<int, CLRFieldGetterDelegate> fieldGetterCache;
         Dictionary<int, CLRFieldSetterDelegate> fieldSetterCache;
+        Dictionary<int, KeyValuePair<CLRFieldBindingDelegate, CLRFieldBindingDelegate>> fieldBindingCache;
+
         Dictionary<int, int> fieldIdxMapping;
         IType[] orderedFieldTypes;
 
@@ -349,6 +352,38 @@ namespace CSHotFix.CLR.TypeSystem
             return null;
         }
 
+        public bool CopyFieldToStack(int hash, object target, Runtime.Intepreter.ILIntepreter intp, ref StackObject* esp, IList<object> mStack)
+        {
+            if (fieldMapping == null)
+                InitializeFields();
+            if (fieldBindingCache == null)
+                return false;
+            var binding = GetFieldBinding(hash);
+            if (binding.Key != null)
+            {
+                esp = binding.Key(ref target, intp, esp, mStack);
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public bool AssignFieldFromStack(int hash, ref object target, Runtime.Intepreter.ILIntepreter intp, StackObject* esp, IList<object> mStack)
+        {
+            if (fieldMapping == null)
+                InitializeFields();
+            if (fieldBindingCache == null)
+                return false;
+            var binding = GetFieldBinding(hash);
+            if (binding.Value != null)
+            {
+                esp = binding.Value(ref target, intp, esp, mStack);
+                return true;
+            }
+            else
+                return false;
+        }
+
         public void SetStaticFieldValue(int hash, object value)
         {
             if (fieldMapping == null)
@@ -369,23 +404,37 @@ namespace CSHotFix.CLR.TypeSystem
             }
         }
 
-        public unsafe void SetFieldValue(int hash, ref object target, object value)
+        public unsafe void SetFieldValue(int hash, ref object target, object value, bool directSet = false)
         {
             if (fieldMapping == null)
                 InitializeFields();
 
-            var setter = GetFieldSetter(hash);
-            if (setter != null)
+            if (!directSet)
             {
-                setter(ref target, value);
-                return;
+                var setter = GetFieldSetter(hash);
+                if (setter != null)
+                {
+                    setter(ref target, value);
+                    return;
+                }
             }
-
             var fieldInfo = GetField(hash);
             if (fieldInfo != null)
             {
                 fieldInfo.SetValue(target, value);
             }
+        }
+
+        KeyValuePair<CLRFieldBindingDelegate,CLRFieldBindingDelegate> GetFieldBinding(int hash)
+        {
+            var dic = fieldBindingCache;
+            KeyValuePair<CLRFieldBindingDelegate, CLRFieldBindingDelegate> res;
+            if (dic != null && dic.TryGetValue(hash, out res))
+                return res;
+            else if (BaseType != null)
+                return ((CLRType)BaseType).GetFieldBinding(hash);
+            else
+                return default(KeyValuePair<CLRFieldBindingDelegate, CLRFieldBindingDelegate>);
         }
 
         private CLRFieldGetterDelegate GetFieldGetter(int hash)
@@ -481,6 +530,9 @@ namespace CSHotFix.CLR.TypeSystem
             if (hasValueTypeBinder)
             {
                 fieldIdxMapping = new Dictionary<int, int>();
+            }
+            if (hasValueTypeBinder || isEnum)
+            {
                 orderedFieldTypes = new IType[fields.Length];
             }
             foreach (var i in fields)
@@ -492,10 +544,13 @@ namespace CSHotFix.CLR.TypeSystem
                     fieldMapping[i.Name] = hashCode;
                     fieldInfoCache[hashCode] = i;
                 }
-                if (hasValueTypeBinder && !i.IsStatic)
+                if ((hasValueTypeBinder || isEnum) && !i.IsStatic)
                 {
                     orderedFieldTypes[idx] = appdomain.GetType(i.FieldType);
-                    fieldIdxMapping[hashCode] = idx++;
+                    if (hasValueTypeBinder)
+                        fieldIdxMapping[hashCode] = idx++;
+                    else
+                        idx++;
                 }
 
                 CLRFieldGetterDelegate getter;
@@ -511,6 +566,17 @@ namespace CSHotFix.CLR.TypeSystem
                     if (fieldSetterCache == null) fieldSetterCache = new Dictionary<int, CLRFieldSetterDelegate>();
                     fieldSetterCache[hashCode] = setter;
                 }
+
+                KeyValuePair<CLRFieldBindingDelegate, CLRFieldBindingDelegate> binding;
+                if(AppDomain.FieldBindingMap.TryGetValue(i, out binding))
+                {
+                    if (fieldBindingCache == null) fieldBindingCache = new Dictionary<int, KeyValuePair<CLRFieldBindingDelegate, CLRFieldBindingDelegate>>();
+                    fieldBindingCache[hashCode] = binding;
+                }
+            }
+            if (orderedFieldTypes != null)
+            {
+                Array.Resize(ref orderedFieldTypes, idx);
             }
         }
         public int GetFieldIndex(object token)

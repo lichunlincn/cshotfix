@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Mono.Cecil;
+using CSHotFix.Mono.Cecil;
 using CSHotFix.Runtime.Enviorment;
 using CSHotFix.CLR.Method;
 using CSHotFix.Runtime.Intepreter;
@@ -17,6 +17,7 @@ namespace CSHotFix.CLR.TypeSystem
         TypeReference typeRef;
         TypeDefinition definition;
         CSHotFix.Runtime.Enviorment.AppDomain appdomain;
+        bool staticConstructorCalled;
         ILMethod staticConstructor;
         List<ILMethod> constructors;
         IType[] fieldTypes;
@@ -39,6 +40,7 @@ namespace CSHotFix.CLR.TypeSystem
         List<ILType> genericInstances;
         bool isDelegate;
         CSHotFixType reflectionType;
+        ILType genericDefinition;
         IType firstCLRBaseType, firstCLRInterface;
         int hashCode = -1;
         static int instance_id = 0x10000000;
@@ -126,6 +128,18 @@ namespace CSHotFix.CLR.TypeSystem
                     InitializeFields();
                 if (methods == null)
                     InitializeMethods();
+                if (staticInstance == null && staticFieldTypes != null)
+                {
+                    staticInstance = new ILTypeStaticInstance(this);
+                }
+                if (staticInstance != null && !staticConstructorCalled)
+                {
+                    staticConstructorCalled = true;
+                    if (staticConstructor != null && (!TypeReference.HasGenericParameters || IsGenericInstance))
+                    {
+                        appdomain.Invoke(staticConstructor, null, null);
+                    }
+                }
                 return staticInstance;
             }
         }
@@ -286,7 +300,7 @@ namespace CSHotFix.CLR.TypeSystem
                         definition = null;
                     }
                     else
-                        RetriveDefinitino(def.GetElementType());
+                        RetriveDefinitino(((TypeSpecification)def).ElementType);
                 }
                 else
                     definition = def as TypeDefinition;
@@ -299,6 +313,11 @@ namespace CSHotFix.CLR.TypeSystem
             {
                 return genericArguments != null;
             }
+        }
+
+        public ILType GetGenericDefinition()
+        {
+            return genericDefinition;
         }
         public KeyValuePair<string, IType>[] GenericArguments
         {
@@ -432,7 +451,7 @@ namespace CSHotFix.CLR.TypeSystem
             }
         }
 
-        string fullName;
+        string fullName, fullNameForNested;
         public string FullName
         {
             get
@@ -458,6 +477,12 @@ namespace CSHotFix.CLR.TypeSystem
                     }
                     else
                         fullName = typeRef.FullName;
+                    if (typeRef.IsNested)
+                    {
+                        fullNameForNested = fullName.Replace("/", ".");
+                    }
+                    else
+                        fullNameForNested = fullName;
                 }
                 return fullName;
             }
@@ -490,7 +515,7 @@ namespace CSHotFix.CLR.TypeSystem
                 interfaces = new IType[definition.Interfaces.Count];
                 for (int i = 0; i < interfaces.Length; i++)
                 {
-                    interfaces[i] = appdomain.GetType(definition.Interfaces[i], this, null);
+                    interfaces[i] = appdomain.GetType(definition.Interfaces[i].InterfaceType, this, null);
                     //only one clrInterface is valid
                     if (interfaces[i] is CLRType && firstCLRInterface == null)
                     {
@@ -517,7 +542,7 @@ namespace CSHotFix.CLR.TypeSystem
                 if (definition.BaseType.IsGenericInstance)
                 {
                     GenericInstanceType git = definition.BaseType as GenericInstanceType;
-                    var elementType = appdomain.GetType(definition.BaseType.GetElementType(), this, null);
+                    var elementType = appdomain.GetType(git.ElementType, this, null);
                     if (elementType is CLRType)
                     {
                         for (int i = 0; i < git.GenericArguments.Count; i++)
@@ -536,7 +561,7 @@ namespace CSHotFix.CLR.TypeSystem
                 if (specialProcess)
                 {
                     //如果泛型参数是自身，则必须要特殊处理，否则会StackOverflow
-                    var elementType = appdomain.GetType(definition.BaseType.GetElementType(), this, null);
+                    var elementType = appdomain.GetType(((GenericInstanceType)definition.BaseType).ElementType, this, null);
                     foreach (var i in appdomain.CrossBindingAdaptors)
                     {
                         if (i.Key.IsGenericType && !i.Key.IsGenericTypeDefinition)
@@ -672,9 +697,13 @@ namespace CSHotFix.CLR.TypeSystem
                 }
             }
 
-            if (staticConstructor != null && (!TypeReference.HasGenericParameters || IsGenericInstance))
+            if (!appdomain.SuppressStaticConstructor && !staticConstructorCalled)
             {
-                appdomain.Invoke(staticConstructor, null, null);
+                staticConstructorCalled = true;
+                if (staticConstructor != null && (!TypeReference.HasGenericParameters || IsGenericInstance))
+                {
+                    appdomain.Invoke(staticConstructor, null, null);
+                }
             }
         }
 
@@ -696,7 +725,13 @@ namespace CSHotFix.CLR.TypeSystem
             var m = GetMethod(method.Name, method.Parameters, genericArguments, method.ReturnType, true);
             if (m == null && method.DeclearingType.IsInterface)
             {
-                m = GetMethod(string.Format("{0}.{1}", method.DeclearingType.FullName, method.Name), method.Parameters, genericArguments, method.ReturnType, true);
+                if(method.DeclearingType is ILType)
+                {
+                    ILType iltype = (ILType)method.DeclearingType;
+                    m = GetMethod(string.Format("{0}.{1}", iltype.fullNameForNested, method.Name), method.Parameters, genericArguments, method.ReturnType, true);
+                }
+                else
+                    m = GetMethod(string.Format("{0}.{1}", method.DeclearingType.FullName, method.Name), method.Parameters, genericArguments, method.ReturnType, true);
             }
 
             if (m == null)
@@ -809,12 +844,16 @@ namespace CSHotFix.CLR.TypeSystem
                     var p = i.Parameters[j];
                     if (p.IsByRef)
                         p = p.ElementType;
+                    if (p.IsArray)
+                        p = p.ElementType;
 
                     if (p.IsGenericParameter)
                         continue;
 
                     var p2 = param[j];
                     if (p2.IsByRef)
+                        p2 = p2.ElementType;
+                    if (p2.IsArray)
                         p2 = p2.ElementType;
                     if (p.HasGenericParameter)
                     {
@@ -1010,7 +1049,7 @@ namespace CSHotFix.CLR.TypeSystem
             {
                 Array.Resize(ref staticFieldTypes, idxStatic);
                 Array.Resize(ref staticFieldDefinitions, idxStatic);
-                staticInstance = new ILTypeStaticInstance(this);
+                //staticInstance = new ILTypeStaticInstance(this);
             }
         }
 
@@ -1117,6 +1156,7 @@ namespace CSHotFix.CLR.TypeSystem
                     return i;
             }
             var res = new ILType(definition, appdomain);
+            res.genericDefinition = this;
             res.genericArguments = genericArguments;
 
             genericInstances.Add(res);

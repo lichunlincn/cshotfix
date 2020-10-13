@@ -11,6 +11,9 @@ public class HotFixManager
 {
     private CSHotFix.Runtime.Enviorment.AppDomain m_Assembly = null;
     private IGameHotFixInterface m_HotFixDll = null;
+    System.IO.MemoryStream fs;
+    System.IO.MemoryStream p;
+
     public void Init(string dllName)
     {
         if (!Load(dllName))
@@ -210,11 +213,11 @@ public class HotFixManager
             if (pdbData != null)
             {
 
-                using (System.IO.MemoryStream fs = new MemoryStream(dllData))
+                fs = new MemoryStream(dllData);
                 {
-                    using (System.IO.MemoryStream p = new MemoryStream(pdbData))
+                    p = new MemoryStream(pdbData);
                     {
-                        m_Assembly.LoadAssembly(fs, p, new Mono.Cecil.Pdb.PdbReaderProvider());
+                        m_Assembly.LoadAssembly(fs, p, new CSHotFix.Mono.Cecil.Pdb.PdbReaderProvider());
                     }
                 }
 
@@ -222,7 +225,7 @@ public class HotFixManager
             else
             {
 
-                using (System.IO.MemoryStream fs = new MemoryStream(dllData))
+                fs = new MemoryStream(dllData);
                 {
                     m_Assembly.LoadAssembly(fs);
                 }

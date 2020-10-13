@@ -165,7 +165,7 @@ namespace CSHotFix.Runtime
                 return (int)(ushort)obj;
             if (obj is sbyte)
                 return (int)(sbyte)obj;
-            throw new InvalidCastException();
+            return Convert.ToInt32(obj);
         }
         public static long ToInt64(this object obj)
         {
@@ -273,6 +273,10 @@ namespace CSHotFix.Runtime
             if (param.Length == parameters.Length)
             {
                 var args = m.GetGenericArguments();
+                if (args.Length != genericArguments.Length)
+                {
+                    return false;
+                }
                 if (args.MatchGenericParameters(m.ReturnType, returnType, genericArguments))
                 {
                     for (int i = 0; i < param.Length; i++)

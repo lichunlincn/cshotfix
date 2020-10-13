@@ -6,7 +6,7 @@ using System.Text;
 using CSHotFix.CLR.TypeSystem;
 using CSHotFix.CLR.Method;
 using CSHotFix.Other;
-using Mono.Cecil;
+using CSHotFix.Mono.Cecil;
 using CSHotFix.Runtime.Intepreter;
 using System.Reflection;
 
@@ -30,7 +30,7 @@ namespace CSHotFix.CLR.Utils
                     if ((t == null && def.IsGenericInstance) || (t != null && t.HasGenericParameter))
                     {
                         GenericInstanceMethod gim = (GenericInstanceMethod)def;
-                        string name = i.ParameterType.IsByReference ? i.ParameterType.GetElementType().FullName : i.ParameterType.FullName;
+                        string name = i.ParameterType.IsByReference ? ((ByReferenceType)i.ParameterType).ElementType.FullName : i.ParameterType.FullName;
                         
                         for (int j = 0; j < gim.GenericArguments.Count; j++)
                         {
@@ -97,10 +97,11 @@ namespace CSHotFix.CLR.Utils
             List<string> ga;
             bool isArray;
             Runtime.Enviorment.AppDomain.ParseGenericType(typename, out baseType, out ga, out isArray);
+            string baseTypeQualification = null;
             bool hasGA = ga != null && ga.Count > 0;
             if (baseType == argumentName)
             {
-                bool isAssemblyQualified = argumentName.Contains('=');
+                bool isAssemblyQualified = argumentName.Contains('=') || argumentType.Contains('=');
                 if (isGA && isAssemblyQualified)
                     sb.Append('[');
                 sb.Append(argumentType);
@@ -112,6 +113,12 @@ namespace CSHotFix.CLR.Utils
                 bool isAssemblyQualified = baseType.Contains('=');
                 if (isGA && !hasGA && isAssemblyQualified)
                     sb.Append('[');
+                else if (isAssemblyQualified)
+                {
+                    sb.Append('[');
+                    baseTypeQualification = baseType.Substring(baseType.IndexOf(','));
+                    baseType = baseType.Substring(0, baseType.IndexOf(','));                    
+                }
                 sb.Append(baseType);
                 if (isGA && !hasGA && isAssemblyQualified)
                     sb.Append(']');
@@ -129,6 +136,11 @@ namespace CSHotFix.CLR.Utils
                     sb.Append(ReplaceGenericArgument(i, argumentName, argumentType, true));
                 }
                 sb.Append("]");
+            }
+            if (!string.IsNullOrEmpty(baseTypeQualification))
+            {
+                sb.Append(baseTypeQualification);
+                sb.Append(']');
             }
             if (isArray)
                 sb.Append("[]");

@@ -22,30 +22,46 @@ namespace CSHotFix.Runtime.CLRBinding
         {
             if (methodInfo.Name.Contains("get_") || methodInfo.Name.Contains("set_"))
             {
-                string propertyName = methodInfo.Name.Substring(4);
-                PropertyInfo info = _class.GetProperty(propertyName);
-                if(info != null)
+                try
                 {
-                    var gm = info.GetGetMethod();
-                    if(gm == methodInfo)
+                    string propertyName = methodInfo.Name.Substring(4);
+                    PropertyInfo[] infos = _class.GetProperties();
+                    if(infos != null)
                     {
-                        var objs = info.GetCustomAttributes(typeof(ObsoleteAttribute), true);
-                        if(objs != null && objs.Length > 0)
+                        foreach(var info in infos)
                         {
-                            return true;
-                        }
-                    }
+                            if(info.Name != propertyName)
+                            {
+                                continue;
+                            }
+                            var gm = info.GetGetMethod();
+                            if(gm == methodInfo)
+                            {
+                                var objs = info.GetCustomAttributes(typeof(ObsoleteAttribute), true);
+                                if(objs != null && objs.Length > 0)
+                                {
+                                    return true;
+                                }
+                            }
 
-                    var sm = info.GetSetMethod();
-                    if (sm == methodInfo)
-                    {
-                        var objs = info.GetCustomAttributes(typeof(ObsoleteAttribute), true);
-                        if (objs != null && objs.Length > 0)
-                        {
-                            return true;
+                            var sm = info.GetSetMethod();
+                            if (sm == methodInfo)
+                            {
+                                var objs = info.GetCustomAttributes(typeof(ObsoleteAttribute), true);
+                                if (objs != null && objs.Length > 0)
+                                {
+                                    return true;
+                                }
+                            }
                         }
+
                     }
                 }
+                catch(Exception e)
+                {
+                    UnityEngine.Debug.Log(e.ToString());
+                }
+
 
             }
             return false;
@@ -142,6 +158,7 @@ namespace CSHotFix.Runtime.Generated
                     fields = fields.ToList().FindAll((field) => 
                     {
                         bool hr = field.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0 ||
+                                  MethodBindingGenerator.IsFieldPtrType(field) ||
                                   GenConfigPlugins.SpecialBlackTypeList.Exists((_str) =>
                                   {
                                       List<string> strpair = _str;
@@ -168,7 +185,7 @@ namespace CSHotFix.Runtime.Generated
                     ConstructorInfo[] ctors = i.GetConstructors(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly);
                     string ctorRegisterCode = i.GenerateConstructorRegisterCode(ctors, excludeMethods);
                     string methodWraperCode = i.GenerateMethodWraperCode(methods, realClsName, excludeMethods, valueTypeBinders, null);
-                    string fieldWraperCode = i.GenerateFieldWraperCode(fields, realClsName, excludeFields);
+                    string fieldWraperCode = i.GenerateFieldWraperCode(fields, realClsName, excludeFields, valueTypeBinders, null);
                     string cloneWraperCode = i.GenerateCloneWraperCode(fields, realClsName);
                     string ctorWraperCode = i.GenerateConstructorWraperCode(ctors, realClsName, excludeMethods, valueTypeBinders);
 
@@ -350,7 +367,7 @@ namespace CSHotFix.Runtime.Generated
                     ConstructorInfo[] ctors = info.Value.Constructors.ToArray();
                     string ctorRegisterCode = i.GenerateConstructorRegisterCode(ctors, excludeMethods);
                     string methodWraperCode = i.GenerateMethodWraperCode(methods, realClsName, excludeMethods, valueTypeBinders, domain);
-                    string fieldWraperCode = fields.Length > 0 ? i.GenerateFieldWraperCode(fields, realClsName, excludeFields) : null;
+                    string fieldWraperCode = fields.Length > 0 ? i.GenerateFieldWraperCode(fields, realClsName, excludeFields, valueTypeBinders, domain) : null;
                     string cloneWraperCode = null;
                     if (info.Value.ValueTypeNeeded)
                     {
@@ -450,7 +467,7 @@ namespace CSHotFix.Runtime.Generated
             GenerateBindingInitializeScript(clsNames, valueTypeBinders, outputPath, "CLRBindings2");
         }
 
-        internal static void CrawlAppdomain(CSHotFix.Runtime.Enviorment.AppDomain domain, Dictionary<Type, CLRBindingGenerateInfo> infos)
+        static void PrewarmDomain(CSHotFix.Runtime.Enviorment.AppDomain domain)
         {
             var arr = domain.LoadedTypes.Values.ToArray();
             //Prewarm
@@ -477,7 +494,15 @@ namespace CSHotFix.Runtime.Generated
                     }
                 }
             }
-            arr = domain.LoadedTypes.Values.ToArray();
+        }
+        internal static void CrawlAppdomain(CSHotFix.Runtime.Enviorment.AppDomain domain, Dictionary<Type, CLRBindingGenerateInfo> infos)
+        {
+            domain.SuppressStaticConstructor = true;
+            //Prewarm
+            PrewarmDomain(domain);
+            //Prewarm twice to ensure GenericMethods are prewarmed properly
+            PrewarmDomain(domain);
+            var arr = domain.LoadedTypes.Values.ToArray();
             foreach (var type in arr)
             {
                 if (type is CLR.TypeSystem.ILType)
@@ -541,7 +566,7 @@ namespace CSHotFix.Runtime.Generated
                                                         info = CreateNewBindingInfo(t.TypeForCLR);
                                                         infos[t.TypeForCLR] = info;
                                                     }
-                                                    if(ins.Code == Intepreter.OpCodes.OpCodeEnum.Stfld || ins.Code == Intepreter.OpCodes.OpCodeEnum.Stsfld)
+                                                    if (ins.Code == Intepreter.OpCodes.OpCodeEnum.Stfld || ins.Code == Intepreter.OpCodes.OpCodeEnum.Stsfld)
                                                     {
                                                         if (t.IsValueType)
                                                         {
@@ -549,8 +574,7 @@ namespace CSHotFix.Runtime.Generated
                                                             info.DefaultInstanceNeeded = true;
                                                         }
                                                     }
-                                                    if (t.TypeForCLR.CheckCanPinn() || !t.IsValueType)
-                                                        info.Fields.Add(fi);
+                                                    info.Fields.Add(fi);
                                                 }
                                             }
                                         }
