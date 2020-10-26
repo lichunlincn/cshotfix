@@ -31,8 +31,16 @@ CSharp bug fix library <br>
 
  
 **三、已知问题或者限制。**<br>
-&nbsp; &nbsp; &nbsp; &nbsp; 1、函数参数无法使用无限多个参数，目前参数扩展到可接受的个数了。<br>
-&nbsp; &nbsp; &nbsp; &nbsp; 2、无法支持函数的ref和out参数，如果有用到该类参数的，请封装一个参数类（或者比较正式的叫法是实体类或者数据类）。
+        &nbsp; &nbsp; &nbsp; &nbsp; <br>1、总体原则，尽量使用普通c#用法，谨慎使用c#特性、不熟悉的语法、异步、任务、多线程和语法糖。
+        &nbsp; &nbsp; &nbsp; &nbsp; <br>2、泛型使用：热更新工程内部类型可以正常使用，
+        &nbsp; &nbsp; &nbsp; &nbsp; <br>   主工程类型需要谨慎使用。
+        &nbsp; &nbsp; &nbsp; &nbsp; <br>   List尽量使用LList（热更新工程自定义的），List<int>等基本类型可以正常使用。
+        &nbsp; &nbsp; &nbsp; &nbsp; <br>   GetComponent<T>用GetComponent(typeof(T))
+        &nbsp; &nbsp; &nbsp; &nbsp; <br>3、类定义尽量参照c++，注意c#特殊情况： 定义了 带参构造函数 原则上需要定义默认构造函数，否则没有无参构造函数
+        &nbsp; &nbsp; &nbsp; &nbsp; <br>4、主工程函数参数个数原则上不超过5个。
+        &nbsp; &nbsp; &nbsp; &nbsp; <br>   函数参数尽量不用ref、out。
+        &nbsp; &nbsp; &nbsp; &nbsp; <br>   编码中不要用IntPtr等非安全代码。
+        &nbsp; &nbsp; &nbsp; &nbsp; <br>5、主工程和热更新工程需要交互的代码谨慎使用自定义的结构体。
 
 **四、适用项目和人群。**<br>
 &nbsp; &nbsp; &nbsp; &nbsp;1、完全热更新棋牌类游戏以及其他对性能要求不高的游戏和居于C#的app；部分热更新MMO、RPG等游戏的战斗部分，全更新他们对应的界面功能、外围流程功能。<br>
