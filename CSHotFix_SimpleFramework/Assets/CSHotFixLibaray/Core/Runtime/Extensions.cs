@@ -13,11 +13,13 @@ namespace CSHotFix.Runtime
         {
             isByRef = type.IsByRef;
             int arrayRank = 1;
-            bool isArray = type.IsArray;
+            //lcl更换到下面， 解决out xxx[]的问题
+            //bool isArray = type.IsArray;
             if (isByRef)
             {
                 type = type.GetElementType();
             }
+            bool isArray = type.IsArray;
             if (isArray)
             {
                 arrayRank = type.GetArrayRank();
