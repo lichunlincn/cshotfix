@@ -155,6 +155,21 @@ namespace CSHotFix.Runtime.CLRBinding
         }
 
         //以下代码是注入用的，请勿删除
+        public static bool IsConstructorPtrType(ConstructorInfo t)
+        {
+            var _params = t.GetParameters();
+            if (_params != null)
+            {
+                foreach (var _param in _params)
+                {
+                    if (_param.ParameterType == typeof(IntPtr) || _param.ParameterType == typeof(UIntPtr))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
         public static bool IsMethodPtrType(MethodInfo t)
         {
             if (t.ReturnType != null)

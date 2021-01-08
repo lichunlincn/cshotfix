@@ -124,65 +124,17 @@ namespace CSHotFix.Runtime.Generated
                     string typeDef = string.Format("            Type type = typeof({0});", realClsName);
 
                     bool needMethods;
-                    MethodInfo[] methods = i.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly);
-                    //过滤
-                    methods = methods.ToList().FindAll((methodInfo) => 
-                    {
-                        if( IsObsoleteProperty(i, methodInfo))
-                        {
-                            return false;
-                        }
-                        else
-                        {
-                            bool hr = methodInfo.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0 ||
-                                        MethodBindingGenerator.IsMethodPtrType(methodInfo) ||
-                                        GenConfigPlugins.SpecialBlackTypeList.Exists((_str)=> 
-                                        {
-                                            List<string> strpair = _str;
-                                            string _class = strpair[0];
-                                            string _name = strpair[1];
-                                            if(i.FullName.Contains(_class))
-                                            {
-                                                return methodInfo.Name.Contains(_name);
-                                            }
-                                            else
-                                            {
-                                                return false;
-                                            }
-                                        
-                                        });
-                            return !hr;
-                        }
-                    }).ToArray();
+                    MethodInfo[] methods = i.GetMethods( (BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly) &(~BindingFlags.GetProperty));
+                    methods = FilterMethods(methods.ToList(), i).ToArray();
                     FieldInfo[] fields = i.GetFields(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly);
-                    fields = fields.ToList().FindAll((field) => 
-                    {
-                        bool hr = field.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0 ||
-                                  MethodBindingGenerator.IsFieldPtrType(field) ||
-                                  GenConfigPlugins.SpecialBlackTypeList.Exists((_str) =>
-                                  {
-                                      List<string> strpair = _str;
-                                      string _class = strpair[0];
-                                      string _name = strpair[1];
-                                      if (i.FullName.Contains(_class))
-                                      {
-                                          return field.Name.Contains(_name);
-                                      }
-                                      else
-                                      {
-                                          return false;
-                                      }
-
-                                  });
-
-                        return !hr;
-                    }).ToArray();
+                    fields = FilterFields(fields.ToList(), i).ToArray();
                     string registerMethodCode = i.GenerateMethodRegisterCode(methods, excludeMethods, out needMethods);
                     string registerFieldCode = i.GenerateFieldRegisterCode(fields, excludeFields);
                     string registerValueTypeCode = i.GenerateValueTypeRegisterCode(realClsName);
                     string registerMiscCode = i.GenerateMiscRegisterCode(realClsName, true, true);
                     string commonCode = i.GenerateCommonCode(realClsName);
                     ConstructorInfo[] ctors = i.GetConstructors(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly);
+                    ctors = FilterConstructors(ctors.ToList(), i).ToArray();
                     string ctorRegisterCode = i.GenerateConstructorRegisterCode(ctors, excludeMethods);
                     string methodWraperCode = i.GenerateMethodWraperCode(methods, realClsName, excludeMethods, valueTypeBinders, null);
                     string fieldWraperCode = i.GenerateFieldWraperCode(fields, realClsName, excludeFields, valueTypeBinders, null);
@@ -937,5 +889,105 @@ namespace CSHotFix.Runtime.Generated
             }
         }
 
+        internal static List<MethodInfo> FilterMethods(List<MethodInfo> methods, Type i)
+        {
+            return  methods.ToList().FindAll((methodInfo) =>
+            {
+                var exports = methodInfo.GetCustomAttributes(typeof(CSHotFixMonoTypeExportAttribute), true);
+                if (exports != null && exports.Length > 0)
+                {
+                    var export = exports[0] as CSHotFixMonoTypeExportAttribute;
+                    if (export.ExportFlag == CSHotFixMonoTypeExportFlagEnum.NoExport)
+                    {
+                        return false;
+                    }
+                }
+                if (IsObsoleteProperty(i, methodInfo))
+                {
+                    return false;
+                }
+                else
+                {
+                    bool hr = methodInfo.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0 ||
+                                MethodBindingGenerator.IsMethodPtrType(methodInfo) ||
+                                GenConfigPlugins.SpecialBlackTypeList.Exists((_str) =>
+                                {
+                                    List<string> strpair = _str;
+                                    string _class = strpair[0];
+                                    string _name = strpair[1];
+                                    if (i.FullName.Contains(_class))
+                                    {
+                                        return methodInfo.Name.Contains(_name);
+                                    }
+                                    else
+                                    {
+                                        return false;
+                                    }
+
+                                });
+                    return !hr;
+                }
+            });
+        }
+        internal static List<FieldInfo> FilterFields(List<FieldInfo> fields, Type i)
+        {
+            return fields.ToList().FindAll((field) =>
+            {
+                bool hr = field.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0 ||
+                          MethodBindingGenerator.IsFieldPtrType(field) ||
+                          GenConfigPlugins.SpecialBlackTypeList.Exists((_str) =>
+                          {
+                              List<string> strpair = _str;
+                              string _class = strpair[0];
+                              string _name = strpair[1];
+                              if (i.FullName.Contains(_class))
+                              {
+                                  return field.Name.Contains(_name);
+                              }
+                              else
+                              {
+                                  return false;
+                              }
+
+                          });
+
+                return !hr;
+            });
+        }
+        internal static List<ConstructorInfo> FilterConstructors(List<ConstructorInfo> ctors, Type i)
+        {
+            return ctors.ToList().FindAll((CCtorInfo) =>
+            {
+                var exports = CCtorInfo.GetCustomAttributes(typeof(CSHotFixMonoTypeExportAttribute), true);
+                if (exports != null && exports.Length > 0)
+                {
+                    var export = exports[0] as CSHotFixMonoTypeExportAttribute;
+                    if (export.ExportFlag == CSHotFixMonoTypeExportFlagEnum.NoExport)
+                    {
+                        return false;
+                    }
+                }
+
+                bool hr = CCtorInfo.GetCustomAttributes(typeof(ObsoleteAttribute), true).Length > 0 ||
+                            MethodBindingGenerator.IsConstructorPtrType(CCtorInfo) ||
+                            GenConfigPlugins.SpecialBlackTypeList.Exists((_str) =>
+                            {
+                                List<string> strpair = _str;
+                                string _class = strpair[0];
+                                string _name = strpair[1];
+                                if (i.FullName.Contains(_class))
+                                {
+                                    return CCtorInfo.Name.Contains(_name);
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+
+                            });
+                return !hr;
+                
+            });
+        }
     }
 }
