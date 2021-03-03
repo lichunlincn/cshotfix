@@ -64,7 +64,8 @@ public class CSHotFixCLRBinding
         types.AddRange(GenConfigPlugins.whiteTypeList);
         types.AddRange(GenConfigEditor.ExportTypeList);
 
-        CSHotFix.Runtime.CLRBinding.BindingCodeGenerator.GenerateBindingCode(types, GenConfigEditor.CSHotFixCLRGen1Path);
+        List<Type> valueTypeList = GenConfigEditor.valueTypeList;
+        CSHotFix.Runtime.CLRBinding.BindingCodeGenerator.GenerateBindingCode(types, GenConfigEditor.CSHotFixCLRGen1Path, null, null, valueTypeList);
 
         //AddCSHotFixDefine();
         AssetDatabase.Refresh();
