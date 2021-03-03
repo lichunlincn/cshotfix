@@ -37,10 +37,20 @@ public class GenConfigEditor
 
     };
 
+    //手动导出值类型类
+    public static List<Type> valueTypeList = new List<Type>()
+    {
+        typeof(Vector3),
+        typeof(Vector2),
+        typeof(Quaternion),
+        typeof(Ray),
+        typeof(RaycastHit),
+    };
+
     //一些没有在命名空间，需要注入和导出委托的类
     public static List<Type> whiteTypeList = new List<Type>()
     {
-        //typeof(SimpleJoystick),
+
     };
     public static List<string> whiteNameSpaceList = new List<string>()
     {
