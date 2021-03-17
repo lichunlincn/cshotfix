@@ -22,7 +22,7 @@ CSharp bug fix library <br>
 
 
 **二、使用方法。**<br>
-     由于该方案是一个比较通用的方案，在之前的版本基础上将脚本引擎已经分离出去了，地址在https://github.com/qq576067421/ILRuntimeForCSHotfix，请参照改地址的ReadMe操作后，按照下面的步骤接着操作。<br>
+     由于该方案是一个比较通用的方案，在之前的版本基础上将脚本引擎已经分离出去了，地址在https://github.com/qq576067421/ILRuntimeForCSHotfix ，请参照改地址的ReadMe操作后，按照下面的步骤接着操作。<br>
    1、“CSHotFix”菜单：点击OneKeyGen一键生成。<br>
    2、一些配置说明：GenConfigPlugins.cs和GenConfigEditor.cs文件里面有一些关于生成适配器、黑白名单。<br>
    3、框架目录：比较重要的是有一个叫做HotFix的工程，该工程用于热更新dll的。<br>
