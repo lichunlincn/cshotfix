@@ -1,0 +1,3 @@
+适配CSHotfix的脚本系统已经单独分离出来，放到了https://github.com/qq576067421/ILRuntimeForCSHotfix
+目前仅仅是需要把该库叠加到CSHotfix框架对应目录即可
+Core文件夹覆盖 CSHotfix 库的 “CSHotFix_SimpleFramework\Assets\CSHotFixLibaray\Core”
