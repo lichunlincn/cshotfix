@@ -21,11 +21,15 @@ CSHotFix Unity3D 代码Bug修复和功能新增框架。<br>
 4、<b>支持IOS、支持Android，支持mono打包方式、支持IL2CPP打包方式</b><br>
 
 总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。<br><br>
+
 俗气一点，觉得这个项目可以帮助到你，希望能够更加简单快捷使用和整合到自己的项目的朋友，也欢迎随时联系我。<br>
 ![RUNOOB 图标](tea0.png)
 ![RUNOOB 图标](tea1.png) <br>
 
 **二、使用方法。**<br>
+
+   由于该方案是一个比较通用的方案，在之前的版本基础上将脚本引擎已经分离出去了，地址在https://github.com/qq576067421/ILRuntimeForCSHotfix ，请参照改地址的ReadMe操作后，按照下面的步骤接着操作。<br><br>
+   
    1、“CSHotFix”菜单：点击OneKeyGen一键生成。<br>
    2、一些配置说明：GenConfigPlugins.cs和GenConfigEditor.cs文件里面有一些关于生成适配器、黑白名单。<br>
    3、框架目录：比较重要的是有一个叫做HotFix的工程，该工程用于热更新dll的。<br>
