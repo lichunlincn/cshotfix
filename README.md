@@ -2,6 +2,8 @@
 
 <h1><a id="cshotfix_0"></a>cshotfix</h1>
 CSharp bug fix library <br>
+CSHotFix Unity3D 代码Bug修复和功能新增框架。<br>
+
 <b>QQ group：673735733  （视频教程、各种资料都在qq群）</b><br>
 <b>Unity3D 充分测试的版本是5.x~2019的各个版本，当前工程版本2019.2.5f1，首次运行的时候可能需要“注释掉部分代码才可以编译通过;想要看简易demo的请看分支版本1.4。”<b><br><br><br>
 <b>据有关开发群介绍，如下游戏可能有用到相关技术。<br>
@@ -18,11 +20,12 @@ CSharp bug fix library <br>
 3、<b>可以新增功能，例如常用于游戏运营活动</b>。<br>
 4、<b>支持IOS、支持Android，支持mono打包方式、支持IL2CPP打包方式</b><br>
 
-总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。
-
+总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。<br>
+俗气一点，觉得这个项目可以帮助到你，希望能够更加简单快捷使用和整合到自己的项目的朋友，也欢迎随时联系我。<br>
+![RUNOOB 图标](tea0.png) <br>
+![RUNOOB 图标](tea1.png) <br>
 
 **二、使用方法。**<br>
-     由于该方案是一个比较通用的方案，在之前的版本基础上将脚本引擎已经分离出去了，地址在https://github.com/qq576067421/ILRuntimeForCSHotfix ，请参照改地址的ReadMe操作后，按照下面的步骤接着操作。<br>
    1、“CSHotFix”菜单：点击OneKeyGen一键生成。<br>
    2、一些配置说明：GenConfigPlugins.cs和GenConfigEditor.cs文件里面有一些关于生成适配器、黑白名单。<br>
    3、框架目录：比较重要的是有一个叫做HotFix的工程，该工程用于热更新dll的。<br>
@@ -52,7 +55,6 @@ CSharp bug fix library <br>
 &nbsp; &nbsp; &nbsp; &nbsp;2、运行效率。总体来说访问Unity的C#接口比lua方案快，计算数学方面的比lua方案要慢些，但是都是在一个数量级，比纯粹的C#慢10到100倍之间。举个例子如果一个访问GameObject的接口，C#耗时是1ms，那么CSHotFix可能就是13ms，lua就有可能是15ms；再举个例子，在CSHotFix里面计算Vector3*float,可能耗时5ms，lua只要3ms，C#只要0.1ms 。是需要注意的是，由于种种原因，无法给出比较客观的数据，请自行按照相关文档说明进行测试。提醒一句，测试请用发布版本并且关闭所有的log等等影响因素。<br>
 
 **六、更新情况。**<br>
-&nbsp; &nbsp; &nbsp; &nbsp; 2021年3月17日：分离脚本引擎（为后期增加另外一个CSLike脚本引擎做准备）.
 &nbsp; &nbsp; &nbsp; &nbsp; 2019年11月25日：更新unity2019，为了兼顾之前版本，2019需要手动设置HotFix工程“目标框架”为.net framework 4，对比之前版本是3.5。因为unity2019默认框架已经改为了4.0.
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年9月20日：更新一个实际项目使用demo。<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 2018年3月13日：更新脚本引擎，支持全自动简单菜单操作，经过一定体量项目代码量亲测，表现良好。<br>
@@ -67,7 +69,9 @@ CSharp bug fix library <br>
      &nbsp; &nbsp;&nbsp; &nbsp;去掉脚本引擎的调试功能，是为了减少脚本引擎的复杂性，原则上只有最后发布IOS的时候才会用到该脚本引擎。<br>
      &nbsp; &nbsp;&nbsp; &nbsp;平时开发都是采用开发模式，将GameMain预制件或者脚本Main上面的UseCSHotFixDll的界面勾勾去掉，此时就是常规dll加载，调试功能完全使用的VS或者Monodevelop常规调试方式。<br>
      &nbsp; &nbsp;&nbsp; &nbsp;这里给大家讲一个附加因素，为了尽可能简单的支持Unity自带的打包Player后的真机调试功能，尽量少用黑科技，也促使了将脚本引擎的调试功能去掉<br>
-2、如何给中后期的项目添加热更新？<br>
+2、为什么更改脚本引擎的命名空间？<br>
+     &nbsp; &nbsp;&nbsp; &nbsp;MIT协议允许；便于CSHotfix统一管理代码，对原脚本引擎关于注入方面有特别的代码修改，无法一味地简单覆盖。<br>
+3、如何给中后期的项目添加热更新？<br>
     &nbsp; &nbsp;&nbsp; &nbsp;中后期的项目，一般可能没有考虑到热更新，此时需要添加热更新，就往往只能添加修复bug的功能了。新增功能往往需要改动一些架构，时间消耗较大。<br>
 	&nbsp; &nbsp;&nbsp; &nbsp;只是添加修复bug的功能，需要做到的将“CSHotFix入门教程之工程结构了解”中的几个和CSHotFixLibray文件夹拷贝到你的工程的对应位置；拷贝HotFix热更新工程到Assets文件夹同级目录；拷贝pdb2mdb；拷贝UnityEngineLibaray；然后了解HotFixManager.cs这个类在框架工程的使用方法，自行依葫芦画瓢，进行整合。预计消耗半天到2天的时间可以整合完毕。
 
