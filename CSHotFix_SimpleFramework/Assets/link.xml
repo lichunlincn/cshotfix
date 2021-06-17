@@ -1,8 +1,0 @@
-<linker>
-  <assembly fullname="UnityEngine" preserve="all"/>
-  <assembly fullname="UnityEngine.CoreModule" preserve="all"/>
-  <assembly fullname="UnityEngine.UIModule" preserve="all"/>
-  <assembly fullname="UnityEngine.UnityWebRequestModule" preserve="all"/>
-  <assembly fullname="UnityEngine.AnimationModule" preserve="all"/>
-  <assembly fullname="Assembly-CSharp" preserve="all"/>
-</linker>
