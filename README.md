@@ -6,19 +6,15 @@ CSHotFix Unity3D 代码Bug修复和功能新增框架。<br>
 
 <b>QQ group：673735733  （视频教程、各种资料都在qq群）</b><br>
 <b>Unity3D 充分测试的版本是5.x~2019的各个版本，当前工程版本2019.2.5f1，首次运行的时候可能需要“注释掉部分代码才可以编译通过;想要看简易demo的请看分支版本1.4。”<b><br><br><br>
-<b>据有关开发群介绍，如下游戏可能有用到相关技术。<br>
-        腾讯代理的《妖神记》：http://ysj.qq.com/main.html;<br>
-        掌趣最近的《热血足球》<br>
-        腾讯代理的 《初音未来:梦幻歌姬》 http://miku.qq.com/main.html</br>
-        腾讯运用宝：《萌妖出没》：https://sj.qq.com/myapp/detail.htm?apkName=com.tencent.tmgp.mycm </br>
-       《我的勇者》：https://apps.apple.com/cn/app/%E6%88%91%E7%9A%84%E5%8B%87%E8%80%85-%E9%AD%94%E5%A5%B3%E7%AF%87/id1458703401</br>
+
         
  **一、 简介。**<br>
 &nbsp; &nbsp; &nbsp; &nbsp; 一个专门用于C#热更新的工具链，使用该工具链，你可以实现两点：<br>
 1、<b>使用C#来编写脚本和进行热更新。错误修复过程几乎和正常写代码一样。</b><br>
 2、<b>可以对已有的dll、exe进入错误修复。</b><br>
-3、<b>可以新增功能，例如常用于游戏运营活动</b>。<br>
+3、<b>可以新增功能，例如常用于游戏运营活动（注：新增功能是第三方脚本引擎功能）</b>。<br>
 4、<b>支持IOS、支持Android，支持mono打包方式、支持IL2CPP打包方式</b><br>
+5、第三方支持IOS的脚本引擎目前有ILRuntime、Scorpio-CSharp。
 
 总之，本工具链提倡使用<b>c#来修复c#的bug和新增功能，极大的提高编程效率</b>。欢迎使用。<br><br>
 
@@ -28,7 +24,7 @@ CSHotFix Unity3D 代码Bug修复和功能新增框架。<br>
 
 **二、使用方法。**<br>
 
-   由于该方案是一个比较通用的方案，在之前的版本基础上将脚本引擎已经分离出去了，地址在https://github.com/qq576067421/ILRuntimeForCSHotfix ，请参照改地址的ReadMe操作后，按照下面的步骤接着操作。<br><br>
+   使用前请下选择框架对应脚本引擎 ：https://github.com/qq576067421/ILRuntimeForCSHotfix  或者 https://github.com/qq576067421/Scorpio-CSharpForCSHotfix ，请参照这几种地址的ReadMe操作后，按照下面的步骤接着操作。<br><br>
    
    1、“CSHotFix”菜单：点击OneKeyGen一键生成。<br>
    2、一些配置说明：GenConfigPlugins.cs和GenConfigEditor.cs文件里面有一些关于生成适配器、黑白名单。<br>
