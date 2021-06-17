@@ -73,9 +73,7 @@ CSHotFix Unity3D 代码Bug修复和功能新增框架。<br>
      &nbsp; &nbsp;&nbsp; &nbsp;去掉脚本引擎的调试功能，是为了减少脚本引擎的复杂性，原则上只有最后发布IOS的时候才会用到该脚本引擎。<br>
      &nbsp; &nbsp;&nbsp; &nbsp;平时开发都是采用开发模式，将GameMain预制件或者脚本Main上面的UseCSHotFixDll的界面勾勾去掉，此时就是常规dll加载，调试功能完全使用的VS或者Monodevelop常规调试方式。<br>
      &nbsp; &nbsp;&nbsp; &nbsp;这里给大家讲一个附加因素，为了尽可能简单的支持Unity自带的打包Player后的真机调试功能，尽量少用黑科技，也促使了将脚本引擎的调试功能去掉<br>
-2、为什么更改脚本引擎的命名空间？<br>
-     &nbsp; &nbsp;&nbsp; &nbsp;MIT协议允许；便于CSHotfix统一管理代码，对原脚本引擎关于注入方面有特别的代码修改，无法一味地简单覆盖。<br>
-3、如何给中后期的项目添加热更新？<br>
+2、如何给中后期的项目添加热更新？<br>
     &nbsp; &nbsp;&nbsp; &nbsp;中后期的项目，一般可能没有考虑到热更新，此时需要添加热更新，就往往只能添加修复bug的功能了。新增功能往往需要改动一些架构，时间消耗较大。<br>
 	&nbsp; &nbsp;&nbsp; &nbsp;只是添加修复bug的功能，需要做到的将“CSHotFix入门教程之工程结构了解”中的几个和CSHotFixLibray文件夹拷贝到你的工程的对应位置；拷贝HotFix热更新工程到Assets文件夹同级目录；拷贝pdb2mdb；拷贝UnityEngineLibaray；然后了解HotFixManager.cs这个类在框架工程的使用方法，自行依葫芦画瓢，进行整合。预计消耗半天到2天的时间可以整合完毕。
 
