@@ -21,7 +21,7 @@ CSHotFix Unity3D 代码Bug修复和功能新增框架。<br>
 俗气一点，觉得这个项目可以帮助到你，你可以看心情请我喝杯茶。希望能够更加简单快捷使用和整合到自己的项目的朋友，也欢迎随时联系我。<br>
 ![RUNOOB 图标](tea0.png)<br>
 ![RUNOOB 图标](tea1.png)<br>
-
+https://paypal.me/chunlinge?locale.x=zh_XC<br>
 **二、使用方法。**<br>
 
    使用前请下选择框架对应脚本引擎 ：https://github.com/qq576067421/ILRuntimeForCSHotfix  或者 https://github.com/qq576067421/Scorpio-CSharpForCSHotfix ，请参照这几种地址的ReadMe操作后，按照下面的步骤接着操作。<br><br>
